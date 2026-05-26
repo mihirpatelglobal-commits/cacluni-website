@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator | CalcUni</title>
+  <meta name="description" content="Determine standard gratuity payout and split bill totals across party members.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="active">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">EVERYDAY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../everyday-calculators/" >Overview</a></li>
+        <li><a href="../../everyday-calculators/password-generator/" >Password Generator</a></li>
+        <li><a href="../../everyday-calculators/discount-calculator/" >Discount Calculator</a></li>
+        <li><a href="../../everyday-calculators/sleep-calculator/" >Sleep Calculator</a></li>
+        <li><a href="../../everyday-calculators/tip-calculator/" class="active">Tip Calculator</a></li>
+        <li><a href="../../everyday-calculators/random-number-generator/" >Random Number Generator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../everyday-calculators/">Everyday Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Tip Calculator</span>
+      </div>
+
+      <span class="category-badge">Everyday Calculator</span>
+      <h1 class="page-title">Tip Calculator</h1>
+      <p class="page-desc">Determine standard gratuity payout and split bill totals across party members.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Bill & Tip Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Bill Amount ($)</label>
+              <input id="bill" type="number" value="85.50" step="0.01" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Tip Percentage (%)</label>
+              <input id="tip_pct" type="number" value="15" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Split (Number of People)</label>
+              <input id="people" type="number" value="2" min="1" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Tip</button>
+          <p class="note">Formulas:<br>Tip Amount = Bill * (Tip % / 100)<br>Total Bill = Bill + Tip Amount<br>Per Person Split = Total Bill / People</p>
+        </div>
+
+        <div class="result">
+          <span>Total per Person</span>
+          <strong class="big" id="per_person">$0.00</strong>
+          <div class="result-row">
+            <span>Tip per Person</span>
+            <strong id="tip_per_person">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Total Tip</span>
+            <strong id="total_tip">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Total Bill</span>
+            <strong id="total_bill">$0.00</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const bill = +document.getElementById('bill').value || 0;
+          const tip_pct = +document.getElementById('tip_pct').value || 0;
+          const people = Math.max(+document.getElementById('people').value || 1, 1);
+          
+          const totalTip = bill * (tip_pct / 100);
+          const totalBill = bill + totalTip;
+          
+          const tipPerPerson = totalTip / people;
+          const totalPerPerson = totalBill / people;
+          
+          document.getElementById('per_person').textContent = money(totalPerPerson);
+          document.getElementById('tip_per_person').textContent = money(tipPerPerson);
+          document.getElementById('total_tip').textContent = money(totalTip);
+          document.getElementById('total_bill').textContent = money(totalBill);
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const bill = +document.getElementById('bill').value || 0;
+          const tip_pct = +document.getElementById('tip_pct').value || 0;
+          const people = Math.max(+document.getElementById('people').value || 1, 1);
+          
+          const totalTip = bill * (tip_pct / 100);
+          const totalBill = bill + totalTip;
+          
+          const tipPerPerson = totalTip / people;
+          const totalPerPerson = totalBill / people;
+          
+          document.getElementById('per_person').textContent = money(totalPerPerson);
+          document.getElementById('tip_per_person').textContent = money(tipPerPerson);
+          document.getElementById('total_tip').textContent = money(totalTip);
+          document.getElementById('total_bill').textContent = money(totalBill);
+        }
+        calculate();
+      </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const bill = +document.getElementById('bill').value || 0;
+          const tip_pct = +document.getElementById('tip_pct').value || 0;
+          const people = Math.max(+document.getElementById('people').value || 1, 1);
+          
+          const totalTip = bill * (tip_pct / 100);
+          const totalBill = bill + totalTip;
+          
+          const tipPerPerson = totalTip / people;
+          const totalPerPerson = totalBill / people;
+          
+          document.getElementById('per_person').textContent = money(totalPerPerson);
+          document.getElementById('tip_per_person').textContent = money(tipPerPerson);
+          document.getElementById('total_tip').textContent = money(totalTip);
+          document.getElementById('total_bill').textContent = money(totalBill);
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage Converter | CalcUni</title>
+  <meta name="description" content="Convert data units between common decimal scales (KB, MB, GB, TB) and OS binary sizes (KiB, MiB, GiB, TiB).">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="active">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TECHNOLOGY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../technology-calculators/" >Overview</a></li>
+        <li><a href="../../technology-calculators/binary-calculator/" >Binary Calculator</a></li>
+        <li><a href="../../technology-calculators/subnet-calculator/" >Subnet Calculator</a></li>
+        <li><a href="../../technology-calculators/ip-calculator/" >IP Calculator</a></li>
+        <li><a href="../../technology-calculators/bandwidth-calculator/" >Bandwidth Calculator</a></li>
+        <li><a href="../../technology-calculators/storage-converter/" class="active">Storage Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../technology-calculators/">Technology Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Storage Converter</span>
+      </div>
+
+      <span class="category-badge">Technology Calculator</span>
+      <h1 class="page-title">Storage Converter</h1>
+      <p class="page-desc">Convert data units between common decimal scales (KB, MB, GB, TB) and OS binary sizes (KiB, MiB, GiB, TiB).</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Data Conversion</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Input Size Value</label>
+              <input id="value" type="number" value="1" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>From Unit</label>
+              <select id="from_unit" onchange="calculate()">
+                <option value="B">Bytes (B)</option>
+                <option value="KB">Kilobytes (KB)</option>
+                <option value="MB">Megabytes (MB)</option>
+                <option value="GB" selected>Gigabytes (GB)</option>
+                <option value="TB">Terabytes (TB)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>To Unit</label>
+              <select id="to_unit" onchange="calculate()">
+                <option value="B">Bytes (B)</option>
+                <option value="KB">Kilobytes (KB)</option>
+                <option value="MB" selected>Megabytes (MB)</option>
+                <option value="GB">Gigabytes (GB)</option>
+                <option value="TB">Terabytes (TB)</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Convert Storage Size</button>
+          <p class="note">Formula:<br>Decimal Metric converts using multipliers of 1,000 (10^3).<br>Binary OS converts using multipliers of 1,024 (2^10) representing exact computer storage allocations.</p>
+        </div>
+
+        <div class="result">
+          <span>Converted Decimal Metric</span>
+          <strong class="big" id="dec_res">1,000 MB</strong>
+          <div class="result-row">
+            <span>Converted Binary OS</span>
+            <strong id="bin_res">1,024 MiB</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function calculate() {
+          const val = +document.getElementById('value').value || 0;
+          const fromUnit = document.getElementById('from_unit').value;
+          const toUnit = document.getElementById('to_unit').value;
+          
+          const decUnits = { 'B': 1, 'KB': 1e3, 'MB': 1e6, 'GB': 1e9, 'TB': 1e12 };
+          const binUnits = { 'B': 1, 'KB': 1024, 'MB': 1024**2, 'GB': 1024**3, 'TB': 1024**4 };
+          
+          const decLabel = toUnit;
+          const binLabel = toUnit === 'B' ? 'B' : toUnit.charAt(0) + 'iB';
+          
+          // 1. Decimal conversion
+          const bytesDec = val * decUnits[fromUnit];
+          const decResultVal = bytesDec / decUnits[toUnit];
+          
+          // 2. Binary conversion
+          const bytesBin = val * binUnits[fromUnit];
+          const binResultVal = bytesBin / binUnits[toUnit];
+          
+          document.getElementById('dec_res').textContent = decResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + decLabel;
+          document.getElementById('bin_res').textContent = binResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + binLabel;
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function calculate() {
+          const val = +document.getElementById('value').value || 0;
+          const fromUnit = document.getElementById('from_unit').value;
+          const toUnit = document.getElementById('to_unit').value;
+          
+          const decUnits = { 'B': 1, 'KB': 1e3, 'MB': 1e6, 'GB': 1e9, 'TB': 1e12 };
+          const binUnits = { 'B': 1, 'KB': 1024, 'MB': 1024**2, 'GB': 1024**3, 'TB': 1024**4 };
+          
+          const decLabel = toUnit;
+          const binLabel = toUnit === 'B' ? 'B' : toUnit.charAt(0) + 'iB';
+          
+          // 1. Decimal conversion
+          const bytesDec = val * decUnits[fromUnit];
+          const decResultVal = bytesDec / decUnits[toUnit];
+          
+          // 2. Binary conversion
+          const bytesBin = val * binUnits[fromUnit];
+          const binResultVal = bytesBin / binUnits[toUnit];
+          
+          document.getElementById('dec_res').textContent = decResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + decLabel;
+          document.getElementById('bin_res').textContent = binResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + binLabel;
+        }
+        calculate();
+      </script>
+<script>
+        function calculate() {
+          const val = +document.getElementById('value').value || 0;
+          const fromUnit = document.getElementById('from_unit').value;
+          const toUnit = document.getElementById('to_unit').value;
+          
+          const decUnits = { 'B': 1, 'KB': 1e3, 'MB': 1e6, 'GB': 1e9, 'TB': 1e12 };
+          const binUnits = { 'B': 1, 'KB': 1024, 'MB': 1024**2, 'GB': 1024**3, 'TB': 1024**4 };
+          
+          const decLabel = toUnit;
+          const binLabel = toUnit === 'B' ? 'B' : toUnit.charAt(0) + 'iB';
+          
+          // 1. Decimal conversion
+          const bytesDec = val * decUnits[fromUnit];
+          const decResultVal = bytesDec / decUnits[toUnit];
+          
+          // 2. Binary conversion
+          const bytesBin = val * binUnits[fromUnit];
+          const binResultVal = bytesBin / binUnits[toUnit];
+          
+          document.getElementById('dec_res').textContent = decResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + decLabel;
+          document.getElementById('bin_res').textContent = binResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + binLabel;
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

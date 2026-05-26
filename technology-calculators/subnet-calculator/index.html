@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subnet Calculator | CalcUni</title>
+  <meta name="description" content="Calculate subnets, hosts ranges, CIDR masks, and network configurations.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="active">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TECHNOLOGY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../technology-calculators/" >Overview</a></li>
+        <li><a href="../../technology-calculators/binary-calculator/" >Binary Calculator</a></li>
+        <li><a href="../../technology-calculators/subnet-calculator/" class="active">Subnet Calculator</a></li>
+        <li><a href="../../technology-calculators/ip-calculator/" >IP Calculator</a></li>
+        <li><a href="../../technology-calculators/bandwidth-calculator/" >Bandwidth Calculator</a></li>
+        <li><a href="../../technology-calculators/storage-converter/" >Storage Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../technology-calculators/">Technology Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Subnet Calculator</span>
+      </div>
+
+      <span class="category-badge">Technology Calculator</span>
+      <h1 class="page-title">Subnet Calculator</h1>
+      <p class="page-desc">Calculate subnets, hosts ranges, CIDR masks, and network configurations.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Network Specifications</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>IP Address</label>
+              <input id="ip" type="text" value="192.168.1.100" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>CIDR Mask (/N)</label>
+              <input id="cidr" type="number" value="24" min="0" max="32" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Subnet</button>
+          <p class="note">Formula:<br>Network Address = IP & Subnet Mask<br>Hosts Limit = 2^(32 - CIDR) - 2</p>
+        </div>
+
+        <div class="result">
+          <span>Usable Host Range</span>
+          <strong class="big" id="range" style="font-size: 20px; line-height: 1.4; word-break: break-all; margin: 15px 0;">192.168.1.1 - 192.168.1.254</strong>
+          <div class="result-row">
+            <span>Network Address</span>
+            <strong id="net_addr">192.168.1.0</strong>
+          </div>
+          <div class="result-row">
+            <span>Broadcast Address</span>
+            <strong id="broad_addr">192.168.1.255</strong>
+          </div>
+          <div class="result-row">
+            <span>Subnet Mask</span>
+            <strong id="mask_addr">255.255.255.0</strong>
+          </div>
+          <div class="result-row">
+            <span>Total Usable Hosts</span>
+            <strong id="total_hosts">254</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function ip2int(ip) {
+          return ip.split('.').reduce((res, octet) => (res << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+        
+        function int2ip(val) {
+          return [
+            (val >>> 24) & 0xFF,
+            (val >>> 16) & 0xFF,
+            (val >>> 8) & 0xFF,
+            val & 0xFF
+          ].join('.');
+        }
+
+        function calculate() {
+          const ipStr = document.getElementById('ip').value.trim();
+          const cidr = +document.getElementById('cidr').value;
+          
+          if (!/^(?:[0-9]{1,3}.){3}[0-9]{1,3}$/.test(ipStr)) {
+            document.getElementById('range').textContent = 'Error: Invalid IP format';
+            document.getElementById('net_addr').textContent = 'N/A';
+            document.getElementById('broad_addr').textContent = 'N/A';
+            document.getElementById('mask_addr').textContent = 'N/A';
+            document.getElementById('total_hosts').textContent = '0';
+            return;
+          }
+          
+          const ipVal = ip2int(ipStr);
+          
+          // Generate mask
+          let mask = 0xFFFFFFFF;
+          if (cidr < 32) {
+            mask = (0xFFFFFFFF << (32 - cidr)) >>> 0;
+          }
+          
+          const network = (ipVal & mask) >>> 0;
+          const broadcast = (network | ~mask) >>> 0;
+          
+          let usableStart = network + 1;
+          let usableEnd = broadcast - 1;
+          let totalHosts = broadcast - network - 1;
+          
+          if (cidr === 32) {
+            usableStart = network;
+            usableEnd = network;
+            totalHosts = 1;
+          } else if (cidr === 31) {
+            usableStart = network;
+            usableEnd = broadcast;
+            totalHosts = 2;
+          }
+          
+          document.getElementById('net_addr').textContent = int2ip(network);
+          document.getElementById('broad_addr').textContent = int2ip(broadcast);
+          document.getElementById('mask_addr').textContent = int2ip(mask);
+          document.getElementById('total_hosts').textContent = totalHosts.toLocaleString();
+          
+          document.getElementById('range').textContent = int2ip(usableStart) + ' - ' + int2ip(usableEnd);
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function ip2int(ip) {
+          return ip.split('.').reduce((res, octet) => (res << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+        
+        function int2ip(val) {
+          return [
+            (val >>> 24) & 0xFF,
+            (val >>> 16) & 0xFF,
+            (val >>> 8) & 0xFF,
+            val & 0xFF
+          ].join('.');
+        }
+
+        function calculate() {
+          const ipStr = document.getElementById('ip').value.trim();
+          const cidr = +document.getElementById('cidr').value;
+          
+          if (!/^(?:[0-9]{1,3}.){3}[0-9]{1,3}$/.test(ipStr)) {
+            document.getElementById('range').textContent = 'Error: Invalid IP format';
+            document.getElementById('net_addr').textContent = 'N/A';
+            document.getElementById('broad_addr').textContent = 'N/A';
+            document.getElementById('mask_addr').textContent = 'N/A';
+            document.getElementById('total_hosts').textContent = '0';
+            return;
+          }
+          
+          const ipVal = ip2int(ipStr);
+          
+          // Generate mask
+          let mask = 0xFFFFFFFF;
+          if (cidr < 32) {
+            mask = (0xFFFFFFFF << (32 - cidr)) >>> 0;
+          }
+          
+          const network = (ipVal & mask) >>> 0;
+          const broadcast = (network | ~mask) >>> 0;
+          
+          let usableStart = network + 1;
+          let usableEnd = broadcast - 1;
+          let totalHosts = broadcast - network - 1;
+          
+          if (cidr === 32) {
+            usableStart = network;
+            usableEnd = network;
+            totalHosts = 1;
+          } else if (cidr === 31) {
+            usableStart = network;
+            usableEnd = broadcast;
+            totalHosts = 2;
+          }
+          
+          document.getElementById('net_addr').textContent = int2ip(network);
+          document.getElementById('broad_addr').textContent = int2ip(broadcast);
+          document.getElementById('mask_addr').textContent = int2ip(mask);
+          document.getElementById('total_hosts').textContent = totalHosts.toLocaleString();
+          
+          document.getElementById('range').textContent = int2ip(usableStart) + ' - ' + int2ip(usableEnd);
+        }
+        calculate();
+      </script>
+<script>
+        function ip2int(ip) {
+          return ip.split('.').reduce((res, octet) => (res << 8) + parseInt(octet, 10), 0) >>> 0;
+        }
+        
+        function int2ip(val) {
+          return [
+            (val >>> 24) & 0xFF,
+            (val >>> 16) & 0xFF,
+            (val >>> 8) & 0xFF,
+            val & 0xFF
+          ].join('.');
+        }
+
+        function calculate() {
+          const ipStr = document.getElementById('ip').value.trim();
+          const cidr = +document.getElementById('cidr').value;
+          
+          if (!/^(?:[0-9]{1,3}.){3}[0-9]{1,3}$/.test(ipStr)) {
+            document.getElementById('range').textContent = 'Error: Invalid IP format';
+            document.getElementById('net_addr').textContent = 'N/A';
+            document.getElementById('broad_addr').textContent = 'N/A';
+            document.getElementById('mask_addr').textContent = 'N/A';
+            document.getElementById('total_hosts').textContent = '0';
+            return;
+          }
+          
+          const ipVal = ip2int(ipStr);
+          
+          // Generate mask
+          let mask = 0xFFFFFFFF;
+          if (cidr < 32) {
+            mask = (0xFFFFFFFF << (32 - cidr)) >>> 0;
+          }
+          
+          const network = (ipVal & mask) >>> 0;
+          const broadcast = (network | ~mask) >>> 0;
+          
+          let usableStart = network + 1;
+          let usableEnd = broadcast - 1;
+          let totalHosts = broadcast - network - 1;
+          
+          if (cidr === 32) {
+            usableStart = network;
+            usableEnd = network;
+            totalHosts = 1;
+          } else if (cidr === 31) {
+            usableStart = network;
+            usableEnd = broadcast;
+            totalHosts = 2;
+          }
+          
+          document.getElementById('net_addr').textContent = int2ip(network);
+          document.getElementById('broad_addr').textContent = int2ip(broadcast);
+          document.getElementById('mask_addr').textContent = int2ip(mask);
+          document.getElementById('total_hosts').textContent = totalHosts.toLocaleString();
+          
+          document.getElementById('range').textContent = int2ip(usableStart) + ' - ' + int2ip(usableEnd);
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

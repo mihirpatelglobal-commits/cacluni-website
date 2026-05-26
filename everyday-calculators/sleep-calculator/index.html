@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Calculator | CalcUni</title>
+  <meta name="description" content="Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="active">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">EVERYDAY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../everyday-calculators/" >Overview</a></li>
+        <li><a href="../../everyday-calculators/password-generator/" >Password Generator</a></li>
+        <li><a href="../../everyday-calculators/discount-calculator/" >Discount Calculator</a></li>
+        <li><a href="../../everyday-calculators/sleep-calculator/" class="active">Sleep Calculator</a></li>
+        <li><a href="../../everyday-calculators/tip-calculator/" >Tip Calculator</a></li>
+        <li><a href="../../everyday-calculators/random-number-generator/" >Random Number Generator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../everyday-calculators/">Everyday Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Sleep Calculator</span>
+      </div>
+
+      <span class="category-badge">Everyday Calculator</span>
+      <h1 class="page-title">Sleep Calculator</h1>
+      <p class="page-desc">Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Optimal Sleep Times</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Calculation Goal</label>
+              <select id="goal" onchange="toggleFields(); calculate();">
+                <option value="bed">If I go to bed now, when should I wake up?</option>
+                <option value="wake">If I want to wake up at a specific time, when should I go to bed?</option>
+              </select>
+            </div>
+            <div id="target-time-fields" style="display: none; border-top: 1px dashed var(--border); padding-top: 15px;">
+              <div class="field">
+                <label>Target Wake Up Time</label>
+                <div style="display: flex; gap: 10px;">
+                  <select id="hour" style="flex:1;">
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                    <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                    <option value="7" selected>7</option><option value="8">8</option><option value="9">9</option>
+                    <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                  </select>
+                  <select id="minute" style="flex:1;">
+                    <option value="0" selected>00</option><option value="5">05</option><option value="10">10</option>
+                    <option value="15">15</option><option value="20">20</option><option value="25">25</option>
+                    <option value="30">30</option><option value="35">35</option><option value="40">40</option>
+                    <option value="45">45</option><option value="50">50</option><option value="55">55</option>
+                  </select>
+                  <select id="period" style="flex:1;">
+                    <option value="AM" selected>AM</option>
+                    <option value="PM">PM</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Sleep Cycles</button>
+          <p class="note">Formula:<br>Sleep cycles typically last 90 minutes. Healthy human sleep consists of 5 to 6 cycles (7.5 to 9 hours of sleep), accounting for an average of 14 minutes it takes to fall asleep.</p>
+        </div>
+
+        <div class="result">
+          <span id="res-lbl">Suggested Wake-up Times</span>
+          <div id="cycle-times" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- suggestions inject -->
+          </div>
+        </div>
+      </section>
+      <script>
+        function toggleFields() {
+          const isWake = document.getElementById('goal').value === 'wake';
+          document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';
+        }
+        
+        function formatTime(d) {
+          let hrs = d.getHours();
+          const mins = d.getMinutes();
+          const period = hrs >= 12 ? 'PM' : 'AM';
+          hrs = hrs % 12;
+          hrs = hrs === 0 ? 12 : hrs;
+          return hrs + ':' + (mins < 10 ? '0' + mins : mins) + ' ' + period;
+        }
+
+        function calculate() {
+          const goal = document.getElementById('goal').value;
+          const container = document.getElementById('cycle-times');
+          container.innerHTML = '';
+          
+          if (goal === 'bed') {
+            document.getElementById('res-lbl').textContent = 'Optimal Wake-up Times (Bed now)';
+            
+            // Assume 14 mins to fall asleep
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 14);
+            
+            // Generate 3, 4, 5, 6 sleep cycles (4.5, 6.0, 7.5, 9.0 hrs)
+            const cycles = [3, 4, 5, 6];
+            cycles.forEach(c => {
+              const wakeTime = new Date(now.getTime());
+              wakeTime.setMinutes(wakeTime.getMinutes() + c * 90);
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(wakeTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          } else {
+            document.getElementById('res-lbl').textContent = 'Optimal Bedtimes (For Wake time)';
+            
+            let hour = +document.getElementById('hour').value;
+            const min = +document.getElementById('minute').value;
+            const period = document.getElementById('period').value;
+            
+            if (period === 'PM' && hour !== 12) hour += 12;
+            if (period === 'AM' && hour === 12) hour = 0;
+            
+            const wakeTime = new Date();
+            wakeTime.setHours(hour, min, 0, 0);
+            
+            // Generate backward bedtimes: 6, 5, 4, 3 cycles
+            const cycles = [6, 5, 4, 3];
+            cycles.forEach(c => {
+              const bedTime = new Date(wakeTime.getTime());
+              // Subtract cycle minutes + 14 minutes average latency
+              bedTime.setMinutes(bedTime.getMinutes() - (c * 90 + 14));
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(bedTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          }
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function toggleFields() {
+          const isWake = document.getElementById('goal').value === 'wake';
+          document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';
+        }
+        
+        function formatTime(d) {
+          let hrs = d.getHours();
+          const mins = d.getMinutes();
+          const period = hrs >= 12 ? 'PM' : 'AM';
+          hrs = hrs % 12;
+          hrs = hrs === 0 ? 12 : hrs;
+          return hrs + ':' + (mins < 10 ? '0' + mins : mins) + ' ' + period;
+        }
+
+        function calculate() {
+          const goal = document.getElementById('goal').value;
+          const container = document.getElementById('cycle-times');
+          container.innerHTML = '';
+          
+          if (goal === 'bed') {
+            document.getElementById('res-lbl').textContent = 'Optimal Wake-up Times (Bed now)';
+            
+            // Assume 14 mins to fall asleep
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 14);
+            
+            // Generate 3, 4, 5, 6 sleep cycles (4.5, 6.0, 7.5, 9.0 hrs)
+            const cycles = [3, 4, 5, 6];
+            cycles.forEach(c => {
+              const wakeTime = new Date(now.getTime());
+              wakeTime.setMinutes(wakeTime.getMinutes() + c * 90);
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(wakeTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          } else {
+            document.getElementById('res-lbl').textContent = 'Optimal Bedtimes (For Wake time)';
+            
+            let hour = +document.getElementById('hour').value;
+            const min = +document.getElementById('minute').value;
+            const period = document.getElementById('period').value;
+            
+            if (period === 'PM' && hour !== 12) hour += 12;
+            if (period === 'AM' && hour === 12) hour = 0;
+            
+            const wakeTime = new Date();
+            wakeTime.setHours(hour, min, 0, 0);
+            
+            // Generate backward bedtimes: 6, 5, 4, 3 cycles
+            const cycles = [6, 5, 4, 3];
+            cycles.forEach(c => {
+              const bedTime = new Date(wakeTime.getTime());
+              // Subtract cycle minutes + 14 minutes average latency
+              bedTime.setMinutes(bedTime.getMinutes() - (c * 90 + 14));
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(bedTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          }
+        }
+        calculate();
+      </script>
+<script>
+        function toggleFields() {
+          const isWake = document.getElementById('goal').value === 'wake';
+          document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';
+        }
+        
+        function formatTime(d) {
+          let hrs = d.getHours();
+          const mins = d.getMinutes();
+          const period = hrs >= 12 ? 'PM' : 'AM';
+          hrs = hrs % 12;
+          hrs = hrs === 0 ? 12 : hrs;
+          return hrs + ':' + (mins < 10 ? '0' + mins : mins) + ' ' + period;
+        }
+
+        function calculate() {
+          const goal = document.getElementById('goal').value;
+          const container = document.getElementById('cycle-times');
+          container.innerHTML = '';
+          
+          if (goal === 'bed') {
+            document.getElementById('res-lbl').textContent = 'Optimal Wake-up Times (Bed now)';
+            
+            // Assume 14 mins to fall asleep
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 14);
+            
+            // Generate 3, 4, 5, 6 sleep cycles (4.5, 6.0, 7.5, 9.0 hrs)
+            const cycles = [3, 4, 5, 6];
+            cycles.forEach(c => {
+              const wakeTime = new Date(now.getTime());
+              wakeTime.setMinutes(wakeTime.getMinutes() + c * 90);
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(wakeTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          } else {
+            document.getElementById('res-lbl').textContent = 'Optimal Bedtimes (For Wake time)';
+            
+            let hour = +document.getElementById('hour').value;
+            const min = +document.getElementById('minute').value;
+            const period = document.getElementById('period').value;
+            
+            if (period === 'PM' && hour !== 12) hour += 12;
+            if (period === 'AM' && hour === 12) hour = 0;
+            
+            const wakeTime = new Date();
+            wakeTime.setHours(hour, min, 0, 0);
+            
+            // Generate backward bedtimes: 6, 5, 4, 3 cycles
+            const cycles = [6, 5, 4, 3];
+            cycles.forEach(c => {
+              const bedTime = new Date(wakeTime.getTime());
+              // Subtract cycle minutes + 14 minutes average latency
+              bedTime.setMinutes(bedTime.getMinutes() - (c * 90 + 14));
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(bedTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          }
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

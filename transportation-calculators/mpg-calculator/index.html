@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPG Calculator | CalcUni</title>
+  <meta name="description" content="Convert distance and gas quantity to Miles Per Gallon (MPG) and fuel economy indicators.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="active">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TRANSPORTATION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../transportation-calculators/" >Overview</a></li>
+        <li><a href="../../transportation-calculators/fuel-cost-calculator/" >Fuel Cost Calculator</a></li>
+        <li><a href="../../transportation-calculators/mileage-calculator/" >Mileage Calculator</a></li>
+        <li><a href="../../transportation-calculators/mpg-calculator/" class="active">MPG Calculator</a></li>
+        <li><a href="../../transportation-calculators/ev-charging-cost-calculator/" >EV Charging Cost Calculator</a></li>
+        <li><a href="../../transportation-calculators/travel-time-calculator/" >Travel Time Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../transportation-calculators/">Transportation Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>MPG Calculator</span>
+      </div>
+
+      <span class="category-badge">Transportation Calculator</span>
+      <h1 class="page-title">MPG Calculator</h1>
+      <p class="page-desc">Convert distance and gas quantity to Miles Per Gallon (MPG) and fuel economy indicators.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Distance & Fuel (US)</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Distance Traveled (miles)</label>
+              <input id="distance" type="number" value="300" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Fuel Used (US Gallons)</label>
+              <input id="fuel" type="number" value="12.5" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate MPG</button>
+          <p class="note">Formula:<br>MPG = Distance (miles) / Fuel (gallons)<br>L/100km Equivalent = 235.215 / MPG</p>
+        </div>
+
+        <div class="result">
+          <span>Gas Mileage</span>
+          <strong class="big" id="mpg">0.00 MPG</strong>
+          <div class="result-row">
+            <span>Metric Equivalent</span>
+            <strong id="l100k">0.00 L/100km</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const fuel = +document.getElementById('fuel').value || 0;
+          
+          let mpg = 0;
+          let l100 = 0;
+          
+          if (distance > 0 && fuel > 0) {
+            mpg = distance / fuel;
+            l100 = 235.215 / mpg;
+          }
+          
+          document.getElementById('mpg').textContent = mpg.toFixed(2) + ' MPG';
+          document.getElementById('l100k').textContent = isFinite(l100) && l100 > 0 ? l100.toFixed(2) + ' L/100km' : 'N/A';
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const fuel = +document.getElementById('fuel').value || 0;
+          
+          let mpg = 0;
+          let l100 = 0;
+          
+          if (distance > 0 && fuel > 0) {
+            mpg = distance / fuel;
+            l100 = 235.215 / mpg;
+          }
+          
+          document.getElementById('mpg').textContent = mpg.toFixed(2) + ' MPG';
+          document.getElementById('l100k').textContent = isFinite(l100) && l100 > 0 ? l100.toFixed(2) + ' L/100km' : 'N/A';
+        }
+        calculate();
+      </script>
+<script>
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const fuel = +document.getElementById('fuel').value || 0;
+          
+          let mpg = 0;
+          let l100 = 0;
+          
+          if (distance > 0 && fuel > 0) {
+            mpg = distance / fuel;
+            l100 = 235.215 / mpg;
+          }
+          
+          document.getElementById('mpg').textContent = mpg.toFixed(2) + ' MPG';
+          document.getElementById('l100k').textContent = isFinite(l100) && l100 > 0 ? l100.toFixed(2) + ' L/100km' : 'N/A';
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

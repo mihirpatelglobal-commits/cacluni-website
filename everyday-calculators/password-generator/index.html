@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator | CalcUni</title>
+  <meta name="description" content="Build secure, randomized password combinations utilizing custom character inclusions.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="active">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">EVERYDAY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../everyday-calculators/" >Overview</a></li>
+        <li><a href="../../everyday-calculators/password-generator/" class="active">Password Generator</a></li>
+        <li><a href="../../everyday-calculators/discount-calculator/" >Discount Calculator</a></li>
+        <li><a href="../../everyday-calculators/sleep-calculator/" >Sleep Calculator</a></li>
+        <li><a href="../../everyday-calculators/tip-calculator/" >Tip Calculator</a></li>
+        <li><a href="../../everyday-calculators/random-number-generator/" >Random Number Generator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../everyday-calculators/">Everyday Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Password Generator</span>
+      </div>
+
+      <span class="category-badge">Everyday Calculator</span>
+      <h1 class="page-title">Password Generator</h1>
+      <p class="page-desc">Build secure, randomized password combinations utilizing custom character inclusions.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Password Specifications</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Password Length</label>
+              <input id="length" type="number" value="16" min="6" max="64" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Include Uppercase (A-Z)</label>
+              <select id="upper" onchange="calculate()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Include Lowercase (a-z)</label>
+              <select id="lower" onchange="calculate()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Include Numbers (0-9)</label>
+              <select id="numbers" onchange="calculate()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Include Symbols (!@#$%)</label>
+              <select id="symbols" onchange="calculate()">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Generate New Password</button>
+          <p class="note">Generates cryptographically robust sequences based on custom parameters.</p>
+        </div>
+
+        <div class="result">
+          <span>Your Secure Password</span>
+          <input id="pass-field" type="text" readonly style="width:100%; font-family:monospace; font-size:18px; margin: 15px 0; border: 2px solid var(--border-focus); border-radius: 8px; padding: 12px; font-weight:600; text-align:center;">
+          <button class="btn btn-secondary" onclick="copyPassword()">Copy to Clipboard</button>
+          <div class="result-row" style="margin-top:20px;">
+            <span>Entropy Strength</span>
+            <strong id="strength" style="color:var(--success);">Strong</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function calculate() {
+          const len = Math.max(Math.min(+document.getElementById('length').value || 16, 64), 6);
+          const useUpper = document.getElementById('upper').value === 'yes';
+          const useLower = document.getElementById('lower').value === 'yes';
+          const useNum = document.getElementById('numbers').value === 'yes';
+          const useSym = document.getElementById('symbols').value === 'yes';
+          
+          let chars = '';
+          if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+          if (useNum) chars += '0123456789';
+          if (useSym) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+          
+          if (!chars) {
+            document.getElementById('pass-field').value = '[Select at least one set]';
+            document.getElementById('strength').textContent = 'None';
+            document.getElementById('strength').style.color = 'red';
+            return;
+          }
+          
+          let pass = '';
+          for (let i = 0; i < len; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          
+          document.getElementById('pass-field').value = pass;
+          
+          // Determine strength indicator
+          let entropy = len * Math.log2(chars.length);
+          let str = 'Weak';
+          let color = 'red';
+          if (entropy >= 80) {
+            str = 'Excellent';
+            color = 'var(--success)';
+          } else if (entropy >= 50) {
+            str = 'Strong';
+            color = '#3b82f6';
+          } else if (entropy >= 35) {
+            str = 'Medium';
+            color = '#f59e0b';
+          }
+          
+          document.getElementById('strength').textContent = str + ' (' + Math.round(entropy) + ' bits)';
+          document.getElementById('strength').style.color = color;
+        }
+        
+        function copyPassword() {
+          const pass = document.getElementById('pass-field').value;
+          if (pass && pass.charAt(0) !== '[') {
+            navigator.clipboard.writeText(pass).then(() => {
+              alert('Password copied successfully!');
+            });
+          }
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function calculate() {
+          const len = Math.max(Math.min(+document.getElementById('length').value || 16, 64), 6);
+          const useUpper = document.getElementById('upper').value === 'yes';
+          const useLower = document.getElementById('lower').value === 'yes';
+          const useNum = document.getElementById('numbers').value === 'yes';
+          const useSym = document.getElementById('symbols').value === 'yes';
+          
+          let chars = '';
+          if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+          if (useNum) chars += '0123456789';
+          if (useSym) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+          
+          if (!chars) {
+            document.getElementById('pass-field').value = '[Select at least one set]';
+            document.getElementById('strength').textContent = 'None';
+            document.getElementById('strength').style.color = 'red';
+            return;
+          }
+          
+          let pass = '';
+          for (let i = 0; i < len; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          
+          document.getElementById('pass-field').value = pass;
+          
+          // Determine strength indicator
+          let entropy = len * Math.log2(chars.length);
+          let str = 'Weak';
+          let color = 'red';
+          if (entropy >= 80) {
+            str = 'Excellent';
+            color = 'var(--success)';
+          } else if (entropy >= 50) {
+            str = 'Strong';
+            color = '#3b82f6';
+          } else if (entropy >= 35) {
+            str = 'Medium';
+            color = '#f59e0b';
+          }
+          
+          document.getElementById('strength').textContent = str + ' (' + Math.round(entropy) + ' bits)';
+          document.getElementById('strength').style.color = color;
+        }
+        
+        function copyPassword() {
+          const pass = document.getElementById('pass-field').value;
+          if (pass && pass.charAt(0) !== '[') {
+            navigator.clipboard.writeText(pass).then(() => {
+              alert('Password copied successfully!');
+            });
+          }
+        }
+        calculate();
+      </script>
+<script>
+        function calculate() {
+          const len = Math.max(Math.min(+document.getElementById('length').value || 16, 64), 6);
+          const useUpper = document.getElementById('upper').value === 'yes';
+          const useLower = document.getElementById('lower').value === 'yes';
+          const useNum = document.getElementById('numbers').value === 'yes';
+          const useSym = document.getElementById('symbols').value === 'yes';
+          
+          let chars = '';
+          if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+          if (useNum) chars += '0123456789';
+          if (useSym) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+          
+          if (!chars) {
+            document.getElementById('pass-field').value = '[Select at least one set]';
+            document.getElementById('strength').textContent = 'None';
+            document.getElementById('strength').style.color = 'red';
+            return;
+          }
+          
+          let pass = '';
+          for (let i = 0; i < len; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          
+          document.getElementById('pass-field').value = pass;
+          
+          // Determine strength indicator
+          let entropy = len * Math.log2(chars.length);
+          let str = 'Weak';
+          let color = 'red';
+          if (entropy >= 80) {
+            str = 'Excellent';
+            color = 'var(--success)';
+          } else if (entropy >= 50) {
+            str = 'Strong';
+            color = '#3b82f6';
+          } else if (entropy >= 35) {
+            str = 'Medium';
+            color = '#f59e0b';
+          }
+          
+          document.getElementById('strength').textContent = str + ' (' + Math.round(entropy) + ' bits)';
+          document.getElementById('strength').style.color = color;
+        }
+        
+        function copyPassword() {
+          const pass = document.getElementById('pass-field').value;
+          if (pass && pass.charAt(0) !== '[') {
+            navigator.clipboard.writeText(pass).then(() => {
+              alert('Password copied successfully!');
+            });
+          }
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

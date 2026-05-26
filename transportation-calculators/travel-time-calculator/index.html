@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Time Calculator | CalcUni</title>
+  <meta name="description" content="Calculate estimated driving duration and arrival hours based on travel distance and average speeds.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="active">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TRANSPORTATION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../transportation-calculators/" >Overview</a></li>
+        <li><a href="../../transportation-calculators/fuel-cost-calculator/" >Fuel Cost Calculator</a></li>
+        <li><a href="../../transportation-calculators/mileage-calculator/" >Mileage Calculator</a></li>
+        <li><a href="../../transportation-calculators/mpg-calculator/" >MPG Calculator</a></li>
+        <li><a href="../../transportation-calculators/ev-charging-cost-calculator/" >EV Charging Cost Calculator</a></li>
+        <li><a href="../../transportation-calculators/travel-time-calculator/" class="active">Travel Time Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../transportation-calculators/">Transportation Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Travel Time Calculator</span>
+      </div>
+
+      <span class="category-badge">Transportation Calculator</span>
+      <h1 class="page-title">Travel Time Calculator</h1>
+      <p class="page-desc">Calculate estimated driving duration and arrival hours based on travel distance and average speeds.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Trip & Speed Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Measurement System</label>
+              <select id="unit" onchange="toggleLabels(); calculate();">
+                <option value="metric">Metric (km, km/h)</option>
+                <option value="imperial">Imperial (miles, mph)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label id="dist-lbl">Distance (km)</label>
+              <input id="distance" type="number" value="350" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label id="speed-lbl">Average Speed (km/h)</label>
+              <input id="speed" type="number" value="100" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Stops / Breaks (Minutes)</label>
+              <input id="stops" type="number" value="30" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Travel Time</button>
+          <p class="note">Formula:<br>Driving Time = Distance / Speed<br>Total Time = Driving Time + (Stops / 60)</p>
+        </div>
+
+        <div class="result">
+          <span>Estimated Duration</span>
+          <strong class="big" id="duration">3 hrs 0 mins</strong>
+          <div class="result-row">
+            <span>Pure Driving Time</span>
+            <strong id="drive_time">3 hrs 30 mins</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';
+          document.getElementById('speed-lbl').textContent = isMetric ? 'Average Speed (km/h)' : 'Average Speed (mph)';
+        }
+        
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const speed = +document.getElementById('speed').value || 0;
+          const stops = +document.getElementById('stops').value || 0;
+          
+          let driveTimeHrs = 0;
+          if (speed > 0) driveTimeHrs = distance / speed;
+          
+          const totalHrs = driveTimeHrs + (stops / 60);
+          
+          const d_hrs = Math.floor(driveTimeHrs);
+          const d_mins = Math.round((driveTimeHrs - d_hrs) * 60);
+          
+          const t_hrs = Math.floor(totalHrs);
+          const t_mins = Math.round((totalHrs - t_hrs) * 60);
+          
+          document.getElementById('duration').textContent = t_hrs + ' hrs ' + t_mins + ' mins';
+          document.getElementById('drive_time').textContent = d_hrs + ' hrs ' + d_mins + ' mins';
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';
+          document.getElementById('speed-lbl').textContent = isMetric ? 'Average Speed (km/h)' : 'Average Speed (mph)';
+        }
+        
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const speed = +document.getElementById('speed').value || 0;
+          const stops = +document.getElementById('stops').value || 0;
+          
+          let driveTimeHrs = 0;
+          if (speed > 0) driveTimeHrs = distance / speed;
+          
+          const totalHrs = driveTimeHrs + (stops / 60);
+          
+          const d_hrs = Math.floor(driveTimeHrs);
+          const d_mins = Math.round((driveTimeHrs - d_hrs) * 60);
+          
+          const t_hrs = Math.floor(totalHrs);
+          const t_mins = Math.round((totalHrs - t_hrs) * 60);
+          
+          document.getElementById('duration').textContent = t_hrs + ' hrs ' + t_mins + ' mins';
+          document.getElementById('drive_time').textContent = d_hrs + ' hrs ' + d_mins + ' mins';
+        }
+        calculate();
+      </script>
+<script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';
+          document.getElementById('speed-lbl').textContent = isMetric ? 'Average Speed (km/h)' : 'Average Speed (mph)';
+        }
+        
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const speed = +document.getElementById('speed').value || 0;
+          const stops = +document.getElementById('stops').value || 0;
+          
+          let driveTimeHrs = 0;
+          if (speed > 0) driveTimeHrs = distance / speed;
+          
+          const totalHrs = driveTimeHrs + (stops / 60);
+          
+          const d_hrs = Math.floor(driveTimeHrs);
+          const d_mins = Math.round((driveTimeHrs - d_hrs) * 60);
+          
+          const t_hrs = Math.floor(totalHrs);
+          const t_mins = Math.round((totalHrs - t_hrs) * 60);
+          
+          document.getElementById('duration').textContent = t_hrs + ' hrs ' + t_mins + ' mins';
+          document.getElementById('drive_time').textContent = d_hrs + ' hrs ' + d_mins + ' mins';
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

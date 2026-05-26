@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandwidth Calculator | CalcUni</title>
+  <meta name="description" content="Estimate internet download and upload transfer durations based on standard digital quantities.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="active">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TECHNOLOGY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../technology-calculators/" >Overview</a></li>
+        <li><a href="../../technology-calculators/binary-calculator/" >Binary Calculator</a></li>
+        <li><a href="../../technology-calculators/subnet-calculator/" >Subnet Calculator</a></li>
+        <li><a href="../../technology-calculators/ip-calculator/" >IP Calculator</a></li>
+        <li><a href="../../technology-calculators/bandwidth-calculator/" class="active">Bandwidth Calculator</a></li>
+        <li><a href="../../technology-calculators/storage-converter/" >Storage Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../technology-calculators/">Technology Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Bandwidth Calculator</span>
+      </div>
+
+      <span class="category-badge">Technology Calculator</span>
+      <h1 class="page-title">Bandwidth Calculator</h1>
+      <p class="page-desc">Estimate internet download and upload transfer durations based on standard digital quantities.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Data & Connection Specs</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>File / Data Size</label>
+              <input id="size" type="number" value="10" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Size Unit</label>
+              <select id="size_unit" onchange="calculate()">
+                <option value="MB">Megabytes (MB)</option>
+                <option value="GB" selected>Gigabytes (GB)</option>
+                <option value="TB">Terabytes (TB)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Network Speed</label>
+              <input id="speed" type="number" value="100" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Speed Unit</label>
+              <select id="speed_unit" onchange="calculate()">
+                <option value="Kbps">Kbps (Kilobits/sec)</option>
+                <option value="Mbps" selected>Mbps (Megabits/sec)</option>
+                <option value="Gbps">Gbps (Gigabits/sec)</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Download Time</button>
+          <p class="note">Formula:<br>Transfer Time = Data Size in bits / Connection Speed in bits per second. Overhead margin is calculated as 0% for simple theoretical estimation.</p>
+        </div>
+
+        <div class="result">
+          <span>Estimated Time</span>
+          <strong class="big" id="duration">0 hrs 13 mins 38 secs</strong>
+          <div class="result-row">
+            <span>Total Bits</span>
+            <strong id="total_bits">80,000,000,000 bits</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function calculate() {
+          const size = +document.getElementById('size').value || 0;
+          const sizeUnit = document.getElementById('size_unit').value;
+          const speed = +document.getElementById('speed').value || 0;
+          const speedUnit = document.getElementById('speed_unit').value;
+          
+          let bits = 0;
+          switch (sizeUnit) {
+            case 'MB': bits = size * 8 * 1000 * 1000; break;
+            case 'GB': bits = size * 8 * 1000 * 1000 * 1000; break;
+            case 'TB': bits = size * 8 * 1000 * 1000 * 1000 * 1000; break;
+          }
+          
+          let bps = 0;
+          switch (speedUnit) {
+            case 'Kbps': bps = speed * 1000; break;
+            case 'Mbps': bps = speed * 1000 * 1000; break;
+            case 'Gbps': bps = speed * 1000 * 1000 * 1000; break;
+          }
+          
+          let timeSecs = 0;
+          if (bps > 0) timeSecs = bits / bps;
+          
+          const days = Math.floor(timeSecs / (24 * 3600));
+          timeSecs = timeSecs % (24 * 3600);
+          const hrs = Math.floor(timeSecs / 3600);
+          timeSecs = timeSecs % 3600;
+          const mins = Math.floor(timeSecs / 60);
+          const secs = Math.round(timeSecs % 60);
+          
+          let timeStr = '';
+          if (days > 0) timeStr += days + ' days ';
+          if (hrs > 0 || days > 0) timeStr += hrs + ' hrs ';
+          timeStr += mins + ' mins ' + secs + ' secs';
+          
+          document.getElementById('duration').textContent = timeStr;
+          document.getElementById('total_bits').textContent = bits.toLocaleString() + ' bits';
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function calculate() {
+          const size = +document.getElementById('size').value || 0;
+          const sizeUnit = document.getElementById('size_unit').value;
+          const speed = +document.getElementById('speed').value || 0;
+          const speedUnit = document.getElementById('speed_unit').value;
+          
+          let bits = 0;
+          switch (sizeUnit) {
+            case 'MB': bits = size * 8 * 1000 * 1000; break;
+            case 'GB': bits = size * 8 * 1000 * 1000 * 1000; break;
+            case 'TB': bits = size * 8 * 1000 * 1000 * 1000 * 1000; break;
+          }
+          
+          let bps = 0;
+          switch (speedUnit) {
+            case 'Kbps': bps = speed * 1000; break;
+            case 'Mbps': bps = speed * 1000 * 1000; break;
+            case 'Gbps': bps = speed * 1000 * 1000 * 1000; break;
+          }
+          
+          let timeSecs = 0;
+          if (bps > 0) timeSecs = bits / bps;
+          
+          const days = Math.floor(timeSecs / (24 * 3600));
+          timeSecs = timeSecs % (24 * 3600);
+          const hrs = Math.floor(timeSecs / 3600);
+          timeSecs = timeSecs % 3600;
+          const mins = Math.floor(timeSecs / 60);
+          const secs = Math.round(timeSecs % 60);
+          
+          let timeStr = '';
+          if (days > 0) timeStr += days + ' days ';
+          if (hrs > 0 || days > 0) timeStr += hrs + ' hrs ';
+          timeStr += mins + ' mins ' + secs + ' secs';
+          
+          document.getElementById('duration').textContent = timeStr;
+          document.getElementById('total_bits').textContent = bits.toLocaleString() + ' bits';
+        }
+        calculate();
+      </script>
+<script>
+        function calculate() {
+          const size = +document.getElementById('size').value || 0;
+          const sizeUnit = document.getElementById('size_unit').value;
+          const speed = +document.getElementById('speed').value || 0;
+          const speedUnit = document.getElementById('speed_unit').value;
+          
+          let bits = 0;
+          switch (sizeUnit) {
+            case 'MB': bits = size * 8 * 1000 * 1000; break;
+            case 'GB': bits = size * 8 * 1000 * 1000 * 1000; break;
+            case 'TB': bits = size * 8 * 1000 * 1000 * 1000 * 1000; break;
+          }
+          
+          let bps = 0;
+          switch (speedUnit) {
+            case 'Kbps': bps = speed * 1000; break;
+            case 'Mbps': bps = speed * 1000 * 1000; break;
+            case 'Gbps': bps = speed * 1000 * 1000 * 1000; break;
+          }
+          
+          let timeSecs = 0;
+          if (bps > 0) timeSecs = bits / bps;
+          
+          const days = Math.floor(timeSecs / (24 * 3600));
+          timeSecs = timeSecs % (24 * 3600);
+          const hrs = Math.floor(timeSecs / 3600);
+          timeSecs = timeSecs % 3600;
+          const mins = Math.floor(timeSecs / 60);
+          const secs = Math.round(timeSecs % 60);
+          
+          let timeStr = '';
+          if (days > 0) timeStr += days + ' days ';
+          if (hrs > 0 || days > 0) timeStr += hrs + ' hrs ';
+          timeStr += mins + ' mins ' + secs + ' secs';
+          
+          document.getElementById('duration').textContent = timeStr;
+          document.getElementById('total_bits').textContent = bits.toLocaleString() + ' bits';
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

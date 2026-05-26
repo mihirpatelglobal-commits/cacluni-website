@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll Calculator | CalcUni</title>
+  <meta name="description" content="Calculate gross wages, tax deductions, and net take-home pay based on hourly rate, hours worked, and overtime.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="active">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">BUSINESS TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../business-calculators/" >Overview</a></li>
+        <li><a href="../../business-calculators/profit-margin-calculator/" >Profit Margin Calculator</a></li>
+        <li><a href="../../business-calculators/markup-calculator/" >Markup Calculator</a></li>
+        <li><a href="../../business-calculators/break-even-calculator/" >Break-even Calculator</a></li>
+        <li><a href="../../business-calculators/payroll-calculator/" class="active">Payroll Calculator</a></li>
+        <li><a href="../../business-calculators/roi-calculator/" >ROI Calculator</a></li>
+        <li><a href="../../business-calculators/commission-calculator/" >Commission Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../business-calculators/">Business Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Payroll Calculator</span>
+      </div>
+
+      <span class="category-badge">Business Calculator</span>
+      <h1 class="page-title">Payroll Calculator</h1>
+      <p class="page-desc">Calculate gross wages, tax deductions, and net take-home pay based on hourly rate, hours worked, and overtime.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Payroll Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Hourly Rate ($)</label>
+              <input id="rate" type="number" value="25" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Hours Worked</label>
+              <input id="hours" type="number" value="45" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Estimated Tax Rate (%)</label>
+              <input id="tax_rate" type="number" value="15" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Pay</button>
+          <p class="note">Formula:<br>Gross Pay = (Regular Hours * Rate) + (Overtime Hours * Rate * 1.5). Overtime applies to hours worked beyond 40 hours per week.</p>
+        </div>
+
+        <div class="result">
+          <span>Net Take-home Pay</span>
+          <strong class="big" id="net">$0.00</strong>
+          <div class="result-row">
+            <span>Gross Pay</span>
+            <strong id="gross">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Tax Deductions</span>
+            <strong id="tax">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Overtime Hours / Pay</span>
+            <strong id="overtime">0 hrs / $0.00</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const rate = +document.getElementById('rate').value || 0;
+          const hours = +document.getElementById('hours').value || 0;
+          const tax_rate = +document.getElementById('tax_rate').value || 0;
+          
+          let regularHours = Math.min(hours, 40);
+          let overtimeHours = Math.max(hours - 40, 0);
+          
+          let regularPay = regularHours * rate;
+          let overtimePay = overtimeHours * rate * 1.5;
+          let grossPay = regularPay + overtimePay;
+          
+          let taxDeductions = grossPay * (tax_rate / 100);
+          let netPay = grossPay - taxDeductions;
+          
+          document.getElementById('net').textContent = money(netPay);
+          document.getElementById('gross').textContent = money(grossPay);
+          document.getElementById('tax').textContent = money(taxDeductions);
+          document.getElementById('overtime').textContent = overtimeHours.toFixed(1) + ' hrs / ' + money(overtimePay);
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Business and financial calculations shown are estimates for planning and informational purposes only. Actual values may vary depending on tax regulations, payroll rules, and specific transaction terms. Consult a qualified professional or accountant for official business planning.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const rate = +document.getElementById('rate').value || 0;
+          const hours = +document.getElementById('hours').value || 0;
+          const tax_rate = +document.getElementById('tax_rate').value || 0;
+          
+          let regularHours = Math.min(hours, 40);
+          let overtimeHours = Math.max(hours - 40, 0);
+          
+          let regularPay = regularHours * rate;
+          let overtimePay = overtimeHours * rate * 1.5;
+          let grossPay = regularPay + overtimePay;
+          
+          let taxDeductions = grossPay * (tax_rate / 100);
+          let netPay = grossPay - taxDeductions;
+          
+          document.getElementById('net').textContent = money(netPay);
+          document.getElementById('gross').textContent = money(grossPay);
+          document.getElementById('tax').textContent = money(taxDeductions);
+          document.getElementById('overtime').textContent = overtimeHours.toFixed(1) + ' hrs / ' + money(overtimePay);
+        }
+        calculate();
+      </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const rate = +document.getElementById('rate').value || 0;
+          const hours = +document.getElementById('hours').value || 0;
+          const tax_rate = +document.getElementById('tax_rate').value || 0;
+          
+          let regularHours = Math.min(hours, 40);
+          let overtimeHours = Math.max(hours - 40, 0);
+          
+          let regularPay = regularHours * rate;
+          let overtimePay = overtimeHours * rate * 1.5;
+          let grossPay = regularPay + overtimePay;
+          
+          let taxDeductions = grossPay * (tax_rate / 100);
+          let netPay = grossPay - taxDeductions;
+          
+          document.getElementById('net').textContent = money(netPay);
+          document.getElementById('gross').textContent = money(grossPay);
+          document.getElementById('tax').textContent = money(taxDeductions);
+          document.getElementById('overtime').textContent = overtimeHours.toFixed(1) + ' hrs / ' + money(overtimePay);
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

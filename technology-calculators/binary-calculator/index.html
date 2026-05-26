@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Calculator | CalcUni</title>
+  <meta name="description" content="Perform basic logic or mathematical operations directly in Binary representation.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="active">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TECHNOLOGY TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../technology-calculators/" >Overview</a></li>
+        <li><a href="../../technology-calculators/binary-calculator/" class="active">Binary Calculator</a></li>
+        <li><a href="../../technology-calculators/subnet-calculator/" >Subnet Calculator</a></li>
+        <li><a href="../../technology-calculators/ip-calculator/" >IP Calculator</a></li>
+        <li><a href="../../technology-calculators/bandwidth-calculator/" >Bandwidth Calculator</a></li>
+        <li><a href="../../technology-calculators/storage-converter/" >Storage Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../technology-calculators/">Technology Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Binary Calculator</span>
+      </div>
+
+      <span class="category-badge">Technology Calculator</span>
+      <h1 class="page-title">Binary Calculator</h1>
+      <p class="page-desc">Perform basic logic or mathematical operations directly in Binary representation.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Binary Operation</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Binary Number 1</label>
+              <input id="op1" type="text" value="1101" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Operation</label>
+              <select id="op" onchange="calculate()">
+                <option value="+">Addition (+)</option>
+                <option value="-">Subtraction (-)</option>
+                <option value="*">Multiplication (*)</option>
+                <option value="/">Division (/)</option>
+                <option value="AND">Bitwise AND</option>
+                <option value="OR">Bitwise OR</option>
+                <option value="XOR">Bitwise XOR</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Binary Number 2</label>
+              <input id="op2" type="text" value="1011" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Perform Operation</button>
+          <p class="note">Valid characters are 0 and 1. Values are calculated in base-10 integer representation, processed, and displayed in bases 2, 10, and 16.</p>
+        </div>
+
+        <div class="result">
+          <span>Binary Result</span>
+          <strong class="big" id="bin_res" style="word-break: break-all;">11000</strong>
+          <div class="result-row">
+            <span>Decimal Equivalent</span>
+            <strong id="dec_res">24</strong>
+          </div>
+          <div class="result-row">
+            <span>Hexadecimal Equivalent</span>
+            <strong id="hex_res">18</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        function calculate() {
+          const op1Str = document.getElementById('op1').value.trim();
+          const op2Str = document.getElementById('op2').value.trim();
+          const op = document.getElementById('op').value;
+          
+          if (/[^01]/.test(op1Str) || /[^01]/.test(op2Str)) {
+            document.getElementById('bin_res').textContent = 'Error: Invalid Binary';
+            document.getElementById('dec_res').textContent = 'N/A';
+            document.getElementById('hex_res').textContent = 'N/A';
+            return;
+          }
+          
+          if (!op1Str || !op2Str) {
+            document.getElementById('bin_res').textContent = '0';
+            document.getElementById('dec_res').textContent = '0';
+            document.getElementById('hex_res').textContent = '0';
+            return;
+          }
+          
+          const dec1 = parseInt(op1Str, 2);
+          const dec2 = parseInt(op2Str, 2);
+          
+          let res = 0;
+          switch (op) {
+            case '+': res = dec1 + dec2; break;
+            case '-': res = dec1 - dec2; break;
+            case '*': res = dec1 * dec2; break;
+            case '/': res = dec2 !== 0 ? Math.floor(dec1 / dec2) : 0; break;
+            case 'AND': res = dec1 & dec2; break;
+            case 'OR': res = dec1 | dec2; break;
+            case 'XOR': res = dec1 ^ dec2; break;
+          }
+          
+          // Force unsigned 32-bit for bitwise if negative
+          if (res < 0) res = res >>> 0;
+          
+          document.getElementById('bin_res').textContent = res.toString(2);
+          document.getElementById('dec_res').textContent = res.toString(10);
+          document.getElementById('hex_res').textContent = res.toString(16).toUpperCase();
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        function calculate() {
+          const op1Str = document.getElementById('op1').value.trim();
+          const op2Str = document.getElementById('op2').value.trim();
+          const op = document.getElementById('op').value;
+          
+          if (/[^01]/.test(op1Str) || /[^01]/.test(op2Str)) {
+            document.getElementById('bin_res').textContent = 'Error: Invalid Binary';
+            document.getElementById('dec_res').textContent = 'N/A';
+            document.getElementById('hex_res').textContent = 'N/A';
+            return;
+          }
+          
+          if (!op1Str || !op2Str) {
+            document.getElementById('bin_res').textContent = '0';
+            document.getElementById('dec_res').textContent = '0';
+            document.getElementById('hex_res').textContent = '0';
+            return;
+          }
+          
+          const dec1 = parseInt(op1Str, 2);
+          const dec2 = parseInt(op2Str, 2);
+          
+          let res = 0;
+          switch (op) {
+            case '+': res = dec1 + dec2; break;
+            case '-': res = dec1 - dec2; break;
+            case '*': res = dec1 * dec2; break;
+            case '/': res = dec2 !== 0 ? Math.floor(dec1 / dec2) : 0; break;
+            case 'AND': res = dec1 & dec2; break;
+            case 'OR': res = dec1 | dec2; break;
+            case 'XOR': res = dec1 ^ dec2; break;
+          }
+          
+          // Force unsigned 32-bit for bitwise if negative
+          if (res < 0) res = res >>> 0;
+          
+          document.getElementById('bin_res').textContent = res.toString(2);
+          document.getElementById('dec_res').textContent = res.toString(10);
+          document.getElementById('hex_res').textContent = res.toString(16).toUpperCase();
+        }
+        calculate();
+      </script>
+<script>
+        function calculate() {
+          const op1Str = document.getElementById('op1').value.trim();
+          const op2Str = document.getElementById('op2').value.trim();
+          const op = document.getElementById('op').value;
+          
+          if (/[^01]/.test(op1Str) || /[^01]/.test(op2Str)) {
+            document.getElementById('bin_res').textContent = 'Error: Invalid Binary';
+            document.getElementById('dec_res').textContent = 'N/A';
+            document.getElementById('hex_res').textContent = 'N/A';
+            return;
+          }
+          
+          if (!op1Str || !op2Str) {
+            document.getElementById('bin_res').textContent = '0';
+            document.getElementById('dec_res').textContent = '0';
+            document.getElementById('hex_res').textContent = '0';
+            return;
+          }
+          
+          const dec1 = parseInt(op1Str, 2);
+          const dec2 = parseInt(op2Str, 2);
+          
+          let res = 0;
+          switch (op) {
+            case '+': res = dec1 + dec2; break;
+            case '-': res = dec1 - dec2; break;
+            case '*': res = dec1 * dec2; break;
+            case '/': res = dec2 !== 0 ? Math.floor(dec1 / dec2) : 0; break;
+            case 'AND': res = dec1 & dec2; break;
+            case 'OR': res = dec1 | dec2; break;
+            case 'XOR': res = dec1 ^ dec2; break;
+          }
+          
+          // Force unsigned 32-bit for bitwise if negative
+          if (res < 0) res = res >>> 0;
+          
+          document.getElementById('bin_res').textContent = res.toString(2);
+          document.getElementById('dec_res').textContent = res.toString(10);
+          document.getElementById('hex_res').textContent = res.toString(16).toUpperCase();
+        }
+        calculate();
+      </script>
+
+</body>
+</html>

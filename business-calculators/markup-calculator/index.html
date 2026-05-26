@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markup Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the selling price, revenue profit, and margin from cost and markup percentage.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="active">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">BUSINESS TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../business-calculators/" >Overview</a></li>
+        <li><a href="../../business-calculators/profit-margin-calculator/" >Profit Margin Calculator</a></li>
+        <li><a href="../../business-calculators/markup-calculator/" class="active">Markup Calculator</a></li>
+        <li><a href="../../business-calculators/break-even-calculator/" >Break-even Calculator</a></li>
+        <li><a href="../../business-calculators/payroll-calculator/" >Payroll Calculator</a></li>
+        <li><a href="../../business-calculators/roi-calculator/" >ROI Calculator</a></li>
+        <li><a href="../../business-calculators/commission-calculator/" >Commission Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../business-calculators/">Business Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Markup Calculator</span>
+      </div>
+
+      <span class="category-badge">Business Calculator</span>
+      <h1 class="page-title">Markup Calculator</h1>
+      <p class="page-desc">Calculate the selling price, revenue profit, and margin from cost and markup percentage.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+    
+      <section class="grid">
+        <div class="card">
+          <h2>Markup Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Cost ($)</label>
+              <input id="cost" type="number" value="600" oninput="calculate()">
+            </div>
+            <div class="field">
+              <label>Markup (%)</label>
+              <input id="markup_pct" type="number" value="66.67" oninput="calculate()">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Selling Price</button>
+          <p class="note">Formulas:<br>Profit = Cost * (Markup / 100)<br>Selling Price = Cost + Profit<br>Gross Margin = (Profit / Selling Price) * 100</p>
+        </div>
+
+        <div class="result">
+          <span>Selling Price</span>
+          <strong class="big" id="price">$0.00</strong>
+          <div class="result-row">
+            <span>Gross Profit</span>
+            <strong id="profit">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Gross Margin</span>
+            <strong id="margin">0.00%</strong>
+          </div>
+        </div>
+      </section>
+      <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const cost = +document.getElementById('cost').value || 0;
+          const markup_pct = +document.getElementById('markup_pct').value || 0;
+          
+          const profit = cost * (markup_pct / 100);
+          const price = cost + profit;
+          
+          let margin = 0;
+          if (price !== 0) {
+            margin = (profit / price) * 100;
+          }
+          
+          document.getElementById('price').textContent = money(price);
+          document.getElementById('profit').textContent = money(profit);
+          document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+        }
+        calculate();
+      </script>
+      
+  
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Business and financial calculations shown are estimates for planning and informational purposes only. Actual values may vary depending on tax regulations, payroll rules, and specific transaction terms. Consult a qualified professional or accountant for official business planning.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const cost = +document.getElementById('cost').value || 0;
+          const markup_pct = +document.getElementById('markup_pct').value || 0;
+          
+          const profit = cost * (markup_pct / 100);
+          const price = cost + profit;
+          
+          let margin = 0;
+          if (price !== 0) {
+            margin = (profit / price) * 100;
+          }
+          
+          document.getElementById('price').textContent = money(price);
+          document.getElementById('profit').textContent = money(profit);
+          document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+        }
+        calculate();
+      </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const cost = +document.getElementById('cost').value || 0;
+          const markup_pct = +document.getElementById('markup_pct').value || 0;
+          
+          const profit = cost * (markup_pct / 100);
+          const price = cost + profit;
+          
+          let margin = 0;
+          if (price !== 0) {
+            margin = (profit / price) * 100;
+          }
+          
+          document.getElementById('price').textContent = money(price);
+          document.getElementById('profit').textContent = money(profit);
+          document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+        }
+        calculate();
+      </script>
+
+</body>
+</html>
