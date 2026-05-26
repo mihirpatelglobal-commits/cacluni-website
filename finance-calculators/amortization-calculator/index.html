@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amortization Calculator | CalcUni</title>
+  <meta name="description" content="Create a loan amortization estimate showing payment, principal, interest, remaining balance, and total interest.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="active">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">FINANCE TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../finance-calculators/" >Overview</a></li>
+        <li><a href="../../finance-calculators/mortgage-calculator/" >Mortgage Calculator</a></li>
+        <li><a href="../../finance-calculators/loan-calculator/" >Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/compound-interest-calculator/" >Compound Interest Calculator</a></li>
+        <li><a href="../../finance-calculators/car-loan-calculator/" >Car Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/amortization-calculator/" class="active">Amortization Calculator</a></li>
+        <li><a href="../../finance-calculators/credit-card-calculator/" >Credit Card Calculator</a></li>
+        <li><a href="../../finance-calculators/retirement-calculator/" >Retirement Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../finance-calculators/">Finance Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Amortization Calculator</span>
+      </div>
+
+      <span class="category-badge">Finance Calculator</span>
+      <h1 class="page-title">Amortization Calculator</h1>
+      <p class="page-desc">View monthly amortization schedules and principal/interest splits.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Loan Inputs</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Loan amount</label>
+              <input id="amount" type="number" value="300000">
+            </div>
+            <div class="field">
+              <label>Annual interest rate (%)</label>
+              <input id="rate" type="number" value="5.25" step="0.01">
+            </div>
+            <div class="field">
+              <label>Term (years)</label>
+              <input id="years" type="number" value="25">
+            </div>
+            <div class="field">
+              <label>Payments per year</label>
+              <select id="freq">
+                <option value="12">Monthly</option>
+                <option value="26">Bi-weekly</option>
+                <option value="52">Weekly</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calc()">Generate Schedule</button>
+          <p class="note">The table shows the first 24 payments for readability.</p>
+        </div>
+
+        <div class="result">
+          <span>Summary Payment</span>
+          <strong class="big" id="payment">$0.00</strong>
+          <div class="result-row">
+            <span>Total payments</span>
+            <strong id="total">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Total interest</span>
+            <strong id="interest">$0.00</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 22px;">
+        <h2>Amortization Schedule</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Payment</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Calculations shown here are estimates for planning and informational purposes only. Actual interest rates, payments, and schedules may vary based on your lender's specific terms, credit score, and market fluctuations. Always consult a certified financial advisor before making major financial decisions.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const fmtMoney = n => isFinite(n) ? n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' }) : '$0.00';
+    const val = id => Number(document.getElementById(id).value);
+
+    function calc() {
+      const P = val('amount'),
+            f = val('freq'),
+            n = val('years') * f,
+            r = val('rate') / 100 / f;
+      const pay = r === 0 ? P / n : P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      let bal = P,
+          html = '';
+      for (let i = 1; i <= Math.min(n, 24); i++) {
+        const int = bal * r,
+              prin = Math.min(pay - int, bal);
+        bal = Math.max(0, bal - prin);
+        html += `<tr><td>${i}</td><td>${fmtMoney(pay)}</td><td>${fmtMoney(prin)}</td><td>${fmtMoney(int)}</td><td>${fmtMoney(bal)}</td></tr>`;
+      }
+      document.getElementById('payment').textContent = fmtMoney(pay);
+      document.getElementById('total').textContent = fmtMoney(pay * n);
+      document.getElementById('interest').textContent = fmtMoney(pay * n - P);
+      document.getElementById('rows').innerHTML = html;
+    }
+    calc();
+  </script>
+
+</body>
+</html>

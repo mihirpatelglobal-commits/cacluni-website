@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Average Calculator | CalcUni</title>
+  <meta name="description" content="Calculate mean, median, mode, sum, count, minimum, maximum, and range from a list of numbers.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="active">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">MATH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../math-calculators/" >Overview</a></li>
+        <li><a href="../../math-calculators/percentage-calculator/" >Percentage Calculator</a></li>
+        <li><a href="../../math-calculators/fraction-calculator/" >Fraction Calculator</a></li>
+        <li><a href="../../math-calculators/scientific-calculator/" >Scientific Calculator</a></li>
+        <li><a href="../../math-calculators/average-calculator/" class="active">Average Calculator</a></li>
+        <li><a href="../../math-calculators/gpa-calculator/" >GPA Calculator</a></li>
+        <li><a href="../../math-calculators/grade-calculator/" >Grade Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../math-calculators/">Math Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Average Calculator</span>
+      </div>
+
+      <span class="category-badge">Math Calculator</span>
+      <h1 class="page-title">Average Calculator</h1>
+      <p class="page-desc">Calculate mean, median, mode, sum, and range.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="calculator-shell">
+        <div class="card">
+          <h2>Number List</h2>
+          <div class="form-group">
+            <label>Enter numbers separated by commas, spaces, or new lines</label>
+            <textarea id="nums" rows="8">12, 15, 18, 18, 22, 30</textarea>
+          </div>
+          <button onclick="calc()">Calculate</button>
+        </div>
+
+        <div class="card results">
+          <h2>Results</h2>
+          <div class="result-line">
+            <span>Count</span>
+            <strong id="count">0</strong>
+          </div>
+          <div class="result-line">
+            <span>Sum</span>
+            <strong id="sum">0</strong>
+          </div>
+          <div class="result-line">
+            <span>Average / Mean</span>
+            <strong id="mean">0</strong>
+          </div>
+          <div class="result-line">
+            <span>Median</span>
+            <strong id="median">0</strong>
+          </div>
+          <div class="result-line">
+            <span>Mode</span>
+            <strong id="mode">0</strong>
+          </div>
+          <div class="result-line">
+            <span>Range</span>
+            <strong id="range">0</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These math tools are provided for educational and reference purposes. While we strive to ensure mathematical accuracy, we recommend verifying critical calculations independently for formal academic, scientific, or professional work.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+    function calc() {
+      const nums = document.getElementById('nums').value.split(/[\s,]+/).map(Number).filter(n => isFinite(n)).sort((a, b) => a - b);
+      const c = nums.length,
+            s = nums.reduce((a, b) => a + b, 0),
+            med = c ? (c % 2 ? nums[(c - 1) / 2] : (nums[c / 2 - 1] + nums[c / 2]) / 2) : 0;
+      const f = {};
+      nums.forEach(n => f[n] = (f[n] || 0) + 1);
+      const mf = Math.max(...Object.values(f), 0),
+            modes = Object.keys(f).filter(k => f[k] === mf && mf > 1);
+      
+      document.getElementById('count').textContent = c;
+      document.getElementById('sum').textContent = fmtNum(s, 2);
+      document.getElementById('mean').textContent = fmtNum(c ? s / c : 0, 2);
+      document.getElementById('median').textContent = fmtNum(med, 2);
+      document.getElementById('mode').textContent = modes.length ? modes.join(', ') : 'No mode';
+      document.getElementById('range').textContent = c ? fmtNum(nums[c - 1] - nums[0], 2) : '0';
+    }
+    calc();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compound Interest Calculator | CalcUni</title>
+  <meta name="description" content="Free compound interest calculator with contributions and future value estimate.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="active">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">FINANCE TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../finance-calculators/" >Overview</a></li>
+        <li><a href="../../finance-calculators/mortgage-calculator/" >Mortgage Calculator</a></li>
+        <li><a href="../../finance-calculators/loan-calculator/" >Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/compound-interest-calculator/" class="active">Compound Interest Calculator</a></li>
+        <li><a href="../../finance-calculators/car-loan-calculator/" >Car Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/amortization-calculator/" >Amortization Calculator</a></li>
+        <li><a href="../../finance-calculators/credit-card-calculator/" >Credit Card Calculator</a></li>
+        <li><a href="../../finance-calculators/retirement-calculator/" >Retirement Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../finance-calculators/">Finance Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Compound Interest Calculator</span>
+      </div>
+
+      <span class="category-badge">Finance Calculator</span>
+      <h1 class="page-title">Compound Interest Calculator</h1>
+      <p class="page-desc">Estimate investment growth with compound interest.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Investment Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Initial principal</label>
+              <input id="principal" type="number" value="10000">
+            </div>
+            <div class="field">
+              <label>Monthly contribution</label>
+              <input id="contrib" type="number" value="250">
+            </div>
+            <div class="field">
+              <label>Annual return (%)</label>
+              <input id="rate" type="number" step="0.01" value="6">
+            </div>
+            <div class="field">
+              <label>Years</label>
+              <input id="years" type="number" value="10">
+            </div>
+            <div class="field">
+              <label>Compounds per year</label>
+              <select id="comp">
+                <option value="12">Monthly</option>
+                <option value="4">Quarterly</option>
+                <option value="1">Annually</option>
+                <option value="365">Daily</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Growth</button>
+          <p class="note">Formula: A = P(1 + r/n)^(nt). Monthly contributions are compounded monthly in the projection.</p>
+        </div>
+
+        <div class="result">
+          <span>Future value</span>
+          <strong class="big" id="future">$0</strong>
+          <div class="result-row">
+            <span>Total contributions</span>
+            <strong id="paid"></strong>
+          </div>
+          <div class="result-row">
+            <span>Interest earned</span>
+            <strong id="earned"></strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Calculations shown here are estimates for planning and informational purposes only. Actual interest rates, payments, and schedules may vary based on your lender's specific terms, credit score, and market fluctuations. Always consult a certified financial advisor before making major financial decisions.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const money = n => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+    function calculate() {
+      const P = +principal.value || 0,
+            c = +contrib.value || 0,
+            annual = (+rate.value || 0) / 100,
+            y = +years.value || 0,
+            n = +comp.value;
+      let balance = P;
+      const months = Math.round(y * 12),
+            monthlyRate = Math.pow(1 + annual / n, n / 12) - 1;
+      for (let i = 0; i < months; i++) {
+        balance = balance * (1 + monthlyRate) + c;
+      }
+      const totalPaid = P + c * months;
+      future.textContent = money(balance);
+      paid.textContent = money(totalPaid);
+      earned.textContent = money(balance - totalPaid);
+    }
+    calculate();
+  </script>
+
+</body>
+</html>

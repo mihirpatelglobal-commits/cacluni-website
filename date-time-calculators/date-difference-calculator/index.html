@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Difference Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the exact number of days, weeks, months, and years between two dates.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="active">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">DATE & TIME TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../date-time-calculators/" >Overview</a></li>
+        <li><a href="../../date-time-calculators/age-calculator/" >Age Calculator</a></li>
+        <li><a href="../../date-time-calculators/date-difference-calculator/" class="active">Date Difference Calculator</a></li>
+        <li><a href="../../date-time-calculators/business-days-calculator/" >Business Days Calculator</a></li>
+        <li><a href="../../date-time-calculators/time-duration-calculator/" >Time Duration Calculator</a></li>
+        <li><a href="../../date-time-calculators/hours-calculator/" >Hours Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../date-time-calculators/">Date & Time Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Date Difference Calculator</span>
+      </div>
+
+      <span class="category-badge">Date & Time Calculator</span>
+      <h1 class="page-title">Date Difference Calculator</h1>
+      <p class="page-desc">Calculate the total days and weeks between two specific dates.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Date Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Start Date</label>
+            <input id="startDate" type="date">
+          </div>
+          <div class="field">
+            <label>End Date</label>
+            <input id="endDate" type="date">
+          </div>
+          <div class="field" style="flex-direction: row; align-items: center; gap: 8px; margin-bottom: 0;">
+            <input id="includeEnd" type="checkbox" style="width: auto;" onchange="calc()">
+            <label for="includeEnd" style="cursor: pointer;">Include end date (add 1 day)</label>
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Difference</button>
+      </div>
+
+      <div class="result">
+        <span>Total Difference</span>
+        <strong class="big" id="daysResult">0 days</strong>
+        <div class="result-row">
+          <span>Weeks &amp; Days</span>
+          <strong id="weeksDays">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Years, Months, Days</span>
+          <strong id="ymdDiff">—</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These date calculations are for reference and planning purposes. Business days calculations exclude standard weekends and do not account for local statutory holidays. Please verify timesheets and contract durations independently.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    // Set default dates: start is today, end is today + 30 days
+    const today = new Date();
+    const future = new Date();
+    future.setDate(today.getDate() + 30);
+    
+    document.getElementById('startDate').value = today.toISOString().split('T')[0];
+    document.getElementById('endDate').value = future.toISOString().split('T')[0];
+
+    function calc() {
+      const startStr = document.getElementById('startDate').value;
+      const endStr = document.getElementById('endDate').value;
+      if (!startStr || !endStr) return;
+
+      let start = new Date(startStr + 'T00:00:00');
+      let end = new Date(endStr + 'T00:00:00');
+      const inc = document.getElementById('includeEnd').checked;
+
+      let isNegative = false;
+      if (end < start) {
+        // Swap dates
+        const tmp = start;
+        start = end;
+        end = tmp;
+        isNegative = true;
+      }
+
+      let diffTime = end - start;
+      let diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      if (inc) diffDays += 1;
+
+      // Weeks representation
+      const weeks = Math.floor(diffDays / 7);
+      const remainingDays = diffDays % 7;
+
+      // YMD representation
+      let tempEnd = new Date(end);
+      if (inc) tempEnd.setDate(tempEnd.getDate() + 1);
+
+      let years = tempEnd.getFullYear() - start.getFullYear();
+      let months = tempEnd.getMonth() - start.getMonth();
+      let days = tempEnd.getDate() - start.getDate();
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(tempEnd.getFullYear(), tempEnd.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      const sign = isNegative ? "-" : "";
+      document.getElementById('daysResult').textContent = `${sign}${diffDays.toLocaleString('en-CA')} days`;
+      document.getElementById('weeksDays').textContent = `${sign}${weeks} weeks, ${remainingDays} days`;
+      document.getElementById('ymdDiff').textContent = `${sign}${years} years, ${months} months, ${days} days`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

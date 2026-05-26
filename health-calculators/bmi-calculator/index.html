@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator | CalcUni</title>
+  <meta name="description" content="Free BMI calculator using metric or imperial units.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" class="active">BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" >Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" >BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" >Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" >Ideal Weight Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>BMI Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">BMI Calculator</h1>
+      <p class="page-desc">Calculate body mass index and BMI category.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Body Measurements</h2>
+          <div class="field">
+            <label>Unit system</label>
+            <select id="unit" onchange="toggleUnits()">
+              <option value="metric">Metric</option>
+              <option value="imperial">Imperial</option>
+            </select>
+          </div>
+          <div id="metric" class="form-grid">
+            <div class="field">
+              <label>Weight (kg)</label>
+              <input id="kg" type="number" value="75">
+            </div>
+            <div class="field">
+              <label>Height (cm)</label>
+              <input id="cm" type="number" value="175">
+            </div>
+          </div>
+          <div id="imperial" class="form-grid" style="display:none">
+            <div class="field">
+              <label>Weight (lb)</label>
+              <input id="lb" type="number" value="165">
+            </div>
+            <div class="field">
+              <label>Height (inches)</label>
+              <input id="inch" type="number" value="69">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate BMI</button>
+          <p class="note">Formula: BMI = weight in kg / height in metres².</p>
+        </div>
+
+        <div class="result">
+          <span>Your BMI</span>
+          <strong class="big" id="bmi">0</strong>
+          <div class="result-row">
+            <span>Category</span>
+            <strong id="cat"></strong>
+          </div>
+          <div class="result-row">
+            <span>Healthy BMI range</span>
+            <strong>18.5 – 24.9</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function toggleUnits() {
+      const metric = document.getElementById('metric');
+      const imperial = document.getElementById('imperial');
+      const unit = document.getElementById('unit');
+      metric.style.display = unit.value === 'metric' ? 'grid' : 'none';
+      imperial.style.display = unit.value === 'imperial' ? 'grid' : 'none';
+      calculate();
+    }
+    function calculate() {
+      const unit = document.getElementById('unit');
+      const kg = document.getElementById('kg');
+      const cm = document.getElementById('cm');
+      const lb = document.getElementById('lb');
+      const inch = document.getElementById('inch');
+      const bmi = document.getElementById('bmi');
+      const cat = document.getElementById('cat');
+
+      let w, h;
+      if (unit.value === 'metric') {
+        w = +kg.value || 0;
+        h = (+cm.value || 0) / 100;
+      } else {
+        w = (+lb.value || 0) * 0.45359237;
+        h = (+inch.value || 0) * 0.0254;
+      }
+      let v = w / (h * h);
+      if (!isFinite(v)) v = 0;
+      bmi.textContent = v.toFixed(1);
+      cat.textContent = v < 18.5 ? 'Underweight' : v < 25 ? 'Normal weight' : v < 30 ? 'Overweight' : 'Obesity';
+    }
+    calculate();
+  </script>
+
+</body>
+</html>

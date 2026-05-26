@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the final exam score needed to reach a target course grade.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="active">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">MATH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../math-calculators/" >Overview</a></li>
+        <li><a href="../../math-calculators/percentage-calculator/" >Percentage Calculator</a></li>
+        <li><a href="../../math-calculators/fraction-calculator/" >Fraction Calculator</a></li>
+        <li><a href="../../math-calculators/scientific-calculator/" >Scientific Calculator</a></li>
+        <li><a href="../../math-calculators/average-calculator/" >Average Calculator</a></li>
+        <li><a href="../../math-calculators/gpa-calculator/" >GPA Calculator</a></li>
+        <li><a href="../../math-calculators/grade-calculator/" class="active">Grade Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../math-calculators/">Math Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Grade Calculator</span>
+      </div>
+
+      <span class="category-badge">Math Calculator</span>
+      <h1 class="page-title">Grade Calculator</h1>
+      <p class="page-desc">Estimate final course grades and required final exam scores.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="calculator-shell">
+        <div class="card">
+          <h2>Final Grade Requirement</h2>
+          <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="field">
+              <label>Current grade (%)</label>
+              <input id="current" type="number" value="82">
+            </div>
+            <div class="field">
+              <label>Final exam weight (%)</label>
+              <input id="weight" type="number" value="30">
+            </div>
+            <div class="field" style="grid-column: span 2;">
+              <label>Desired course grade (%)</label>
+              <input id="desired" type="number" value="85">
+            </div>
+          </div>
+          <button class="btn" onclick="calc()" style="margin-top: 20px;">Calculate</button>
+          <p class="note">Formula: required final score = (desired grade − current grade × coursework weight) ÷ final exam weight.</p>
+        </div>
+
+        <div class="card results">
+          <h2>Result</h2>
+          <div class="big-result" id="needed" style="font-size: 32px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">0%</div>
+          <div class="result-line">
+            <span>Current coursework weight</span>
+            <strong id="cw">0%</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These math tools are provided for educational and reference purposes. While we strive to ensure mathematical accuracy, we recommend verifying critical calculations independently for formal academic, scientific, or professional work.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function calc() {
+      const needed = document.getElementById('needed');
+      const cw = document.getElementById('cw');
+      const w = val('weight') / 100;
+      needed.textContent = `${fmtNum((val('desired') - val('current') * (1 - w)) / w, 2)}%`;
+      cw.textContent = `${fmtNum((1 - w) * 100, 2)}%`;
+    }
+    calc();
+  </script>
+
+</body>
+</html>

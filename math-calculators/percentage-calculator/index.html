@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator | CalcUni</title>
+  <meta name="description" content="Calculate percentages, percentage change, and find what percentage one number is of another.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="active">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">MATH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../math-calculators/" >Overview</a></li>
+        <li><a href="../../math-calculators/percentage-calculator/" class="active">Percentage Calculator</a></li>
+        <li><a href="../../math-calculators/fraction-calculator/" >Fraction Calculator</a></li>
+        <li><a href="../../math-calculators/scientific-calculator/" >Scientific Calculator</a></li>
+        <li><a href="../../math-calculators/average-calculator/" >Average Calculator</a></li>
+        <li><a href="../../math-calculators/gpa-calculator/" >GPA Calculator</a></li>
+        <li><a href="../../math-calculators/grade-calculator/" >Grade Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../math-calculators/">Math Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Percentage Calculator</span>
+      </div>
+
+      <span class="category-badge">Math Calculator</span>
+      <h1 class="page-title">Percentage Calculator</h1>
+      <p class="page-desc">Quickly find percentages, increases, and decreases.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="calculator-shell">
+        <div class="card">
+          <h2>Percentage Tools</h2>
+          <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="field">
+              <label>What is X% of Y? X</label>
+              <input id="p1" type="number" value="15">
+            </div>
+            <div class="field">
+              <label>Y</label>
+              <input id="p2" type="number" value="200">
+            </div>
+            <div class="field">
+              <label>X is what % of Y? X</label>
+              <input id="part" type="number" value="30">
+            </div>
+            <div class="field">
+              <label>Y</label>
+              <input id="whole" type="number" value="120">
+            </div>
+            <div class="field">
+              <label>Original value</label>
+              <input id="old" type="number" value="100">
+            </div>
+            <div class="field">
+              <label>New value</label>
+              <input id="newv" type="number" value="125">
+            </div>
+          </div>
+          <button class="btn" onclick="calc()" style="margin-top: 20px;">Calculate</button>
+        </div>
+
+        <div class="card results">
+          <h2>Results</h2>
+          <div class="result-line">
+            <span>X% of Y</span>
+            <strong id="r1">0</strong>
+          </div>
+          <div class="result-line">
+            <span>X as % of Y</span>
+            <strong id="r2">0%</strong>
+          </div>
+          <div class="result-line">
+            <span>Percentage change</span>
+            <strong id="r3">0%</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These math tools are provided for educational and reference purposes. While we strive to ensure mathematical accuracy, we recommend verifying critical calculations independently for formal academic, scientific, or professional work.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function calc() {
+      const r1 = document.getElementById('r1');
+      const r2 = document.getElementById('r2');
+      const r3 = document.getElementById('r3');
+      r1.textContent = fmtNum(val('p1') / 100 * val('p2'), 2);
+      r2.textContent = `${fmtNum(val('part') / val('whole') * 100, 2)}%`;
+      r3.textContent = `${fmtNum((val('newv') - val('old')) / val('old') * 100, 2)}%`;
+    }
+    calc();
+  </script>
+
+</body>
+</html>

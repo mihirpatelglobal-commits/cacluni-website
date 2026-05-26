@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator Canada | CalcUni</title>
+  <meta name="description" content="Estimate Canadian federal and provincial income tax using 2026 brackets.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="active">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TAX TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../tax-calculators/" >Overview</a></li>
+        <li><a href="../../tax-calculators/gst-hst-calculator-canada/" >GST/HST Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/income-tax-calculator-canada/" class="active">Income Tax Calculator Canada</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../tax-calculators/">Tax Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Income Tax Calculator Canada</span>
+      </div>
+
+      <span class="category-badge">Tax Calculator</span>
+      <h1 class="page-title">Income Tax Calculator Canada</h1>
+      <p class="page-desc">Estimate federal and provincial income tax.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Taxable Income</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Taxable income</label>
+              <input id="income" type="number" value="85000">
+            </div>
+            <div class="field">
+              <label>Province / territory</label>
+              <select id="province"></select>
+            </div>
+            <div class="field">
+              <label>Additional credits / tax already paid</label>
+              <input id="credits" type="number" value="0">
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Estimate Tax</button>
+          <p class="note">This is a simplified bracket estimator. It excludes most credits, surtaxes, CPP/EI, benefit clawbacks, Quebec abatement, and special rules. For best accuracy, enter taxable income after deductions.</p>
+        </div>
+
+        <div class="result">
+          <span>Estimated tax payable</span>
+          <strong class="big" id="tax">$0</strong>
+          <div class="result-row">
+            <span>Federal tax</span>
+            <strong id="fed"></strong>
+          </div>
+          <div class="result-row">
+            <span>Provincial/territorial tax</span>
+            <strong id="prov"></strong>
+          </div>
+          <div class="result-row">
+            <span>Average tax rate</span>
+            <strong id="avg"></strong>
+          </div>
+          <div class="result-row">
+            <span>Marginal tax rate</span>
+            <strong id="marg"></strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Tax calculations are estimates based on standard provincial and federal rates for the selected tax year and do not constitute professional tax advice or tax planning. Please consult a qualified CPA or tax professional for actual filings and tax planning.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const money = n => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+    const federal = [[58523, .14], [117045, .205], [181440, .26], [258482, .29], [Infinity, .33]];
+    const provinces = {
+      ON: ['Ontario', [[53891, .0505], [107785, .0915], [150000, .1116], [220000, .1216], [Infinity, .1316]]],
+      QC: ['Quebec', [[54345, .14], [108680, .19], [132245, .24], [Infinity, .2575]]],
+      BC: ['British Columbia', [[50363, .0506], [100728, .077], [115648, .105], [140430, .1229], [190405, .147], [265545, .168], [Infinity, .205]]],
+      AB: ['Alberta', [[61200, .08], [154259, .10], [185111, .12], [246813, .13], [370220, .14], [Infinity, .15]]],
+      MB: ['Manitoba', [[47000, .108], [100000, .1275], [Infinity, .174]]],
+      NB: ['New Brunswick', [[52333, .094], [104666, .14], [193861, .16], [Infinity, .195]]],
+      NL: ['Newfoundland and Labrador', [[44678, .087], [89354, .145], [159528, .158], [223340, .178], [285319, .198], [570638, .208], [1141275, .213], [Infinity, .218]]],
+      NS: ['Nova Scotia', [[30995, .0879], [61991, .1495], [97417, .1667], [157124, .175], [Infinity, .21]]],
+      PE: ['Prince Edward Island', [[33928, .095], [65820, .1347], [106890, .166], [142250, .1762], [Infinity, .19]]],
+      SK: ['Saskatchewan', [[54532, .105], [155805, .125], [Infinity, .145]]],
+      NT: ['Northwest Territories', [[53003, .059], [106009, .086], [172346, .122], [Infinity, .1405]]],
+      NU: ['Nunavut', [[55801, .04], [111602, .07], [181439, .09], [Infinity, .115]]],
+      YT: ['Yukon', [[58523, .064], [117045, .09], [181440, .109], [500000, .128], [Infinity, .15]]]
+    };
+
+    const provinceSelect = document.getElementById('province');
+    for (const [k, v] of Object.entries(provinces)) {
+      provinceSelect.add(new Option(v[0], k));
+    }
+    provinceSelect.value = 'ON';
+
+    function bracketTax(x, br) {
+      let tax = 0, last = 0;
+      for (const [limit, rate] of br) {
+        if (x > last) {
+          tax += (Math.min(x, limit) - last) * rate;
+          last = limit;
+        }
+        if (x <= limit) break;
+      }
+      return tax;
+    }
+
+    function margRate(x, br) {
+      let last = 0;
+      for (const [limit, rate] of br) {
+        if (x <= limit) return rate;
+        last = limit;
+      }
+      return br[br.length - 1][1];
+    }
+
+    function calculate() {
+      const x = +income.value || 0,
+            c = +credits.value || 0;
+      const ft = bracketTax(x, federal),
+            pt = bracketTax(x, provinces[provinceSelect.value][1]);
+      const total = Math.max(ft + pt - c, 0);
+      tax.textContent = money(total);
+      fed.textContent = money(ft);
+      prov.textContent = money(pt);
+      avg.textContent = x ? ((total / x) * 100).toFixed(2) + '%' : '0%';
+      marg.textContent = ((margRate(x, federal) + margRate(x, provinces[provinceSelect.value][1])) * 100).toFixed(2) + '%';
+    }
+
+    calculate();
+  </script>
+
+</body>
+</html>

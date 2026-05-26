@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Days Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the number of working days and business days between two dates, excluding weekends and holidays.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="active">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">DATE & TIME TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../date-time-calculators/" >Overview</a></li>
+        <li><a href="../../date-time-calculators/age-calculator/" >Age Calculator</a></li>
+        <li><a href="../../date-time-calculators/date-difference-calculator/" >Date Difference Calculator</a></li>
+        <li><a href="../../date-time-calculators/business-days-calculator/" class="active">Business Days Calculator</a></li>
+        <li><a href="../../date-time-calculators/time-duration-calculator/" >Time Duration Calculator</a></li>
+        <li><a href="../../date-time-calculators/hours-calculator/" >Hours Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../date-time-calculators/">Date & Time Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Business Days Calculator</span>
+      </div>
+
+      <span class="category-badge">Date & Time Calculator</span>
+      <h1 class="page-title">Business Days Calculator</h1>
+      <p class="page-desc">Find the number of working days between two dates, excluding weekends.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Date Range</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Start Date</label>
+            <input id="startDate" type="date">
+          </div>
+          <div class="field">
+            <label>End Date</label>
+            <input id="endDate" type="date">
+          </div>
+          <div class="field" style="flex-direction: row; align-items: center; gap: 8px; margin-bottom: 0;">
+            <input id="excludeHols" type="checkbox" style="width: auto;" checked onchange="calc()">
+            <label for="excludeHols" style="cursor: pointer;">Exclude holidays (Canada national)</label>
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Days</button>
+      </div>
+
+      <div class="result">
+        <span>Business Days</span>
+        <strong class="big" id="bizResult">0 days</strong>
+        <div class="result-row">
+          <span>Total Calendar Days</span>
+          <strong id="totalDays">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Weekend Days</span>
+          <strong id="weekendDays">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Holidays Excluded</span>
+          <strong id="holidaysCount">—</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These date calculations are for reference and planning purposes. Business days calculations exclude standard weekends and do not account for local statutory holidays. Please verify timesheets and contract durations independently.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const today = new Date();
+    const future = new Date();
+    future.setDate(today.getDate() + 30);
+    
+    document.getElementById('startDate').value = today.toISOString().split('T')[0];
+    document.getElementById('endDate').value = future.toISOString().split('T')[0];
+
+    // Simple Canadian National Statutory Holiday check
+    function isCanadaHoliday(date) {
+      const y = date.getFullYear();
+      const m = date.getMonth(); // 0-11
+      const d = date.getDate();
+      
+      // Fixed date holidays
+      if (m === 0 && d === 1) return true; // New Year
+      if (m === 6 && d === 1) return true; // Canada Day
+      if (m === 10 && d === 11) return true; // Remembrance Day
+      if (m === 11 && d === 25) return true; // Christmas
+      if (m === 11 && d === 26) return true; // Boxing Day
+      
+      // Floating holidays
+      // Victoria Day: Monday preceding May 25
+      if (m === 4) {
+        // Victoria Day is the Monday before May 25.
+        // Let's find May 25.
+        const may25 = new Date(y, 4, 25);
+        const day = may25.getDay(); // 0-6 (Sun-Sat)
+        let vicDay = 25 - (day === 0 ? 6 : day - 1); // Monday before May 25
+        if (d === vicDay) return true;
+      }
+      
+      // Labour Day: First Monday of September
+      if (m === 8) {
+        const firstSep = new Date(y, 8, 1);
+        const day = firstSep.getDay();
+        const labDay = day === 1 ? 1 : (day === 0 ? 2 : 9 - day);
+        if (d === labDay) return true;
+      }
+      
+      // Thanksgiving Day: Second Monday of October
+      if (m === 9) {
+        const firstOct = new Date(y, 9, 1);
+        const day = firstOct.getDay();
+        const firstMon = day === 1 ? 1 : (day === 0 ? 2 : 9 - day);
+        const thanksgiving = firstMon + 7;
+        if (d === thanksgiving) return true;
+      }
+      
+      // Good Friday: Floating, simple estimate for Easter
+      // Let's hardcode Good Friday dates for 2026-2029
+      if (y === 2026 && m === 3 && d === 3) return true;
+      if (y === 2027 && m === 2 && d === 26) return true;
+      if (y === 2028 && m === 3 && d === 14) return true;
+      if (y === 2029 && m === 2 && d === 30) return true;
+
+      return false;
+    }
+
+    function calc() {
+      const startStr = document.getElementById('startDate').value;
+      const endStr = document.getElementById('endDate').value;
+      if (!startStr || !endStr) return;
+
+      let start = new Date(startStr + 'T00:00:00');
+      let end = new Date(endStr + 'T00:00:00');
+      const excludeH = document.getElementById('excludeHols').checked;
+
+      let isNegative = false;
+      if (end < start) {
+        const tmp = start;
+        start = end;
+        end = tmp;
+        isNegative = true;
+      }
+
+      let totalDays = 0;
+      let weekends = 0;
+      let holidays = 0;
+      let businessDays = 0;
+
+      let current = new Date(start);
+      while (current <= end) {
+        totalDays++;
+        const dayOfWeek = current.getDay();
+        if (dayOfWeek === 0 || dayOfWeek === 6) {
+          weekends++;
+        } else if (excludeH && isCanadaHoliday(current)) {
+          holidays++;
+        } else {
+          businessDays++;
+        }
+        current.setDate(current.getDate() + 1);
+      }
+
+      const sign = isNegative ? "-" : "";
+      document.getElementById('bizResult').textContent = `${sign}${businessDays} days`;
+      document.getElementById('totalDays').textContent = `${totalDays} days`;
+      document.getElementById('weekendDays').textContent = `${weekends} days`;
+      document.getElementById('holidaysCount').textContent = excludeH ? `${holidays} days` : "Not excluded";
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

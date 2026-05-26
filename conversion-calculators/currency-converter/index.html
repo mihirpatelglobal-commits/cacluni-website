@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Converter | CalcUni</title>
+  <meta name="description" content="Convert between global currencies with live or fallback exchange rates.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="active">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONVERSION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../conversion-calculators/" >Overview</a></li>
+        <li><a href="../../conversion-calculators/unit-converter/" >Unit Converter</a></li>
+        <li><a href="../../conversion-calculators/currency-converter/" class="active">Currency Converter</a></li>
+        <li><a href="../../conversion-calculators/length-converter/" >Length Converter</a></li>
+        <li><a href="../../conversion-calculators/weight-converter/" >Weight Converter</a></li>
+        <li><a href="../../conversion-calculators/temperature-converter/" >Temperature Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../conversion-calculators/">Conversion Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Currency Converter</span>
+      </div>
+
+      <span class="category-badge">Conversion Calculator</span>
+      <h1 class="page-title">Currency Converter</h1>
+      <p class="page-desc">Convert between global currencies with real-time reference rates.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Currency Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Amount</label>
+            <input id="amount" type="number" value="100" oninput="convert()">
+          </div>
+          <div class="field">
+            <label>From</label>
+            <select id="fromCurr" onchange="convert()"></select>
+          </div>
+          <div class="field">
+            <label>To</label>
+            <select id="toCurr" onchange="convert()"></select>
+          </div>
+        </div>
+        <p class="note" id="rateStatus">Using default exchange rates.</p>
+      </div>
+
+      <div class="result">
+        <span>Converted Amount</span>
+        <strong class="big" id="resultVal">0.00</strong>
+        <div class="result-row">
+          <span>Exchange Rate</span>
+          <strong id="exchangeRate">1 = 1</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Converted rates shown here are for informational purposes only, are subject to constant market fluctuation, and may differ from the actual rates offered by your bank or financial institution.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    // Fallback rates relative to USD
+    let rates = {
+      USD: 1,
+      CAD: 1.37,
+      EUR: 0.92,
+      GBP: 0.79,
+      AUD: 1.51,
+      JPY: 156.40,
+      INR: 83.30,
+      CNY: 7.24
+    };
+
+    const symbols = {
+      USD: '$',
+      CAD: 'C$',
+      EUR: '€',
+      GBP: '£',
+      AUD: 'A$',
+      JPY: '¥',
+      INR: '₹',
+      CNY: '¥'
+    };
+
+    function populateSelects() {
+      const fromSel = document.getElementById('fromCurr');
+      const toSel = document.getElementById('toCurr');
+      Object.keys(rates).forEach((c, idx) => {
+        fromSel.add(new Option(`${c} - ${symbols[c] || ''}`, c));
+        const opt = new Option(`${c} - ${symbols[c] || ''}`, c);
+        if (idx === 1) opt.selected = true; // Default CAD
+        toSel.add(opt);
+      });
+      convert();
+    }
+
+    function convert() {
+      const amt = +document.getElementById('amount').value || 0;
+      const fromC = document.getElementById('fromCurr').value;
+      const toC = document.getElementById('toCurr').value;
+      
+      if (!fromC || !toC) return;
+      
+      const fromRate = rates[fromC];
+      const toRate = rates[toC];
+      
+      const inUSD = amt / fromRate;
+      const result = inUSD * toRate;
+      
+      const rate = toRate / fromRate;
+      
+      const fromSym = symbols[fromC] || '';
+      const toSym = symbols[toC] || '';
+      
+      document.getElementById('resultVal').textContent = `${toSym}${result.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      document.getElementById('exchangeRate').textContent = `1 ${fromC} = ${rate.toLocaleString('en-CA', { maximumFractionDigits: 4 })} ${toC}`;
+    }
+
+    // Try to fetch live rates
+    fetch('https://open.er-api.com/v6/latest/USD')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.rates) {
+          // Merge fetched rates for our currencies
+          Object.keys(rates).forEach(c => {
+            if (data.rates[c]) {
+              rates[c] = data.rates[c];
+            }
+          });
+          document.getElementById('rateStatus').textContent = `Rates updated live from reference API.`;
+          convert();
+        }
+      })
+      .catch(() => {
+        document.getElementById('rateStatus').textContent = `Offline. Using default exchange rates.`;
+      });
+
+    populateSelects();
+  </script>
+
+</body>
+</html>

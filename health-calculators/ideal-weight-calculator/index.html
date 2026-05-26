@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideal Weight Calculator | CalcUni</title>
+  <meta name="description" content="Estimate ideal body weight using common formulas including Devine, Robinson, Miller, and Hamwi.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" >BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" >Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" >BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" >Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" class="active">Ideal Weight Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Ideal Weight Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">Ideal Weight Calculator</h1>
+      <p class="page-desc">Find your healthy target weight range.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Height & Sex</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Sex</label>
+              <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Height</label>
+              <input id="height" type="number" value="175">
+            </div>
+            <div class="field">
+              <label>Unit</label>
+              <select id="unit">
+                <option value="cm">cm</option>
+                <option value="in">inches</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calc()">Calculate Ideal Weight</button>
+          <p class="note">Ideal weight formulas are general references only and do not account for body composition or medical history.</p>
+        </div>
+
+        <div class="result">
+          <span>Ideal Weight Estimates</span>
+          <div class="result-row">
+            <span>Devine</span>
+            <strong id="devine">0 kg</strong>
+          </div>
+          <div class="result-row">
+            <span>Robinson</span>
+            <strong id="robinson">0 kg</strong>
+          </div>
+          <div class="result-row">
+            <span>Miller</span>
+            <strong id="miller">0 kg</strong>
+          </div>
+          <div class="result-row">
+            <span>Hamwi</span>
+            <strong id="hamwi">0 kg</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function show(id, kg) {
+      document.getElementById(id).textContent = `${fmtNum(kg, 1)} kg / ${fmtNum(kg * 2.20462, 1)} lb`;
+    }
+
+    function calc() {
+      const inch = txt('unit') === 'cm' ? val('height') / 2.54 : val('height'),
+            over = Math.max(0, inch - 60),
+            m = txt('sex') === 'male';
+      show('devine', (m ? 50 : 45.5) + 2.3 * over);
+      show('robinson', (m ? 52 : 49) + 1.9 * over);
+      show('miller', (m ? 56.2 : 53.1) + 1.41 * over);
+      show('hamwi', (m ? 48 : 45.5) + 2.7 * over);
+    }
+    calc();
+  </script>
+
+</body>
+</html>

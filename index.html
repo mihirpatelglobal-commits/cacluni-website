@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcUni.com — Calculators for Everyday Use</title>
+  <meta name="description" content="CalcUni.com is a simple calculator hub for finance, health, school, tax, conversion, and everyday calculations.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="index.html" class="logo-link">
+        <img src="logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="index.html" class="active">Home</a>
+        <a href="finance-calculators/" class="">Finance</a>
+        <a href="health-calculators/" class="">Health</a>
+        <a href="math-calculators/" class="">Math</a>
+        <a href="tax-calculators/" class="">Tax</a>
+        <a href="conversion-calculators/" class="">Conversion</a>
+        <a href="date-time-calculators/" class="">Date/Time</a>
+        <a href="construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="about.html">About</a>
+        <a href="contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <header class="hero-header">
+    <section class="hero">
+      <h1>All Calculators. One Place.</h1>
+      <p>CalcUni.com is a simple calculator hub for finance, health, tax, education, and daily life calculations.</p>
+      <div class="search-box">
+        <div class="search-box-row">
+          <input id="searchInput" type="text" placeholder="Search calculators: mortgage, BMI, tax, loan..." autocomplete="off" aria-label="Search calculators" />
+          <button id="searchBtn" type="button">Search</button>
+        </div>
+        <div id="searchSuggestions" class="search-suggestions" role="listbox" aria-label="Calculator suggestions"></div>
+      </div>
+    </section>
+  </header>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px;">
+    
+    
+    
+    
+    
+    
+    
+    <section class="stats">
+      <div class="stat-card"><strong>100+</strong><span>Planned calculators</span></div>
+      <div class="stat-card"><strong>12</strong><span>Major categories</span></div>
+      <div class="stat-card"><strong>Free</strong><span>Fast and simple tools</span></div>
+    </section>
+
+    <h2 class="section-title">Calculator Categories</h2>
+
+    <section class="calculator-grid" id="calculatorGrid">
+      <div class="calc-card" data-name="finance loan mortgage interest payment compound investment savings retirement car loan credit card emi amortization">
+        <div class="icon">💰</div>
+        <h3>Finance Calculators</h3>
+        <p>Loan, mortgage, interest, EMI, investment, savings, and retirement calculators.</p>
+        <div class="card-link-list">
+          <a href="finance-calculators/mortgage-calculator/">Mortgage Calculator →</a>
+          <a href="finance-calculators/loan-calculator/">Loan Calculator →</a>
+          <a href="finance-calculators/compound-interest-calculator/">Compound Interest Calculator →</a>
+          <a href="finance-calculators/car-loan-calculator/">Car Loan Calculator →</a>
+          <a href="finance-calculators/amortization-calculator/">Amortization Calculator →</a>
+          <a href="finance-calculators/credit-card-calculator/">Credit Card Calculator →</a>
+          <a href="finance-calculators/retirement-calculator/">Retirement Calculator →</a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="health bmi calories body fat pregnancy bmr tdee macro ideal weight water intake">
+        <div class="icon">❤️</div>
+        <h3>Health Calculators</h3>
+        <p>BMI, calories, body fat, ideal weight, pregnancy, and fitness calculators.</p>
+        <div class="card-link-list">
+          <a href="health-calculators/bmi-calculator/">BMI Calculator →</a>
+          <a href="health-calculators/calorie-calculator/">Calorie Calculator →</a>
+          <a href="health-calculators/bmr-calculator/">BMR Calculator →</a>
+          <a href="health-calculators/body-fat-calculator/">Body Fat Calculator →</a>
+          <a href="health-calculators/ideal-weight-calculator/">Ideal Weight Calculator →</a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="math percentage fraction algebra scientific average ratio gpa grade equation standard deviation">
+        <div class="icon">🧮</div>
+        <h3>Math Calculators</h3>
+        <p>Percentage, fractions, algebra, scientific, average, ratio, and equation tools.</p>
+        <div class="card-link-list">
+          <a href="math-calculators/percentage-calculator/">Percentage Calculator →</a>
+          <a href="math-calculators/fraction-calculator/">Fraction Calculator →</a>
+          <a href="math-calculators/scientific-calculator/">Scientific Calculator →</a>
+          <a href="math-calculators/average-calculator/">Average Calculator →</a>
+          <a href="math-calculators/gpa-calculator/">GPA Calculator →</a>
+          <a href="math-calculators/grade-calculator/">Grade Calculator →</a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="tax gst pst hst income sales canada vat payroll rrsp qst">
+        <div class="icon">🧾</div>
+        <h3>Tax Calculators</h3>
+        <p>GST, PST, HST, sales tax, income tax estimate, and business tax helpers.</p>
+        <div class="card-link-list">
+          <a href="tax-calculators/gst-hst-calculator-canada/">GST/HST Calculator Canada →</a>
+          <a href="tax-calculators/income-tax-calculator-canada/">Income Tax Calculator Canada →</a>
+          <a href="#">PST Calculator <span class="coming-label">soon</span></a>
+          <a href="#">VAT Calculator <span class="coming-label">soon</span></a>
+          <a href="#">Payroll Tax Calculator <span class="coming-label">soon</span></a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="conversion unit currency length weight temperature speed area volume digital storage metric imperial exchange rate">
+        <div class="icon">🔄</div>
+        <h3>Conversion Calculators</h3>
+        <p>Convert speed, area, volume, currency, length, weight, and temperature scales.</p>
+        <div class="card-link-list">
+          <a href="conversion-calculators/unit-converter/">Unit Converter →</a>
+          <a href="conversion-calculators/currency-converter/">Currency Converter →</a>
+          <a href="conversion-calculators/length-converter/">Length Converter →</a>
+          <a href="conversion-calculators/weight-converter/">Weight Converter →</a>
+          <a href="conversion-calculators/temperature-converter/">Temperature Converter →</a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="date time age business days difference duration hours time sheet calendar working days age calculator birthday">
+        <div class="icon">📅</div>
+        <h3>Date &amp; Time Calculators</h3>
+        <p>Calculate age, date difference, business days, duration, and payroll hours.</p>
+        <div class="card-link-list">
+          <a href="date-time-calculators/age-calculator/">Age Calculator →</a>
+          <a href="date-time-calculators/date-difference-calculator/">Date Difference Calculator →</a>
+          <a href="date-time-calculators/business-days-calculator/">Business Days Calculator →</a>
+          <a href="date-time-calculators/time-duration-calculator/">Time Duration Calculator →</a>
+          <a href="date-time-calculators/hours-calculator/">Hours Calculator →</a>
+        </div>
+      </div>
+
+      <div class="calc-card" data-name="construction concrete square footage paint tile roofing slabs footings columns wall tiles shingles area calculator">
+        <div class="icon">🏗️</div>
+        <h3>Construction Calculators</h3>
+        <p>Estimate materials, concrete volume, square footage, paint, tiles, and shingles.</p>
+        <div class="card-link-list">
+          <a href="construction-calculators/concrete-calculator/">Concrete Calculator →</a>
+          <a href="construction-calculators/square-footage-calculator/">Square Footage Calculator →</a>
+          <a href="construction-calculators/paint-calculator/">Paint Calculator →</a>
+          <a href="construction-calculators/tile-calculator/">Tile Calculator →</a>
+          <a href="construction-calculators/roofing-calculator/">Roofing Calculator →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="directory-panel" aria-label="All calculators directory">
+      <div class="directory-intro">
+        <h2 class="section-title" style="margin-top:0; text-align: left;">Select Any Calculator</h2>
+        <p>Choose from live calculators already available on CalcUni, plus planned calculators that can be added next. This homepage directory helps users reach a calculator directly.</p>
+      </div>
+
+      <div class="link-directory">
+        <div class="link-group">
+          <h3>💰 Finance</h3>
+          <a href="finance-calculators/mortgage-calculator/">Mortgage Calculator</a>
+          <a href="finance-calculators/loan-calculator/">Loan Calculator</a>
+          <a href="finance-calculators/compound-interest-calculator/">Compound Interest Calculator</a>
+          <a href="finance-calculators/car-loan-calculator/">Car Loan Calculator</a>
+          <a href="finance-calculators/amortization-calculator/">Amortization Calculator</a>
+          <a href="finance-calculators/credit-card-calculator/">Credit Card Calculator</a>
+          <a href="finance-calculators/retirement-calculator/">Retirement Calculator</a>
+        </div>
+        <div class="link-group">
+          <h3>❤️ Health</h3>
+          <a href="health-calculators/bmi-calculator/">BMI Calculator</a>
+          <a href="health-calculators/calorie-calculator/">Calorie Calculator</a>
+          <a href="health-calculators/bmr-calculator/">BMR Calculator</a>
+          <a href="health-calculators/body-fat-calculator/">Body Fat Calculator</a>
+          <a href="health-calculators/ideal-weight-calculator/">Ideal Weight Calculator</a>
+        </div>
+        <div class="link-group">
+          <h3>🧮 Math</h3>
+          <a href="math-calculators/percentage-calculator/">Percentage Calculator</a>
+          <a href="math-calculators/fraction-calculator/">Fraction Calculator</a>
+          <a href="math-calculators/scientific-calculator/">Scientific Calculator</a>
+          <a href="math-calculators/average-calculator/">Average Calculator</a>
+          <a href="math-calculators/gpa-calculator/">GPA Calculator</a>
+          <a href="math-calculators/grade-calculator/">Grade Calculator</a>
+        </div>
+        <div class="link-group">
+          <h3>🧾 Tax</h3>
+          <a href="tax-calculators/gst-hst-calculator-canada/">GST/HST Calculator Canada</a>
+          <a href="tax-calculators/income-tax-calculator-canada/">Income Tax Calculator Canada</a>
+        </div>
+        <div class="link-group">
+          <h3>🔄 Conversion</h3>
+          <a href="conversion-calculators/unit-converter/">Unit Converter</a>
+          <a href="conversion-calculators/currency-converter/">Currency Converter</a>
+          <a href="conversion-calculators/length-converter/">Length Converter</a>
+          <a href="conversion-calculators/weight-converter/">Weight Converter</a>
+          <a href="conversion-calculators/temperature-converter/">Temperature Converter</a>
+        </div>
+        <div class="link-group">
+          <h3>📅 Date &amp; Time</h3>
+          <a href="date-time-calculators/age-calculator/">Age Calculator</a>
+          <a href="date-time-calculators/date-difference-calculator/">Date Difference Calculator</a>
+          <a href="date-time-calculators/business-days-calculator/">Business Days Calculator</a>
+          <a href="date-time-calculators/time-duration-calculator/">Time Duration Calculator</a>
+          <a href="date-time-calculators/hours-calculator/">Hours Calculator</a>
+        </div>
+        <div class="link-group">
+          <h3>🏗️ Construction</h3>
+          <a href="construction-calculators/concrete-calculator/">Concrete Calculator</a>
+          <a href="construction-calculators/square-footage-calculator/">Square Footage Calculator</a>
+          <a href="construction-calculators/paint-calculator/">Paint Calculator</a>
+          <a href="construction-calculators/tile-calculator/">Tile Calculator</a>
+          <a href="construction-calculators/roofing-calculator/">Roofing Calculator</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="coming-soon" id="contact">
+      <div>
+        <h2>More calculators are coming soon.</h2>
+        <p>Finance, tax, health, business, construction, education, conversion, and daily life tools will be added gradually.</p>
+      </div>
+      <a class="btn" href="contact.html">Suggest a Calculator</a>
+    </section>
+  
+  
+  
+  
+  
+  
+  
+  </main>
+
+  <footer>
+    &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+  </footer>
+
+  <script>
+  (function () {
+    const CALC_DATA = [
+  {
+    "name": "Mortgage Calculator",
+    "url": "finance-calculators/mortgage-calculator/",
+    "category": "Finance",
+    "keywords": "mortgage calculator estimate home loan payments and total interest. mortgage calculator finance"
+  },
+  {
+    "name": "Loan Calculator",
+    "url": "finance-calculators/loan-calculator/",
+    "category": "Finance",
+    "keywords": "loan calculator calculate personal, auto, or business loan payments. loan calculator finance"
+  },
+  {
+    "name": "Compound Interest Calculator",
+    "url": "finance-calculators/compound-interest-calculator/",
+    "category": "Finance",
+    "keywords": "compound interest calculator estimate investment growth with compound interest. compound interest calculator finance"
+  },
+  {
+    "name": "Car Loan Calculator",
+    "url": "finance-calculators/car-loan-calculator/",
+    "category": "Finance",
+    "keywords": "car loan calculator calculate auto loan payments, interest, and terms. car loan calculator finance"
+  },
+  {
+    "name": "Amortization Calculator",
+    "url": "finance-calculators/amortization-calculator/",
+    "category": "Finance",
+    "keywords": "amortization calculator view monthly amortization schedules and principal/interest splits. amortization calculator finance"
+  },
+  {
+    "name": "Credit Card Calculator",
+    "url": "finance-calculators/credit-card-calculator/",
+    "category": "Finance",
+    "keywords": "credit card calculator find out how long it will take to pay off credit card debt. credit card calculator finance"
+  },
+  {
+    "name": "Retirement Calculator",
+    "url": "finance-calculators/retirement-calculator/",
+    "category": "Finance",
+    "keywords": "retirement calculator plan how much you need to save to retire comfortably. retirement calculator finance"
+  },
+  {
+    "name": "BMI Calculator",
+    "url": "health-calculators/bmi-calculator/",
+    "category": "Health",
+    "keywords": "bmi calculator calculate body mass index and bmi category. bmi calculator health"
+  },
+  {
+    "name": "Calorie Calculator",
+    "url": "health-calculators/calorie-calculator/",
+    "category": "Health",
+    "keywords": "calorie calculator estimate daily maintenance calories using bmr. calorie calculator health"
+  },
+  {
+    "name": "BMR Calculator",
+    "url": "health-calculators/bmr-calculator/",
+    "category": "Health",
+    "keywords": "bmr calculator calculate basal metabolic rate using standard formulas. bmr calculator health"
+  },
+  {
+    "name": "Body Fat Calculator",
+    "url": "health-calculators/body-fat-calculator/",
+    "category": "Health",
+    "keywords": "body fat calculator estimate body fat percentage using neck, waist, and hip measures. body fat calculator health"
+  },
+  {
+    "name": "Ideal Weight Calculator",
+    "url": "health-calculators/ideal-weight-calculator/",
+    "category": "Health",
+    "keywords": "ideal weight calculator find your healthy target weight range. ideal weight calculator health"
+  },
+  {
+    "name": "Percentage Calculator",
+    "url": "math-calculators/percentage-calculator/",
+    "category": "Math",
+    "keywords": "percentage calculator quickly find percentages, increases, and decreases. percentage calculator math"
+  },
+  {
+    "name": "Fraction Calculator",
+    "url": "math-calculators/fraction-calculator/",
+    "category": "Math",
+    "keywords": "fraction calculator add, subtract, multiply, and divide fractions. fraction calculator math"
+  },
+  {
+    "name": "Scientific Calculator",
+    "url": "math-calculators/scientific-calculator/",
+    "category": "Math",
+    "keywords": "scientific calculator perform advanced math functions with an online calculator. scientific calculator math"
+  },
+  {
+    "name": "Average Calculator",
+    "url": "math-calculators/average-calculator/",
+    "category": "Math",
+    "keywords": "average calculator calculate mean, median, mode, sum, and range. average calculator math"
+  },
+  {
+    "name": "GPA Calculator",
+    "url": "math-calculators/gpa-calculator/",
+    "category": "Math",
+    "keywords": "gpa calculator calculate weighted gpa from course grades and credit hours. gpa calculator math"
+  },
+  {
+    "name": "Grade Calculator",
+    "url": "math-calculators/grade-calculator/",
+    "category": "Math",
+    "keywords": "grade calculator estimate final course grades and required final exam scores. grade calculator math"
+  },
+  {
+    "name": "GST/HST Calculator Canada",
+    "url": "tax-calculators/gst-hst-calculator-canada/",
+    "category": "Tax",
+    "keywords": "gst/hst calculator canada calculate gst, hst, pst, and qst by province. gst hst calculator canada tax"
+  },
+  {
+    "name": "Income Tax Calculator Canada",
+    "url": "tax-calculators/income-tax-calculator-canada/",
+    "category": "Tax",
+    "keywords": "income tax calculator canada estimate federal and provincial income tax. income tax calculator canada tax"
+  },
+  {
+    "name": "Unit Converter",
+    "url": "conversion-calculators/unit-converter/",
+    "category": "Conversion",
+    "keywords": "unit converter convert speed, area, volume, and other common units. unit converter conversion"
+  },
+  {
+    "name": "Currency Converter",
+    "url": "conversion-calculators/currency-converter/",
+    "category": "Conversion",
+    "keywords": "currency converter convert between global currencies with real-time reference rates. currency converter conversion"
+  },
+  {
+    "name": "Length Converter",
+    "url": "conversion-calculators/length-converter/",
+    "category": "Conversion",
+    "keywords": "length converter convert metric and imperial length and distance units. length converter conversion"
+  },
+  {
+    "name": "Weight Converter",
+    "url": "conversion-calculators/weight-converter/",
+    "category": "Conversion",
+    "keywords": "weight converter convert between different mass and weight units. weight converter conversion"
+  },
+  {
+    "name": "Temperature Converter",
+    "url": "conversion-calculators/temperature-converter/",
+    "category": "Conversion",
+    "keywords": "temperature converter convert celsius, fahrenheit, and kelvin temperature scales. temperature converter conversion"
+  },
+  {
+    "name": "Age Calculator",
+    "url": "date-time-calculators/age-calculator/",
+    "category": "Date & Time",
+    "keywords": "age calculator find your exact age in years, months, days, and time to your next birthday. age calculator date & time"
+  },
+  {
+    "name": "Date Difference Calculator",
+    "url": "date-time-calculators/date-difference-calculator/",
+    "category": "Date & Time",
+    "keywords": "date difference calculator calculate the total days and weeks between two specific dates. date difference calculator date & time"
+  },
+  {
+    "name": "Business Days Calculator",
+    "url": "date-time-calculators/business-days-calculator/",
+    "category": "Date & Time",
+    "keywords": "business days calculator find the number of working days between two dates, excluding weekends. business days calculator date & time"
+  },
+  {
+    "name": "Time Duration Calculator",
+    "url": "date-time-calculators/time-duration-calculator/",
+    "category": "Date & Time",
+    "keywords": "time duration calculator add, subtract, or find the difference between two times. time duration calculator date & time"
+  },
+  {
+    "name": "Hours Calculator",
+    "url": "date-time-calculators/hours-calculator/",
+    "category": "Date & Time",
+    "keywords": "hours calculator calculate total hours worked for timesheets or payroll. hours calculator date & time"
+  },
+  {
+    "name": "Concrete Calculator",
+    "url": "construction-calculators/concrete-calculator/",
+    "category": "Construction",
+    "keywords": "concrete calculator estimate concrete volume in cubic yards or bags needed for slabs, footings, and columns. concrete calculator construction"
+  },
+  {
+    "name": "Square Footage Calculator",
+    "url": "construction-calculators/square-footage-calculator/",
+    "category": "Construction",
+    "keywords": "square footage calculator calculate total square footage for rectangular, circular, or triangular spaces. square footage calculator construction"
+  },
+  {
+    "name": "Paint Calculator",
+    "url": "construction-calculators/paint-calculator/",
+    "category": "Construction",
+    "keywords": "paint calculator estimate the gallons of paint needed based on wall surface dimensions. paint calculator construction"
+  },
+  {
+    "name": "Tile Calculator",
+    "url": "construction-calculators/tile-calculator/",
+    "category": "Construction",
+    "keywords": "tile calculator calculate number of tiles and grout bags required with wastage margin. tile calculator construction"
+  },
+  {
+    "name": "Roofing Calculator",
+    "url": "construction-calculators/roofing-calculator/",
+    "category": "Construction",
+    "keywords": "roofing calculator estimate roof area, number of shingle squares, and bundles needed. roofing calculator construction"
+  }
+];
+
+    const input = document.getElementById('searchInput');
+    const sugBox = document.getElementById('searchSuggestions');
+    const searchBtn = document.getElementById('searchBtn');
+    let activeIdx = -1;
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function highlight(text, query) {
+      const idx = text.toLowerCase().indexOf(query.toLowerCase());
+      if (idx === -1) return escHtml(text);
+      return escHtml(text.slice(0, idx))
+           + '<mark>' + escHtml(text.slice(idx, idx + query.length)) + '</mark>'
+           + escHtml(text.slice(idx + query.length));
+    }
+
+    function closeSuggestions() {
+      sugBox.innerHTML = '';
+      sugBox.style.display = 'none';
+      activeIdx = -1;
+    }
+
+    function filterGrid(q) {
+      document.querySelectorAll('.calc-card').forEach(card => {
+        const text = (card.innerText + ' ' + (card.dataset.name || '')).toLowerCase();
+        card.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+      document.querySelectorAll('.link-group').forEach(group => {
+        const text = group.innerText.toLowerCase();
+        group.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+    }
+
+    function renderSuggestions(raw) {
+      const q = raw.trim().toLowerCase();
+      if (!q) { closeSuggestions(); filterGrid(''); return; }
+
+      const matches = CALC_DATA.filter(c =>
+        c.keywords.includes(q) || c.name.toLowerCase().includes(q)
+      ).slice(0, 8);
+
+      activeIdx = -1;
+
+      if (matches.length === 0) {
+        sugBox.innerHTML = '<div class="suggestion-empty">No calculators found for "' + escHtml(raw.trim()) + '"</div>';
+        sugBox.style.display = 'block';
+        filterGrid(q);
+        return;
+      }
+
+      sugBox.innerHTML = matches.map((c, i) =>
+        '<div class="suggestion-item" data-url="' + c.url + '" data-idx="' + i + '" role="option">' +
+          '<span class="sug-name">' + highlight(c.name, raw.trim()) + '</span>' +
+          '<span class="sug-cat">' + escHtml(c.category) + '</span>' +
+        '</div>'
+      ).join('');
+      sugBox.style.display = 'block';
+
+      sugBox.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          sugBox.querySelectorAll('.suggestion-item').forEach(i => i.classList.remove('active'));
+          item.classList.add('active');
+          activeIdx = +item.dataset.idx;
+        });
+        item.addEventListener('click', () => { window.location.href = item.dataset.url; });
+      });
+
+      filterGrid(q);
+    }
+
+    function navigateToActive() {
+      const items = sugBox.querySelectorAll('.suggestion-item');
+      const target = activeIdx >= 0 ? items[activeIdx] : items[0];
+      if (target) window.location.href = target.dataset.url;
+    }
+
+    input.addEventListener('input', () => renderSuggestions(input.value));
+
+    input.addEventListener('keydown', e => {
+      const items = [...sugBox.querySelectorAll('.suggestion-item')];
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIdx = Math.min(activeIdx + 1, items.length - 1);
+        items.forEach((item, i) => item.classList.toggle('active', i === activeIdx));
+        if (items[activeIdx]) items[activeIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIdx = Math.max(activeIdx - 1, -1);
+        items.forEach((item, i) => item.classList.toggle('active', i === activeIdx));
+        if (activeIdx >= 0 && items[activeIdx]) items[activeIdx].scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        navigateToActive();
+      } else if (e.key === 'Escape') {
+        closeSuggestions();
+      }
+    });
+
+    searchBtn.addEventListener('click', () => {
+      if (input.value.trim()) navigateToActive();
+    });
+
+    document.addEventListener('click', e => {
+      if (!input.contains(e.target) && !sugBox.contains(e.target) && !searchBtn.contains(e.target)) {
+        closeSuggestions();
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>

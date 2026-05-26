@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square Footage Calculator | CalcUni</title>
+  <meta name="description" content="Calculate total square footage (sq ft) and square meters (sq m) of rectangular, circular, or triangular rooms.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="active">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONSTRUCTION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../construction-calculators/" >Overview</a></li>
+        <li><a href="../../construction-calculators/concrete-calculator/" >Concrete Calculator</a></li>
+        <li><a href="../../construction-calculators/square-footage-calculator/" class="active">Square Footage Calculator</a></li>
+        <li><a href="../../construction-calculators/paint-calculator/" >Paint Calculator</a></li>
+        <li><a href="../../construction-calculators/tile-calculator/" >Tile Calculator</a></li>
+        <li><a href="../../construction-calculators/roofing-calculator/" >Roofing Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../construction-calculators/">Construction Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Square Footage Calculator</span>
+      </div>
+
+      <span class="category-badge">Construction Calculator</span>
+      <h1 class="page-title">Square Footage Calculator</h1>
+      <p class="page-desc">Calculate total square footage for rectangular, circular, or triangular spaces.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Area Dimensions</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Space Shape</label>
+            <select id="shape" onchange="toggleInputs()">
+              <option value="rect">Rectangle (or Square)</option>
+              <option value="circle">Circle</option>
+              <option value="tri">Triangle</option>
+            </select>
+          </div>
+          
+          <div id="rectInputs">
+            <div class="field">
+              <label>Length (feet)</label>
+              <input id="rectL" type="number" value="12" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Width (feet)</label>
+              <input id="rectW" type="number" value="10" oninput="calc()">
+            </div>
+          </div>
+
+          <div id="circleInputs" style="display:none;">
+            <div class="field">
+              <label>Diameter (feet)</label>
+              <input id="circD" type="number" value="12" oninput="calc()">
+            </div>
+          </div>
+
+          <div id="triInputs" style="display:none;">
+            <div class="field">
+              <label>Base (feet)</label>
+              <input id="triB" type="number" value="10" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Height (feet)</label>
+              <input id="triH" type="number" value="12" oninput="calc()">
+            </div>
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Area</button>
+      </div>
+
+      <div class="result">
+        <span>Calculated Area</span>
+        <strong class="big" id="sqftResult">0.00 sq ft</strong>
+        <div class="result-row">
+          <span>Area in Square Meters</span>
+          <strong id="sqmResult">0.00 m²</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Estimates are for planning purposes and include standard material wastage multipliers. Actual material requirements can vary based on specific site conditions, installation methods, and professional contractor recommendations. Verify quantities with your supplier before ordering.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function toggleInputs() {
+      const shape = document.getElementById('shape').value;
+      document.getElementById('rectInputs').style.display = shape === 'rect' ? 'block' : 'none';
+      document.getElementById('circleInputs').style.display = shape === 'circle' ? 'block' : 'none';
+      document.getElementById('triInputs').style.display = shape === 'tri' ? 'block' : 'none';
+      calc();
+    }
+
+    function calc() {
+      const shape = document.getElementById('shape').value;
+      let sqft = 0;
+
+      if (shape === 'rect') {
+        const L = +document.getElementById('rectL').value || 0;
+        const W = +document.getElementById('rectW').value || 0;
+        sqft = L * W;
+      } else if (shape === 'circle') {
+        const D = +document.getElementById('circD').value || 0;
+        const R = D / 2;
+        sqft = Math.PI * Math.pow(R, 2);
+      } else {
+        const B = +document.getElementById('triB').value || 0;
+        const H = +document.getElementById('triH').value || 0;
+        sqft = 0.5 * B * H;
+      }
+
+      const sqm = sqft * 0.09290304;
+
+      document.getElementById('sqftResult').textContent = `${sqft.toFixed(2)} sq ft`;
+      document.getElementById('sqmResult').textContent = `${sqm.toFixed(2)} m²`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

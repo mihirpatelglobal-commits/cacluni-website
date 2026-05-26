@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Length Converter | CalcUni</title>
+  <meta name="description" content="Convert between millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="active">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONVERSION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../conversion-calculators/" >Overview</a></li>
+        <li><a href="../../conversion-calculators/unit-converter/" >Unit Converter</a></li>
+        <li><a href="../../conversion-calculators/currency-converter/" >Currency Converter</a></li>
+        <li><a href="../../conversion-calculators/length-converter/" class="active">Length Converter</a></li>
+        <li><a href="../../conversion-calculators/weight-converter/" >Weight Converter</a></li>
+        <li><a href="../../conversion-calculators/temperature-converter/" >Temperature Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../conversion-calculators/">Conversion Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Length Converter</span>
+      </div>
+
+      <span class="category-badge">Conversion Calculator</span>
+      <h1 class="page-title">Length Converter</h1>
+      <p class="page-desc">Convert metric and imperial length and distance units.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Length Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Value to Convert</label>
+            <input id="lengthInput" type="number" value="10" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>From</label>
+            <select id="fromUnit" onchange="calc()"></select>
+          </div>
+          <div class="field">
+            <label>To</label>
+            <select id="toUnit" onchange="calc()"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="result">
+        <span>Result</span>
+        <strong class="big" id="resultVal">0</strong>
+        <div class="result-row">
+          <span>Expression</span>
+          <strong id="details"></strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Conversions are provided for informational and reference purposes only. While we verify unit ratios, please double-check measurements independently for critical engineering, commercial, or culinary applications.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    // Scale factor relative to Meters (m)
+    const scale = {
+      'Millimeters (mm)': 0.001,
+      'Centimeters (cm)': 0.01,
+      'Meters (m)': 1,
+      'Kilometers (km)': 1000,
+      'Inches (in)': 0.0254,
+      'Feet (ft)': 0.3048,
+      'Yards (yd)': 0.9144,
+      'Miles (mi)': 1609.344
+    };
+
+    function init() {
+      const fromS = document.getElementById('fromUnit');
+      const toS = document.getElementById('toUnit');
+      Object.keys(scale).forEach((unit, idx) => {
+        fromS.add(new Option(unit, unit));
+        const opt = new Option(unit, unit);
+        if (idx === 4) opt.selected = true; // Inches default
+        toS.add(opt);
+      });
+      calc();
+    }
+
+    function calc() {
+      const val = +document.getElementById('lengthInput').value || 0;
+      const fromU = document.getElementById('fromUnit').value;
+      const toU = document.getElementById('toUnit').value;
+      
+      if (!fromU || !toU) return;
+      
+      const inMeters = val * scale[fromU];
+      const result = inMeters / scale[toU];
+      
+      document.getElementById('resultVal').textContent = result.toLocaleString('en-CA', { maximumFractionDigits: 6 });
+      document.getElementById('details').textContent = `${val} ${fromU.split(' ')[0]} = ${result.toLocaleString('en-CA', { maximumFractionDigits: 6 })} ${toU.split(' ')[0]}`;
+    }
+
+    init();
+  </script>
+
+</body>
+</html>

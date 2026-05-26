@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Calculator | CalcUni</title>
+  <meta name="description" content="Estimate how long it will take to pay off credit card debt and how much interest you may pay.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="active">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">FINANCE TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../finance-calculators/" >Overview</a></li>
+        <li><a href="../../finance-calculators/mortgage-calculator/" >Mortgage Calculator</a></li>
+        <li><a href="../../finance-calculators/loan-calculator/" >Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/compound-interest-calculator/" >Compound Interest Calculator</a></li>
+        <li><a href="../../finance-calculators/car-loan-calculator/" >Car Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/amortization-calculator/" >Amortization Calculator</a></li>
+        <li><a href="../../finance-calculators/credit-card-calculator/" class="active">Credit Card Calculator</a></li>
+        <li><a href="../../finance-calculators/retirement-calculator/" >Retirement Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../finance-calculators/">Finance Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Credit Card Calculator</span>
+      </div>
+
+      <span class="category-badge">Finance Calculator</span>
+      <h1 class="page-title">Credit Card Calculator</h1>
+      <p class="page-desc">Find out how long it will take to pay off credit card debt.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Credit Card Payoff</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Current balance</label>
+              <input id="balance" type="number" value="5000">
+            </div>
+            <div class="field">
+              <label>APR (%)</label>
+              <input id="apr" type="number" value="19.99" step="0.01">
+            </div>
+            <div class="field">
+              <label>Monthly payment</label>
+              <input id="paymentInput" type="number" value="250">
+            </div>
+            <div class="field">
+              <label>Target payoff months</label>
+              <input id="targetMonths" type="number" value="24">
+            </div>
+          </div>
+          <button class="btn" onclick="calc()">Calculate Payoff</button>
+          <p class="note">Monthly interest is estimated as APR ÷ 12. Actual credit card billing may vary by issuer.</p>
+        </div>
+
+        <div class="result">
+          <span>Payoff Time</span>
+          <strong class="big" id="months">0 months</strong>
+          <div class="result-row">
+            <span>Total interest</span>
+            <strong id="interest">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Total paid</span>
+            <strong id="total">$0.00</strong>
+          </div>
+          <div class="result-row">
+            <span>Payment needed for target</span>
+            <strong id="needed">$0.00</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Calculations shown here are estimates for planning and informational purposes only. Actual interest rates, payments, and schedules may vary based on your lender's specific terms, credit score, and market fluctuations. Always consult a certified financial advisor before making major financial decisions.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const fmtMoney = n => isFinite(n) ? n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' }) : '$0.00';
+    const val = id => Number(document.getElementById(id).value);
+
+    function calc() {
+      const months = document.getElementById('months');
+      const interest = document.getElementById('interest');
+      const total = document.getElementById('total');
+      const needed = document.getElementById('needed');
+
+      const B = val('balance'),
+            r = val('apr') / 100 / 12,
+            P = val('paymentInput'),
+            target = val('targetMonths');
+      let m = 0,
+          b = B,
+          paid = 0;
+      if (P <= B * r) {
+        months.textContent = 'Payment too low';
+        interest.textContent = '—';
+        total.textContent = '—';
+      } else {
+        while (b > .01 && m < 1000) {
+          const i = b * r,
+                prin = Math.min(P - i, b);
+          b -= prin;
+          paid += prin + i;
+          m++;
+        }
+        months.textContent = `${m} months`;
+        interest.textContent = fmtMoney(paid - B);
+        total.textContent = fmtMoney(paid);
+      }
+      const need = r === 0 ? B / target : B * r * Math.pow(1 + r, target) / (Math.pow(1 + r, target) - 1);
+      needed.textContent = fmtMoney(need);
+    }
+    calc();
+  </script>
+
+</body>
+</html>

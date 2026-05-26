@@ -1,0 +1,61 @@
+# Apache configuration for CalcUni static site
+
+# ── Encoding & MIME types ──────────────────────────────────────────
+AddDefaultCharset UTF-8
+AddType application/javascript .js
+AddType text/css .css
+
+# ── Directory index ────────────────────────────────────────────────
+DirectoryIndex index.html
+
+# ── Serve trailing-slash URLs without .html extension ─────────────
+Options -Indexes +FollowSymLinks
+RewriteEngine On
+
+# Redirect /page to /page/ when a directory exists (ensures consistent URLs)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^([^/]+)$ $1/ [R=301,L]
+
+# ── Security headers ───────────────────────────────────────────────
+<IfModule mod_headers.c>
+  # Prevent MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Clickjacking protection
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # XSS protection
+  Header always set X-XSS-Protection "1; mode=block"
+  # Referrer policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # HSTS - only enable after confirmed HTTPS is live
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ── Caching for static assets ──────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Images
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  # Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  # CSS & JS - short cache (content changes)
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  # HTML - no cache (ensure fresh content)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ── Gzip compression ───────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/xml application/xml text/plain
+</IfModule>
+
+# ── Custom 404 page ────────────────────────────────────────────────
+ErrorDocument 404 /404.html

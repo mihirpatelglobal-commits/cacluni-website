@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hours Calculator | CalcUni</title>
+  <meta name="description" content="Calculate weekly timesheet hours worked with start times, end times, and breaks.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="active">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">DATE & TIME TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../date-time-calculators/" >Overview</a></li>
+        <li><a href="../../date-time-calculators/age-calculator/" >Age Calculator</a></li>
+        <li><a href="../../date-time-calculators/date-difference-calculator/" >Date Difference Calculator</a></li>
+        <li><a href="../../date-time-calculators/business-days-calculator/" >Business Days Calculator</a></li>
+        <li><a href="../../date-time-calculators/time-duration-calculator/" >Time Duration Calculator</a></li>
+        <li><a href="../../date-time-calculators/hours-calculator/" class="active">Hours Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../date-time-calculators/">Date & Time Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Hours Calculator</span>
+      </div>
+
+      <span class="category-badge">Date & Time Calculator</span>
+      <h1 class="page-title">Hours Calculator</h1>
+      <p class="page-desc">Calculate total hours worked for timesheets or payroll.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Weekly Timesheet</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Break (min)</th>
+                <th>Daily Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Monday</strong></td>
+                <td><input type="time" id="monStart" value="09:00"></td>
+                <td><input type="time" id="monEnd" value="17:00"></td>
+                <td><input type="number" id="monBreak" value="30"></td>
+                <td id="monTotal">7.50h</td>
+              </tr>
+              <tr>
+                <td><strong>Tuesday</strong></td>
+                <td><input type="time" id="tueStart" value="09:00"></td>
+                <td><input type="time" id="tueEnd" value="17:00"></td>
+                <td><input type="number" id="tueBreak" value="30"></td>
+                <td id="tueTotal">7.50h</td>
+              </tr>
+              <tr>
+                <td><strong>Wednesday</strong></td>
+                <td><input type="time" id="wedStart" value="09:00"></td>
+                <td><input type="time" id="wedEnd" value="17:00"></td>
+                <td><input type="number" id="wedBreak" value="30"></td>
+                <td id="wedTotal">7.50h</td>
+              </tr>
+              <tr>
+                <td><strong>Thursday</strong></td>
+                <td><input type="time" id="thuStart" value="09:00"></td>
+                <td><input type="time" id="thuEnd" value="17:00"></td>
+                <td><input type="number" id="thuBreak" value="30"></td>
+                <td id="thuTotal">7.50h</td>
+              </tr>
+              <tr>
+                <td><strong>Friday</strong></td>
+                <td><input type="time" id="friStart" value="09:00"></td>
+                <td><input type="time" id="friEnd" value="17:00"></td>
+                <td><input type="number" id="friBreak" value="30"></td>
+                <td id="friTotal">7.50h</td>
+              </tr>
+              <tr>
+                <td><strong>Saturday</strong></td>
+                <td><input type="time" id="satStart" value=""></td>
+                <td><input type="time" id="satEnd" value=""></td>
+                <td><input type="number" id="satBreak" value="0"></td>
+                <td id="satTotal">0.00h</td>
+              </tr>
+              <tr>
+                <td><strong>Sunday</strong></td>
+                <td><input type="time" id="sunStart" value=""></td>
+                <td><input type="time" id="sunEnd" value=""></td>
+                <td><input type="number" id="sunBreak" value="0"></td>
+                <td id="sunTotal">0.00h</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Total Hours</button>
+      </div>
+
+      <div class="result">
+        <span>Weekly Total</span>
+        <strong class="big" id="totalHours">37.50 hours</strong>
+        <div class="result-row">
+          <span>Total Minutes</span>
+          <strong id="totalMinutes">2250</strong>
+        </div>
+        <div class="result-row">
+          <span>Active Days Worked</span>
+          <strong id="activeDays">5 days</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These date calculations are for reference and planning purposes. Business days calculations exclude standard weekends and do not account for local statutory holidays. Please verify timesheets and contract durations independently.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+    function calc() {
+      let grandTotalMin = 0;
+      let activeDaysCount = 0;
+
+      days.forEach(day => {
+        const startVal = document.getElementById(day + 'Start').value;
+        const endVal = document.getElementById(day + 'End').value;
+        const breakVal = +document.getElementById(day + 'Break').value || 0;
+        const totalCell = document.getElementById(day + 'Total');
+
+        if (!startVal || !endVal) {
+          totalCell.textContent = '0.00h';
+          return;
+        }
+
+        const [sh, sm] = startVal.split(':').map(Number);
+        const [eh, em] = endVal.split(':').map(Number);
+
+        let diffMin = (eh * 60 + em) - (sh * 60 + sm);
+        if (diffMin < 0) {
+          // Crosses midnight, assume next day
+          diffMin += 24 * 60;
+        }
+
+        diffMin = Math.max(0, diffMin - breakVal);
+        grandTotalMin += diffMin;
+        
+        if (diffMin > 0) activeDaysCount++;
+
+        const dailyH = diffMin / 60;
+        totalCell.textContent = `${dailyH.toFixed(2)}h`;
+      });
+
+      const totalH = grandTotalMin / 60;
+      document.getElementById('totalHours').textContent = `${totalH.toFixed(2)} hours`;
+      document.getElementById('totalMinutes').textContent = grandTotalMin.toLocaleString('en-CA');
+      document.getElementById('activeDays').textContent = `${activeDaysCount} days`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

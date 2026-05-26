@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraction Calculator | CalcUni</title>
+  <meta name="description" content="Add, subtract, multiply, divide, and simplify fractions with decimal results.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="active">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">MATH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../math-calculators/" >Overview</a></li>
+        <li><a href="../../math-calculators/percentage-calculator/" >Percentage Calculator</a></li>
+        <li><a href="../../math-calculators/fraction-calculator/" class="active">Fraction Calculator</a></li>
+        <li><a href="../../math-calculators/scientific-calculator/" >Scientific Calculator</a></li>
+        <li><a href="../../math-calculators/average-calculator/" >Average Calculator</a></li>
+        <li><a href="../../math-calculators/gpa-calculator/" >GPA Calculator</a></li>
+        <li><a href="../../math-calculators/grade-calculator/" >Grade Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../math-calculators/">Math Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Fraction Calculator</span>
+      </div>
+
+      <span class="category-badge">Math Calculator</span>
+      <h1 class="page-title">Fraction Calculator</h1>
+      <p class="page-desc">Add, subtract, multiply, and divide fractions.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="calculator-shell">
+        <div class="card">
+          <h2>Fraction Inputs</h2>
+          <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="field">
+              <label>Fraction 1 numerator</label>
+              <input id="a" type="number" value="1">
+            </div>
+            <div class="field">
+              <label>Fraction 1 denominator</label>
+              <input id="b" type="number" value="2">
+            </div>
+            <div class="field" style="grid-column: span 2;">
+              <label>Operation</label>
+              <select id="op">
+                <option value="+">Add</option>
+                <option value="-">Subtract</option>
+                <option value="*">Multiply</option>
+                <option value="/">Divide</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Fraction 2 numerator</label>
+              <input id="c" type="number" value="3">
+            </div>
+            <div class="field">
+              <label>Fraction 2 denominator</label>
+              <input id="d" type="number" value="4">
+            </div>
+          </div>
+          <button class="btn" onclick="calc()" style="margin-top: 20px;">Calculate</button>
+        </div>
+
+        <div class="card results">
+          <h2>Result</h2>
+          <div class="big-result" id="fraction" style="font-size: 32px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">0/1</div>
+          <div class="result-line">
+            <span>Decimal</span>
+            <strong id="decimal">0</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These math tools are provided for educational and reference purposes. While we strive to ensure mathematical accuracy, we recommend verifying critical calculations independently for formal academic, scientific, or professional work.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function gcd(x, y) {
+      x = Math.abs(x);
+      y = Math.abs(y);
+      while (y) {
+        [x, y] = [y, x % y];
+      }
+      return x || 1;
+    }
+
+    function calc() {
+      const fraction = document.getElementById('fraction');
+      const decimal = document.getElementById('decimal');
+      let a = val('a'),
+          b = val('b'),
+          c = val('c'),
+          d = val('d'),
+          op = txt('op'),
+          n, den;
+      if (b === 0 || d === 0) {
+        fraction.textContent = 'Invalid denominator';
+        return;
+      }
+      if (op === '+') {
+        n = a * d + c * b;
+        den = b * d;
+      }
+      if (op === '-') {
+        n = a * d - c * b;
+        den = b * d;
+      }
+      if (op === '*') {
+        n = a * c;
+        den = b * d;
+      }
+      if (op === '/') {
+        n = a * d;
+        den = b * c;
+      }
+      if (den < 0) {
+        n = -n;
+        den = -den;
+      }
+      const g = gcd(n, den);
+      n /= g;
+      den /= g;
+      fraction.textContent = `${n}/${den}`;
+      decimal.textContent = fmtNum(n / den, 6);
+    }
+    calc();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paint Calculator | CalcUni</title>
+  <meta name="description" content="Estimate the number of gallons and liters of paint needed to paint your walls and ceiling.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="active">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONSTRUCTION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../construction-calculators/" >Overview</a></li>
+        <li><a href="../../construction-calculators/concrete-calculator/" >Concrete Calculator</a></li>
+        <li><a href="../../construction-calculators/square-footage-calculator/" >Square Footage Calculator</a></li>
+        <li><a href="../../construction-calculators/paint-calculator/" class="active">Paint Calculator</a></li>
+        <li><a href="../../construction-calculators/tile-calculator/" >Tile Calculator</a></li>
+        <li><a href="../../construction-calculators/roofing-calculator/" >Roofing Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../construction-calculators/">Construction Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Paint Calculator</span>
+      </div>
+
+      <span class="category-badge">Construction Calculator</span>
+      <h1 class="page-title">Paint Calculator</h1>
+      <p class="page-desc">Estimate the gallons of paint needed based on wall surface dimensions.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Room &amp; Wall Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Room Length (feet)</label>
+            <input id="length" type="number" value="15" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Room Width (feet)</label>
+            <input id="width" type="number" value="12" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Ceiling Height (feet)</label>
+            <input id="height" type="number" value="8" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Doors (subtracts 21 sq ft each)</label>
+            <input id="doors" type="number" value="1" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Windows (subtracts 15 sq ft each)</label>
+            <input id="windows" type="number" value="2" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Number of Coats</label>
+            <select id="coats" onchange="calc()">
+              <option value="1">1 Coat</option>
+              <option value="2" selected>2 Coats</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Paint</button>
+      </div>
+
+      <div class="result">
+        <span>Paint Required</span>
+        <strong class="big" id="paintResult">0.0 gal</strong>
+        <div class="result-row">
+          <span>Net Wall Area</span>
+          <strong id="areaResult">0 sq ft</strong>
+        </div>
+        <div class="result-row">
+          <span>Liters Equivalent</span>
+          <strong id="litersResult">0.0 L</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Estimates are for planning purposes and include standard material wastage multipliers. Actual material requirements can vary based on specific site conditions, installation methods, and professional contractor recommendations. Verify quantities with your supplier before ordering.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function calc() {
+      const L = +document.getElementById('length').value || 0;
+      const W = +document.getElementById('width').value || 0;
+      const H = +document.getElementById('height').value || 0;
+      const d = +document.getElementById('doors').value || 0;
+      const w = +document.getElementById('windows').value || 0;
+      const coats = +document.getElementById('coats').value;
+
+      // Wall area = perimeter * height
+      const perimeter = 2 * (L + W);
+      const grossArea = perimeter * H;
+      
+      const subDoor = d * 21;
+      const subWin = w * 15;
+      
+      const netArea = Math.max(0, grossArea - subDoor - subWin);
+      const totalAreaToPaint = netArea * coats;
+      
+      // 1 gallon covers 350 sq ft
+      const gallons = totalAreaToPaint / 350;
+      const liters = gallons * 3.78541;
+
+      document.getElementById('paintResult').textContent = `${gallons.toFixed(1)} gallons`;
+      document.getElementById('areaResult').textContent = `${netArea.toLocaleString('en-CA')} sq ft`;
+      document.getElementById('litersResult').textContent = `${liters.toFixed(1)} liters`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

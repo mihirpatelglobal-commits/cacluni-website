@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tile Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the number of floor or wall tiles needed for your room, including waste margin estimates.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="active">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONSTRUCTION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../construction-calculators/" >Overview</a></li>
+        <li><a href="../../construction-calculators/concrete-calculator/" >Concrete Calculator</a></li>
+        <li><a href="../../construction-calculators/square-footage-calculator/" >Square Footage Calculator</a></li>
+        <li><a href="../../construction-calculators/paint-calculator/" >Paint Calculator</a></li>
+        <li><a href="../../construction-calculators/tile-calculator/" class="active">Tile Calculator</a></li>
+        <li><a href="../../construction-calculators/roofing-calculator/" >Roofing Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../construction-calculators/">Construction Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Tile Calculator</span>
+      </div>
+
+      <span class="category-badge">Construction Calculator</span>
+      <h1 class="page-title">Tile Calculator</h1>
+      <p class="page-desc">Calculate number of tiles and grout bags required with wastage margin.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Tile &amp; Floor Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Floor Length (feet)</label>
+            <input id="roomL" type="number" value="12" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Floor Width (feet)</label>
+            <input id="roomW" type="number" value="10" oninput="calc()">
+          </div>
+          <div class="field">
+            <label>Tile Size</label>
+            <select id="tileSize" onchange="toggleCustomTile()">
+              <option value="1">12" x 12" (1.00 sq ft)</option>
+              <option value="0.25">6" x 6" (0.25 sq ft)</option>
+              <option value="2.25">18" x 18" (2.25 sq ft)</option>
+              <option value="4">24" x 24" (4.00 sq ft)</option>
+              <option value="custom">Custom Size...</option>
+            </select>
+          </div>
+          
+          <div id="customTile" style="display:none;">
+            <div class="field">
+              <label>Tile Length (inches)</label>
+              <input id="tileL" type="number" value="12" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Tile Width (inches)</label>
+              <input id="tileW" type="number" value="12" oninput="calc()">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Waste Margin (%)</label>
+            <input id="waste" type="number" value="10" oninput="calc()">
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Tiles</button>
+      </div>
+
+      <div class="result">
+        <span>Required Tiles</span>
+        <strong class="big" id="tilesResult">0 tiles</strong>
+        <div class="result-row">
+          <span>Room Area</span>
+          <strong id="areaResult">0 sq ft</strong>
+        </div>
+        <div class="result-row">
+          <span>Waste Tiles Included</span>
+          <strong id="wasteTilesResult">0 tiles</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Estimates are for planning purposes and include standard material wastage multipliers. Actual material requirements can vary based on specific site conditions, installation methods, and professional contractor recommendations. Verify quantities with your supplier before ordering.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function toggleCustomTile() {
+      const type = document.getElementById('tileSize').value;
+      document.getElementById('customTile').style.display = type === 'custom' ? 'block' : 'none';
+      calc();
+    }
+
+    function calc() {
+      const L = +document.getElementById('roomL').value || 0;
+      const W = +document.getElementById('roomW').value || 0;
+      const wastePct = ( +document.getElementById('waste').value || 0 ) / 100 + 1;
+      const type = document.getElementById('tileSize').value;
+
+      let tileSqft = 1;
+
+      if (type === 'custom') {
+        const tL = +document.getElementById('tileL').value || 12;
+        const tW = +document.getElementById('tileW').value || 12;
+        tileSqft = (tL * tW) / 144;
+      } else {
+        tileSqft = +type;
+      }
+
+      const roomSqft = L * W;
+      const exactTiles = roomSqft / tileSqft;
+      
+      const totalTiles = Math.ceil(exactTiles * wastePct);
+      const wasteTiles = totalTiles - Math.ceil(exactTiles);
+
+      document.getElementById('tilesResult').textContent = `${totalTiles.toLocaleString('en-CA')} tiles`;
+      document.getElementById('areaResult').textContent = `${roomSqft.toFixed(2)} sq ft`;
+      document.getElementById('wasteTilesResult').textContent = `${Math.max(0, wasteTiles)} tiles`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+# ── Build / Dev Tools (DO NOT deploy these) ──────────────────────────
+update_layout.js
+patch_*.js
+
+# ── OS files ──────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ──────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Node (if ever used for build scripts) ─────────────────────────────
+node_modules/
+npm-debug.log*
+
+# ── Archives / backups ────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*_old.html
+*_backup.*
+
+# ── Logs ─────────────────────────────────────────────────────────────
+*.log

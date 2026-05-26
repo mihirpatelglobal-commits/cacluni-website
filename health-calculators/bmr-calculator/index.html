@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMR Calculator | CalcUni</title>
+  <meta name="description" content="Calculate basal metabolic rate using the Mifflin-St Jeor equation and estimate daily calories by activity level.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" >BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" >Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" class="active">BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" >Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" >Ideal Weight Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>BMR Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">BMR Calculator</h1>
+      <p class="page-desc">Calculate Basal Metabolic Rate using standard formulas.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Body Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Unit system</label>
+              <select id="unit" onchange="toggleUnits()">
+                <option value="metric">Metric</option>
+                <option value="imperial">Imperial</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Sex</label>
+              <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Age</label>
+              <input id="age" type="number" value="30">
+            </div>
+            <div class="field">
+              <label>Weight (<span id="wUnit">kg</span>)</label>
+              <input id="weight" type="number" value="75">
+            </div>
+            <div class="field">
+              <label>Height (<span id="hUnit">cm</span>)</label>
+              <input id="height" type="number" value="175">
+            </div>
+            <div class="field">
+              <label>Activity level</label>
+              <select id="activity">
+                <option value="1.2">Sedentary</option>
+                <option value="1.375">Light activity</option>
+                <option value="1.55" selected>Moderate activity</option>
+                <option value="1.725">Very active</option>
+                <option value="1.9">Extra active</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calc()">Calculate BMR</button>
+          <p class="note">Mifflin-St Jeor: male = 10W + 6.25H − 5A + 5; female = 10W + 6.25H − 5A − 161.</p>
+        </div>
+
+        <div class="result">
+          <span>Your BMR</span>
+          <strong class="big" id="bmr">0 kcal/day</strong>
+          <div class="result-row">
+            <span>Estimated maintenance calories</span>
+            <strong id="tdee">0 kcal/day</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function toggleUnits() {
+      const m = txt('unit') === 'metric';
+      document.getElementById('wUnit').textContent = m ? 'kg' : 'lb';
+      document.getElementById('hUnit').textContent = m ? 'cm' : 'in';
+    }
+
+    function calc() {
+      const m = txt('unit') === 'metric';
+      let W = val('weight'),
+          H = val('height');
+      if (!m) {
+        W *= .45359237;
+        H *= 2.54;
+      }
+      const A = val('age');
+      const b = txt('sex') === 'male' ? 10 * W + 6.25 * H - 5 * A + 5 : 10 * W + 6.25 * H - 5 * A - 161;
+      bmr.textContent = `${fmtNum(b, 0)} kcal/day`;
+      tdee.textContent = `${fmtNum(b * val('activity'), 0)} kcal/day`;
+    }
+    toggleUnits();
+    calc();
+  </script>
+
+</body>
+</html>

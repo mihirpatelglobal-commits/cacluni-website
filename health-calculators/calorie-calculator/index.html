@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Calculator | CalcUni</title>
+  <meta name="description" content="Free daily calorie calculator using BMR and activity level.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" >BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" class="active">Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" >BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" >Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" >Ideal Weight Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Calorie Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">Calorie Calculator</h1>
+      <p class="page-desc">Estimate daily maintenance calories using BMR.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Your Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Sex</label>
+              <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Age</label>
+              <input id="age" type="number" value="30">
+            </div>
+            <div class="field">
+              <label>Weight (kg)</label>
+              <input id="kg" type="number" value="75">
+            </div>
+            <div class="field">
+              <label>Height (cm)</label>
+              <input id="cm" type="number" value="175">
+            </div>
+            <div class="field">
+              <label>Activity level</label>
+              <select id="activity">
+                <option value="1.2">Sedentary</option>
+                <option value="1.375">Lightly active</option>
+                <option value="1.55" selected>Moderately active</option>
+                <option value="1.725">Very active</option>
+                <option value="1.9">Extra active</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Calories</button>
+          <p class="note">BMR uses Mifflin-St Jeor: men = 10W + 6.25H − 5A + 5; women = 10W + 6.25H − 5A − 161.</p>
+        </div>
+
+        <div class="result">
+          <span>Estimated maintenance calories</span>
+          <strong class="big" id="maint">0 kcal</strong>
+          <div class="result-row">
+            <span>BMR</span>
+            <strong id="bmr"></strong>
+          </div>
+          <div class="result-row">
+            <span>Weight loss target</span>
+            <strong id="loss"></strong>
+          </div>
+          <div class="result-row">
+            <span>Weight gain target</span>
+            <strong id="gain"></strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function calculate() {
+      const w = +kg.value || 0,
+            h = +cm.value || 0,
+            a = +age.value || 0,
+            m = +activity.value;
+      let b = 10 * w + 6.25 * h - 5 * a + (sex.value === 'male' ? 5 : -161);
+      let t = b * m;
+      maint.textContent = Math.round(t) + ' kcal';
+      bmr.textContent = Math.round(b) + ' kcal/day';
+      loss.textContent = Math.round(t - 500) + ' kcal/day';
+      gain.textContent = Math.round(t + 300) + ' kcal/day';
+    }
+    calculate();
+  </script>
+
+</body>
+</html>

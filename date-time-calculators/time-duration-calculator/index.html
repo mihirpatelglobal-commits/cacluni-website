@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Duration Calculator | CalcUni</title>
+  <meta name="description" content="Calculate the exact duration between two times or dates in hours, minutes, and seconds.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="active">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">DATE & TIME TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../date-time-calculators/" >Overview</a></li>
+        <li><a href="../../date-time-calculators/age-calculator/" >Age Calculator</a></li>
+        <li><a href="../../date-time-calculators/date-difference-calculator/" >Date Difference Calculator</a></li>
+        <li><a href="../../date-time-calculators/business-days-calculator/" >Business Days Calculator</a></li>
+        <li><a href="../../date-time-calculators/time-duration-calculator/" class="active">Time Duration Calculator</a></li>
+        <li><a href="../../date-time-calculators/hours-calculator/" >Hours Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../date-time-calculators/">Date & Time Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Time Duration Calculator</span>
+      </div>
+
+      <span class="category-badge">Date & Time Calculator</span>
+      <h1 class="page-title">Time Duration Calculator</h1>
+      <p class="page-desc">Add, subtract, or find the difference between two times.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Time Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Start Date &amp; Time</label>
+            <input id="startDateTime" type="datetime-local">
+          </div>
+          <div class="field">
+            <label>End Date &amp; Time</label>
+            <input id="endDateTime" type="datetime-local">
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Duration</button>
+      </div>
+
+      <div class="result">
+        <span>Resulting Duration</span>
+        <strong class="big" id="durationResult">0h 0m</strong>
+        <div class="result-row">
+          <span>In Decimal Hours</span>
+          <strong id="decimalHours">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Total Minutes</span>
+          <strong id="totalMinutes">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Total Seconds</span>
+          <strong id="totalSeconds">—</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These date calculations are for reference and planning purposes. Business days calculations exclude standard weekends and do not account for local statutory holidays. Please verify timesheets and contract durations independently.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    // Initialize default times: start is now, end is now + 8.5 hours (standard workday)
+    const now = new Date();
+    const end = new Date(now.getTime() + 8.5 * 60 * 60 * 1000);
+    
+    // Convert to local datetime-local format: YYYY-MM-DDTHH:MM
+    const toLocalISO = (d) => {
+      const off = d.getTimezoneOffset();
+      const local = new Date(d.getTime() - off * 60 * 1000);
+      return local.toISOString().substring(0, 16);
+    };
+
+    document.getElementById('startDateTime').value = toLocalISO(now);
+    document.getElementById('endDateTime').value = toLocalISO(end);
+
+    function calc() {
+      const startStr = document.getElementById('startDateTime').value;
+      const endStr = document.getElementById('endDateTime').value;
+      if (!startStr || !endStr) return;
+
+      const start = new Date(startStr);
+      const end = new Date(endStr);
+      
+      let isNegative = false;
+      let diffMs = end - start;
+      if (diffMs < 0) {
+        diffMs = Math.abs(diffMs);
+        isNegative = true;
+      }
+
+      const totalSec = Math.floor(diffMs / 1000);
+      const totalMin = Math.floor(totalSec / 60);
+      const totalHours = Math.floor(totalMin / 60);
+      const remainingMin = totalMin % 60;
+      
+      const decimalH = diffMs / (1000 * 60 * 60);
+
+      const sign = isNegative ? "-" : "";
+      document.getElementById('durationResult').textContent = `${sign}${totalHours}h ${remainingMin}m`;
+      document.getElementById('decimalHours').textContent = `${sign}${decimalH.toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} hours`;
+      document.getElementById('totalMinutes').textContent = `${sign}${totalMin.toLocaleString('en-CA')} min`;
+      document.getElementById('totalSeconds').textContent = `${sign}${totalSec.toLocaleString('en-CA')} sec`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

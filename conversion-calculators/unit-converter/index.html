@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter | CalcUni</title>
+  <meta name="description" content="Free online unit converter for speed, area, volume, and data size conversions.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="active">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONVERSION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../conversion-calculators/" >Overview</a></li>
+        <li><a href="../../conversion-calculators/unit-converter/" class="active">Unit Converter</a></li>
+        <li><a href="../../conversion-calculators/currency-converter/" >Currency Converter</a></li>
+        <li><a href="../../conversion-calculators/length-converter/" >Length Converter</a></li>
+        <li><a href="../../conversion-calculators/weight-converter/" >Weight Converter</a></li>
+        <li><a href="../../conversion-calculators/temperature-converter/" >Temperature Converter</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../conversion-calculators/">Conversion Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Unit Converter</span>
+      </div>
+
+      <span class="category-badge">Conversion Calculator</span>
+      <h1 class="page-title">Unit Converter</h1>
+      <p class="page-desc">Convert speed, area, volume, and other common units.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Conversion Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Category</label>
+            <select id="type" onchange="updateUnits()">
+              <option value="speed">Speed</option>
+              <option value="area">Area</option>
+              <option value="volume">Volume</option>
+              <option value="data">Digital Storage</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Value to Convert</label>
+            <input id="fromVal" type="number" value="1" oninput="convert()">
+          </div>
+          <div class="field">
+            <label>From</label>
+            <select id="fromUnit" onchange="convert()"></select>
+          </div>
+          <div class="field">
+            <label>To</label>
+            <select id="toUnit" onchange="convert()"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="result">
+        <span>Result</span>
+        <strong class="big" id="outputVal">0</strong>
+        <div class="result-row">
+          <span>Expression</span>
+          <strong id="formula">1 = 1</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Conversions are provided for informational and reference purposes only. While we verify unit ratios, please double-check measurements independently for critical engineering, commercial, or culinary applications.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const units = {
+      speed: {
+        'm/s': 1,
+        'km/h': 0.277778,
+        'mph': 0.44704,
+        'knots': 0.514444
+      },
+      area: {
+        'sq m': 1,
+        'sq km': 1000000,
+        'sq ft': 0.092903,
+        'sq yard': 0.836127,
+        'acres': 4046.86,
+        'hectares': 10000
+      },
+      volume: {
+        'liters': 1,
+        'milliliters': 0.001,
+        'cubic meters': 1000,
+        'gallons (US)': 3.78541,
+        'quarts (US)': 0.946353,
+        'cups (US)': 0.236588
+      },
+      data: {
+        'Bytes': 1,
+        'Kilobytes (KB)': 1024,
+        'Megabytes (MB)': 1024 * 1024,
+        'Gigabytes (GB)': 1024 * 1024 * 1024,
+        'Terabytes (TB)': 1024 * 1024 * 1024 * 1024
+      }
+    };
+
+    function updateUnits() {
+      const type = document.getElementById('type').value;
+      const keys = Object.keys(units[type]);
+      const fromSel = document.getElementById('fromUnit');
+      const toSel = document.getElementById('toUnit');
+      
+      fromSel.innerHTML = '';
+      toSel.innerHTML = '';
+      
+      keys.forEach((k, idx) => {
+        fromSel.add(new Option(k, k));
+        const opt = new Option(k, k);
+        if (idx === 1) opt.selected = true;
+        toSel.add(opt);
+      });
+      convert();
+    }
+
+    function convert() {
+      const type = document.getElementById('type').value;
+      const val = +document.getElementById('fromVal').value || 0;
+      const fromU = document.getElementById('fromUnit').value;
+      const toU = document.getElementById('toUnit').value;
+      
+      if (!fromU || !toU) return;
+      
+      const valInBase = val * units[type][fromU];
+      const result = valInBase / units[type][toU];
+      
+      document.getElementById('outputVal').textContent = result.toLocaleString('en-CA', { maximumFractionDigits: 6 });
+      document.getElementById('formula').textContent = `${val} ${fromU} = ${result.toLocaleString('en-CA', { maximumFractionDigits: 6 })} ${toU}`;
+    }
+
+    updateUnits();
+  </script>
+
+</body>
+</html>

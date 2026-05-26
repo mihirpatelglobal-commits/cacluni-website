@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GST/HST Calculator Canada | CalcUni</title>
+  <meta name="description" content="Free Canadian GST, HST, PST, and QST calculator by province.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="active">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TAX TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../tax-calculators/" >Overview</a></li>
+        <li><a href="../../tax-calculators/gst-hst-calculator-canada/" class="active">GST/HST Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/income-tax-calculator-canada/" >Income Tax Calculator Canada</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../tax-calculators/">Tax Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>GST/HST Calculator Canada</span>
+      </div>
+
+      <span class="category-badge">Tax Calculator</span>
+      <h1 class="page-title">GST/HST Calculator Canada</h1>
+      <p class="page-desc">Calculate GST, HST, PST, and QST by province.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Sales Tax Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Amount</label>
+              <input id="amount" type="number" value="100">
+            </div>
+            <div class="field">
+              <label>Province / territory</label>
+              <select id="province"></select>
+            </div>
+            <div class="field">
+              <label>Amount type</label>
+              <select id="mode">
+                <option value="add">Before tax</option>
+                <option value="included">Tax included</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" onclick="calculate()">Calculate Tax</button>
+          <p class="note">Rates are based on current Canadian GST/HST/PST/QST rates. Special exemptions and zero-rated supplies are not included.</p>
+        </div>
+
+        <div class="result">
+          <span>Total amount</span>
+          <strong class="big" id="total">$0</strong>
+          <div class="result-row">
+            <span>Subtotal</span>
+            <strong id="subtotal"></strong>
+          </div>
+          <div class="result-row">
+            <span>GST/HST</span>
+            <strong id="gstAmt"></strong>
+          </div>
+          <div class="result-row">
+            <span>PST/QST</span>
+            <strong id="pstAmt"></strong>
+          </div>
+          <div class="result-row">
+            <span>Combined rate</span>
+            <strong id="rateText"></strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Tax calculations are estimates based on standard provincial and federal rates for the selected tax year and do not constitute professional tax advice or tax planning. Please consult a qualified CPA or tax professional for actual filings and tax planning.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const rates = {
+      AB: ['Alberta', .05, 0],
+      BC: ['British Columbia', .05, .07],
+      MB: ['Manitoba', .05, .07],
+      NB: ['New Brunswick', .15, 0],
+      NL: ['Newfoundland and Labrador', .15, 0],
+      NT: ['Northwest Territories', .05, 0],
+      NS: ['Nova Scotia', .14, 0],
+      NU: ['Nunavut', .05, 0],
+      ON: ['Ontario', .13, 0],
+      PE: ['Prince Edward Island', .15, 0],
+      QC: ['Quebec', .05, .09975],
+      SK: ['Saskatchewan', .05, .06],
+      YT: ['Yukon', .05, 0]
+    };
+    const money = n => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+    const provinceSelect = document.getElementById('province');
+    for (const [k, v] of Object.entries(rates)) {
+      provinceSelect.add(new Option(v[0], k));
+    }
+    provinceSelect.value = 'ON';
+
+    function calculate() {
+      const a = +amount.value || 0,
+            [name, g, p] = rates[provinceSelect.value],
+            r = g + p;
+      let sub, taxG, taxP, tot;
+      if (mode.value === 'included') {
+        sub = a / (1 + r);
+        taxG = sub * g;
+        taxP = sub * p;
+        tot = a;
+      } else {
+        sub = a;
+        taxG = sub * g;
+        taxP = sub * p;
+        tot = sub + taxG + taxP;
+      }
+      total.textContent = money(tot);
+      subtotal.textContent = money(sub);
+      gstAmt.textContent = money(taxG);
+      pstAmt.textContent = money(taxP);
+      rateText.textContent = (r * 100).toFixed(3).replace(/\.000$/, '.0') + '%';
+    }
+    calculate();
+  </script>
+
+</body>
+</html>

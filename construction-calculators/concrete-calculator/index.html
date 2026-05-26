@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concrete Calculator | CalcUni</title>
+  <meta name="description" content="Calculate concrete volume in cubic yards or cubic feet, and estimate the number of bags required for your project.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="active">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">CONSTRUCTION TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../construction-calculators/" >Overview</a></li>
+        <li><a href="../../construction-calculators/concrete-calculator/" class="active">Concrete Calculator</a></li>
+        <li><a href="../../construction-calculators/square-footage-calculator/" >Square Footage Calculator</a></li>
+        <li><a href="../../construction-calculators/paint-calculator/" >Paint Calculator</a></li>
+        <li><a href="../../construction-calculators/tile-calculator/" >Tile Calculator</a></li>
+        <li><a href="../../construction-calculators/roofing-calculator/" >Roofing Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../construction-calculators/">Construction Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Concrete Calculator</span>
+      </div>
+
+      <span class="category-badge">Construction Calculator</span>
+      <h1 class="page-title">Concrete Calculator</h1>
+      <p class="page-desc">Estimate concrete volume in cubic yards or bags needed for slabs, footings, and columns.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Concrete Dimensions</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Project Type</label>
+            <select id="shape" onchange="toggleInputs()">
+              <option value="slab">Slab (Rectangular)</option>
+              <option value="column">Column / Tube (Cylindrical)</option>
+            </select>
+          </div>
+          
+          <div id="slabInputs">
+            <div class="field">
+              <label>Length (feet)</label>
+              <input id="slabL" type="number" value="10" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Width (feet)</label>
+              <input id="slabW" type="number" value="10" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Thickness (inches)</label>
+              <input id="slabT" type="number" value="4" oninput="calc()">
+            </div>
+          </div>
+
+          <div id="columnInputs" style="display:none;">
+            <div class="field">
+              <label>Height / Depth (feet)</label>
+              <input id="colH" type="number" value="8" oninput="calc()">
+            </div>
+            <div class="field">
+              <label>Diameter (inches)</label>
+              <input id="colD" type="number" value="12" oninput="calc()">
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Premixed Bag Size</label>
+            <select id="bagSize" onchange="calc()">
+              <option value="0.6">80 lb bag (0.60 cu ft)</option>
+              <option value="0.45">60 lb bag (0.45 cu ft)</option>
+              <option value="0.3">40 lb bag (0.30 cu ft)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Wastage / Spillage Margin (%)</label>
+            <input id="waste" type="number" value="10" oninput="calc()">
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Volume</button>
+      </div>
+
+      <div class="result">
+        <span>Required Volume</span>
+        <strong class="big" id="volumeResult">0.00 yd³</strong>
+        <div class="result-row">
+          <span>Volume in Cubic Feet</span>
+          <strong id="cuftResult">0.00 ft³</strong>
+        </div>
+        <div class="result-row">
+          <span>Bags Needed (with waste)</span>
+          <strong id="bagsResult">0 bags</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Estimates are for planning purposes and include standard material wastage multipliers. Actual material requirements can vary based on specific site conditions, installation methods, and professional contractor recommendations. Verify quantities with your supplier before ordering.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    function toggleInputs() {
+      const type = document.getElementById('shape').value;
+      document.getElementById('slabInputs').style.display = type === 'slab' ? 'block' : 'none';
+      document.getElementById('columnInputs').style.display = type === 'column' ? 'block' : 'none';
+      calc();
+    }
+
+    function calc() {
+      const type = document.getElementById('shape').value;
+      const wPct = ( +document.getElementById('waste').value || 0 ) / 100 + 1;
+      const bagVol = +document.getElementById('bagSize').value;
+      
+      let cuft = 0;
+      
+      if (type === 'slab') {
+        const L = +document.getElementById('slabL').value || 0;
+        const W = +document.getElementById('slabW').value || 0;
+        const T = (+document.getElementById('slabT').value || 0) / 12; // thickness in feet
+        cuft = L * W * T;
+      } else {
+        const H = +document.getElementById('colH').value || 0;
+        const D = (+document.getElementById('colD').value || 0) / 12; // diameter in feet
+        const R = D / 2;
+        cuft = Math.PI * Math.pow(R, 2) * H;
+      }
+
+      const totalCuft = cuft * wPct;
+      const yards = totalCuft / 27;
+      const bags = Math.ceil(totalCuft / bagVol);
+
+      document.getElementById('volumeResult').textContent = `${yards.toFixed(2)} yd³`;
+      document.getElementById('cuftResult').textContent = `${totalCuft.toFixed(2)} ft³`;
+      document.getElementById('bagsResult').textContent = `${bags} bags`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>

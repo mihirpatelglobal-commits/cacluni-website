@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator | CalcUni</title>
+  <meta name="description" content="Use a browser-based scientific calculator for powers, square roots, logarithms, trigonometry, and arithmetic.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="active">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">MATH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../math-calculators/" >Overview</a></li>
+        <li><a href="../../math-calculators/percentage-calculator/" >Percentage Calculator</a></li>
+        <li><a href="../../math-calculators/fraction-calculator/" >Fraction Calculator</a></li>
+        <li><a href="../../math-calculators/scientific-calculator/" class="active">Scientific Calculator</a></li>
+        <li><a href="../../math-calculators/average-calculator/" >Average Calculator</a></li>
+        <li><a href="../../math-calculators/gpa-calculator/" >GPA Calculator</a></li>
+        <li><a href="../../math-calculators/grade-calculator/" >Grade Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../math-calculators/">Math Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Scientific Calculator</span>
+      </div>
+
+      <span class="category-badge">Math Calculator</span>
+      <h1 class="page-title">Scientific Calculator</h1>
+      <p class="page-desc">Perform advanced math functions with an online calculator.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="calculator-shell">
+        <div class="card">
+          <h2>Expression</h2>
+          <div class="field">
+            <label>Enter expression</label>
+            <input id="expr" type="text" value="sqrt(144) + sin(30)">
+          </div>
+          <button class="btn" onclick="calc()" style="margin-top: 15px;">Calculate</button>
+          <p class="note">Supported: sin, cos, tan in degrees, sqrt, log (base 10), ln, abs, pow, pi, e. Example: pow(2,8) + sqrt(81).</p>
+        </div>
+
+        <div class="card results">
+          <h2>Result</h2>
+          <div class="big-result" id="result" style="font-size: 32px; color: var(--primary); font-weight: 700; margin-bottom: 20px;">0</div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These math tools are provided for educational and reference purposes. While we strive to ensure mathematical accuracy, we recommend verifying critical calculations independently for formal academic, scientific, or professional work.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function calc() {
+      const result = document.getElementById('result');
+      let s = txt('expr').toLowerCase().replace(/π/g, 'pi');
+      if (!/^[0-9+\-*/().,% a-z]+$/.test(s)) {
+        result.textContent = 'Invalid characters';
+        return;
+      }
+      s = s.replace(/pi/g, 'Math.PI')
+           .replace(/\be\b/g, 'Math.E')
+           .replace(/sqrt\(/g, 'Math.sqrt(')
+           .replace(/log\(/g, 'Math.log10(')
+           .replace(/ln\(/g, 'Math.log(')
+           .replace(/abs\(/g, 'Math.abs(')
+           .replace(/pow\(/g, 'Math.pow(')
+           .replace(/sin\(([^()]+)\)/g, 'Math.sin(($1)*Math.PI/180)')
+           .replace(/cos\(([^()]+)\)/g, 'Math.cos(($1)*Math.PI/180)')
+           .replace(/tan\(([^()]+)\)/g, 'Math.tan(($1)*Math.PI/180)');
+      try {
+        result.textContent = fmtNum(Function('"use strict";return(' + s + ')')(), 8);
+      } catch (e) {
+        result.textContent = 'Invalid expression';
+      }
+    }
+    calc();
+  </script>
+
+</body>
+</html>

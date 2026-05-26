@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Fat Calculator | CalcUni</title>
+  <meta name="description" content="Estimate body fat percentage using the U.S. Navy circumference method for men and women.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" >BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" >Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" >BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" class="active">Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" >Ideal Weight Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Body Fat Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">Body Fat Calculator</h1>
+      <p class="page-desc">Estimate body fat percentage using neck, waist, and hip measures.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Measurements</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>Unit system</label>
+              <select id="unit" onchange="toggleUnits()">
+                <option value="metric">Metric</option>
+                <option value="imperial">Imperial</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Sex</label>
+              <select id="sex" onchange="toggleHip()">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Height (<span class="unitLabel">cm</span>)</label>
+              <input id="height" type="number" value="175">
+            </div>
+            <div class="field">
+              <label>Neck (<span class="unitLabel">cm</span>)</label>
+              <input id="neck" type="number" value="38">
+            </div>
+            <div class="field">
+              <label>Waist (<span class="unitLabel">cm</span>)</label>
+              <input id="waist" type="number" value="86">
+            </div>
+            <div class="field" id="hipGroup">
+              <label>Hip (<span class="unitLabel">cm</span>)</label>
+              <input id="hip" type="number" value="96">
+            </div>
+          </div>
+          <button class="btn" onclick="calc()">Calculate Body Fat</button>
+          <p class="note">Uses the U.S. Navy circumference method. This is an estimate, not a medical measurement.</p>
+        </div>
+
+        <div class="result">
+          <span>Estimated Body Fat</span>
+          <strong class="big" id="bf">0%</strong>
+          <div class="result-row">
+            <span>Method</span>
+            <strong>U.S. Navy</strong>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    const val = id => Number(document.getElementById(id).value);
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
+
+    function toggleUnits() {
+      const l = txt('unit') === 'metric' ? 'cm' : 'in';
+      document.querySelectorAll('.unitLabel').forEach(e => e.textContent = l);
+    }
+
+    function toggleHip() {
+      document.getElementById('hipGroup').style.display = txt('sex') === 'female' ? 'block' : 'none';
+    }
+
+    function inches(x) {
+      return txt('unit') === 'metric' ? x / 2.54 : x;
+    }
+
+    function calc() {
+      const h = inches(val('height')),
+            n = inches(val('neck')),
+            w = inches(val('waist')),
+            hp = inches(val('hip'));
+      let b = txt('sex') === 'male' 
+        ? 86.010 * Math.log10(w - n) - 70.041 * Math.log10(h) + 36.76 
+        : 163.205 * Math.log10(w + hp - n) - 97.684 * Math.log10(h) - 78.387;
+      bf.textContent = `${fmtNum(b, 1)}%`;
+    }
+
+    toggleUnits();
+    toggleHip();
+    calc();
+  </script>
+
+</body>
+</html>

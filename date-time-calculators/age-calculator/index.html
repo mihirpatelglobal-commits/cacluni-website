@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator | CalcUni</title>
+  <meta name="description" content="Calculate your exact age in years, months, days, and find the countdown to your next birthday.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../index.html" class="">Home</a>
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="active">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+      </div>
+      <div class="header-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">DATE & TIME TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../date-time-calculators/" >Overview</a></li>
+        <li><a href="../../date-time-calculators/age-calculator/" class="active">Age Calculator</a></li>
+        <li><a href="../../date-time-calculators/date-difference-calculator/" >Date Difference Calculator</a></li>
+        <li><a href="../../date-time-calculators/business-days-calculator/" >Business Days Calculator</a></li>
+        <li><a href="../../date-time-calculators/time-duration-calculator/" >Time Duration Calculator</a></li>
+        <li><a href="../../date-time-calculators/hours-calculator/" >Hours Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../date-time-calculators/">Date & Time Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Age Calculator</span>
+      </div>
+
+      <span class="category-badge">Date & Time Calculator</span>
+      <h1 class="page-title">Age Calculator</h1>
+      <p class="page-desc">Find your exact age in years, months, days, and time to your next birthday.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Birth Date Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Date of Birth</label>
+            <input id="birthDate" type="date" value="1995-06-15">
+          </div>
+          <div class="field">
+            <label>Age at Date (optional)</label>
+            <input id="targetDate" type="date">
+          </div>
+        </div>
+        <button class="btn" onclick="calc()">Calculate Age</button>
+      </div>
+
+      <div class="result">
+        <span>Your Age</span>
+        <strong class="big" id="ageDisplay">0 years</strong>
+        <div class="result-row">
+          <span>Months &amp; Days</span>
+          <strong id="subAge">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Total Days Lived</span>
+          <strong id="totalDays">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Next Birthday In</span>
+          <strong id="nextBday">—</strong>
+        </div>
+      </div>
+    </section>
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These date calculations are for reference and planning purposes. Business days calculations exclude standard weekends and do not account for local statutory holidays. Please verify timesheets and contract durations independently.
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    © 2026 CalcUni.com — Simple calculators for everyone.
+  </footer>
+
+  <script>
+    // Set default target date to today
+    document.getElementById('targetDate').value = new Date().toISOString().split('T')[0];
+
+    function calc() {
+      const birthStr = document.getElementById('birthDate').value;
+      const targetStr = document.getElementById('targetDate').value;
+      if (!birthStr || !targetStr) return;
+
+      const birth = new Date(birthStr + 'T00:00:00');
+      const target = new Date(targetStr + 'T00:00:00');
+      
+      if (target < birth) {
+        document.getElementById('ageDisplay').textContent = "Invalid Dates";
+        document.getElementById('subAge').textContent = "Birth date is after target date.";
+        document.getElementById('totalDays').textContent = "—";
+        document.getElementById('nextBday').textContent = "—";
+        return;
+      }
+
+      let years = target.getFullYear() - birth.getFullYear();
+      let months = target.getMonth() - birth.getMonth();
+      let days = target.getDate() - birth.getDate();
+
+      if (days < 0) {
+        months--;
+        // Days in previous month
+        const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      // Total days lived
+      const diffTime = Math.abs(target - birth);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      // Next Birthday
+      const nextBdayDate = new Date(birth);
+      nextBdayDate.setFullYear(target.getFullYear());
+      if (nextBdayDate < target) {
+        nextBdayDate.setFullYear(target.getFullYear() + 1);
+      }
+      const bdayDiff = nextBdayDate - target;
+      const bdayDays = Math.ceil(bdayDiff / (1000 * 60 * 60 * 24));
+
+      document.getElementById('ageDisplay').textContent = `${years} years`;
+      document.getElementById('subAge').textContent = `${months} months, ${days} days`;
+      document.getElementById('totalDays').textContent = `${diffDays.toLocaleString('en-CA')} days`;
+      document.getElementById('nextBday').textContent = bdayDays === 365 ? "Today is your birthday!" : `${bdayDays} days`;
+    }
+
+    calc();
+  </script>
+
+</body>
+</html>
