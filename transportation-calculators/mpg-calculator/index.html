@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -117,6 +124,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
       </div>
@@ -137,6 +147,24 @@
   </footer>
 
   <script>
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const fuel = +document.getElementById('fuel').value || 0;
+          
+          let mpg = 0;
+          let l100 = 0;
+          
+          if (distance > 0 && fuel > 0) {
+            mpg = distance / fuel;
+            l100 = 235.215 / mpg;
+          }
+          
+          document.getElementById('mpg').textContent = mpg.toFixed(2) + ' MPG';
+          document.getElementById('l100k').textContent = isFinite(l100) && l100 > 0 ? l100.toFixed(2) + ' L/100km' : 'N/A';
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const distance = +document.getElementById('distance').value || 0;
           const fuel = +document.getElementById('fuel').value || 0;

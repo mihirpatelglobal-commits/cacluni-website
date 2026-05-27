@@ -67,6 +67,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -132,6 +139,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Business and financial calculations shown are estimates for planning and informational purposes only. Actual values may vary depending on tax regulations, payroll rules, and specific transaction terms. Consult a qualified professional or accountant for official business planning.
       </div>
@@ -152,6 +162,30 @@
   </footer>
 
   <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const invested = +document.getElementById('invested').value || 0;
+          const returned = +document.getElementById('returned').value || 0;
+          const years = +document.getElementById('years').value || 0;
+          
+          const gain = returned - invested;
+          let roi = 0;
+          let annualized = 0;
+          
+          if (invested !== 0) {
+            roi = (gain / invested) * 100;
+            if (years > 0 && returned > 0) {
+              annualized = (Math.pow(returned / invested, 1 / years) - 1) * 100;
+            }
+          }
+          
+          document.getElementById('roi').textContent = roi.toFixed(2) + '%';
+          document.getElementById('gain').textContent = money(gain);
+          document.getElementById('annualized').textContent = years > 0 && invested > 0 && returned > 0 ? annualized.toFixed(2) + '%' : 'N/A';
+        }
+        calculate();
+      </script>
+<script>
         const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         function calculate() {
           const invested = +document.getElementById('invested').value || 0;

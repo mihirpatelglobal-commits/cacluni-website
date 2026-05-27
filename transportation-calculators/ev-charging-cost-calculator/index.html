@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -134,6 +141,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
       </div>
@@ -154,6 +164,25 @@
   </footer>
 
   <script>
+        function calculate() {
+          const battery = +document.getElementById('battery').value || 0;
+          const start = +document.getElementById('start').value || 0;
+          const target = +document.getElementById('target').value || 0;
+          const rate = +document.getElementById('rate').value || 0;
+          const efficiency = +document.getElementById('efficiency').value || 90;
+          
+          const chargeDiff = Math.max(target - start, 0);
+          const energyNeeded = battery * (chargeDiff / 100);
+          const gridEnergy = energyNeeded / (efficiency / 100);
+          const cost = gridEnergy * rate;
+          
+          document.getElementById('cost').textContent = '$' + cost.toFixed(2);
+          document.getElementById('energy').textContent = energyNeeded.toFixed(2) + ' kWh';
+          document.getElementById('grid_energy').textContent = gridEnergy.toFixed(2) + ' kWh';
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const battery = +document.getElementById('battery').value || 0;
           const start = +document.getElementById('start').value || 0;

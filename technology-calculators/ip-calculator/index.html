@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -162,6 +169,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
       </div>
@@ -182,6 +192,65 @@
   </footer>
 
   <script>
+        function calculate() {
+          const ipStr = document.getElementById('ip').value.trim();
+          
+          if (!/^(?:[0-9]{1,3}.){3}[0-9]{1,3}$/.test(ipStr)) {
+            document.getElementById('scope_type').textContent = 'Error: Invalid IP';
+            document.getElementById('ip_class').textContent = 'N/A';
+            document.getElementById('ip_int').textContent = 'N/A';
+            document.getElementById('ip_bin').textContent = 'N/A';
+            return;
+          }
+          
+          const octets = ipStr.split('.').map(Number);
+          
+          if (octets.some(o => o > 255)) {
+            document.getElementById('scope_type').textContent = 'Error: Octets must be <= 255';
+            document.getElementById('ip_class').textContent = 'N/A';
+            document.getElementById('ip_int').textContent = 'N/A';
+            document.getElementById('ip_bin').textContent = 'N/A';
+            return;
+          }
+          
+          const first = octets[0];
+          
+          // Class
+          let ipClass = 'Unknown';
+          if (first >= 1 && first <= 126) ipClass = 'Class A';
+          else if (first === 127) ipClass = 'Class A (Loopback)';
+          else if (first >= 128 && first <= 191) ipClass = 'Class B';
+          else if (first >= 192 && first <= 223) ipClass = 'Class C';
+          else if (first >= 224 && first <= 239) ipClass = 'Class D (Multicast)';
+          else if (first >= 240 && first <= 255) ipClass = 'Class E (Experimental)';
+          
+          // Private IP Range Check (RFC 1918)
+          let isPrivate = false;
+          if (first === 10) {
+            isPrivate = true;
+          } else if (first === 172 && octets[1] >= 16 && octets[1] <= 31) {
+            isPrivate = true;
+          } else if (first === 192 && octets[1] === 168) {
+            isPrivate = true;
+          }
+          
+          // Integer
+          const ipInt = octets.reduce((res, o) => (res * 256) + o, 0);
+          
+          // Binary
+          const ipBin = octets.map(o => {
+            let s = o.toString(2);
+            return '0'.repeat(8 - s.length) + s;
+          }).join('.');
+          
+          document.getElementById('scope_type').textContent = isPrivate ? 'Private Address (LAN)' : 'Public Address (WAN)';
+          document.getElementById('ip_class').textContent = ipClass;
+          document.getElementById('ip_int').textContent = ipInt.toLocaleString('en-US', { useGrouping: false });
+          document.getElementById('ip_bin').textContent = ipBin;
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const ipStr = document.getElementById('ip').value.trim();
           

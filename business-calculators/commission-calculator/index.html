@@ -67,6 +67,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -124,6 +131,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Business and financial calculations shown are estimates for planning and informational purposes only. Actual values may vary depending on tax regulations, payroll rules, and specific transaction terms. Consult a qualified professional or accountant for official business planning.
       </div>
@@ -144,6 +154,22 @@
   </footer>
 
   <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const sales = +document.getElementById('sales').value || 0;
+          const rate = +document.getElementById('rate').value || 0;
+          const base = +document.getElementById('base').value || 0;
+          
+          const commission = sales * (rate / 100);
+          const total = base + commission;
+          
+          document.getElementById('commission').textContent = money(commission);
+          document.getElementById('total').textContent = money(total);
+          document.getElementById('base_portion').textContent = money(base);
+        }
+        calculate();
+      </script>
+<script>
         const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         function calculate() {
           const sales = +document.getElementById('sales').value || 0;

@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -156,6 +163,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
       </div>
@@ -176,6 +186,47 @@
   </footer>
 
   <script>
+        function calculate() {
+          const size = +document.getElementById('size').value || 0;
+          const sizeUnit = document.getElementById('size_unit').value;
+          const speed = +document.getElementById('speed').value || 0;
+          const speedUnit = document.getElementById('speed_unit').value;
+          
+          let bits = 0;
+          switch (sizeUnit) {
+            case 'MB': bits = size * 8 * 1000 * 1000; break;
+            case 'GB': bits = size * 8 * 1000 * 1000 * 1000; break;
+            case 'TB': bits = size * 8 * 1000 * 1000 * 1000 * 1000; break;
+          }
+          
+          let bps = 0;
+          switch (speedUnit) {
+            case 'Kbps': bps = speed * 1000; break;
+            case 'Mbps': bps = speed * 1000 * 1000; break;
+            case 'Gbps': bps = speed * 1000 * 1000 * 1000; break;
+          }
+          
+          let timeSecs = 0;
+          if (bps > 0) timeSecs = bits / bps;
+          
+          const days = Math.floor(timeSecs / (24 * 3600));
+          timeSecs = timeSecs % (24 * 3600);
+          const hrs = Math.floor(timeSecs / 3600);
+          timeSecs = timeSecs % 3600;
+          const mins = Math.floor(timeSecs / 60);
+          const secs = Math.round(timeSecs % 60);
+          
+          let timeStr = '';
+          if (days > 0) timeStr += days + ' days ';
+          if (hrs > 0 || days > 0) timeStr += hrs + ' hrs ';
+          timeStr += mins + ' mins ' + secs + ' secs';
+          
+          document.getElementById('duration').textContent = timeStr;
+          document.getElementById('total_bits').textContent = bits.toLocaleString() + ' bits';
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const size = +document.getElementById('size').value || 0;
           const sizeUnit = document.getElementById('size_unit').value;

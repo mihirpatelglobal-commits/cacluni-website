@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -130,6 +137,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
       </div>
@@ -150,6 +160,25 @@
   </footer>
 
   <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const price = +document.getElementById('price').value || 0;
+          const discount = +document.getElementById('discount').value || 0;
+          const tax = +document.getElementById('tax').value || 0;
+          
+          const savings = price * (discount / 100);
+          const salePrice = price - savings;
+          const taxAmount = salePrice * (tax / 100);
+          const finalPrice = salePrice + taxAmount;
+          
+          document.getElementById('final_price').textContent = money(finalPrice);
+          document.getElementById('savings').textContent = money(savings);
+          document.getElementById('sale_price').textContent = money(salePrice);
+          document.getElementById('tax_amount').textContent = money(taxAmount);
+        }
+        calculate();
+      </script>
+<script>
         const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         function calculate() {
           const price = +document.getElementById('price').value || 0;

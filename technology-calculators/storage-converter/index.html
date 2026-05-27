@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -140,6 +147,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
       </div>
@@ -160,6 +170,31 @@
   </footer>
 
   <script>
+        function calculate() {
+          const val = +document.getElementById('value').value || 0;
+          const fromUnit = document.getElementById('from_unit').value;
+          const toUnit = document.getElementById('to_unit').value;
+          
+          const decUnits = { 'B': 1, 'KB': 1e3, 'MB': 1e6, 'GB': 1e9, 'TB': 1e12 };
+          const binUnits = { 'B': 1, 'KB': 1024, 'MB': 1024**2, 'GB': 1024**3, 'TB': 1024**4 };
+          
+          const decLabel = toUnit;
+          const binLabel = toUnit === 'B' ? 'B' : toUnit.charAt(0) + 'iB';
+          
+          // 1. Decimal conversion
+          const bytesDec = val * decUnits[fromUnit];
+          const decResultVal = bytesDec / decUnits[toUnit];
+          
+          // 2. Binary conversion
+          const bytesBin = val * binUnits[fromUnit];
+          const binResultVal = bytesBin / binUnits[toUnit];
+          
+          document.getElementById('dec_res').textContent = decResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + decLabel;
+          document.getElementById('bin_res').textContent = binResultVal.toLocaleString('en-US', { maximumFractionDigits: 6 }) + ' ' + binLabel;
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const val = +document.getElementById('value').value || 0;
           const fromUnit = document.getElementById('from_unit').value;

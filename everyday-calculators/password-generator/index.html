@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -181,6 +188,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
       </div>
@@ -201,6 +211,63 @@
   </footer>
 
   <script>
+        function calculate() {
+          const len = Math.max(Math.min(+document.getElementById('length').value || 16, 64), 6);
+          const useUpper = document.getElementById('upper').value === 'yes';
+          const useLower = document.getElementById('lower').value === 'yes';
+          const useNum = document.getElementById('numbers').value === 'yes';
+          const useSym = document.getElementById('symbols').value === 'yes';
+          
+          let chars = '';
+          if (useUpper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          if (useLower) chars += 'abcdefghijklmnopqrstuvwxyz';
+          if (useNum) chars += '0123456789';
+          if (useSym) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+          
+          if (!chars) {
+            document.getElementById('pass-field').value = '[Select at least one set]';
+            document.getElementById('strength').textContent = 'None';
+            document.getElementById('strength').style.color = 'red';
+            return;
+          }
+          
+          let pass = '';
+          for (let i = 0; i < len; i++) {
+            pass += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          
+          document.getElementById('pass-field').value = pass;
+          
+          // Determine strength indicator
+          let entropy = len * Math.log2(chars.length);
+          let str = 'Weak';
+          let color = 'red';
+          if (entropy >= 80) {
+            str = 'Excellent';
+            color = 'var(--success)';
+          } else if (entropy >= 50) {
+            str = 'Strong';
+            color = '#3b82f6';
+          } else if (entropy >= 35) {
+            str = 'Medium';
+            color = '#f59e0b';
+          }
+          
+          document.getElementById('strength').textContent = str + ' (' + Math.round(entropy) + ' bits)';
+          document.getElementById('strength').style.color = color;
+        }
+        
+        function copyPassword() {
+          const pass = document.getElementById('pass-field').value;
+          if (pass && pass.charAt(0) !== '[') {
+            navigator.clipboard.writeText(pass).then(() => {
+              alert('Password copied successfully!');
+            });
+          }
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const len = Math.max(Math.min(+document.getElementById('length').value || 16, 64), 6);
           const useUpper = document.getElementById('upper').value === 'yes';

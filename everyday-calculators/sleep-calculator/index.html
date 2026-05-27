@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -192,6 +199,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
       </div>
@@ -212,6 +222,79 @@
   </footer>
 
   <script>
+        function toggleFields() {
+          const isWake = document.getElementById('goal').value === 'wake';
+          document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';
+        }
+        
+        function formatTime(d) {
+          let hrs = d.getHours();
+          const mins = d.getMinutes();
+          const period = hrs >= 12 ? 'PM' : 'AM';
+          hrs = hrs % 12;
+          hrs = hrs === 0 ? 12 : hrs;
+          return hrs + ':' + (mins < 10 ? '0' + mins : mins) + ' ' + period;
+        }
+
+        function calculate() {
+          const goal = document.getElementById('goal').value;
+          const container = document.getElementById('cycle-times');
+          container.innerHTML = '';
+          
+          if (goal === 'bed') {
+            document.getElementById('res-lbl').textContent = 'Optimal Wake-up Times (Bed now)';
+            
+            // Assume 14 mins to fall asleep
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 14);
+            
+            // Generate 3, 4, 5, 6 sleep cycles (4.5, 6.0, 7.5, 9.0 hrs)
+            const cycles = [3, 4, 5, 6];
+            cycles.forEach(c => {
+              const wakeTime = new Date(now.getTime());
+              wakeTime.setMinutes(wakeTime.getMinutes() + c * 90);
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(wakeTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          } else {
+            document.getElementById('res-lbl').textContent = 'Optimal Bedtimes (For Wake time)';
+            
+            let hour = +document.getElementById('hour').value;
+            const min = +document.getElementById('minute').value;
+            const period = document.getElementById('period').value;
+            
+            if (period === 'PM' && hour !== 12) hour += 12;
+            if (period === 'AM' && hour === 12) hour = 0;
+            
+            const wakeTime = new Date();
+            wakeTime.setHours(hour, min, 0, 0);
+            
+            // Generate backward bedtimes: 6, 5, 4, 3 cycles
+            const cycles = [6, 5, 4, 3];
+            cycles.forEach(c => {
+              const bedTime = new Date(wakeTime.getTime());
+              // Subtract cycle minutes + 14 minutes average latency
+              bedTime.setMinutes(bedTime.getMinutes() - (c * 90 + 14));
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(bedTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          }
+        }
+        calculate();
+      </script>
+<script>
         function toggleFields() {
           const isWake = document.getElementById('goal').value === 'wake';
           document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';

@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -131,6 +138,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
       </div>
@@ -151,6 +161,26 @@
   </footer>
 
   <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const bill = +document.getElementById('bill').value || 0;
+          const tip_pct = +document.getElementById('tip_pct').value || 0;
+          const people = Math.max(+document.getElementById('people').value || 1, 1);
+          
+          const totalTip = bill * (tip_pct / 100);
+          const totalBill = bill + totalTip;
+          
+          const tipPerPerson = totalTip / people;
+          const totalPerPerson = totalBill / people;
+          
+          document.getElementById('per_person').textContent = money(totalPerPerson);
+          document.getElementById('tip_per_person').textContent = money(tipPerPerson);
+          document.getElementById('total_tip').textContent = money(totalTip);
+          document.getElementById('total_bill').textContent = money(totalBill);
+        }
+        calculate();
+      </script>
+<script>
         const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         function calculate() {
           const bill = +document.getElementById('bill').value || 0;

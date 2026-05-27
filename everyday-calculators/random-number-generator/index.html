@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -157,6 +164,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> These general everyday tools are provided for quick estimation and reference purposes. Sleep cycles, passwords, and random numbers are based on standard mathematical algorithms and should be verified for security-critical applications.
       </div>
@@ -177,6 +187,51 @@
   </footer>
 
   <script>
+        function calculate() {
+          const min = +document.getElementById('min').value || 0;
+          const max = +document.getElementById('max').value || 0;
+          const qty = Math.max(+document.getElementById('qty').value || 1, 1);
+          const dupes = document.getElementById('dupes').value === 'yes';
+          const container = document.getElementById('random-results');
+          
+          container.innerHTML = '';
+          
+          if (min > max) {
+            container.innerHTML = '<div style="color:red; font-size:14px;">Error: Min value cannot be larger than Max value!</div>';
+            return;
+          }
+          
+          const range = max - min + 1;
+          document.getElementById('span').textContent = range.toLocaleString() + ' integers';
+          
+          if (!dupes && qty > range) {
+            container.innerHTML = '<div style="color:red; font-size:14px;">Error: Cannot generate ' + qty + ' unique values from a range of size ' + range + '!</div>';
+            return;
+          }
+          
+          const results = [];
+          if (dupes) {
+            for (let i = 0; i < qty; i++) {
+              results.push(Math.floor(Math.random() * range) + min);
+            }
+          } else {
+            const set = new Set();
+            while (set.size < qty) {
+              set.add(Math.floor(Math.random() * range) + min);
+            }
+            results.push(...set);
+          }
+          
+          results.forEach(val => {
+            const span = document.createElement('span');
+            span.style.cssText = 'background-color: var(--primary-light); color: var(--primary); padding: 8px 16px; border-radius: 20px; font-weight: 700; font-size: 16px; border: 1px solid var(--border-focus);';
+            span.textContent = val;
+            container.appendChild(span);
+          });
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const min = +document.getElementById('min').value || 0;
           const max = +document.getElementById('max').value || 0;

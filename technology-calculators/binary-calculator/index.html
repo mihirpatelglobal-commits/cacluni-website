@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -158,6 +165,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Technology tools are for network planning, educational reference, and storage conversions. Please verify network subnets and bandwidth calculations with standard network engineering practices before deploying in live environments.
       </div>
@@ -178,6 +188,49 @@
   </footer>
 
   <script>
+        function calculate() {
+          const op1Str = document.getElementById('op1').value.trim();
+          const op2Str = document.getElementById('op2').value.trim();
+          const op = document.getElementById('op').value;
+          
+          if (/[^01]/.test(op1Str) || /[^01]/.test(op2Str)) {
+            document.getElementById('bin_res').textContent = 'Error: Invalid Binary';
+            document.getElementById('dec_res').textContent = 'N/A';
+            document.getElementById('hex_res').textContent = 'N/A';
+            return;
+          }
+          
+          if (!op1Str || !op2Str) {
+            document.getElementById('bin_res').textContent = '0';
+            document.getElementById('dec_res').textContent = '0';
+            document.getElementById('hex_res').textContent = '0';
+            return;
+          }
+          
+          const dec1 = parseInt(op1Str, 2);
+          const dec2 = parseInt(op2Str, 2);
+          
+          let res = 0;
+          switch (op) {
+            case '+': res = dec1 + dec2; break;
+            case '-': res = dec1 - dec2; break;
+            case '*': res = dec1 * dec2; break;
+            case '/': res = dec2 !== 0 ? Math.floor(dec1 / dec2) : 0; break;
+            case 'AND': res = dec1 & dec2; break;
+            case 'OR': res = dec1 | dec2; break;
+            case 'XOR': res = dec1 ^ dec2; break;
+          }
+          
+          // Force unsigned 32-bit for bitwise if negative
+          if (res < 0) res = res >>> 0;
+          
+          document.getElementById('bin_res').textContent = res.toString(2);
+          document.getElementById('dec_res').textContent = res.toString(10);
+          document.getElementById('hex_res').textContent = res.toString(16).toUpperCase();
+        }
+        calculate();
+      </script>
+<script>
         function calculate() {
           const op1Str = document.getElementById('op1').value.trim();
           const op2Str = document.getElementById('op2').value.trim();

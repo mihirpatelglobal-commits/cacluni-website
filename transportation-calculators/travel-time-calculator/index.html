@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -138,6 +145,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
       </div>
@@ -158,6 +168,34 @@
   </footer>
 
   <script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';
+          document.getElementById('speed-lbl').textContent = isMetric ? 'Average Speed (km/h)' : 'Average Speed (mph)';
+        }
+        
+        function calculate() {
+          const distance = +document.getElementById('distance').value || 0;
+          const speed = +document.getElementById('speed').value || 0;
+          const stops = +document.getElementById('stops').value || 0;
+          
+          let driveTimeHrs = 0;
+          if (speed > 0) driveTimeHrs = distance / speed;
+          
+          const totalHrs = driveTimeHrs + (stops / 60);
+          
+          const d_hrs = Math.floor(driveTimeHrs);
+          const d_mins = Math.round((driveTimeHrs - d_hrs) * 60);
+          
+          const t_hrs = Math.floor(totalHrs);
+          const t_mins = Math.round((totalHrs - t_hrs) * 60);
+          
+          document.getElementById('duration').textContent = t_hrs + ' hrs ' + t_mins + ' mins';
+          document.getElementById('drive_time').textContent = d_hrs + ' hrs ' + d_mins + ' mins';
+        }
+        calculate();
+      </script>
+<script>
         function toggleLabels() {
           const isMetric = document.getElementById('unit').value === 'metric';
           document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';

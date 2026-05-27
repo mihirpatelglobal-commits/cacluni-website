@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll Tax Calculator | CalcUni</title>
+  <meta name="description" content="Estimate gross pay, federal tax deductions, provincial tax deductions, CPP/QPP contributions, EI contributions, and final take-home net salary.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="active">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TAX TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../tax-calculators/" >Overview</a></li>
+        <li><a href="../../tax-calculators/gst-hst-calculator-canada/" >GST/HST Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/income-tax-calculator-canada/" >Income Tax Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/pst-calculator/" >PST Calculator</a></li>
+        <li><a href="../../tax-calculators/vat-calculator/" >VAT Calculator</a></li>
+        <li><a href="../../tax-calculators/payroll-tax-calculator/" class="active">Payroll Tax Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../tax-calculators/">Tax Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Payroll Tax Calculator</span>
+      </div>
+
+      <span class="category-badge">Tax Calculator</span>
+      <h1 class="page-title">Payroll Tax Calculator</h1>
+      <p class="page-desc">Estimate gross pay, taxes, CPP/QPP, EI, and take-home net pay.</p>
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>Income Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Gross Salary ($)</label>
+            <input id="salary" type="number" value="5000">
+          </div>
+          <div class="field">
+            <label>Pay Frequency</label>
+            <select id="frequency">
+              <option value="12">Monthly</option>
+              <option value="26">Bi-Weekly</option>
+              <option value="52">Weekly</option>
+              <option value="1">Annually</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Province (Canada)</label>
+            <select id="province">
+              <option value="ON">Ontario</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="QC">Quebec (QPP)</option>
+              <option value="NS">Nova Scotia</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" onclick="calculate()">Calculate Net Pay</button>
+      </div>
+
+      <div class="result">
+        <span>Estimated Take-Home (Net)</span>
+        <strong class="big" id="total">$0.00</strong>
+        <div class="result-row">
+          <span>Gross Pay</span>
+          <strong id="grossAmt">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>Federal Income Tax (15%)</span>
+          <strong id="fedTax">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>Provincial Income Tax (8%)</span>
+          <strong id="provTax">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>CPP / QPP Contribution (5.95%)</span>
+          <strong id="cppDeduction">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>EI Contribution (1.66%)</span>
+          <strong id="eiDeduction">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>Total Deductions</span>
+          <strong id="totalDeductions" style="color: #dc2626;">$0.00</strong>
+        </div>
+      </div>
+    </section>
+  
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Tax calculations are estimates based on standard provincial and federal rates for the selected tax year and do not constitute professional tax advice or tax planning. Please consult a qualified CPA or tax professional for actual filings and tax planning.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function money(n) {
+      return n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+    }
+
+    function calculate() {
+      const gross = +document.getElementById('salary').value || 0;
+      const freq = +document.getElementById('frequency').value;
+      const prov = document.getElementById('province').value;
+
+      // Basic standard deduction rates
+      const fedRate = 0.15; // 15% estimated average federal rate
+      const provRate = prov === 'NS' ? 0.09 : (prov === 'BC' ? 0.07 : 0.08); // Estimate provincial
+      const cppRate = prov === 'QC' ? 0.0640 : 0.0595; // QPP vs CPP
+      const eiRate = prov === 'QC' ? 0.0127 : 0.0166; // Quebec EI is slightly lower
+
+      const fed = gross * fedRate;
+      const provincial = gross * provRate;
+      const cpp = gross * cppRate;
+      const ei = gross * eiRate;
+
+      const deductions = fed + provincial + cpp + ei;
+      const net = Math.max(0, gross - deductions);
+
+      document.getElementById('total').textContent = money(net);
+      document.getElementById('grossAmt').textContent = money(gross);
+      document.getElementById('fedTax').textContent = money(fed);
+      document.getElementById('provTax').textContent = money(provincial);
+      document.getElementById('cppDeduction').textContent = money(cpp);
+      document.getElementById('eiDeduction').textContent = money(ei);
+      document.getElementById('totalDeductions').textContent = money(deductions);
+    }
+
+    calculate();
+  </script>
+
+</body>
+</html>

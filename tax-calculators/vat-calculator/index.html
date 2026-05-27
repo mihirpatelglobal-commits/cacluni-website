@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Added Tax (VAT) Calculator | CalcUni</title>
+  <meta name="description" content="Calculate Value Added Tax (VAT) with standard global rates or custom tax percentages.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="active">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">TAX TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../tax-calculators/" >Overview</a></li>
+        <li><a href="../../tax-calculators/gst-hst-calculator-canada/" >GST/HST Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/income-tax-calculator-canada/" >Income Tax Calculator Canada</a></li>
+        <li><a href="../../tax-calculators/pst-calculator/" >PST Calculator</a></li>
+        <li><a href="../../tax-calculators/vat-calculator/" class="active">VAT Calculator</a></li>
+        <li><a href="../../tax-calculators/payroll-tax-calculator/" >Payroll Tax Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../tax-calculators/">Tax Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>VAT Calculator</span>
+      </div>
+
+      <span class="category-badge">Tax Calculator</span>
+      <h1 class="page-title">VAT Calculator</h1>
+      <p class="page-desc">Calculate Value Added Tax (VAT) with global rates or custom percentages.</p>
+
+      
+    <section class="grid">
+      <div class="card">
+        <h2>VAT Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label>Amount ($)</label>
+            <input id="amount" type="number" value="100">
+          </div>
+          <div class="field">
+            <label>Country / Rate</label>
+            <select id="vatSelect" onchange="toggleCustom()">
+              <option value="0.20">United Kingdom (20%)</option>
+              <option value="0.19">Germany (19%)</option>
+              <option value="0.20">France (20%)</option>
+              <option value="0.22">Italy (22%)</option>
+              <option value="0.21">Spain (21%)</option>
+              <option value="0.15">Australia / NZ (15%)</option>
+              <option value="custom">Custom Rate (%)</option>
+            </select>
+          </div>
+          <div id="customField" class="field" style="display: none;">
+            <label>Custom Rate (%)</label>
+            <input id="customRate" type="number" value="10">
+          </div>
+          <div class="field">
+            <label>Amount Type</label>
+            <select id="mode">
+              <option value="add">Before VAT</option>
+              <option value="included">VAT Included</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" onclick="calculate()">Calculate VAT</button>
+      </div>
+
+      <div class="result">
+        <span>Total Amount</span>
+        <strong class="big" id="total">$0.00</strong>
+        <div class="result-row">
+          <span>Subtotal (Net)</span>
+          <strong id="subtotal">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>VAT Amount</span>
+          <strong id="vatAmt">$0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>VAT Rate</span>
+          <strong id="rateText">0.0%</strong>
+        </div>
+      </div>
+    </section>
+  
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Tax calculations are estimates based on standard provincial and federal rates for the selected tax year and do not constitute professional tax advice or tax planning. Please consult a qualified CPA or tax professional for actual filings and tax planning.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html">About</a>
+        <a href="../../contact.html" style="margin-left: 20px;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCustom() {
+      const select = document.getElementById('vatSelect').value;
+      document.getElementById('customField').style.display = select === 'custom' ? 'block' : 'none';
+    }
+
+    function money(n) {
+      return n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    }
+
+    function calculate() {
+      const a = +document.getElementById('amount').value || 0;
+      const select = document.getElementById('vatSelect').value;
+      const mode = document.getElementById('mode').value;
+
+      let rate = 0;
+      if (select === 'custom') {
+        rate = (+document.getElementById('customRate').value || 0) / 100;
+      } else {
+        rate = +select;
+      }
+
+      let sub, tax, tot;
+      if (mode === 'included') {
+        sub = a / (1 + rate);
+        tax = a - sub;
+        tot = a;
+      } else {
+        sub = a;
+        tax = a * rate;
+        tot = a + tax;
+      }
+
+      document.getElementById('total').textContent = money(tot);
+      document.getElementById('subtotal').textContent = money(sub);
+      document.getElementById('vatAmt').textContent = money(tax);
+      document.getElementById('rateText').textContent = (rate * 100).toFixed(2).replace(/\.00$/, '') + '%';
+    }
+
+    calculate();
+  </script>
+
+</body>
+</html>

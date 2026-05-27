@@ -67,6 +67,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -127,6 +134,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Business and financial calculations shown are estimates for planning and informational purposes only. Actual values may vary depending on tax regulations, payroll rules, and specific transaction terms. Consult a qualified professional or accountant for official business planning.
       </div>
@@ -147,6 +157,29 @@
   </footer>
 
   <script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const revenue = +document.getElementById('revenue').value || 0;
+          const cost = +document.getElementById('cost').value || 0;
+          const profit = revenue - cost;
+          
+          let margin = 0;
+          if (revenue !== 0) {
+            margin = (profit / revenue) * 100;
+          }
+          
+          let markup = 0;
+          if (cost !== 0) {
+            markup = (profit / cost) * 100;
+          }
+          
+          document.getElementById('profit').textContent = money(profit);
+          document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+          document.getElementById('markup').textContent = markup.toFixed(2) + '%';
+        }
+        calculate();
+      </script>
+<script>
         const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         function calculate() {
           const revenue = +document.getElementById('revenue').value || 0;

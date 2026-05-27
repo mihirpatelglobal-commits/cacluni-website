@@ -66,6 +66,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -140,6 +147,9 @@
       
     
       
+      
+    
+      
       <div class="calculator-disclaimer">
         <strong>Disclaimer:</strong> Fuel costs, charging costs, and trip times are estimates based on standard vehicle consumption rates, driving patterns, and utility tariffs. Actual costs and travel times will vary due to traffic, weather, road conditions, and individual driving habits.
       </div>
@@ -160,6 +170,36 @@
   </footer>
 
   <script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('start-lbl').textContent = isMetric ? 'Start Odometer (km)' : 'Start Odometer (miles)';
+          document.getElementById('end-lbl').textContent = isMetric ? 'End Odometer (km)' : 'End Odometer (miles)';
+          document.getElementById('fuel-lbl').textContent = isMetric ? 'Fuel Added (Liters)' : 'Fuel Added (Gallons)';
+        }
+        
+        function calculate() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          const start = +document.getElementById('start').value || 0;
+          const end = +document.getElementById('end').value || 0;
+          const fuel = +document.getElementById('fuel_added').value || 0;
+          
+          const distance = Math.max(end - start, 0);
+          let eff = 0;
+          
+          if (distance > 0 && fuel > 0) {
+            if (isMetric) {
+              eff = (fuel / distance) * 100;
+            } else {
+              eff = distance / fuel;
+            }
+          }
+          
+          document.getElementById('distance').textContent = distance.toLocaleString() + (isMetric ? ' km' : ' miles');
+          document.getElementById('efficiency').textContent = eff.toFixed(2) + (isMetric ? ' L/100km' : ' MPG');
+        }
+        calculate();
+      </script>
+<script>
         function toggleLabels() {
           const isMetric = document.getElementById('unit').value === 'metric';
           document.getElementById('start-lbl').textContent = isMetric ? 'Start Odometer (km)' : 'Start Odometer (miles)';
