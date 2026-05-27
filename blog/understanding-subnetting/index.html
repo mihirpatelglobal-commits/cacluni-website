@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demystifying Subnetting: IP Masking & CIDR Notations | CalcUni</title>
+  <meta name="description" content="Network engineering essentials. Learn to divide classes of IP addresses into sub-networks, calculate binary masks, and map maximum hosts.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+  
+  <!-- Technical SEO & Meta Tags -->
+  <link rel="canonical" href="https://calcuni.com/blog/understanding-subnetting/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcuni.com/blog/understanding-subnetting/">
+  <meta property="og:title" content="Demystifying Subnetting: IP Masking & CIDR Notations | CalcUni">
+  <meta property="og:description" content="Network engineering essentials. Learn to divide classes of IP addresses into sub-networks, calculate binary masks, and map maximum hosts.">
+  <meta property="og:image" content="https://calcuni.com/logo2.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://calcuni.com/blog/understanding-subnetting/">
+  <meta property="twitter:title" content="Demystifying Subnetting: IP Masking & CIDR Notations | CalcUni">
+  <meta property="twitter:description" content="Network engineering essentials. Learn to divide classes of IP addresses into sub-networks, calculate binary masks, and map maximum hosts.">
+  <meta property="twitter:image" content="https://calcuni.com/logo2.png">
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    
+    
+    
+    <section class="about-hero">
+      <h1>Demystifying Subnetting: IP Masking & CIDR Notations</h1>
+      <p>Network engineering essentials. Learn to divide classes of IP addresses into sub-networks, calculate binary masks, and map maximum hosts.</p>
+    </section>
+
+    <div class="privacy-container">
+      <div class="privacy-card">
+        
+      <p class="privacy-updated">Written by the CalcUni Editorial Team | Updated: May 2026</p>
+      <p>
+        In modern computer networking, IP addresses are precious resources. <strong>Subnetting</strong> is the process of breaking a single large network into smaller, more manageable sub-networks (subnets). Subnetting improves security, optimizes routing performance, and dramatically reduces broadcast traffic.
+      </p>
+
+      <h2>1. The Structure of an IP Address</h2>
+      <p>
+        An IPv4 address is a 32-bit binary number divided into four 8-bit octets, usually written in dotted-decimal format (e.g., 192.168.1.1). A subnet mask tells a computer which part of the address represents the <strong>Network ID</strong> and which part represents the <strong>Host ID</strong>.
+      </p>
+
+      <h2>2. What is CIDR Notation?</h2>
+      <p>
+        <strong>Classless Inter-Domain Routing (CIDR)</strong> simplifies subnetting by appending a slash and the number of network bits to the IP address. For example:
+      </p>
+      <ul>
+        <li><strong>192.168.1.0/24:</strong> The first 24 bits are the network. The subnet mask is <strong>255.255.255.0</strong>. This subnet provides 2^(32-24) = 256 addresses (254 usable hosts, minus network and broadcast IDs).</li>
+        <li><strong>192.168.1.0/26:</strong> The first 26 bits are the network. The subnet mask is <strong>255.255.255.192</strong>. This subnet provides 2^(32-26) = 64 addresses (62 usable hosts).</li>
+      </ul>
+
+      <h2>3. Finding the Network and Broadcast Addresses</h2>
+      <p>For any IP address and mask, you can find the boundaries using binary math:</p>
+      <ul>
+        <li><strong>Network Address:</strong> Calculated by performing a bitwise AND operation between the IP address and the subnet mask.</li>
+        <li><strong>Broadcast Address:</strong> Calculated by taking the network address and setting all the host bits to binary 1s.</li>
+      </ul>
+
+      <h2>Summary</h2>
+      <p>Subnet masking is an indispensable skill for network administrators, systems engineers, and cybersecurity experts. Instantly calculate network limits, broadcast ranges, and CIDR lists using our free, graphical <a href="../../technology-calculators/subnet-calculator/">Subnet Calculator</a>.</p>
+    
+      </div>
+    </div>
+  
+  
+  
+  </main>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html" style="margin-left: 15px;">About Us</a>
+        <a href="../../contact.html" style="margin-left: 15px;">Contact</a>
+        <a href="../../privacy.html" style="margin-left: 15px;">Privacy Policy</a>
+        <a href="../../terms.html" style="margin-left: 15px;">Terms of Use</a>
+        <a href="../../disclaimer.html" style="margin-left: 15px;">Disclaimer</a>
+        <a href="../../sitemap.html" style="margin-left: 15px;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
