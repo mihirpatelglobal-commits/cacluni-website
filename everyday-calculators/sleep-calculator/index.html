@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sleep Calculator | CalcUni</title>
   <meta name="description" content="Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -212,6 +215,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -362,6 +372,12 @@
       
     
       
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Sleep Calculator</h2>
       <p class="seo-paragraph">This Everyday quick-helper calculator is designed to provide immediate answers to common, routine arithmetic questions. Splitting restaurant bills, calculating promotional discounts, planning sleep cycles, generating passwords, or picking random numbers should be fast and simple, and this lightweight tool does exactly that.</p>
@@ -446,6 +462,162 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sleep Calculator",
+  "description": "Free online sleep calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/everyday-calculators/sleep-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Everyday Calculators",
+      "item": "https://calcuni.com/everyday-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sleep Calculator",
+      "item": "https://calcuni.com/everyday-calculators/sleep-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the sleep calculator plan bedtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sleep tool is based on standard 90-minute human sleep cycles. Waking up at the end of a cycle (e.g. after 5 or 6 full cycles, representing 7.5 or 9 hours) helps you feel refreshed and prevents groggy waking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the random number generator truly random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our random generator utilizes secure browser-based pseudo-random number algorithms (Math.random) that are highly effective for everyday contests, picking winners, or game play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the tip calculator handle splitting a bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tip tool takes the total restaurant bill, adds your chosen tip percentage, and divides the grand total equally by the number of people in your dining party to show exactly what each person owes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these everyday tools optimized for fast mobile loading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! These tools feature clean, lightweight code and minimal asset weight, ensuring they load instantly even on slow mobile data connections."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        function toggleFields() {
+          const isWake = document.getElementById('goal').value === 'wake';
+          document.getElementById('target-time-fields').style.display = isWake ? 'block' : 'none';
+        }
+        
+        function formatTime(d) {
+          let hrs = d.getHours();
+          const mins = d.getMinutes();
+          const period = hrs >= 12 ? 'PM' : 'AM';
+          hrs = hrs % 12;
+          hrs = hrs === 0 ? 12 : hrs;
+          return hrs + ':' + (mins < 10 ? '0' + mins : mins) + ' ' + period;
+        }
+
+        function calculate() {
+          const goal = document.getElementById('goal').value;
+          const container = document.getElementById('cycle-times');
+          container.innerHTML = '';
+          
+          if (goal === 'bed') {
+            document.getElementById('res-lbl').textContent = 'Optimal Wake-up Times (Bed now)';
+            
+            // Assume 14 mins to fall asleep
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 14);
+            
+            // Generate 3, 4, 5, 6 sleep cycles (4.5, 6.0, 7.5, 9.0 hrs)
+            const cycles = [3, 4, 5, 6];
+            cycles.forEach(c => {
+              const wakeTime = new Date(now.getTime());
+              wakeTime.setMinutes(wakeTime.getMinutes() + c * 90);
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(wakeTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          } else {
+            document.getElementById('res-lbl').textContent = 'Optimal Bedtimes (For Wake time)';
+            
+            let hour = +document.getElementById('hour').value;
+            const min = +document.getElementById('minute').value;
+            const period = document.getElementById('period').value;
+            
+            if (period === 'PM' && hour !== 12) hour += 12;
+            if (period === 'AM' && hour === 12) hour = 0;
+            
+            const wakeTime = new Date();
+            wakeTime.setHours(hour, min, 0, 0);
+            
+            // Generate backward bedtimes: 6, 5, 4, 3 cycles
+            const cycles = [6, 5, 4, 3];
+            cycles.forEach(c => {
+              const bedTime = new Date(wakeTime.getTime());
+              // Subtract cycle minutes + 14 minutes average latency
+              bedTime.setMinutes(bedTime.getMinutes() - (c * 90 + 14));
+              
+              const div = document.createElement('div');
+              div.className = 'result-row';
+              
+              const rec = c >= 5 ? ' <strong style="color:var(--success); font-size:11px; margin-left:10px;">RECOMMENDED</strong>' : '';
+              div.innerHTML = '<span>' + c + ' Cycles (' + (c*1.5) + ' hrs sleep)</span>'
+                            + '<strong>' + formatTime(bedTime) + rec + '</strong>';
+              container.appendChild(div);
+            });
+          }
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

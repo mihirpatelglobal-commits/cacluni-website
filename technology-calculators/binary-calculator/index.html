@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binary Calculator | CalcUni</title>
   <meta name="description" content="Perform basic logic or mathematical operations directly in Binary representation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -212,6 +215,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -328,6 +338,12 @@
       
     
       
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Binary Calculator</h2>
       <p class="seo-paragraph">This Technology and networking calculator is a specialized utility built for software engineers, network administrators, IT professionals, and computer science students. Planning network architecture, converting data representations, and masking subnets requires absolute technical precision.</p>
@@ -412,6 +428,132 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Binary Calculator",
+  "description": "Free online binary calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/technology-calculators/binary-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Technology Calculators",
+      "item": "https://calcuni.com/technology-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Binary Calculator",
+      "item": "https://calcuni.com/technology-calculators/binary-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between GB (Gigabyte) and GiB (Gibibyte)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Gigabyte (GB) is a decimal unit based on power-of-10 (1 GB = 1,000,000,000 bytes), commonly used by hardware manufacturers. A Gibibyte (GiB) is a binary unit based on power-of-2 (1 GiB = 1,073,741,824 bytes), which is how operating systems like Windows calculate storage sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an IP calculator determine address classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IP tool checks the first octet of an IPv4 address. Class A ranges from 1-126, Class B ranges from 128-191, Class C ranges from 192-223, Class D (Multicast) ranges from 224-239, and Class E is reserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is data bandwidth transfer duration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bandwidth transfer duration measures how long it takes to download or upload a file of a specific size over an internet connection of a set speed (Duration = File Size / Transfer Speed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is binary calculation important in computer science?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Computers utilize binary digits (0 and 1) representing off and on electrical states at the hardware level. All programming, file structures, and network routing are ultimately grounded in binary mathematical logic."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        function calculate() {
+          const op1Str = document.getElementById('op1').value.trim();
+          const op2Str = document.getElementById('op2').value.trim();
+          const op = document.getElementById('op').value;
+          
+          if (/[^01]/.test(op1Str) || /[^01]/.test(op2Str)) {
+            document.getElementById('bin_res').textContent = 'Error: Invalid Binary';
+            document.getElementById('dec_res').textContent = 'N/A';
+            document.getElementById('hex_res').textContent = 'N/A';
+            return;
+          }
+          
+          if (!op1Str || !op2Str) {
+            document.getElementById('bin_res').textContent = '0';
+            document.getElementById('dec_res').textContent = '0';
+            document.getElementById('hex_res').textContent = '0';
+            return;
+          }
+          
+          const dec1 = parseInt(op1Str, 2);
+          const dec2 = parseInt(op2Str, 2);
+          
+          let res = 0;
+          switch (op) {
+            case '+': res = dec1 + dec2; break;
+            case '-': res = dec1 - dec2; break;
+            case '*': res = dec1 * dec2; break;
+            case '/': res = dec2 !== 0 ? Math.floor(dec1 / dec2) : 0; break;
+            case 'AND': res = dec1 & dec2; break;
+            case 'OR': res = dec1 | dec2; break;
+            case 'XOR': res = dec1 ^ dec2; break;
+          }
+          
+          // Force unsigned 32-bit for bitwise if negative
+          if (res < 0) res = res >>> 0;
+          
+          document.getElementById('bin_res').textContent = res.toString(2);
+          document.getElementById('dec_res').textContent = res.toString(10);
+          document.getElementById('hex_res').textContent = res.toString(16).toUpperCase();
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

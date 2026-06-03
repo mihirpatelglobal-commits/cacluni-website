@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Number Generator | CalcUni</title>
   <meta name="description" content="Generate pseudo-random values or lists matching lower and upper boundaries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -212,6 +215,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -327,6 +337,12 @@
       
     
       
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Random Number Generator</h2>
       <p class="seo-paragraph">This Everyday quick-helper calculator is designed to provide immediate answers to common, routine arithmetic questions. Splitting restaurant bills, calculating promotional discounts, planning sleep cycles, generating passwords, or picking random numbers should be fast and simple, and this lightweight tool does exactly that.</p>
@@ -411,6 +427,134 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Random Number Generator",
+  "description": "Free online random number generator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/everyday-calculators/random-number-generator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Everyday Calculators",
+      "item": "https://calcuni.com/everyday-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Random Number Generator",
+      "item": "https://calcuni.com/everyday-calculators/random-number-generator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the sleep calculator plan bedtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sleep tool is based on standard 90-minute human sleep cycles. Waking up at the end of a cycle (e.g. after 5 or 6 full cycles, representing 7.5 or 9 hours) helps you feel refreshed and prevents groggy waking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the random number generator truly random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our random generator utilizes secure browser-based pseudo-random number algorithms (Math.random) that are highly effective for everyday contests, picking winners, or game play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the tip calculator handle splitting a bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tip tool takes the total restaurant bill, adds your chosen tip percentage, and divides the grand total equally by the number of people in your dining party to show exactly what each person owes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these everyday tools optimized for fast mobile loading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! These tools feature clean, lightweight code and minimal asset weight, ensuring they load instantly even on slow mobile data connections."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        function calculate() {
+          const min = +document.getElementById('min').value || 0;
+          const max = +document.getElementById('max').value || 0;
+          const qty = Math.max(+document.getElementById('qty').value || 1, 1);
+          const dupes = document.getElementById('dupes').value === 'yes';
+          const container = document.getElementById('random-results');
+          
+          container.innerHTML = '';
+          
+          if (min > max) {
+            container.innerHTML = '<div style="color:red; font-size:14px;">Error: Min value cannot be larger than Max value!</div>';
+            return;
+          }
+          
+          const range = max - min + 1;
+          document.getElementById('span').textContent = range.toLocaleString() + ' integers';
+          
+          if (!dupes && qty > range) {
+            container.innerHTML = '<div style="color:red; font-size:14px;">Error: Cannot generate ' + qty + ' unique values from a range of size ' + range + '!</div>';
+            return;
+          }
+          
+          const results = [];
+          if (dupes) {
+            for (let i = 0; i < qty; i++) {
+              results.push(Math.floor(Math.random() * range) + min);
+            }
+          } else {
+            const set = new Set();
+            while (set.size < qty) {
+              set.add(Math.floor(Math.random() * range) + min);
+            }
+            results.push(...set);
+          }
+          
+          results.forEach(val => {
+            const span = document.createElement('span');
+            span.style.cssText = 'background-color: var(--primary-light); color: var(--primary); padding: 8px 16px; border-radius: 20px; font-weight: 700; font-size: 16px; border: 1px solid var(--border-focus);';
+            span.textContent = val;
+            container.appendChild(span);
+          });
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

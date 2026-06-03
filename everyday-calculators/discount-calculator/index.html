@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discount Calculator | CalcUni</title>
   <meta name="description" content="Calculate final prices after discounts and applicable sales taxes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -212,6 +215,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -284,6 +294,12 @@
       
       
     
+      
+      
+    
+      
+    
+  
       
       
     
@@ -384,6 +400,108 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Discount Calculator",
+  "description": "Free online discount calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/everyday-calculators/discount-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Everyday Calculators",
+      "item": "https://calcuni.com/everyday-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Discount Calculator",
+      "item": "https://calcuni.com/everyday-calculators/discount-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the sleep calculator plan bedtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sleep tool is based on standard 90-minute human sleep cycles. Waking up at the end of a cycle (e.g. after 5 or 6 full cycles, representing 7.5 or 9 hours) helps you feel refreshed and prevents groggy waking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the random number generator truly random?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our random generator utilizes secure browser-based pseudo-random number algorithms (Math.random) that are highly effective for everyday contests, picking winners, or game play."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the tip calculator handle splitting a bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tip tool takes the total restaurant bill, adds your chosen tip percentage, and divides the grand total equally by the number of people in your dining party to show exactly what each person owes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these everyday tools optimized for fast mobile loading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! These tools feature clean, lightweight code and minimal asset weight, ensuring they load instantly even on slow mobile data connections."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const price = +document.getElementById('price').value || 0;
+          const discount = +document.getElementById('discount').value || 0;
+          const tax = +document.getElementById('tax').value || 0;
+          
+          const savings = price * (discount / 100);
+          const salePrice = price - savings;
+          const taxAmount = salePrice * (tax / 100);
+          const finalPrice = salePrice + taxAmount;
+          
+          document.getElementById('final_price').textContent = money(finalPrice);
+          document.getElementById('savings').textContent = money(savings);
+          document.getElementById('sale_price').textContent = money(salePrice);
+          document.getElementById('tax_amount').textContent = money(taxAmount);
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

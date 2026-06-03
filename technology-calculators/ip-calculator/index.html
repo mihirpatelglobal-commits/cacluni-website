@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IP Calculator | CalcUni</title>
   <meta name="description" content="Check internet protocol classes, addresses integer formats, and scope classifications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -212,6 +215,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -332,6 +342,12 @@
       
     
       
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the IP Calculator</h2>
       <p class="seo-paragraph">This Technology and networking calculator is a specialized utility built for software engineers, network administrators, IT professionals, and computer science students. Planning network architecture, converting data representations, and masking subnets requires absolute technical precision.</p>
@@ -416,6 +432,148 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "IP Calculator",
+  "description": "Free online ip calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/technology-calculators/ip-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Technology Calculators",
+      "item": "https://calcuni.com/technology-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "IP Calculator",
+      "item": "https://calcuni.com/technology-calculators/ip-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between GB (Gigabyte) and GiB (Gibibyte)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Gigabyte (GB) is a decimal unit based on power-of-10 (1 GB = 1,000,000,000 bytes), commonly used by hardware manufacturers. A Gibibyte (GiB) is a binary unit based on power-of-2 (1 GiB = 1,073,741,824 bytes), which is how operating systems like Windows calculate storage sizes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an IP calculator determine address classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IP tool checks the first octet of an IPv4 address. Class A ranges from 1-126, Class B ranges from 128-191, Class C ranges from 192-223, Class D (Multicast) ranges from 224-239, and Class E is reserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is data bandwidth transfer duration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bandwidth transfer duration measures how long it takes to download or upload a file of a specific size over an internet connection of a set speed (Duration = File Size / Transfer Speed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is binary calculation important in computer science?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Computers utilize binary digits (0 and 1) representing off and on electrical states at the hardware level. All programming, file structures, and network routing are ultimately grounded in binary mathematical logic."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        function calculate() {
+          const ipStr = document.getElementById('ip').value.trim();
+          
+          if (!/^(?:[0-9]{1,3}.){3}[0-9]{1,3}$/.test(ipStr)) {
+            document.getElementById('scope_type').textContent = 'Error: Invalid IP';
+            document.getElementById('ip_class').textContent = 'N/A';
+            document.getElementById('ip_int').textContent = 'N/A';
+            document.getElementById('ip_bin').textContent = 'N/A';
+            return;
+          }
+          
+          const octets = ipStr.split('.').map(Number);
+          
+          if (octets.some(o => o > 255)) {
+            document.getElementById('scope_type').textContent = 'Error: Octets must be <= 255';
+            document.getElementById('ip_class').textContent = 'N/A';
+            document.getElementById('ip_int').textContent = 'N/A';
+            document.getElementById('ip_bin').textContent = 'N/A';
+            return;
+          }
+          
+          const first = octets[0];
+          
+          // Class
+          let ipClass = 'Unknown';
+          if (first >= 1 && first <= 126) ipClass = 'Class A';
+          else if (first === 127) ipClass = 'Class A (Loopback)';
+          else if (first >= 128 && first <= 191) ipClass = 'Class B';
+          else if (first >= 192 && first <= 223) ipClass = 'Class C';
+          else if (first >= 224 && first <= 239) ipClass = 'Class D (Multicast)';
+          else if (first >= 240 && first <= 255) ipClass = 'Class E (Experimental)';
+          
+          // Private IP Range Check (RFC 1918)
+          let isPrivate = false;
+          if (first === 10) {
+            isPrivate = true;
+          } else if (first === 172 && octets[1] >= 16 && octets[1] <= 31) {
+            isPrivate = true;
+          } else if (first === 192 && octets[1] === 168) {
+            isPrivate = true;
+          }
+          
+          // Integer
+          const ipInt = octets.reduce((res, o) => (res * 256) + o, 0);
+          
+          // Binary
+          const ipBin = octets.map(o => {
+            let s = o.toString(2);
+            return '0'.repeat(8 - s.length) + s;
+          }).join('.');
+          
+          document.getElementById('scope_type').textContent = isPrivate ? 'Private Address (LAN)' : 'Public Address (WAN)';
+          document.getElementById('ip_class').textContent = ipClass;
+          document.getElementById('ip_int').textContent = ipInt.toLocaleString('en-US', { useGrouping: false });
+          document.getElementById('ip_bin').textContent = ipBin;
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

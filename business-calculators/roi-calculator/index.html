@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROI Calculator | CalcUni</title>
   <meta name="description" content="Calculate the Return on Investment (ROI) and annualized ROI for any commercial asset or trade.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -221,6 +224,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -294,6 +304,12 @@
       
       
     
+      
+      
+    
+      
+    
+  
       
       
     
@@ -404,6 +420,121 @@ ROI = ( $1,400 / $5,100 ) * 100 = 27.45% return.</p>
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ROI Calculator",
+  "description": "Free online roi calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/business-calculators/roi-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Business Calculators",
+      "item": "https://calcuni.com/business-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ROI Calculator",
+      "item": "https://calcuni.com/business-calculators/roi-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Return on Investment (ROI) and why is it important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ROI is a fundamental financial metric used to evaluate the efficiency of an investment or compare the profitability of several different investments. It provides a simple, universal percentage showing how much profit was made relative to the amount invested."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the limitations of standard ROI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The primary limitation of standard ROI is that it does not account for the element of time. An investment returning 50% over 5 years is less efficient than one returning 40% in 1 year. To compare investments of different lengths, you should calculate the Annualized ROI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate annualized ROI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Annualized ROI accounts for the holding period. The formula is: Annualized ROI = [ (1 + ROI_decimal) ^ (1 / years) ] - 1. This converts a multi-year return into a standardized annual growth rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is considered a \"good\" ROI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A \"good\" ROI depends on your asset class, risk tolerance, and market conditions. For example, a standard annual return of 7% to 10% is typical for stock market index funds, while real estate or riskier business investments may target 12% to 15% or higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does ROI include taxes and transaction fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate an accurate net ROI, you must subtract all associated costs including brokerage fees, maintenance, interest on loans, and capital gains taxes from your gross profits. Omitting these will result in an artificially high gross ROI."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const invested = +document.getElementById('invested').value || 0;
+          const returned = +document.getElementById('returned').value || 0;
+          const years = +document.getElementById('years').value || 0;
+          
+          const gain = returned - invested;
+          let roi = 0;
+          let annualized = 0;
+          
+          if (invested !== 0) {
+            roi = (gain / invested) * 100;
+            if (years > 0 && returned > 0) {
+              annualized = (Math.pow(returned / invested, 1 / years) - 1) * 100;
+            }
+          }
+          
+          document.getElementById('roi').textContent = roi.toFixed(2) + '%';
+          document.getElementById('gain').textContent = money(gain);
+          document.getElementById('annualized').textContent = years > 0 && invested > 0 && returned > 0 ? annualized.toFixed(2) + '%' : 'N/A';
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",
