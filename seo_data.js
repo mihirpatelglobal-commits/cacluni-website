@@ -129,6 +129,45 @@ const customContent = {
       { q: 'How often should I change my online passwords?', a: 'Security experts now recommend changing passwords only when there is a known data breach or security compromise on an account. Using unique, strong passwords for every account is much safer than changing them frequently.' },
       { q: 'Should I use a password manager?', a: 'Absolutely! A password manager is the safest way to store and organize unique, highly complex passwords for all your online accounts. It encrypts your database with a single master password, so you only have to remember one strong passphrase.' }
     ]
+  },
+
+  // 10. Sleep Calculator
+  'sleep-calculator': {
+    formula: 'Wake-up Time = Bedtime + (N * 90 minutes) + 14 minutes',
+    formulaExplanation: 'Where: N is the number of sleep cycles (typically 5 or 6 cycles for 7.5 or 9 hours of sleep). 90 minutes represents the average duration of one complete human sleep cycle, and 14 minutes is the average time it takes for a healthy adult to fall asleep (sleep latency).',
+    example: 'If you want to wake up at 7:00 AM, going to bed at 11:16 PM or 9:46 PM allows you to complete 5 cycles (7.5 hours) or 6 cycles (9 hours) of sleep, subtracting 90 minutes per cycle and 14 minutes of falling asleep time:\n\nBedtime (5 cycles) = 7:00 AM - (5 * 90 mins) - 14 mins = 7:00 AM - 450 mins - 14 mins = 11:16 PM.',
+    faqs: [
+      { q: 'How does the sleep calculator plan bedtime?', a: 'The sleep tool is based on standard 90-minute human sleep cycles. Waking up at the end of a cycle (e.g. after 5 or 6 full cycles, representing 7.5 or 9 hours) helps you feel refreshed and prevents groggy waking.' },
+      { q: 'What is a sleep cycle?', a: 'A sleep cycle is a progression through the stages of non-REM (NREM) and REM sleep. For most adults, one complete cycle takes about 90 minutes, though it can range from 70 to 120 minutes.' },
+      { q: 'Why is waking up between sleep cycles important?', a: 'Waking up at the end of a sleep cycle, when you are in light sleep, helps you feel alert and refreshed. Waking up during deep sleep (the middle of a cycle) causes sleep inertia, leaving you feeling groggy and tired.' },
+      { q: 'How much sleep does the average adult need?', a: 'Most healthy adults need between 7 and 9 hours of sleep per night to function at their best. Waking up after 5 or 6 full cycles matches these standard recommendations.' }
+    ]
+  },
+
+  // 11. Tip Calculator
+  'tip-calculator': {
+    formula: 'Tip Amount = Bill Amount * (Tip Percentage / 100)\nTotal Bill = Bill Amount + Tip Amount\nPer Person Share = Total Bill / Number of People',
+    formulaExplanation: 'Where: Tip Percentage is the gratuity rate you want to leave (e.g., 15%, 18%, or 20%), and Number of People is the count of dining party members splitting the total bill equally.',
+    example: 'A restaurant bill comes to $100. You want to leave an 18% tip and split the bill among 4 people:\n\nTip Amount = $100 * (18 / 100) = $18.00\nTotal Bill = $100.00 + $18.00 = $118.00\nPer Person Share = $118.00 / 4 = $29.50 per person.',
+    faqs: [
+      { q: 'How does the tip calculator handle splitting a bill?', a: 'The tip tool takes the total restaurant bill, adds your chosen tip percentage, and divides the grand total equally by the number of people in your dining party to show exactly what each person owes.' },
+      { q: 'What is the standard tipping rate in restaurants?', a: 'While tipping norms vary by country and service quality, the standard tipping rate in North America is typically 15% to 20% of the pre-tax bill for good service.' },
+      { q: 'Should you tip on the pre-tax or post-tax bill total?', a: 'Traditionally, tips are calculated on the pre-tax total of the bill to avoid paying gratuity on government taxes. However, many people tip on the final post-tax total for simplicity.' },
+      { q: 'How do you calculate a tip manually in your head?', a: 'To calculate a 15% tip in your head: find 10% of the bill (by shifting the decimal point one place to the left), take half of that amount (which is 5%), and add the two values together.' }
+    ]
+  },
+
+  // 12. Random Number Generator
+  'random-number-generator': {
+    formula: 'Random Value = Min + Floor(Math.random() * (Max - Min + 1))',
+    formulaExplanation: 'Where: Min is the lower boundary, Max is the upper boundary, and Math.random() is a standard pseudo-random number generator function that returns a floating-point value between 0 (inclusive) and 1 (exclusive).',
+    example: 'To generate a random integer between 1 (Min) and 10 (Max):\n\nRandom Value = 1 + Floor(Math.random() * (10 - 1 + 1))\nRandom Value = 1 + Floor(Math.random() * 10)\nIf Math.random() returns 0.725: 1 + Floor(7.25) = 1 + 7 = 8.',
+    faqs: [
+      { q: 'Is the random number generator truly random?', a: 'Our random generator utilizes secure browser-based pseudo-random number algorithms (Math.random) that are highly effective for everyday contests, picking winners, or game play.' },
+      { q: 'What is the difference between pseudo-random and true random numbers?', a: 'Pseudo-random numbers are generated using mathematical algorithms that start with a seed value. They appear random but are theoretically deterministic. True random numbers are derived from physical, unpredictable phenomena (like atmospheric noise).' },
+      { q: 'Can I generate multiple random numbers at once?', a: 'Yes! This random number generator tool allows you to specify whether you want a single random number or a list of multiple random values matching your boundaries, with options for unique numbers.' },
+      { q: 'What are typical everyday uses for a random number generator?', a: 'Typical uses include selecting prize winners for giveaways, rolling virtual dice, generating lottery picks, shuffling lists, or making unbiased personal decisions.' }
+    ]
   }
 };
 
