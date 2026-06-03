@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profit Margin Calculator | CalcUni</title>
   <meta name="description" content="Calculate profit, gross margin percentage, and markup percentage from revenue and cost.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -223,6 +220,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -291,6 +295,12 @@
       
       
     
+      
+      
+    
+      
+    
+  
       
       
     
@@ -397,6 +407,112 @@
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Profit Margin Calculator",
+  "description": "Free online profit margin calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/business-calculators/profit-margin-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Business Calculators",
+      "item": "https://calcuni.com/business-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Profit Margin Calculator",
+      "item": "https://calcuni.com/business-calculators/profit-margin-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Margin and Markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Margin is the profit expressed as a percentage of the selling price (e.g. profit divided by sales). Markup is the profit expressed as a percentage of the cost price (e.g. profit divided by cost). A 50% markup corresponds to a 33.3% profit margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a break-even analysis show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A break-even analysis calculates the exact point where total business revenues equal total business costs (fixed + variable). Selling beyond this unit threshold generates net profit, while selling below it results in a net loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does sales commission tracking improve broker relations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clear, transparent commission calculations ensure that agents, sales representatives, and brokers are paid accurately according to tiered contract percentages, eliminating pay discrepancies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can businesses improve their gross profit margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To improve your gross profit margin, you must either increase the retail selling price of your goods, negotiate lower wholesale acquisition costs (COGS) from suppliers, or reduce direct material waste in manufacturing."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        const money = n => n.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        function calculate() {
+          const revenue = +document.getElementById('revenue').value || 0;
+          const cost = +document.getElementById('cost').value || 0;
+          const profit = revenue - cost;
+          
+          let margin = 0;
+          if (revenue !== 0) {
+            margin = (profit / revenue) * 100;
+          }
+          
+          let markup = 0;
+          if (cost !== 0) {
+            markup = (profit / cost) * 100;
+          }
+          
+          document.getElementById('profit').textContent = money(profit);
+          document.getElementById('margin').textContent = margin.toFixed(2) + '%';
+          document.getElementById('markup').textContent = markup.toFixed(2) + '%';
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",

@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fuel Cost Calculator | CalcUni</title>
   <meta name="description" content="Estimate the cost and quantity of fuel required for a driving trip.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
@@ -230,6 +227,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
     
       <section class="grid">
         <div class="card">
@@ -319,6 +323,12 @@
       
       
     
+      
+      
+    
+      
+    
+  
       
       
     
@@ -433,6 +443,134 @@ Total Fuel Cost = 10 gallons * $3.50 = $35.00 total driving cost.</p>
   </footer>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fuel Cost Calculator",
+  "description": "Free online fuel cost calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/transportation-calculators/fuel-cost-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Transportation Calculators",
+      "item": "https://calcuni.com/transportation-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fuel Cost Calculator",
+      "item": "https://calcuni.com/transportation-calculators/fuel-cost-calculator/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I estimate my vehicle's average fuel efficiency?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To estimate efficiency, fill your tank, reset your trip odometer, and drive normally. When you next fill up, record the trip distance and the exact fuel added. Divide the distance by the fuel added (or calculate L/100km) to get your real-world consumption rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What factors affect my car's real-world fuel economy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fuel efficiency is heavily influenced by driving habits (aggressive acceleration and braking), speeding, carrying heavy cargo loads, underinflated tires, excessive idling, and driving in extreme cold weather or stop-and-go city traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it cheaper to drive or fly for a long trip?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To compare driving vs flying costs, calculate your total fuel cost, add road trip overheads (hotel stays, meals, tolls, parking), and compare that to the cost of plane tickets. Driving is usually much cheaper for families, while flying can be cheaper for solo travelers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do highway miles compare to city miles in fuel consumption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Highway driving is almost always much more fuel-efficient than city driving because vehicles maintain a steady speed in higher gears, which minimizes engine load. City driving features constant idling and gear shifts that burn fuel rapidly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does using air conditioning burn more fuel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Running your car's air conditioning system draws power from the engine, which can increase fuel consumption by 5% to 20% depending on the vehicle size and exterior temperature."
+      }
+    }
+  ]
+}
+    </script>
+<script>
+        function toggleLabels() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          document.getElementById('dist-lbl').textContent = isMetric ? 'Distance (km)' : 'Distance (miles)';
+          document.getElementById('eff-lbl').textContent = isMetric ? 'Fuel Efficiency (L/100km)' : 'Fuel Efficiency (MPG)';
+          document.getElementById('price-lbl').textContent = isMetric ? 'Fuel Price ($/L)' : 'Fuel Price ($/gallon)';
+          
+          const efficiencyInput = document.getElementById('efficiency');
+          if (isMetric) {
+            if (efficiencyInput.value === '29.4' || efficiencyInput.value === '29.41') efficiencyInput.value = '8.0';
+          } else {
+            if (efficiencyInput.value === '8.0' || efficiencyInput.value === '8') efficiencyInput.value = '29.4';
+          }
+        }
+        
+        function calculate() {
+          const isMetric = document.getElementById('unit').value === 'metric';
+          const distance = +document.getElementById('distance').value || 0;
+          const efficiency = +document.getElementById('efficiency').value || 0;
+          const price = +document.getElementById('price').value || 0;
+          
+          let fuelNeeded = 0;
+          if (efficiency > 0) {
+            if (isMetric) {
+              fuelNeeded = (distance / 100) * efficiency;
+            } else {
+              fuelNeeded = distance / efficiency;
+            }
+          }
+          
+          const totalCost = fuelNeeded * price;
+          
+          document.getElementById('cost').textContent = '$' + totalCost.toFixed(2);
+          document.getElementById('fuel').textContent = fuelNeeded.toFixed(2) + (isMetric ? ' Liters' : ' Gallons');
+        }
+        calculate();
+      </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "WebApplication",
