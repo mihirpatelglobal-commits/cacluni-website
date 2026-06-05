@@ -80,7 +80,7 @@
       <p>CalcUni.com is a simple calculator hub for finance, health, tax, education, and daily life calculations.</p>
       <div class="search-box">
         <div class="search-box-row">
-          <input id="searchInput" type="text" placeholder="Search calculators: mortgage, BMI, tax, loan..." autocomplete="off" aria-label="Search calculators" />
+          <input id="searchInput" type="text" placeholder="Search calculators: mortgage, BMI, tax, loan..." autocomplete="off" aria-label="Search calculators" autofocus />
           <button id="searchBtn" type="button">Search</button>
         </div>
         <div id="searchSuggestions" class="search-suggestions" role="listbox" aria-label="Calculator suggestions"></div>
@@ -89,6 +89,7 @@
   </header>
 
   <main style="max-width: 1280px; margin: 0 auto; padding: 40px 24px 60px;">
+    
     
     
     
@@ -373,6 +374,7 @@
       </div>
       <a class="btn" href="contact.html">Suggest a Calculator</a>
     </section>
+  
   
   
   
@@ -877,6 +879,9 @@
         closeSuggestions();
       }
     });
+
+    // Auto-focus search input on page load
+    input.focus();
   })();
   </script>
 
