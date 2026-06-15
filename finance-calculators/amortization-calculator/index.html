@@ -333,6 +333,20 @@
       
       
 
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
       <section class="grid">
         <div class="card">
           <h2>Loan Inputs</h2>
@@ -359,19 +373,41 @@
             </div>
           </div>
           <button class="btn" onclick="calc()">Generate Schedule</button>
-          <p class="note">The table shows the first 24 payments for readability.</p>
+          <button class="btn btn-secondary" onclick="exportCSV()" style="margin-top: 10px;">Export Complete Schedule (CSV)</button>
+          <p class="note">The table shows the first 24 payments for readability. You can download and analyze the full schedule using the Export button.</p>
         </div>
 
-        <div class="result">
-          <span>Summary Payment</span>
-          <strong class="big" id="payment">$0.00</strong>
-          <div class="result-row">
-            <span>Total payments</span>
+        <div class="result" style="border-bottom: none; padding: 20px;">
+          <h2>Summary</h2>
+          
+          <div class="result-summary-card">
+            <div class="summary-metric">
+              <span class="metric-label" id="payment-label">Estimated Monthly Payment</span>
+              <div class="metric-value" id="payment">$0.00</div>
+            </div>
+            <div class="summary-grid">
+              <div class="grid-item">
+                <span>Principal Paid</span>
+                <strong id="principal-paid">$0.00</strong>
+              </div>
+              <div class="grid-item">
+                <span>Interest Paid</span>
+                <strong id="interest-paid">$0.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-row" style="margin-bottom: 20px;">
+            <span>Total Payments</span>
             <strong id="total">$0.00</strong>
           </div>
-          <div class="result-row">
-            <span>Total interest</span>
-            <strong id="interest">$0.00</strong>
+
+          <div class="result-chart-container">
+            <canvas id="amortizationChart" aria-label="Visual breakdown of Principal vs Interest" role="img" style="width: 180px; height: 180px;"></canvas>
+            <div class="chart-legend">
+              <div><span class="legend-color principal"></span>Principal</div>
+              <div><span class="legend-color interest"></span>Interest</div>
+            </div>
           </div>
         </div>
       </section>
@@ -423,6 +459,18 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     
@@ -604,6 +652,57 @@ You pay $966.64 monthly. In month 1, $716.64 goes to principal and $250.00 to in
     const fmtMoney = n => isFinite(n) ? n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' }) : '$0.00';
     const val = id => Number(document.getElementById(id).value);
 
+    function drawDonutChart(principal, interest) {
+      const canvas = document.getElementById('amortizationChart');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      const w = rect.width;
+      const h = rect.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const total = principal + interest;
+      if (total <= 0) return;
+
+      const principalPct = principal / total;
+      const cx = w / 2;
+      const cy = h / 2;
+      const r = Math.min(cx, cy) - 16;
+      const thickness = 16;
+
+      const principalAngle = principalPct * 2 * Math.PI;
+
+      // Draw gray interest circle first (full circle background)
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = thickness;
+      ctx.stroke();
+
+      // Draw blue principal arc on top
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + principalAngle);
+      ctx.strokeStyle = '#2563eb';
+      ctx.lineWidth = thickness;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Text in center
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#0f172a';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText(Math.round(principalPct * 100) + '%', cx, cy - 8);
+      ctx.fillStyle = '#64748b';
+      ctx.font = '500 11px sans-serif';
+      ctx.fillText('Principal', cx, cy + 10);
+    }
+
     function calc() {
       const P = val('amount'),
             f = val('freq'),
@@ -618,11 +717,55 @@ You pay $966.64 monthly. In month 1, $716.64 goes to principal and $250.00 to in
         bal = Math.max(0, bal - prin);
         html += `<tr><td>${i}</td><td>${fmtMoney(pay)}</td><td>${fmtMoney(prin)}</td><td>${fmtMoney(int)}</td><td>${fmtMoney(bal)}</td></tr>`;
       }
+      
+      const freqSelect = document.getElementById('freq');
+      const freqText = freqSelect.options[freqSelect.selectedIndex].text;
+      document.getElementById('payment-label').textContent = `Estimated ${freqText} Payment`;
+
+      const totalInterest = Math.max(0, pay * n - P);
       document.getElementById('payment').textContent = fmtMoney(pay);
       document.getElementById('total').textContent = fmtMoney(pay * n);
-      document.getElementById('interest').textContent = fmtMoney(pay * n - P);
+      document.getElementById('principal-paid').textContent = fmtMoney(P);
+      document.getElementById('interest-paid').textContent = fmtMoney(totalInterest);
       document.getElementById('rows').innerHTML = html;
+
+      // Draw the visualization
+      drawDonutChart(P, totalInterest);
     }
+
+    function exportCSV() {
+      const P = val('amount'),
+            f = val('freq'),
+            n = val('years') * f,
+            r = val('rate') / 100 / f;
+      const pay = r === 0 ? P / n : P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      let bal = P;
+      
+      let csv = 'Payment #,Payment Amount,Principal Paid,Interest Paid,Remaining Balance\r\n';
+      
+      for (let i = 1; i <= n; i++) {
+        const int = bal * r,
+              prin = Math.min(pay - int, bal);
+        bal = Math.max(0, bal - prin);
+        csv += `${i},${pay.toFixed(2)},${prin.toFixed(2)},${int.toFixed(2)},${bal.toFixed(2)}\r\n`;
+      }
+      
+      const filename = `amortization_schedule_${P}_${val('years')}yrs.csv`;
+      const dataUri = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
+      
+      const link = document.createElement('a');
+      link.href = dataUri;
+      link.download = filename;
+      link.setAttribute('download', filename);
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      
+      setTimeout(() => {
+        document.body.removeChild(link);
+      }, 100);
+    }
+
     calc();
   </script>
 

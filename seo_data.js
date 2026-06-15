@@ -1063,33 +1063,33 @@ const customContent = {
   },
   "concrete-calculator": {
     "formula": "Volume (Cubic Yards) = [ Length (ft) * Width (ft) * Thickness (in) ] / 324",
-    "formulaExplanation": "Where:\n* length and width are in feet\n* thickness is in inches\n* 324 is the conversion constant (27 cubic feet per cubic yard * 12 inches per foot)\n\nExplanation:\nThis formula converts the three dimensions of a concrete slab directly into cubic yards, the standard purchasing unit for concrete.",
-    "example": "Inputs:\n* Slab Length = 12 feet\n* Slab Width = 10 feet\n* Slab Thickness = 4 inches\n* Wastage Margin = 10%\n\nCalculation:\n* Step 1: Calculate area: 12 * 10 = 120 sq ft\n* Step 2: Multiply area by thickness: 120 * 4 = 480\n* Step 3: Divide by 324 to get cubic yards: 480 / 324 = 1.48 cubic yards\n* Step 4: Add 10% wastage margin: 1.48 * 1.10 = 1.63 cubic yards\n\nResult:\n* Required Concrete = 1.63 Cubic Yards\n\nWhat This Means:\nYou should order 1.63 cubic yards of concrete to pour your patio slab, ensuring you have enough to cover spills and uneven ground.",
-    "descTopic": "concrete volume estimations, slab sizing, and structural masonry planning",
-    "descInputs": "the length, width, and thickness of your planned concrete slab, and a wastage margin (10% is standard)",
-    "descOutputs": "the required concrete volume in cubic yards and cubic meters, and the estimated number of pre-mixed concrete bags needed",
-    "descUses": "estimating materials for concrete driveways, pouring backyard patio slabs, planning building foundations, and auditing supplier quotes",
-    "descContext": "construction and DIY home remodeling, allowing builders to estimate concrete volumes accurately",
+    "formulaExplanation": "Where:\n* length and width are in feet\n* thickness is in inches\n* 324 is the conversion constant (27 cubic feet per cubic yard * 12 inches per foot)\n\nExplanation:\nThis formula converts the three dimensions of a concrete slab directly into cubic yards, the standard purchasing unit for concrete. It also supports volume calculations for structural footings (piers) and deep foundations.",
+    "example": "Inputs:\n* Slab Length = 12 feet\n* Slab Width = 10 feet\n* Slab Thickness = 4 inches\n* Wastage Margin = 10%\n\nCalculation:\n* Step 1: Calculate area: 12 * 10 = 120 sq ft\n* Step 2: Multiply area by thickness: 120 * 4 = 480\n* Step 3: Divide by 324 to get cubic yards: 480 / 324 = 1.48 cubic yards\n* Step 4: Add 10% wastage margin: 1.48 * 1.10 = 1.63 cubic yards\n\nResult:\n* Required Concrete = 1.63 Cubic Yards\n\nWhat This Means:\nYou should order 1.63 cubic yards of concrete to pour your patio slab, ensuring you have enough to cover spills, uneven sub-base levels, and edge settling.",
+    "descTopic": "concrete volume estimations, slab sizing, footing pours, structural foundations, and ready-mix ordering",
+    "descInputs": "the length, width, and thickness of your planned concrete slab or footing dimensions, and a wastage margin (10% is standard)",
+    "descOutputs": "the required concrete volume in cubic yards and cubic meters, and the estimated number of pre-mixed concrete bags (80lb, 60lb, or 40lb) needed",
+    "descUses": "estimating materials for concrete driveways, pouring backyard patio slabs, structural footings, building foundations, and calculating truck ready-mix ordering margins",
+    "descContext": "construction and DIY home remodeling, allowing builders and homeowners to estimate concrete volumes accurately",
     "faqs": [
       {
-        "q": "Why is it recommended to add a 10% wastage margin for concrete?",
-        "a": "Wastage is critical because slabs are rarely perfectly uniform, ground settling occurs, and some concrete always sticks to the mixer or is spilled during pouring. A 10% wastage buffer prevents running out of materials mid-job."
+        "q": "How do you calculate concrete for slabs, footings, and foundations?",
+        "a": "For flat slabs, multiply length by width by thickness (in feet) and divide by 27. For cylindrical footings, use the formula: Volume = π * radius² * depth. For deep foundations, calculate each wall segment separately as a rectangular prism and sum the volumes."
       },
       {
-        "q": "How many 80-pound concrete bags are in a cubic yard?",
-        "a": "It takes approximately forty-five (45) 80-pound bags of pre-mixed concrete to fill one single cubic yard. For a 60-pound bag, it takes about sixty (60) bags per cubic yard."
+        "q": "What is the standard safety margin when ordering ready-mix concrete?",
+        "a": "Contractors recommend adding a 10% safety margin for standard slabs and up to 15% for irregular shapes or rough excavations. This prevents costly \"short loads\" where a second truck delivery fee is charged for a small remaining volume."
       },
       {
-        "q": "How thick should a standard concrete driveway or slab be?",
-        "a": "A standard concrete patio or sidewalk slab should be 4 inches thick. For a driveway supporting standard cars and SUVs, a thickness of 4 to 5 inches is recommended, while heavy truck driveways should be 6 inches thick."
+        "q": "How do I determine if I should use ready-mix truck delivery or buy bags?",
+        "a": "As a rule of thumb, if your project requires more than 1 cubic yard (equivalent to forty-five 80-pound bags), ready-mix truck delivery is more cost-effective and saves significant labor. For smaller footings or post holes, buying pre-mixed bags is preferred."
       },
       {
-        "q": "How long does it take for concrete to cure fully?",
-        "a": "Concrete cures through a chemical reaction called hydration. It typically reaches about 70% of its full structural strength after 7 days, and reaches its standard full cured design strength after 28 days."
+        "q": "How does slab thickness affect structural integrity?",
+        "a": "Standard residential sidewalks and patios require a 4-inch slab thickness. Driveways supporting passenger vehicles should be 4 to 5 inches thick with reinforcement rebar, whereas commercial or heavy vehicle slabs require 6 inches or more to prevent cracking under high loads."
       },
       {
-        "q": "Why does concrete crack and how do I prevent it?",
-        "a": "Concrete naturally shrinks slightly as it cures, which creates internal tension. To control and prevent random cracks, contractors cut contraction joints (grooves) at regular intervals to guide cracks along clean, hidden lines."
+        "q": "What are the main factors in ordering ready-mix concrete?",
+        "a": "When calling a ready-mix supplier, you must specify the volume in cubic yards, the target strength in PSI (typically 3,000 to 4,000 PSI for residential slabs), the aggregate size, and the slump (consistency). Advise them of your sub-grade setup and whether a pump is required."
       }
     ]
   },
@@ -1127,65 +1127,65 @@ const customContent = {
   },
   "paint-calculator": {
     "formula": "Gallons Required = [ (Wall Area - Window/Door Area) / 350 ] * Coats",
-    "formulaExplanation": "Where:\n* Wall Area = total wall length multiplied by height\n* 350 represents the average coverage in square feet per gallon of paint\n* Coats = number of paint layers planned (usually 2)\n\nExplanation:\nThis formula estimates the quantity of paint needed to cover a room's wall surface, subtracting major openings like windows and doors.",
+    "formulaExplanation": "Where:\n* Wall Area = total wall length multiplied by height\n* 350 represents the average coverage in square feet per gallon of paint\n* Coats = number of paint layers planned (usually 2)\n\nExplanation:\nThis formula estimates the quantity of paint needed to cover a room's wall surface, subtracting major openings like windows and doors, and factoring in multiple coats and primer requirements.",
     "example": "Inputs:\n* Room Perimeter = 48 feet (4 walls of 12 feet each)\n* Wall Height = 8 feet\n* Windows/Doors Area = 40 sq ft\n* Number of Coats = 2\n\nCalculation:\n* Step 1: Calculate Gross Wall Area: 48 * 8 = 384 sq ft\n* Step 2: Calculate Net Wall Area: 384 - 40 = 344 sq ft\n* Step 3: Divide by coverage rate: 344 / 350 = 0.98 gallons per coat\n* Step 4: Multiply by coats: 0.98 * 2 = 1.96 gallons\n\nResult:\n* Required Paint = 2.0 Gallons\n\nWhat This Means:\nYou should buy 2 gallons of paint to apply 2 full coats to the walls of the room.",
-    "descTopic": "paint volume estimation, wall coverage, and home decorating budgets",
-    "descInputs": "the room perimeter or wall lengths, wall height, doors/windows count, and number of paint coats planned",
-    "descOutputs": "the total wall surface area to paint, and the estimated gallons or liters of paint required",
-    "descUses": "planning home DIY painting projects, estimating painting contractor costs, and purchasing correct paint quantities from suppliers",
-    "descContext": "interior design and general contracting, helping decorators minimize unused paint waste and control material costs",
+    "descTopic": "paint volume estimation, wall coverage, primer requirements, and home decorating budgets",
+    "descInputs": "the room perimeter or wall lengths, wall height, doors/windows count, surface texture, and number of paint coats planned",
+    "descOutputs": "the total wall surface area to paint, primer requirements, and the estimated gallons or liters of paint required",
+    "descUses": "planning home DIY painting projects, estimating painting contractor costs, and purchasing correct paint quantities from paint suppliers",
+    "descContext": "interior design and professional painting, helping decorators minimize unused paint waste and control material costs",
     "faqs": [
       {
-        "q": "How much area does one standard gallon of paint cover?",
-        "a": "A standard gallon of quality wall paint typically covers approximately 350 to 400 square feet of smooth, primed wall surface with a single coat. Rough or textured walls require more paint."
+        "q": "How does wall surface texture affect paint coverage?",
+        "a": "Textured walls (like stucco, popcorn, or brick) have significantly more surface area than smooth drywall. Textured surfaces can reduce paint coverage by 20% to 35%, meaning you will need to purchase more paint to cover the same footprint."
       },
       {
-        "q": "Why do I need to apply two coats of paint?",
-        "a": "Two coats of paint ensure a uniform color depth, cover patches or primer, prevent streaks, and create a more durable surface that resists wear, scrubbing, and color fading over time."
+        "q": "When is a separate primer coat required and how does it affect paint volume?",
+        "a": "A primer coat is essential when painting raw drywall, wood, or porous masonry, and when transitioning from a dark color to a light color. Primer seals the surface so it does not absorb your expensive paint, reducing the total paint coats needed from 3+ to 2."
       },
       {
-        "q": "Should I buy primer separately?",
-        "a": "Yes, if you are painting raw drywall, making a drastic color change (dark to light), or painting over glossy surfaces. Primer seals the substrate, improves adhesion, and reduces the number of paint coats needed."
+        "q": "How do you calculate paint requirements for multiple coats?",
+        "a": "Calculate the net surface area of the walls, divide by the coverage factor (typically 350 sq ft per gallon), and multiply by the number of coats. Most standard interior painting projects require 2 coats for an even finish and true color representation."
       },
       {
-        "q": "How do I calculate paint requirements for ceilings?",
-        "a": "To calculate paint for ceilings, find the floor square footage of the room (Length * Width). Divide this area by 350 to find the gallons needed per ceiling coat."
+        "q": "How much paint wastage should I estimate for trim and ceilings?",
+        "a": "Add a standard 10% wastage margin to cover spills, brush/roller absorption, and touch-ups. For trim and baseboards, calculate their linear footage separately and allocate approximately 1 gallon of trim paint per 400 linear feet."
       },
       {
-        "q": "What is the shelf life of unused paint?",
-        "a": "Properly sealed latex paint can last up to 10 years in a cool, dry place. Ensure the rim is clean, seal the lid tightly, and store it away from freezing temperatures."
+        "q": "How do I store and dispose of leftover paint safely?",
+        "a": "Store leftover paint in a sealed container in a cool, dry place. To dispose of latex paint, let it dry out completely by adding paint hardener or cat litter, then dispose of it with regular trash. Do not pour liquid paint down drains."
       }
     ]
   },
   "tile-calculator": {
     "formula": "Tiles Needed = [ Room Area / Tile Area ] * (1 + Waste Factor)",
-    "formulaExplanation": "Where:\n* Room Area = room length * width\n* Tile Area = tile length * width (converted to square feet)\n* Waste Factor = wastage margin (e.g. 10% = 0.10)\n\nExplanation:\nThis formula determines the number of individual tiles required to cover a floor or wall area, adding a wastage margin for cuts and layout adjustments.",
-    "example": "Inputs:\n* Room Area = 200 sq ft\n* Tile Size = 12x12 inches (1 sq ft per tile)\n* Waste Factor = 10%\n\nCalculation:\n* Step 1: Calculate tile area in sq ft: (12 * 12) / 144 = 1.0 sq ft\n* Step 2: Divide room area by tile area: 200 / 1.0 = 200 tiles\n* Step 3: Add 10% wastage margin: 200 * 1.10 = 220 tiles\n\nResult:\n* Required Tiles = 220 tiles\n\nWhat This Means:\nYou should buy 220 tiles to complete the project, which accounts for room perimeter cuts and potential broken tiles.",
-    "descTopic": "floor tiling, tile quantities, and backsplash material planning",
-    "descInputs": "the length and width of the tiling area, the dimensions of the selected tiles in inches, and a wastage margin (10% is standard)",
-    "descOutputs": "the total surface area to cover, the estimated number of individual tiles needed, and the total square footage to purchase",
-    "descUses": "estimating materials for bathroom floor tiling, calculating kitchen backsplash tile counts, and planning tile patterns",
-    "descContext": "masonry and flooring installation, preventing material shortages during floor layout cuts",
+    "formulaExplanation": "Where:\n* Room Area = room length * width\n* Tile Area = tile length * width (converted to square feet)\n* Waste Factor = wastage margin (e.g. 10% = 0.10)\n\nExplanation:\nThis formula determines the number of individual tiles required to cover a floor or wall area, adding a wastage margin for cuts, layout adjustments, and corner fittings.",
+    "example": "Inputs:\n* Room Area = 200 sq ft\n* Tile Size = 12x12 inches (1 sq ft per tile)\n* Waste Factor = 10%\n\nCalculation:\n* Step 1: Calculate tile area in sq ft: (12 * 12) / 144 = 1.0 sq ft\n* Step 2: Divide room area by tile area: 200 / 1.0 = 200 tiles\n* Step 3: Add 10% wastage margin: 200 * 1.10 = 220 tiles\n\nResult:\n* Required Tiles = 220 tiles\n\nWhat This Means:\nYou should buy 220 tiles to complete the project, which accounts for room perimeter cuts, layout planning adjustments, and potential broken tiles.",
+    "descTopic": "floor tiling, tile quantities, backsplash material planning, layout configurations, and box estimation",
+    "descInputs": "the length and width of the tiling area, the dimensions of the selected tiles in inches, grout joint spacing, and layout configuration (straight vs. diagonal)",
+    "descOutputs": "the total surface area to cover, the estimated number of individual tiles needed, boxes of tiles required, and grout bags needed",
+    "descUses": "estimating materials for bathroom floor tiling, calculating kitchen backsplash tile counts, planning tile patterns, and estimating tile box orders",
+    "descContext": "masonry and professional flooring installation, preventing material shortages during floor layout cuts",
     "faqs": [
       {
-        "q": "How much extra tile should I buy for waste?",
-        "a": "It is standard practice to buy 10% extra tile for standard straight layouts, and 15% extra for diagonal or herringbone patterns. This covers tile cuts, border trimming, and accidental breakage."
+        "q": "How do I adjust my tile wastage margin for straight vs. diagonal layouts?",
+        "a": "For standard straight grid layouts, a 10% wastage margin is sufficient. For diagonal, herringbone, or complex patterns, you must increase the wastage margin to 15% or 20% to account for the numerous triangular cut pieces along the walls."
       },
       {
-        "q": "Does grout spacing affect the number of tiles I need?",
-        "a": "For standard tiles (12x12 inches or larger), grout spacing has a negligible effect on the total tile count. For small mosaic tiles, wide grout joints can slightly reduce the total tiles needed."
+        "q": "How does grout joint spacing affect tile box estimation?",
+        "a": "Grout joints (e.g., 1/16, 1/8, or 1/4 inch) create small gaps between tiles. While they slightly reduce the number of tiles needed in massive commercial spaces, for standard residential rooms the impact is negligible, and you should calculate tile counts based on raw dimensions."
       },
       {
-        "q": "How do I calculate tile coverage for an irregular room?",
-        "a": "Divide the floor space into smaller rectangular sections, calculate the square footage of each, and sum them. Always add a 15% waste factor for irregular layouts to cover complex cuts."
+        "q": "How do I calculate the number of tile boxes I need to purchase?",
+        "a": "Calculate the total square footage including waste, then divide by the square footage covered by a single box (specified by the manufacturer). Always round up to the nearest whole box, as suppliers do not sell partial boxes."
       },
       {
-        "q": "Should I round up the number of tiles?",
-        "a": "Yes. Always round up to the nearest whole tile when calculating individual tile counts, and round up to the nearest full box when ordering from a supplier to ensure you have complete packages."
+        "q": "Why is sub-floor preparation critical before tiling?",
+        "a": "Tiles are rigid and will crack if there is flex in the sub-floor. Ensure the sub-floor is clean, level, and reinforced with a cement backer board (such as Durock or WonderBoard) or an uncoupling membrane (such as Ditra) before applying thinset."
       },
       {
-        "q": "How many tiles are typically in a box?",
-        "a": "The number of tiles in a box depends on the tile size and manufacturer. Standard 12x12 tiles often come in boxes of 10 to 15 pieces, covering 10 to 15 square feet."
+        "q": "How much grout and thinset mortar do I need for my tile project?",
+        "a": "As a rule of thumb, a 25-pound bag of dry grout covers about 100 to 150 square feet depending on tile thickness and joint width. For thinset mortar, a 50-pound bag covers approximately 50 to 90 square feet depending on your trowel notch size."
       }
     ]
   },

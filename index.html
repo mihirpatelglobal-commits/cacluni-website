@@ -46,7 +46,16 @@
   "@type": "Organization",
   "name": "CalcUni",
   "url": "https://calcuni.com/",
-  "logo": "https://calcuni.com/logo2.png"
+  "logo": "https://calcuni.com/logo2.png",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Fiable Technologies"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Canada"
+  },
+  "description": "Online calculator platform covering finance, construction, health, education, business, and engineering calculations."
 }
     </script>
   
@@ -112,10 +121,17 @@
     
     
     
+    
+    
+    
+    
+    
+    
     <section class="stats">
-      <div class="stat-card"><strong>100+</strong><span>Planned calculators</span></div>
-      <div class="stat-card"><strong>12</strong><span>Major categories</span></div>
-      <div class="stat-card"><strong>Free</strong><span>Fast and simple tools</span></div>
+      <div class="stat-card"><strong>59+</strong><span>Live Calculators</span></div>
+      <div class="stat-card"><strong>11</strong><span>Active Categories</span></div>
+      <div class="stat-card"><strong>1000s</strong><span>Calculations Daily</span></div>
+      <div class="stat-card"><strong>Weekly</strong><span>New Tools Added</span></div>
     </section>
 
     <h2 class="section-title">Calculator Categories</h2>
@@ -272,7 +288,7 @@
     <section class="directory-panel" aria-label="All calculators directory">
       <div class="directory-intro">
         <h2 class="section-title" style="margin-top:0; text-align: left;">Select Any Calculator</h2>
-        <p>Choose from live calculators already available on CalcUni, plus planned calculators that can be added next. This homepage directory helps users reach a calculator directly.</p>
+        <p>Explore our comprehensive directory of 59+ live online calculators across 11 major categories. CalcUni provides fast, free, and accurate tools to solve your daily math, finance, tax, and construction calculations.</p>
       </div>
 
       <div class="link-directory">
@@ -371,13 +387,86 @@
       </div>
     </section>
 
-    <section class="coming-soon" id="contact">
+    <section class="trust-benefits" style="padding: 60px 24px; background: var(--bg-card); border-radius: 16px; margin: 40px auto; max-width: 1200px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+      <h2 style="text-align: center; color: var(--primary); font-size: 28px; margin-bottom: 30px;">Why Choose CalcUni?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">🆓 Free to Use</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">Access all our powerful calculations completely free. There are no hidden fees, paywalls, or feature limits.</p>
+        </div>
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">📱 Mobile Friendly</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">Our responsive web design ensures all tools scale perfectly on smartphones, tablets, and desktops.</p>
+        </div>
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">📐 Accurate Formulas</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">Every calculator utilizes industry-standard, mathematically verified formulas for reliable outputs.</p>
+        </div>
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">🔒 No Registration Required</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">Perform calculations instantly without creating an account or sharing any personal identifiers.</p>
+        </div>
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">🍁 Canadian-Focused Tools</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">Get localized calculations for Canadian federal and provincial taxes, retirement plans, and mortgage rules.</p>
+        </div>
+        <div style="padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg);">
+          <h3 style="margin-top: 0; color: var(--text); display: flex; align-items: center; gap: 8px;">🔄 Regularly Updated</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 0;">We constantly update our datasets and formulas to align with current financial rates and guidelines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="geo-intro" style="padding: 60px 24px; max-width: 1200px; margin: 0 auto; line-height: 1.6;">
+      <h2 style="color: var(--primary); font-size: 28px; margin-bottom: 20px;">What is CalcUni?</h2>
+      <p style="color: var(--text); font-size: 16px;">
+        CalcUni is a premium, comprehensive online calculator platform designed to provide quick, accurate, and free mathematical answers to users worldwide. Developed by <strong>Fiable Technologies</strong> in Canada, the platform serves as a trusted utility for diverse calculation needs across professional, educational, and domestic contexts.
+      </p>
+      
+      <h3 style="color: var(--text); font-size: 20px; margin-top: 30px;">Core Calculation Categories Served</h3>
+      <ul style="color: var(--muted); font-size: 15px; padding-left: 20px; margin-bottom: 24px;">
+        <li><strong>Finance &amp; Retirement:</strong> Estimate mortgage payments, compound interest growth, personal loans, car loan repayments, and retirement planning.</li>
+        <li><strong>Taxation:</strong> Compute federal and provincial income taxes, sales taxes (GST/HST/PST), Value Added Tax (VAT), and payroll deductions.</li>
+        <li><strong>Construction &amp; Material Estimation:</strong> Calculate concrete volume, square footage, paint coverage, tile requirements, and roofing shingles.</li>
+        <li><strong>Health &amp; Fitness:</strong> Estimate Body Mass Index (BMI), Basal Metabolic Rate (BMR), target weight ranges, and daily calorie needs.</li>
+        <li><strong>Math &amp; Education:</strong> Access percentage calculations, fraction arithmetic, scientific calculators, average sets, course grades, and weighted GPA.</li>
+        <li><strong>Technology &amp; Everyday Utilities:</strong> Find IP subnets, CIDR masks, network bandwidth speeds, digital storage conversion, secure password generation, and tip splits.</li>
+      </ul>
+
+      <h3 style="color: var(--text); font-size: 20px; margin-top: 30px;">Typical Use Cases for CalcUni Tools</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; color: var(--muted); font-size: 14px;">
+        <div>
+          <strong>💼 Homeowners &amp; Renters:</strong>
+          <p style="margin-top: 4px;">Calculate monthly mortgage payments, refinance scenarios, or estimate loan payoff schedules to manage personal debt effectively.</p>
+        </div>
+        <div>
+          <strong>🏗️ Contractors &amp; DIYers:</strong>
+          <p style="margin-top: 4px;">Determine exact bags of concrete, square footage for tile layouts, or paint coverage to order materials with minimal waste.</p>
+        </div>
+        <div>
+          <strong>🍁 Canadian Taxpayers:</strong>
+          <p style="margin-top: 4px;">Compute provincial sales tax splits (such as BC PST or Ontario HST) and estimate net take-home pay after federal/provincial deductions.</p>
+        </div>
+        <div>
+          <strong>🩺 Health-Conscious Individuals:</strong>
+          <p style="margin-top: 4px;">Evaluate body composition stats like BMI and daily calorie goals using formulas verified by world-leading health organizations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="coming-soon" id="contact" style="margin-top: 40px;">
       <div>
-        <h2>More calculators are coming soon.</h2>
-        <p>Finance, tax, health, business, construction, education, conversion, and daily life tools will be added gradually.</p>
+        <h2>Need a Specialized Calculation?</h2>
+        <p>We are continuously expanding our collection of calculators based on user requests. Tell us what you need!</p>
       </div>
       <a class="btn" href="contact.html">Suggest a Calculator</a>
     </section>
+  
+  
+  
+  
+  
+  
   
   
   
