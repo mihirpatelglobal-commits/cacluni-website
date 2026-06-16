@@ -696,7 +696,7 @@ footer, footer.site-footer {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin: -40px auto 40px;
   max-width: 1200px;
@@ -896,6 +896,9 @@ footer, footer.site-footer {
   }
   .grid, .calculator-shell {
     grid-template-columns: 1fr;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
