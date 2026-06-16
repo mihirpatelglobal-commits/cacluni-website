@@ -206,6 +206,13 @@
       
 
       
+      
+
+      
+      
+      
+
+      
       <section class="grid">
         <div class="card">
           <h2>Income & Mortgage Details</h2>
@@ -295,6 +302,12 @@
       </section>
 
       
+      
+      
+    
+      
+    
+  
       
       
     
@@ -425,6 +438,13 @@ Calculation:
   </footer>
 
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QXJ3X2XGV');
+  </script>
+<script>
     function calculateMinDown(price) {
       if (price >= 1000000) {
         return price * 0.20;
@@ -552,27 +572,50 @@ Calculation:
 
       ctx.clearRect(0, 0, 160, 160);
 
-      // Render two progress arcs (GDS outer, TDS inner)
       const cx = 80;
       const cy = 80;
+
+      // 1. GDS Background Track (Outer)
+      ctx.beginPath();
+      ctx.arc(cx, cy, 70, -Math.PI / 2, -Math.PI / 2 + 1.5 * Math.PI);
+      ctx.lineWidth = 8;
+      ctx.strokeStyle = 'rgba(229, 231, 235, 0.4)';
+      ctx.stroke();
       
-      // GDS Arc (Outer)
+      // 2. GDS Active Arc (Outer) with Glow
       const gdsPercent = Math.min(gds / 39, 1.5);
       const gdsColor = gds <= 39 ? '#10b981' : '#ef4444';
+      ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, 70, -Math.PI / 2, (-Math.PI / 2) + (gdsPercent * Math.PI * 1.5));
       ctx.lineWidth = 10;
       ctx.strokeStyle = gdsColor;
+      ctx.lineCap = 'round';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = gdsColor;
+      ctx.stroke();
+      ctx.restore();
+
+      // 3. TDS Background Track (Inner)
+      ctx.beginPath();
+      ctx.arc(cx, cy, 52, -Math.PI / 2, -Math.PI / 2 + 1.5 * Math.PI);
+      ctx.lineWidth = 8;
+      ctx.strokeStyle = 'rgba(229, 231, 235, 0.4)';
       ctx.stroke();
 
-      // TDS Arc (Inner)
+      // 4. TDS Active Arc (Inner) with Glow
       const tdsPercent = Math.min(tds / 44, 1.5);
       const tdsColor = tds <= 44 ? '#3b82f6' : '#f59e0b';
+      ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, 52, -Math.PI / 2, (-Math.PI / 2) + (tdsPercent * Math.PI * 1.5));
       ctx.lineWidth = 10;
       ctx.strokeStyle = tdsColor;
+      ctx.lineCap = 'round';
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = tdsColor;
       ctx.stroke();
+      ctx.restore();
 
       // Labels
       ctx.fillStyle = '#111827';

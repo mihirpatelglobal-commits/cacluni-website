@@ -412,6 +412,13 @@
       
       
 
+      
+      
+
+      
+      
+      
+
       <section class="calculator-shell">
         <div class="card">
           <h2>Number List</h2>
@@ -480,6 +487,12 @@
       
       
     
+      
+      
+    
+      
+    
+  
       
       
     
@@ -713,6 +726,13 @@ The central arithmetic average of the dataset is 30.0.</p>
   </footer>
 
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QXJ3X2XGV');
+  </script>
+<script>
     const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
     function calc() {
       const nums = document.getElementById('nums').value.split(/[\s,]+/).map(Number).filter(n => isFinite(n)).sort((a, b) => a - b);
