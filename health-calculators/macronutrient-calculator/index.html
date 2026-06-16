@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macronutrient Calculator | CalcUni</title>
+  <meta name="description" content="Calculate your daily macronutrient (protein, carbohydrate, and fat) targets in grams and calories. Customize based on your weight goals and dietary style.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QXJ3X2XGV');
+  </script>
+
+  <!-- Technical SEO & Meta Tags -->
+  <link rel="canonical" href="https://calcuni.com/health-calculators/macronutrient-calculator/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcuni.com/health-calculators/macronutrient-calculator/">
+  <meta property="og:title" content="Macronutrient Calculator | CalcUni">
+  <meta property="og:description" content="Calculate your daily macronutrient (protein, carbohydrate, and fat) targets in grams and calories. Customize based on your weight goals and dietary style.">
+  <meta property="og:image" content="https://calcuni.com/logo2.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://calcuni.com/health-calculators/macronutrient-calculator/">
+  <meta property="twitter:title" content="Macronutrient Calculator | CalcUni">
+  <meta property="twitter:description" content="Calculate your daily macronutrient (protein, carbohydrate, and fat) targets in grams and calories. Customize based on your weight goals and dietary style.">
+  <meta property="twitter:image" content="https://calcuni.com/logo2.png">
+  
+  
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Macronutrient Calculator",
+  "description": "Free online macronutrient calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/health-calculators/macronutrient-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Health Calculators",
+      "item": "https://calcuni.com/health-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Macronutrient Calculator",
+      "item": "https://calcuni.com/health-calculators/macronutrient-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does a macro calculator differ from a calorie calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A calorie calculator only measures total energy intake, which dictates weight changes. A macro calculator breaks those calories into proteins, carbs, and fats, which dictates whether you lose/gain fat or muscle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is protein set higher for fat loss and muscle gain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Protein is highly satiating (helps you feel full) and supports muscle repair. Consuming higher protein during a calorie deficit prevents muscle wasting, ensuring weight loss comes from fat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many grams of fat do I need for health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fats are essential for absorbing vitamins and regulating hormones. Standard guidelines recommend getting 20% to 35% of your daily calories from healthy fats, or at least 0.3g per pound of body weight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize my macro split percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Choose the \"Custom\" diet style in our calculator to input your own custom percentages for protein, carbs, and fats, ensuring the total sums to exactly 100%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I do not hit my macros exactly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't worry about perfection. Staying within 5 to 10 grams of your target protein and fat goals while hitting your overall calorie target is more than sufficient for excellent results."
+      }
+    }
+  ]
+}
+    </script>
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="">Finance</a>
+        <a href="../../health-calculators/" class="active">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">HEALTH TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../health-calculators/" >Overview</a></li>
+        <li><a href="../../health-calculators/bmi-calculator/" >BMI Calculator</a></li>
+        <li><a href="../../health-calculators/calorie-calculator/" >Calorie Calculator</a></li>
+        <li><a href="../../health-calculators/bmr-calculator/" >BMR Calculator</a></li>
+        <li><a href="../../health-calculators/body-fat-calculator/" >Body Fat Calculator</a></li>
+        <li><a href="../../health-calculators/ideal-weight-calculator/" >Ideal Weight Calculator</a></li>
+        <li><a href="../../health-calculators/tdee-calculator/" >TDEE Calculator</a></li>
+        <li><a href="../../health-calculators/macronutrient-calculator/" class="active">Macronutrient Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../health-calculators/">Health Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Macronutrient Calculator</span>
+      </div>
+
+      <span class="category-badge">Health Calculator</span>
+      <h1 class="page-title">Macronutrient Calculator</h1>
+      <p class="page-desc">Calculate your optimal daily protein, carb, and fat macros.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      <section class="grid">
+        <div class="card">
+          <h2>Calculator Settings</h2>
+          
+          <div class="field" style="margin-bottom: 15px;">
+            <label>Mode</label>
+            <select id="mode" onchange="toggleMode()">
+              <option value="direct">Direct Calorie Target Entry</option>
+              <option value="calculate">Calculate from Body Details</option>
+            </select>
+          </div>
+
+          <!-- Direct Input Section -->
+          <div id="direct-section" class="form-grid">
+            <div class="field">
+              <label>Daily Calorie Target (kcal)</label>
+              <input id="direct-calories" type="number" value="2000">
+            </div>
+          </div>
+
+          <!-- Calculated Input Section (Hidden by Default) -->
+          <div id="calc-section" class="form-grid" style="display: none;">
+            <div class="field">
+              <label>Unit system</label>
+              <select id="unit" onchange="toggleUnits()">
+                <option value="metric">Metric</option>
+                <option value="imperial">Imperial</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Sex</label>
+              <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Age (Years)</label>
+              <input id="age" type="number" value="30">
+            </div>
+            <div class="field">
+              <label>Weight (<span id="wUnit">kg</span>)</label>
+              <input id="weight" type="number" value="75">
+            </div>
+            <div class="field">
+              <label>Height (<span id="hUnit">cm</span>)</label>
+              <input id="height" type="number" value="175">
+            </div>
+            <div class="field">
+              <label>Activity level</label>
+              <select id="activity">
+                <option value="1.2">Sedentary</option>
+                <option value="1.375">Lightly Active</option>
+                <option value="1.55" selected>Moderately Active</option>
+                <option value="1.725">Very Active</option>
+                <option value="1.9">Extra Active</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Goal</label>
+              <select id="goal">
+                <option value="maintain">Maintain Weight</option>
+                <option value="lose" selected>Weight Loss (Deficit)</option>
+                <option value="gain">Weight Gain (Surplus)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Shared Settings -->
+          <div class="form-grid" style="margin-top: 15px;">
+            <div class="field">
+              <label>Diet style / Split</label>
+              <select id="diet" onchange="toggleDietStyle()">
+                <option value="balanced" selected>Balanced (40% Carbs, 30% Protein, 30% Fat)</option>
+                <option value="high-protein">High Protein (30% Carbs, 40% Protein, 30% Fat)</option>
+                <option value="low-carb">Low Carb (25% Carbs, 35% Protein, 40% Fat)</option>
+                <option value="keto">Ketogenic (5% Carbs, 25% Protein, 70% Fat)</option>
+                <option value="custom">Custom Macros Split (%)...</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Custom Macros Selection -->
+          <div id="custom-macros-section" class="form-grid" style="display: none; margin-top: 15px; background: rgba(0,0,0,0.02); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
+            <div class="field">
+              <label>Protein (%)</label>
+              <input id="custom-protein" type="number" value="30" onchange="validateCustomSum()">
+            </div>
+            <div class="field">
+              <label>Carbs (%)</label>
+              <input id="custom-carbs" type="number" value="40" onchange="validateCustomSum()">
+            </div>
+            <div class="field">
+              <label>Fat (%)</label>
+              <input id="custom-fat" type="number" value="30" onchange="validateCustomSum()">
+            </div>
+            <div style="grid-column: 1 / -1; font-size: 12px; text-align: right; font-weight: 600;">
+              Total: <span id="custom-total-label" style="color: #10b981;">100%</span> (Must equal 100%)
+            </div>
+          </div>
+
+          <div id="custom-error" class="warning-box" style="display: none; margin-top: 15px; padding: 10px; background-color: #fde8e8; color: #9b1c1c; border-radius: 6px;"></div>
+
+          <button class="btn" onclick="calc()" style="margin-top: 20px;">Calculate Macros</button>
+        </div>
+
+        <div class="result">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.85;">Daily Target Energy</span>
+            <strong class="big" id="target_cal" style="font-size: 38px; display: block; margin: 5px 0; color: #3b82f6;">2,000 kcal/day</strong>
+            <span id="formula_note" style="font-size: 12px; opacity: 0.75;">Diet Split: Balanced</span>
+          </div>
+
+          <div class="macro-bar" style="display: flex; height: 18px; border-radius: 9px; overflow: hidden; background: #e5e7eb; margin: 15px 0;">
+            <div id="bar-protein" style="background: #10b981; width: 30%; transition: width 0.3s;"></div>
+            <div id="bar-carbs" style="background: #3b82f6; width: 40%; transition: width 0.3s;"></div>
+            <div id="bar-fats" style="background: #f59e0b; width: 30%; transition: width 0.3s;"></div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+            <div class="result-row">
+              <span>🟢 Protein (30% split)</span>
+              <strong style="display: inline-block; white-space: nowrap; flex-shrink: 0;"><span id="g-protein">150g</span> / <span id="cal-protein">600 kcal</span></strong>
+            </div>
+            <div class="result-row">
+              <span>🔵 Carbohydrates (40% split)</span>
+              <strong style="display: inline-block; white-space: nowrap; flex-shrink: 0;"><span id="g-carbs">200g</span> / <span id="cal-carbs">800 kcal</span></strong>
+            </div>
+            <div class="result-row" style="border-bottom: none;">
+              <span>🟡 Fats (30% split)</span>
+              <strong style="display: inline-block; white-space: nowrap; flex-shrink: 0;"><span id="g-fats">67g</span> / <span id="cal-fats">600 kcal</span></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    <section class="calculator-seo-content">
+      <h2 class="seo-title">About the Macronutrient Calculator</h2>
+      <p class="seo-paragraph">The Macronutrient Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in macronutrient target splits, protein grams, carb grams, and daily fat requirements. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
+      
+      <h3 class="seo-subtitle">What the Macronutrient Calculator Does</h3>
+      <p class="seo-paragraph">Our Macronutrient Calculator processes your inputs instantly and provides a comprehensive breakdown of the precise grams and calories of protein, carbohydrates, and fats required daily to meet your energy targets. By utilizing this online tool, you save time, ensure mathematical accuracy, and can rapidly test different scenarios side-by-side to understand how changes in your variables affect your totals. Rather than just returning a single number, it provides a structured overview that helps you analyze trends, verify manual calculations, and gain deeper insight into the underlying mathematics.</p>
+      
+      <h3 class="seo-subtitle">Significance and Context</h3>
+      <p class="seo-paragraph">Understanding the significance of these calculations is key to achieving optimal results. In sports nutrition and meal planning, optimizing body composition and athletic performance, having a dedicated tool ensures consistency across all your evaluations, allowing you to identify discrepancies early, reduce decision-making time, and approach your calculations with absolute confidence. It standardizes the evaluation process, offering a reliable benchmark that aligns with industry practices and academic guidelines.</p>
+      
+      <h3 class="seo-subtitle">How to Use the Macronutrient Calculator</h3>
+      <p class="seo-paragraph">To use the Macronutrient Calculator effectively, you simply need to gather the required variables for your specific scenario—such as your daily target calorie intake or body metrics, goal, and preferred diet style (Balanced, Low Carb, Keto, High Protein, Custom)—and enter them into the fields. The tool takes these parameters, applies the verified mathematical formula for macronutrient calculator analysis, and generates a clear, readable summary. This step-by-step processing makes it easy to interpret the outputs, apply the findings to your work, and share the results with others.</p>
+      <p class="seo-paragraph">Practical use cases for this tool are diverse, ranging from setting daily macro targets for muscle building, adjusting carb splits for insulin sensitivity, and planning custom keto ratios. Whether you are comparing different options or checking the results of a manual calculation, this tool adapts to your needs. Its interface is designed to help you make decisions quickly by visualizing how small adjustments to your baseline numbers can have a major impact on your final outcomes.</p>
+      
+      <h3 class="seo-subtitle">The Macronutrient Calculator Formula</h3>
+      <p class="seo-paragraph">The calculation relies on the following standard formula:</p>
+      <div class="formula-box">Macros split (g) = (Total Calories * Macro Split %) / Calories per Gram</div>
+      <p class="seo-paragraph">Where:
+* Protein yields 4 kcal per gram
+* Carbohydrates yield 4 kcal per gram
+* Fats yield 9 kcal per gram
+
+Explanation:
+The macronutrient formula takes your daily target calories and divides them into proteins, carbs, and fats based on your chosen dietary style.</p>
+      
+      <h3 class="seo-subtitle">Step-by-Step Worked Example</h3>
+      <div class="example-box">
+        <div class="example-title">Example Calculation</div>
+        <p class="seo-paragraph" style="margin-bottom: 0; font-family: monospace; white-space: pre-wrap; font-size: 14px;">Inputs:
+* Daily Calorie Target = 2,000 kcal
+* Split Style = Balanced (40% Carbs, 30% Protein, 30% Fat)
+
+Calculation:
+* Step 1: Protein Grams = (2,000 * 0.30) / 4 = 150g
+* Step 2: Carb Grams = (2,000 * 0.40) / 4 = 200g
+* Step 3: Fat Grams = (2,000 * 0.30) / 9 = 67g
+
+Result:
+* Protein: 150g (600 kcal)
+* Carbs: 200g (800 kcal)
+* Fat: 67g (600 kcal)
+
+What This Means:
+You will consume 150g of protein, 200g of carbs, and 67g of fats daily to hit your 2,000 kcal target.</p>
+      </div>
+      
+      <h2 class="seo-title" style="margin-top: 40px;">Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-accordion">
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ How does a macro calculator differ from a calorie calculator?</h4>
+            <p class="faq-answer">A calorie calculator only measures total energy intake, which dictates weight changes. A macro calculator breaks those calories into proteins, carbs, and fats, which dictates whether you lose/gain fat or muscle.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ Why is protein set higher for fat loss and muscle gain?</h4>
+            <p class="faq-answer">Protein is highly satiating (helps you feel full) and supports muscle repair. Consuming higher protein during a calorie deficit prevents muscle wasting, ensuring weight loss comes from fat.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ How many grams of fat do I need for health?</h4>
+            <p class="faq-answer">Fats are essential for absorbing vitamins and regulating hormones. Standard guidelines recommend getting 20% to 35% of your daily calories from healthy fats, or at least 0.3g per pound of body weight.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ Can I customize my macro split percentage?</h4>
+            <p class="faq-answer">Yes. Choose the "Custom" diet style in our calculator to input your own custom percentages for protein, carbs, and fats, ensuring the total sums to exactly 100%.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ What happens if I do not hit my macros exactly?</h4>
+            <p class="faq-answer">Don't worry about perfection. Staying within 5 to 10 grams of your target protein and fat goals while hitting your overall calorie target is more than sufficient for excellent results.</p>
+          </div>
+        
+      </div>
+
+      
+    <div class="related-calculators-section">
+      <h3 class="seo-subtitle">Related Calculators</h3>
+      <p class="seo-paragraph">Explore these other helpful tools:</p>
+      <div class="related-grid">
+        <a class="related-link" href="../bmi-calculator/">BMI Calculator</a><a class="related-link" href="../calorie-calculator/">Calorie Calculator</a><a class="related-link" href="../bmr-calculator/">BMR Calculator</a><a class="related-link" href="../body-fat-calculator/">Body Fat Calculator</a><a class="related-link" href="../ideal-weight-calculator/">Ideal Weight Calculator</a><a class="related-link" href="../tdee-calculator/">TDEE Calculator</a>
+      </div>
+    </div>
+  
+    </section>
+  
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> These calculators are for informational and educational purposes only. They do not constitute medical advice, diagnosis, or treatment. Always consult with a qualified physician or healthcare provider before starting any new diet, fitness program, or health regimen.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html" style="margin-left: 15px;">About Us</a>
+        <a href="../../contact.html" style="margin-left: 15px;">Contact</a>
+        <a href="../../blog/" style="margin-left: 15px;">Blogs</a>
+        <a href="../../privacy.html" style="margin-left: 15px;">Privacy Policy</a>
+        <a href="../../terms.html" style="margin-left: 15px;">Terms of Use</a>
+        <a href="../../disclaimer.html" style="margin-left: 15px;">Disclaimer</a>
+        <a href="../../sitemap.html" style="margin-left: 15px;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QXJ3X2XGV');
+  </script>
+<script>
+    const val = id => Number(document.getElementById(id).value);
+    const txt = id => document.getElementById(id).value;
+    const fmtNum = (n, d = 0) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0';
+
+    function toggleMode() {
+      const mode = txt('mode');
+      document.getElementById('direct-section').style.display = mode === 'direct' ? 'grid' : 'none';
+      document.getElementById('calc-section').style.display = mode === 'calculate' ? 'grid' : 'none';
+      calc();
+    }
+
+    function toggleUnits() {
+      const m = txt('unit') === 'metric';
+      document.getElementById('wUnit').textContent = m ? 'kg' : 'lb';
+      document.getElementById('hUnit').textContent = m ? 'cm' : 'in';
+      calc();
+    }
+
+    function toggleDietStyle() {
+      const diet = txt('diet');
+      document.getElementById('custom-macros-section').style.display = diet === 'custom' ? 'grid' : 'none';
+      calc();
+    }
+
+    function validateCustomSum() {
+      const p = val('custom-protein');
+      const c = val('custom-carbs');
+      const f = val('custom-fat');
+      const total = p + c + f;
+      
+      const label = document.getElementById('custom-total-label');
+      label.textContent = `${total}%`;
+      if (total === 100) {
+        label.style.color = '#10b981';
+        document.getElementById('custom-error').style.display = 'none';
+        return true;
+      } else {
+        label.style.color = '#ef4444';
+        return false;
+      }
+    }
+
+    function calc() {
+      const mode = txt('mode');
+      const diet = txt('diet');
+      let calories = 0;
+
+      if (mode === 'direct') {
+        calories = val('direct-calories') || 0;
+      } else {
+        // Calculate TDEE first
+        const m = txt('unit') === 'metric';
+        let W = val('weight'),
+            H = val('height');
+        if (!m) {
+          W *= .45359237;
+          H *= 2.54;
+        }
+        const A = val('age');
+        const sex = txt('sex');
+        const activity = val('activity');
+        const goal = txt('goal');
+
+        const bmr = sex === 'male' 
+          ? 10 * W + 6.25 * H - 5 * A + 5 
+          : 10 * W + 6.25 * H - 5 * A - 161;
+        const tdee = bmr * activity;
+
+        calories = tdee;
+        if (goal === 'lose') {
+          calories = Math.max(tdee - 500, sex === 'male' ? 1500 : 1200);
+        } else if (goal === 'gain') {
+          calories = tdee + 500;
+        }
+      }
+
+      // Determine Split %
+      let pPct = 0.30, cPct = 0.40, fPct = 0.30;
+      let styleLabel = 'Balanced Split';
+
+      if (diet === 'high-protein') {
+        pPct = 0.40; cPct = 0.30; fPct = 0.30;
+        styleLabel = 'High Protein Split';
+      } else if (diet === 'low-carb') {
+        pPct = 0.35; cPct = 0.25; fPct = 0.40;
+        styleLabel = 'Low Carb Split';
+      } else if (diet === 'keto') {
+        pPct = 0.25; cPct = 0.05; fPct = 0.70;
+        styleLabel = 'Ketogenic Split';
+      } else if (diet === 'custom') {
+        const isValid = validateCustomSum();
+        pPct = val('custom-protein') / 100;
+        cPct = val('custom-carbs') / 100;
+        fPct = val('custom-fat') / 100;
+        styleLabel = 'Custom Split';
+
+        if (!isValid) {
+          const err = document.getElementById('custom-error');
+          err.style.display = 'block';
+          err.innerHTML = `⚠️ <strong>Error:</strong> Custom macro percentages sum to ${Math.round((pPct+cPct+fPct)*100)}%. They must sum to exactly 100% to calculate.`;
+          return;
+        } else {
+          document.getElementById('custom-error').style.display = 'none';
+        }
+      }
+
+      const pCal = calories * pPct;
+      const cCal = calories * cPct;
+      const fCal = calories * fPct;
+
+      const pGrams = pCal / 4;
+      const cGrams = cCal / 4;
+      const fGrams = fCal / 9;
+
+      // Update UI
+      document.getElementById('target_cal').textContent = `${fmtNum(calories)} kcal/day`;
+      document.getElementById('formula_note').textContent = `Diet style: ${styleLabel}`;
+
+      document.getElementById('g-protein').textContent = `${fmtNum(pGrams)}g`;
+      document.getElementById('cal-protein').textContent = `${fmtNum(pCal)} kcal`;
+      document.getElementById('bar-protein').style.width = `${pPct * 100}%`;
+
+      document.getElementById('g-carbs').textContent = `${fmtNum(cGrams)}g`;
+      document.getElementById('cal-carbs').textContent = `${fmtNum(cCal)} kcal`;
+      document.getElementById('bar-carbs').style.width = `${cPct * 100}%`;
+
+      document.getElementById('g-fats').textContent = `${fmtNum(fGrams)}g`;
+      document.getElementById('cal-fats').textContent = `${fmtNum(fCal)} kcal`;
+      document.getElementById('bar-fats').style.width = `${fPct * 100}%`;
+    }
+
+    toggleMode();
+  </script>
+
+</body>
+</html>

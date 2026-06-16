@@ -413,6 +413,12 @@ button:hover, .btn:hover {
   color: var(--text);
 }
 
+.result strong span,
+.result-row strong span,
+.result-line strong span {
+  display: inline;
+}
+
 /* TABLES (GPA/GRADE CALCULATORS) */
 .table-wrap {
   overflow-x: auto;

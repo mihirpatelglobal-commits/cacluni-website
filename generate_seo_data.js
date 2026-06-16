@@ -242,6 +242,40 @@ const customContent = {
       { q: 'How should athletes interpret their ideal weight calculation?', a: 'Athletes with high muscle mass should interpret ideal weight calculations with caution. Muscle is denser than fat, so muscular individuals may weigh more than the formula suggests while remaining completely healthy.' }
     ]
   },
+  'tdee-calculator': {
+    formula: 'TDEE = BMR * Physical Activity Multiplier',
+    formulaExplanation: 'Where:\n* BMR = Basal Metabolic Rate (calculated using the Mifflin-St Jeor formula based on age, sex, weight, and height)\n* Physical Activity Multiplier = activity factor corresponding to daily exercise and movement (1.2 to 1.9)\n\nExplanation:\nTotal Daily Energy Expenditure (TDEE) calculates the total number of calories your body burns in 24 hours, combining resting metabolic rates and daily activity levels.',
+    example: 'Inputs:\n* BMR = 1,800 kcal\n* Activity Level = Moderately Active (Multiplier = 1.55)\n* Goal = Lose Weight (500 kcal deficit)\n\nCalculation:\n* Step 1: Calculate TDEE = BMR * Multiplier = 1,800 * 1.55 = 2,790 kcal\n* Step 2: Apply goal deficit: 2,790 - 500 = 2,290 kcal\n\nResult:\n* TDEE = 2,790 kcal/day\n* Goal Calorie Intake = 2,290 kcal/day\n\nWhat This Means:\nYour body burns 2,790 calories daily. Consuming 2,290 calories per day will support safe fat loss.',
+    descTopic: 'total daily energy expenditure (TDEE) estimations, maintenance calories, and target nutrition planning',
+    descInputs: 'your sex, age, weight, height, daily physical activity level, and weight goals',
+    descOutputs: 'your maintenance calories (TDEE), resting metabolic rate (BMR), target calorie intakes, and macro splits',
+    descUses: 'planning calorie-controlled meal preps, setting daily deficits for fat loss, and outlining nutrition surplus plans for muscle gain',
+    descContext: 'fitness training and nutrition planning, helping individuals align calorie intakes with body goals',
+    faqs: [
+      { q: 'What is the difference between BMR and TDEE?', a: 'BMR (Basal Metabolic Rate) is the static energy your body needs to stay alive at complete rest. TDEE (Total Daily Energy Expenditure) is your BMR plus the energy expended during daily movement, digestions, and exercise.' },
+      { q: 'How does the TDEE calculator adjust for weight goals?', a: 'To lose weight, the calculator subtracts a deficit (usually 500 kcal) from your TDEE. To gain weight, it adds a surplus (usually 500 kcal). For maintenance, it keeps calories exactly at your TDEE.' },
+      { q: 'Why does my TDEE decrease as I lose weight?', a: 'As you lose body weight, your body requires less energy to move and maintain tissue, which naturally reduces both your BMR and TDEE. Recalculate your metrics every 5-10 pounds lost.' },
+      { q: 'Is the TDEE calculator accurate for athletes?', a: 'Yes. The calculator uses physical activity multipliers up to 1.9 to reflect high training volumes, making it highly effective for athletes. Muscle density can also slightly shift energy needs upwards.' },
+      { q: 'What is the Thermic Effect of Food (TEF)?', a: 'TEF is the energy required to digest and process the food you eat. It accounts for about 10% of your TDEE, with protein having the highest thermic effect (burning 20-30% of its calories during digestion).' }
+    ]
+  },
+  'macronutrient-calculator': {
+    formula: 'Macros split (g) = (Total Calories * Macro Split %) / Calories per Gram',
+    formulaExplanation: 'Where:\n* Protein yields 4 kcal per gram\n* Carbohydrates yield 4 kcal per gram\n* Fats yield 9 kcal per gram\n\nExplanation:\nThe macronutrient formula takes your daily target calories and divides them into proteins, carbs, and fats based on your chosen dietary style.',
+    example: 'Inputs:\n* Daily Calorie Target = 2,000 kcal\n* Split Style = Balanced (40% Carbs, 30% Protein, 30% Fat)\n\nCalculation:\n* Step 1: Protein Grams = (2,000 * 0.30) / 4 = 150g\n* Step 2: Carb Grams = (2,000 * 0.40) / 4 = 200g\n* Step 3: Fat Grams = (2,000 * 0.30) / 9 = 67g\n\nResult:\n* Protein: 150g (600 kcal)\n* Carbs: 200g (800 kcal)\n* Fat: 67g (600 kcal)\n\nWhat This Means:\nYou will consume 150g of protein, 200g of carbs, and 67g of fats daily to hit your 2,000 kcal target.',
+    descTopic: 'macronutrient target splits, protein grams, carb grams, and daily fat requirements',
+    descInputs: 'your daily target calorie intake or body metrics, goal, and preferred diet style (Balanced, Low Carb, Keto, High Protein, Custom)',
+    descOutputs: 'the precise grams and calories of protein, carbohydrates, and fats required daily to meet your energy targets',
+    descUses: 'setting daily macro targets for muscle building, adjusting carb splits for insulin sensitivity, and planning custom keto ratios',
+    descContext: 'sports nutrition and meal planning, optimizing body composition and athletic performance',
+    faqs: [
+      { q: 'How does a macro calculator differ from a calorie calculator?', a: 'A calorie calculator only measures total energy intake, which dictates weight changes. A macro calculator breaks those calories into proteins, carbs, and fats, which dictates whether you lose/gain fat or muscle.' },
+      { q: 'Why is protein set higher for fat loss and muscle gain?', a: 'Protein is highly satiating (helps you feel full) and supports muscle repair. Consuming higher protein during a calorie deficit prevents muscle wasting, ensuring weight loss comes from fat.' },
+      { q: 'How many grams of fat do I need for health?', a: 'Fats are essential for absorbing vitamins and regulating hormones. Standard guidelines recommend getting 20% to 35% of your daily calories from healthy fats, or at least 0.3g per pound of body weight.' },
+      { q: 'Can I customize my macro split percentage?', a: 'Yes. Choose the "Custom" diet style in our calculator to input your own custom percentages for protein, carbs, and fats, ensuring the total sums to exactly 100%.' },
+      { q: 'What happens if I do not hit my macros exactly?', a: 'Don\'t worry about perfection. Staying within 5 to 10 grams of your target protein and fat goals while hitting your overall calorie target is more than sufficient for excellent results.' }
+    ]
+  },
 
   // ==================== MATH ====================
   'percentage-calculator': {
