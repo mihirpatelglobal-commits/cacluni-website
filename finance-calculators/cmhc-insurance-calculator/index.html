@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMHC Insurance Calculator Canada | CalcUni</title>
+  <meta name="description" content="Calculate your Canadian mortgage default insurance (CMHC premium) fees and check minimum down payment rules.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8QXJ3X2XGV');
+  </script>
+
+  <!-- Technical SEO & Meta Tags -->
+  <link rel="canonical" href="https://calcuni.com/finance-calculators/cmhc-insurance-calculator/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calcuni.com/finance-calculators/cmhc-insurance-calculator/">
+  <meta property="og:title" content="CMHC Insurance Calculator Canada | CalcUni">
+  <meta property="og:description" content="Calculate your Canadian mortgage default insurance (CMHC premium) fees and check minimum down payment rules.">
+  <meta property="og:image" content="https://calcuni.com/logo2.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://calcuni.com/finance-calculators/cmhc-insurance-calculator/">
+  <meta property="twitter:title" content="CMHC Insurance Calculator Canada | CalcUni">
+  <meta property="twitter:description" content="Calculate your Canadian mortgage default insurance (CMHC premium) fees and check minimum down payment rules.">
+  <meta property="twitter:image" content="https://calcuni.com/logo2.png">
+  
+  
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "CMHC Insurance Calculator",
+  "description": "Free online cmhc insurance calculator. Fast, easy, and mobile-friendly tool.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires HTML5 and Javascript enabled",
+  "url": "https://calcuni.com/finance-calculators/cmhc-insurance-calculator/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Finance Calculators",
+      "item": "https://calcuni.com/finance-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CMHC Insurance Calculator",
+      "item": "https://calcuni.com/finance-calculators/cmhc-insurance-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CMHC insurance mandatory in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. In Canada, mortgage default insurance (often referred to as CMHC insurance) is legally mandatory for any home purchase where the down payment is less than 20% of the purchase price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the CMHC insurance fee paid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CMHC insurance premium is calculated as a percentage of your total loan amount and is typically added to your mortgage principal (rolled into the loan balance). This means it is paid off gradually over time as part of your regular monthly mortgage payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the minimum down payment required in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The minimum down payment depends on the purchase price: for homes under $500,000, it is 5%; for homes between $500,000 and $999,999, it is 5% of the first $500,000 plus 10% of the portion above $500,000; for homes of $1,000,000 or more, it is 20% (and CMHC is not available)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CMHC insurance cover me if I lose my job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CMHC mortgage default insurance protects the lender, not the borrower, in the event that you default on your mortgage payments. It does not provide any coverage or relief for your personal financial situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I avoid paying CMHC insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can avoid paying CMHC insurance entirely by putting down a down payment of 20% or more of the home purchase price. Additionally, default insurance is not available for homes priced at $1,000,000 or higher, which legally requires a minimum 20% down payment anyway."
+      }
+    }
+  ]
+}
+    </script>
+  
+</head>
+<body>
+  
+  <header class="site-header">
+    <nav class="header-nav">
+      <a href="../../index.html" class="logo-link">
+        <img src="../../logo2.png" alt="CalcUni Logo">
+      </a>
+      <div class="nav-tabs">
+        <a href="../../finance-calculators/" class="active">Finance</a>
+        <a href="../../health-calculators/" class="">Health</a>
+        <a href="../../math-calculators/" class="">Math</a>
+        <a href="../../tax-calculators/" class="">Tax</a>
+        <a href="../../conversion-calculators/" class="">Conversion</a>
+        <a href="../../date-time-calculators/" class="">Date/Time</a>
+        <a href="../../construction-calculators/" class="">Construction</a>
+        <a href="../../business-calculators/" class="">Business</a>
+        <a href="../../transportation-calculators/" class="">Transportation</a>
+        <a href="../../everyday-calculators/" class="">Everyday</a>
+        <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-shell">
+    
+    <aside class="sidebar">
+      <h2 class="sidebar-heading">FINANCE TOOLS</h2>
+      <ul class="sidebar-menu">
+        <li><a href="../../finance-calculators/" >Overview</a></li>
+        <li><a href="../../finance-calculators/mortgage-calculator/" >Mortgage Calculator</a></li>
+        <li><a href="../../finance-calculators/loan-calculator/" >Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/compound-interest-calculator/" >Compound Interest Calculator</a></li>
+        <li><a href="../../finance-calculators/car-loan-calculator/" >Car Loan Calculator</a></li>
+        <li><a href="../../finance-calculators/amortization-calculator/" >Amortization Calculator</a></li>
+        <li><a href="../../finance-calculators/credit-card-calculator/" >Credit Card Calculator</a></li>
+        <li><a href="../../finance-calculators/retirement-calculator/" >Retirement Calculator</a></li>
+        <li><a href="../../finance-calculators/cmhc-insurance-calculator/" class="active">CMHC Insurance Calculator</a></li>
+        <li><a href="../../finance-calculators/mortgage-stress-test-calculator/" >Mortgage Stress Test Calculator</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../../finance-calculators/">Finance Calculators</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>CMHC Insurance Calculator</span>
+      </div>
+
+      <span class="category-badge">Finance Calculator</span>
+      <h1 class="page-title">CMHC Insurance Calculator</h1>
+      <p class="page-desc">Calculate Canadian mortgage default insurance (CMHC) fees.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      <section class="grid">
+        <div class="card">
+          <h2>Mortgage & CMHC Details</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label for="price">Purchase Price ($)</label>
+              <input id="price" type="number" value="600000" oninput="updateDownPaymentMin()">
+            </div>
+            
+            <div class="field">
+              <label for="down_type">Down Payment Input Type</label>
+              <select id="down_type" onchange="toggleDownType()">
+                <option value="amount">Dollar Amount ($)</option>
+                <option value="percent">Percentage (%)</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label id="down_label" for="down">Down Payment</label>
+              <input id="down" type="number" value="60000">
+            </div>
+
+            <div class="field">
+              <label for="rate">Annual Interest Rate (%)</label>
+              <input id="rate" type="number" step="0.01" value="5.25">
+            </div>
+
+            <div class="field">
+              <label for="years">Amortization Period</label>
+              <select id="years">
+                <option value="25" selected>25 Years (Max for CMHC)</option>
+                <option value="20">20 Years</option>
+                <option value="15">15 Years</option>
+                <option value="10">10 Years</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="error-message" class="warning-box" style="display: none; margin-top: 15px; padding: 12px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 6px;"></div>
+
+          <button class="btn" onclick="calculateCMHC()" style="margin-top: 20px;">Calculate CMHC</button>
+        </div>
+
+        <div class="result">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.85;">CMHC Insurance Premium</span>
+            <strong class="big" id="premium_amount" style="font-size: 40px; display: block; margin: 10px 0;">$0</strong>
+            <span id="premium_rate_badge" style="background: rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 20px; font-size: 13px; font-weight: 600;">Rate: 0.00%</span>
+          </div>
+
+          <div class="result-row">
+            <span>Base Mortgage Loan</span>
+            <strong id="base_loan">$0</strong>
+          </div>
+          <div class="result-row">
+            <span>Total Loan with Premium</span>
+            <strong id="total_loan">$0</strong>
+          </div>
+          <div class="result-row">
+            <span>Monthly Payment (With CMHC)</span>
+            <strong id="monthly_with">$0</strong>
+          </div>
+          <div class="result-row" style="border-bottom: none;">
+            <span>Monthly Payment (No CMHC)</span>
+            <strong id="monthly_without" style="opacity: 0.75;">$0</strong>
+          </div>
+
+          <div style="margin-top: 25px; display: flex; justify-content: center; align-items: center; min-height: 160px;">
+            <canvas id="chartCanvas" width="160" height="160"></canvas>
+          </div>
+        </div>
+      </section>
+
+      
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    <section class="calculator-seo-content">
+      <h2 class="seo-title">About the CMHC Insurance Calculator</h2>
+      <p class="seo-paragraph">The CMHC Insurance Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in Canadian mortgage default insurance (CMHC) fees and down payment criteria. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
+      
+      <h3 class="seo-subtitle">What the CMHC Insurance Calculator Does</h3>
+      <p class="seo-paragraph">Our CMHC Insurance Calculator processes your inputs instantly and provides a comprehensive breakdown of the required CMHC premium fee, the total mortgage amount including insurance, the premium percentage rate, and the estimated monthly payment including vs excluding CMHC. By utilizing this online tool, you save time, ensure mathematical accuracy, and can rapidly test different scenarios side-by-side to understand how changes in your variables affect your totals. Rather than just returning a single number, it provides a structured overview that helps you analyze trends, verify manual calculations, and gain deeper insight into the underlying mathematics.</p>
+      
+      <h3 class="seo-subtitle">Significance and Context</h3>
+      <p class="seo-paragraph">Understanding the significance of these calculations is key to achieving optimal results. In the Canadian real estate industry, helping homebuyers understand default insurance requirements and minimum down payment limits, having a dedicated tool ensures consistency across all your evaluations, allowing you to identify discrepancies early, reduce decision-making time, and approach your calculations with absolute confidence. It standardizes the evaluation process, offering a reliable benchmark that aligns with industry practices and academic guidelines.</p>
+      
+      <h3 class="seo-subtitle">How to Use the CMHC Insurance Calculator</h3>
+      <p class="seo-paragraph">To use the CMHC Insurance Calculator effectively, you simply need to gather the required variables for your specific scenario—such as the home purchase price, down payment amount, amortization period, and annual mortgage rate—and enter them into the fields. The tool takes these parameters, applies the verified mathematical formula for cmhc insurance calculator analysis, and generates a clear, readable summary. This step-by-step processing makes it easy to interpret the outputs, apply the findings to your work, and share the results with others.</p>
+      <p class="seo-paragraph">Practical use cases for this tool are diverse, ranging from evaluating down payment sizing, estimating total home purchase costs, and planning how to minimize mortgage insurance fees in Canada. Whether you are comparing different options or checking the results of a manual calculation, this tool adapts to your needs. Its interface is designed to help you make decisions quickly by visualizing how small adjustments to your baseline numbers can have a major impact on your final outcomes.</p>
+      
+      <h3 class="seo-subtitle">The CMHC Insurance Calculator Formula</h3>
+      <p class="seo-paragraph">The calculation relies on the following standard formula:</p>
+      <div class="formula-box">Premium = Loan Amount * CMHC Rate</div>
+      <p class="seo-paragraph">Where:
+* CMHC Rate is determined by the down payment size:
+  * 5% to 9.99% down payment = 4.00% premium
+  * 10% to 14.99% down payment = 3.10% premium
+  * 15% to 19.99% down payment = 2.80% premium
+  * 20% or more down payment = 0.00% (CMHC not required)
+* Note: Down payment must be at least 5% on the first $500,000 and 10% on any amount above that. Purchase price must be under $1,000,000 to qualify for CMHC.</p>
+      
+      <h3 class="seo-subtitle">Step-by-Step Worked Example</h3>
+      <div class="example-box">
+        <div class="example-title">Example Calculation</div>
+        <p class="seo-paragraph" style="margin-bottom: 0; font-family: monospace; white-space: pre-wrap; font-size: 14px;">Inputs:
+* Home Price = $600,000
+* Down Payment = $60,000 (10%)
+* Interest Rate = 5% per annum
+* Amortization = 25 years
+
+Calculation:
+* Step 1: Verify down payment meets legal minimum. Legal minimum down payment for a $600,000 home: (5% of $500,000 = $25,000) + (10% of $100,000 = $10,000) = $35,000. $60,000 meets the requirement.
+* Step 2: Determine Loan Amount before CMHC: $600,000 - $60,000 = $540,000.
+* Step 3: Determine CMHC Premium Rate. Since the down payment is exactly 10%, the rate is 3.10%.
+* Step 4: Calculate CMHC Premium: $540,000 * 3.10% = $16,740.
+* Step 5: Calculate Total Loan Amount: $540,000 + $16,740 = $556,740.
+
+Result:
+* CMHC Premium = $16,740
+* Total Mortgage Amount = $556,740
+
+What This Means:
+The CMHC insurance fee of $16,740 is added to your mortgage balance, making your total loan principal $556,740 instead of $540,000.</p>
+      </div>
+      
+      <h2 class="seo-title" style="margin-top: 40px;">Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-accordion">
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ Is CMHC insurance mandatory in Canada?</h4>
+            <p class="faq-answer">Yes. In Canada, mortgage default insurance (often referred to as CMHC insurance) is legally mandatory for any home purchase where the down payment is less than 20% of the purchase price.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ How is the CMHC insurance fee paid?</h4>
+            <p class="faq-answer">The CMHC insurance premium is calculated as a percentage of your total loan amount and is typically added to your mortgage principal (rolled into the loan balance). This means it is paid off gradually over time as part of your regular monthly mortgage payments.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ What is the minimum down payment required in Canada?</h4>
+            <p class="faq-answer">The minimum down payment depends on the purchase price: for homes under $500,000, it is 5%; for homes between $500,000 and $999,999, it is 5% of the first $500,000 plus 10% of the portion above $500,000; for homes of $1,000,000 or more, it is 20% (and CMHC is not available).</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ Does CMHC insurance cover me if I lose my job?</h4>
+            <p class="faq-answer">No. CMHC mortgage default insurance protects the lender, not the borrower, in the event that you default on your mortgage payments. It does not provide any coverage or relief for your personal financial situation.</p>
+          </div>
+        
+          <div class="faq-item">
+            <h4 class="faq-question">❓ Can I avoid paying CMHC insurance?</h4>
+            <p class="faq-answer">Yes. You can avoid paying CMHC insurance entirely by putting down a down payment of 20% or more of the home purchase price. Additionally, default insurance is not available for homes priced at $1,000,000 or higher, which legally requires a minimum 20% down payment anyway.</p>
+          </div>
+        
+      </div>
+
+      
+    <div class="related-calculators-section">
+      <h3 class="seo-subtitle">Related Calculators</h3>
+      <p class="seo-paragraph">Explore these other helpful tools:</p>
+      <div class="related-grid">
+        <a class="related-link" href="../mortgage-calculator/">Mortgage Calculator</a><a class="related-link" href="../loan-calculator/">Loan Calculator</a><a class="related-link" href="../compound-interest-calculator/">Compound Interest Calculator</a><a class="related-link" href="../car-loan-calculator/">Car Loan Calculator</a><a class="related-link" href="../amortization-calculator/">Amortization Calculator</a><a class="related-link" href="../credit-card-calculator/">Credit Card Calculator</a><a class="related-link" href="../retirement-calculator/">Retirement Calculator</a><a class="related-link" href="../mortgage-stress-test-calculator/">Mortgage Stress Test Calculator</a>
+      </div>
+    </div>
+  
+    </section>
+  
+      
+      <div class="calculator-disclaimer">
+        <strong>Disclaimer:</strong> Calculations shown here are estimates for planning and informational purposes only. Actual interest rates, payments, and schedules may vary based on your lender's specific terms, credit score, and market fluctuations. Always consult a certified financial advisor before making major financial decisions.
+      </div>
+    </main>
+  </div>
+
+  
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        &copy; 2026 CalcUni.com &mdash; Simple calculators for everyone.
+      </div>
+      <div class="footer-right">
+        <a href="../../about.html" style="margin-left: 15px;">About Us</a>
+        <a href="../../contact.html" style="margin-left: 15px;">Contact</a>
+        <a href="../../blog/" style="margin-left: 15px;">Blogs</a>
+        <a href="../../privacy.html" style="margin-left: 15px;">Privacy Policy</a>
+        <a href="../../terms.html" style="margin-left: 15px;">Terms of Use</a>
+        <a href="../../disclaimer.html" style="margin-left: 15px;">Disclaimer</a>
+        <a href="../../sitemap.html" style="margin-left: 15px;">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDownType() {
+      const type = document.getElementById('down_type').value;
+      const down = document.getElementById('down');
+      const label = document.getElementById('down_label');
+      const price = +document.getElementById('price').value || 0;
+
+      if (type === 'percent') {
+        label.textContent = 'Down Payment (%)';
+        down.value = ((down.value / price) * 100).toFixed(1);
+        down.step = '0.1';
+      } else {
+        label.textContent = 'Down Payment ($)';
+        down.value = Math.round((down.value / 100) * price);
+        down.step = '1';
+      }
+      calculateCMHC();
+    }
+
+    function calculateMinDown(price) {
+      if (price >= 1000000) {
+        return price * 0.20; // 20% minimum down payment above 1M
+      }
+      
+      let minDown = 0;
+      if (price <= 500000) {
+        minDown = price * 0.05;
+      } else {
+        minDown = (500000 * 0.05) + ((price - 500000) * 0.10);
+      }
+      return minDown;
+    }
+
+    function updateDownPaymentMin() {
+      const price = +document.getElementById('price').value || 0;
+      const errorDiv = document.getElementById('error-message');
+      const minVal = calculateMinDown(price);
+      
+      if (price >= 1000000) {
+        errorDiv.style.display = 'block';
+        errorDiv.innerHTML = `⚠️ <strong>Note:</strong> Under Canadian regulations, default insurance is not available for purchase prices of $1,000,000 or more. A minimum 20% down payment (<strong>$${minVal.toLocaleString('en-CA')}</strong>) is required.`;
+      } else {
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    function calculateCMHC() {
+      const price = +document.getElementById('price').value || 0;
+      const downType = document.getElementById('down_type').value;
+      let downInput = +document.getElementById('down').value || 0;
+      const rateInput = (+document.getElementById('rate').value || 0) / 100;
+      const years = +document.getElementById('years').value || 25;
+      const errorDiv = document.getElementById('error-message');
+
+      let downAmount = downInput;
+      if (downType === 'percent') {
+        downAmount = (downInput / 100) * price;
+      }
+
+      const minDown = calculateMinDown(price);
+
+      // Validate down payment bounds
+      if (downAmount < minDown) {
+        errorDiv.style.display = 'block';
+        errorDiv.innerHTML = `⚠️ <strong>Rule Error:</strong> Your down payment ($${Math.round(downAmount).toLocaleString('en-CA')}) is below the statutory Canadian minimum of <strong>$${Math.round(minDown).toLocaleString('en-CA')}</strong> for a purchase price of $${price.toLocaleString('en-CA')}.`;
+      } else if (price >= 1000000 && downAmount < (price * 0.20)) {
+        errorDiv.style.display = 'block';
+        errorDiv.innerHTML = `⚠️ <strong>Rule Error:</strong> Purchase prices of $1,000,000 or more require at least 20% down payment ($${(price * 0.2).toLocaleString('en-CA')}).`;
+      } else {
+        updateDownPaymentMin();
+      }
+
+      // Calculate Loan-to-Value (LTV) Ratio
+      const baseLoan = Math.max(price - downAmount, 0);
+      const ltv = (baseLoan / price) * 100;
+
+      // Determine CMHC Premium Rate based on LTV tiers
+      let premiumRate = 0;
+      if (price < 1000000) {
+        if (ltv > 90) {
+          premiumRate = 0.0400; // 90.01% to 95% LTV -> 4.00%
+        } else if (ltv > 85) {
+          premiumRate = 0.0310; // 85.01% to 90% LTV -> 3.10%
+        } else if (ltv > 80) {
+          premiumRate = 0.0280; // 80.01% to 85% LTV -> 2.80%
+        } else {
+          premiumRate = 0.00;   // 80% LTV or less -> No insurance required
+        }
+      }
+
+      const premiumAmount = baseLoan * premiumRate;
+      const totalLoan = baseLoan + premiumAmount;
+
+      // Estimate monthly payments
+      const monthlyRate = rateInput / 12;
+      const totalPayments = years * 12;
+
+      function calcPayment(p) {
+        if (monthlyRate === 0) return p / totalPayments;
+        return p * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+      }
+
+      const pmtWith = calcPayment(totalLoan);
+      const pmtWithout = calcPayment(baseLoan);
+
+      // Render results
+      const formatMoney = n => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD', maximumFractionDigits: 0 });
+      document.getElementById('premium_amount').textContent = formatMoney(premiumAmount);
+      document.getElementById('premium_rate_badge').textContent = `Premium Rate: ${(premiumRate * 100).toFixed(2)}%`;
+      document.getElementById('base_loan').textContent = formatMoney(baseLoan);
+      document.getElementById('total_loan').textContent = formatMoney(totalLoan);
+      document.getElementById('monthly_with').textContent = formatMoney(pmtWith);
+      document.getElementById('monthly_without').textContent = formatMoney(pmtWithout);
+
+      // Draw Chart
+      drawChart(downAmount, baseLoan, premiumAmount);
+    }
+
+    function drawChart(down, base, premium) {
+      const canvas = document.getElementById('chartCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = 160 * dpr;
+      canvas.height = 160 * dpr;
+      canvas.style.width = '160px';
+      canvas.style.height = '160px';
+      ctx.scale(dpr, dpr);
+
+      const total = down + base + premium;
+      if (total === 0) return;
+
+      const slices = [
+        { val: down, color: '#3b82f6' }, // Down payment
+        { val: base, color: '#10b981' }, // Base mortgage
+        { val: premium, color: '#ef4444' } // CMHC premium
+      ];
+
+      let startAngle = -Math.PI / 2;
+      const cx = 80;
+      const cy = 80;
+      const outerRadius = 75;
+      const innerRadius = 50;
+
+      ctx.clearRect(0, 0, 160, 160);
+
+      slices.forEach(slice => {
+        if (slice.val === 0) return;
+        const angle = (slice.val / total) * Math.PI * 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerRadius, startAngle, startAngle + angle);
+        ctx.arc(cx, cy, innerRadius, startAngle + angle, startAngle, true);
+        ctx.closePath();
+        ctx.fillStyle = slice.color;
+        ctx.fill();
+        startAngle += angle;
+      });
+
+      // Text in middle
+      ctx.fillStyle = '#111827';
+      ctx.font = 'bold 13px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Breakdown', cx, cy);
+    }
+
+    // Initialize Page
+    calculateCMHC();
+  </script>
+
+</body>
+</html>

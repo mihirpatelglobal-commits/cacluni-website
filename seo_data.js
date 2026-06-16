@@ -229,6 +229,70 @@ const customContent = {
       }
     ]
   },
+  "cmhc-insurance-calculator": {
+    "formula": "Premium = Loan Amount * CMHC Rate",
+    "formulaExplanation": "Where:\n* CMHC Rate is determined by the down payment size:\n  * 5% to 9.99% down payment = 4.00% premium\n  * 10% to 14.99% down payment = 3.10% premium\n  * 15% to 19.99% down payment = 2.80% premium\n  * 20% or more down payment = 0.00% (CMHC not required)\n* Note: Down payment must be at least 5% on the first $500,000 and 10% on any amount above that. Purchase price must be under $1,000,000 to qualify for CMHC.",
+    "example": "Inputs:\n* Home Price = $600,000\n* Down Payment = $60,000 (10%)\n* Interest Rate = 5% per annum\n* Amortization = 25 years\n\nCalculation:\n* Step 1: Verify down payment meets legal minimum. Legal minimum down payment for a $600,000 home: (5% of $500,000 = $25,000) + (10% of $100,000 = $10,000) = $35,000. $60,000 meets the requirement.\n* Step 2: Determine Loan Amount before CMHC: $600,000 - $60,000 = $540,000.\n* Step 3: Determine CMHC Premium Rate. Since the down payment is exactly 10%, the rate is 3.10%.\n* Step 4: Calculate CMHC Premium: $540,000 * 3.10% = $16,740.\n* Step 5: Calculate Total Loan Amount: $540,000 + $16,740 = $556,740.\n\nResult:\n* CMHC Premium = $16,740\n* Total Mortgage Amount = $556,740\n\nWhat This Means:\nThe CMHC insurance fee of $16,740 is added to your mortgage balance, making your total loan principal $556,740 instead of $540,000.",
+    "descTopic": "Canadian mortgage default insurance (CMHC) fees and down payment criteria",
+    "descInputs": "the home purchase price, down payment amount, amortization period, and annual mortgage rate",
+    "descOutputs": "the required CMHC premium fee, the total mortgage amount including insurance, the premium percentage rate, and the estimated monthly payment including vs excluding CMHC",
+    "descUses": "evaluating down payment sizing, estimating total home purchase costs, and planning how to minimize mortgage insurance fees in Canada",
+    "descContext": "the Canadian real estate industry, helping homebuyers understand default insurance requirements and minimum down payment limits",
+    "faqs": [
+      {
+        "q": "Is CMHC insurance mandatory in Canada?",
+        "a": "Yes. In Canada, mortgage default insurance (often referred to as CMHC insurance) is legally mandatory for any home purchase where the down payment is less than 20% of the purchase price."
+      },
+      {
+        "q": "How is the CMHC insurance fee paid?",
+        "a": "The CMHC insurance premium is calculated as a percentage of your total loan amount and is typically added to your mortgage principal (rolled into the loan balance). This means it is paid off gradually over time as part of your regular monthly mortgage payments."
+      },
+      {
+        "q": "What is the minimum down payment required in Canada?",
+        "a": "The minimum down payment depends on the purchase price: for homes under $500,000, it is 5%; for homes between $500,000 and $999,999, it is 5% of the first $500,000 plus 10% of the portion above $500,000; for homes of $1,000,000 or more, it is 20% (and CMHC is not available)."
+      },
+      {
+        "q": "Does CMHC insurance cover me if I lose my job?",
+        "a": "No. CMHC mortgage default insurance protects the lender, not the borrower, in the event that you default on your mortgage payments. It does not provide any coverage or relief for your personal financial situation."
+      },
+      {
+        "q": "Can I avoid paying CMHC insurance?",
+        "a": "Yes. You can avoid paying CMHC insurance entirely by putting down a down payment of 20% or more of the home purchase price. Additionally, default insurance is not available for homes priced at $1,000,000 or higher, which legally requires a minimum 20% down payment anyway."
+      }
+    ]
+  },
+  "mortgage-stress-test-calculator": {
+    "formula": "Qualifying Rate = Max(Contract Rate + 2.0%, 5.25%)",
+    "formulaExplanation": "Where:\n* Contract Rate = the actual interest rate offered by your lender\n* Qualifying Rate = the higher rate used by Canadian financial institutions to stress test your ability to make payments if interest rates rise.\n* Maximum Gross Debt Service (GDS) Ratio = 39%\n* Maximum Total Debt Service (TDS) Ratio = 44%",
+    "example": "Inputs:\n* Gross Annual Income = $100,000\n* Offered Interest Rate = 5.0%\n* Monthly Non-Mortgage Debt Payments = $250\n* Annual Property Tax = $3,000\n* Monthly Heating Costs = $150\n\nCalculation:\n* Step 1: Calculate the Qualifying Rate: 5.0% + 2.0% = 7.0%, which is higher than the 5.25% floor. The Qualifying Rate is 7.0%.\n* Step 2: Determine monthly gross income: $100,000 / 12 = $8,333.33.\n* Step 3: Determine monthly GDS limit (39%): $8,333.33 * 0.39 = $3,250.00.\n* Step 4: Determine monthly TDS limit (44%): $8,333.33 * 0.44 = $3,666.67.\n* Step 5: Subtract non-mortgage liabilities to find maximum allowable housing costs under GDS and TDS, determining your stress-tested mortgage affordability.",
+    "descTopic": "Canadian mortgage qualifying criteria and stress test rules",
+    "descInputs": "your annual income, actual interest rate, amortization period, down payment, monthly debt obligations, property tax, and heating costs",
+    "descOutputs": "your stress-tested qualifying rate, your GDS and TDS ratios, whether you pass or fail the test, and your maximum qualifying home price and mortgage amount",
+    "descUses": "evaluating home buying readiness, verifying bank mortgage pre-approvals, and calculating how interest rate hikes affect your qualifying power",
+    "descContext": "the Canadian banking and mortgage industry, ensuring home purchasers comply with the OSFI-mandated stress test guidelines",
+    "faqs": [
+      {
+        "q": "What is the Canadian mortgage stress test?",
+        "a": "The mortgage stress test is a financial safety buffer introduced by Canada's federal regulator (OSFI). It requires lenders to evaluate whether you can afford mortgage payments at a higher interest rate than the one actually offered in your contract."
+      },
+      {
+        "q": "What interest rate is used for the stress test?",
+        "a": "The stress test uses a qualifying interest rate which is the higher of two values: either 5.25% (the government's benchmark rate) or your contract interest rate plus an additional 2.0%."
+      },
+      {
+        "q": "What are the GDS and TDS ratio limits in Canada?",
+        "a": "Gross Debt Service (GDS) and Total Debt Service (TDS) are debt-to-income ratios. In Canada, to qualify for a standard mortgage, your housing costs (mortgage, property tax, heating, and 50% of condo fees) must not exceed 39% of gross income (GDS limit). Your total debt costs (housing costs plus car loans, credit cards, and other debts) must not exceed 44% of gross income (TDS limit)."
+      },
+      {
+        "q": "Does the stress test apply to fixed-rate mortgages?",
+        "a": "Yes. The stress test applies to all federally regulated mortgages in Canada, including fixed-rate and variable-rate mortgages, regardless of whether you have a 5-year fixed or a variable rate."
+      },
+      {
+        "q": "How can I improve my stress test qualification limit?",
+        "a": "You can improve your stress test status by reducing existing debts (like paying off credit cards or car loans), increasing your down payment, raising your household income (adding a co-signer), or finding a lower interest rate."
+      }
+    ]
+  },
   "bmi-calculator": {
     "formula": "BMI = weight (kg) / [ height (m) ]^2",
     "formulaExplanation": "Where:\n* weight is in kilograms\n* height is in meters\n\nFor imperial units: BMI = [ weight (lbs) / (height (inches))^2 ] * 703\n\nExplanation:\nBody Mass Index (BMI) is a standardized statistical measurement that estimates general body fat categories based on height and weight.",
