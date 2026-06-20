@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TDEE Calculator | CalcUni</title>
   <meta name="description" content="Calculate your Total Daily Energy Expenditure (TDEE) based on your activity level and fitness goals. Get detailed BMR, calorie needs, and macronutrient targets.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1781929449053">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1781930828507">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -201,6 +201,13 @@
       <span class="category-badge">Health Calculator</span>
       <h1 class="page-title">TDEE Calculator</h1>
       <p class="page-desc">Estimate your Total Daily Energy Expenditure based on your activity level.</p>
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -587,6 +594,12 @@
       
     
       
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the TDEE Calculator</h2>
       <p class="seo-paragraph">The TDEE Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in total daily energy expenditure (TDEE) estimations, maintenance calories, and target nutrition planning. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
@@ -696,8 +709,23 @@ Your body burns 2,790 calories daily. Consuming 2,290 calories per day will supp
       </div>
     </div>
   </footer>
+  
+  <!-- Floating Scroll to Top + Reading Progress Indicator -->
+  <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" tabindex="0">
+    <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+      <circle class="progress-ring__track" cx="24" cy="24" r="20" fill="none" stroke-width="4"></circle>
+      <circle class="progress-ring__indicator" cx="24" cy="24" r="20" fill="none" stroke-width="4" stroke-linecap="round"></circle>
+    </svg>
+    <span class="scroll-to-top__arrow" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </span>
+  </button>
+
   <script>
   (function() {
+    // Theme Toggle Toggler
     const toggleBtn = document.getElementById('themeToggleBtn');
     if (toggleBtn) {
       toggleBtn.addEventListener('click', function() {
@@ -708,6 +736,60 @@ Your body burns 2,790 calories daily. Consuming 2,290 calories per day will supp
         document.documentElement.style.backgroundColor = newTheme === 'dark' ? '#0f172a' : '#f8fafc';
         document.documentElement.style.color = newTheme === 'dark' ? '#f8fafc' : '#0f172a';
       });
+    }
+
+    // Scroll to Top & Progress Indicator Logic
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    if (scrollBtn) {
+      const circle = scrollBtn.querySelector('.progress-ring__indicator');
+      const circumference = 125.66; // 2 * PI * r (r = 20)
+      let isTicking = false;
+
+      function updateProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const totalScrollable = scrollHeight - clientHeight;
+        
+        // Calculate progress ratio (0 to 1)
+        const progress = totalScrollable > 0 ? scrollTop / totalScrollable : 0;
+        
+        // Set dashoffset accordingly
+        if (circle) {
+          const offset = circumference - (progress * circumference);
+          circle.style.strokeDashoffset = offset;
+        }
+
+        // Toggle visibility after 250px scroll threshold
+        if (scrollTop > 250) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+        
+        isTicking = false;
+      }
+
+      function onScroll() {
+        if (!isTicking) {
+          window.requestAnimationFrame(updateProgress);
+          isTicking = true;
+        }
+      }
+
+      // Passive scroll listener for better performance
+      window.addEventListener('scroll', onScroll, { passive: true });
+      
+      // Click action
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Run initial check
+      updateProgress();
     }
   })();
   </script>

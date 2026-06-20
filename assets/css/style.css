@@ -1677,3 +1677,101 @@ footer, footer.site-footer {
 [data-theme="dark"] .legend-color.interest {
   background-color: #334155;
 }
+
+/* ==========================================================================
+   FLOATING SCROLL TO TOP + PROGRESS INDICATOR
+   ========================================================================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.15s ease;
+  padding: 0;
+  outline: none;
+}
+
+.scroll-to-top:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-2px);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start progress from the top */
+}
+
+.progress-ring__track {
+  stroke: var(--border);
+  transition: stroke 0.15s ease;
+}
+
+.progress-ring__indicator {
+  stroke: var(--primary);
+  stroke-dasharray: 125.66; /* 2 * PI * r (r = 20) = 125.66 */
+  stroke-dashoffset: 125.66;
+  transition: stroke-dashoffset 0.08s linear, stroke 0.15s ease;
+}
+
+.scroll-to-top:hover .progress-ring__indicator {
+  stroke: var(--primary-hover);
+}
+
+.scroll-to-top__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: color 0.15s ease, transform 0.25s ease;
+}
+
+.scroll-to-top:hover .scroll-to-top__arrow {
+  color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Responsiveness sizes */
+@media (max-width: 1024px) {
+  /* Tablet */
+  .scroll-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile */
+  .scroll-to-top {
+    width: 42px;
+    height: 42px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
