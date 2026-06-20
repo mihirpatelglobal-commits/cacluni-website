@@ -1688,8 +1688,8 @@ footer, footer.site-footer {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--white);
-  border: none;
+  background-color: var(--white);
+  border: 1px solid var(--border);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1709,7 +1709,13 @@ footer, footer.site-footer {
 }
 
 .scroll-to-top:hover {
-  transform: translateY(-2px);
+  background-color: var(--primary-light) !important;
+  border-color: var(--primary-hover) !important;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scroll-to-top:active {
+  transform: translateY(0) scale(0.95);
 }
 
 .scroll-to-top.visible {
