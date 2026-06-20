@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why BMI Can Be Misleading for Athletes and Bodybuilders | CalcUni</title>
   <meta name="description" content="Discover why Body Mass Index (BMI) is inaccurate for athletes and bodybuilders. Learn how muscle density affects scales and which body composition metrics to use.">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1781929449053">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+  
+  <!-- Theme Init to prevent flash of light theme -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.style.backgroundColor = theme === 'dark' ? '#0f172a' : '#f8fafc';
+      document.documentElement.style.color = theme === 'dark' ? '#f8fafc' : '#0f172a';
+    })();
+  </script>
+  
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
@@ -100,8 +113,9 @@
   
   <header class="site-header">
     <nav class="header-nav">
-      <a href="../../index.html" class="logo-link">
-        <img src="../../logo2.png" alt="CalcUni Logo">
+      <a href="../../index.html" class="logo-link" aria-label="CalcUni Home">
+        <img src="../../CalcUni_Light.png" alt="CalcUni Logo" class="logo-img light-logo" width="117" height="38">
+        <img src="../../CalcUni_Dark.png" alt="CalcUni Logo" class="logo-img dark-logo" width="117" height="38">
       </a>
       <div class="nav-tabs">
         <a href="../../finance-calculators/" class="">Finance</a>
@@ -116,10 +130,29 @@
         <a href="../../everyday-calculators/" class="">Everyday</a>
         <a href="../../technology-calculators/" class="">Technology</a>
       </div>
+      <div class="header-actions">
+        <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="dark-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="light-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -199,6 +232,19 @@
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </main>
 
   
@@ -218,8 +264,80 @@
       </div>
     </div>
   </footer>
+  <script>
+  (function() {
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.style.backgroundColor = newTheme === 'dark' ? '#0f172a' : '#f8fafc';
+        document.documentElement.style.color = newTheme === 'dark' ? '#f8fafc' : '#0f172a';
+      });
+    }
+  })();
+  </script>
 
   <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why BMI Can Be Misleading for Athletes and Bodybuilders",
+  "description": "Discover why Body Mass Index (BMI) is inaccurate for athletes and bodybuilders. Learn how muscle density affects scales and which body composition metrics to use.",
+  "image": "https://calcuni.com/logo2.png",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CalcUni",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://calcuni.com/logo2.png"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Fiable Technologies"
+    }
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "CalcUni Editorial Team"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://calcuni.com/blog/why-bmi-misleading-for-athletes/"
+  },
+  "datePublished": "2026-05-15T08:00:00Z",
+  "dateModified": "2026-06-15T12:00:00Z"
+}
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://calcuni.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://calcuni.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Why BMI Can Be Misleading for Athletes and Bodybuilders",
+      "item": "https://calcuni.com/blog/why-bmi-misleading-for-athletes/"
+    }
+  ]
+}
+    </script>
+<script type="application/ld+json">
       {
   "@context": "https://schema.org",
   "@type": "Article",

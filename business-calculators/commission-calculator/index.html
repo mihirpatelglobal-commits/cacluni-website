@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commission Calculator | CalcUni</title>
   <meta name="description" content="Calculate sales agent commission payouts and total earnings based on contract values and structures.">
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1781929449053">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
+  
+  <!-- Theme Init to prevent flash of light theme -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.style.backgroundColor = theme === 'dark' ? '#0f172a' : '#f8fafc';
+      document.documentElement.style.color = theme === 'dark' ? '#f8fafc' : '#0f172a';
+    })();
+  </script>
+  
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
@@ -134,8 +147,9 @@
   
   <header class="site-header">
     <nav class="header-nav">
-      <a href="../../index.html" class="logo-link">
-        <img src="../../logo2.png" alt="CalcUni Logo">
+      <a href="../../index.html" class="logo-link" aria-label="CalcUni Home">
+        <img src="../../CalcUni_Light.png" alt="CalcUni Logo" class="logo-img light-logo" width="117" height="38">
+        <img src="../../CalcUni_Dark.png" alt="CalcUni Logo" class="logo-img dark-logo" width="117" height="38">
       </a>
       <div class="nav-tabs">
         <a href="../../finance-calculators/" class="">Finance</a>
@@ -149,6 +163,12 @@
         <a href="../../transportation-calculators/" class="">Transportation</a>
         <a href="../../everyday-calculators/" class="">Everyday</a>
         <a href="../../technology-calculators/" class="">Technology</a>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg class="dark-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="light-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
       </div>
     </nav>
   </header>
@@ -180,6 +200,97 @@
       <span class="category-badge">Business Calculator</span>
       <h1 class="page-title">Commission Calculator</h1>
       <p class="page-desc">Calculate sales agent commission payouts and total earnings based on contract values and structures.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -676,6 +787,84 @@
       
     
       
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Commission Calculator</h2>
       <p class="seo-paragraph">The Commission Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in sales commissions, broker pay structures, and sales incentive planning. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
@@ -783,6 +972,21 @@ The sales agent will receive a commission payout of $900.00 for closing the $15,
       </div>
     </div>
   </footer>
+  <script>
+  (function() {
+    const toggleBtn = document.getElementById('themeToggleBtn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.style.backgroundColor = newTheme === 'dark' ? '#0f172a' : '#f8fafc';
+        document.documentElement.style.color = newTheme === 'dark' ? '#f8fafc' : '#0f172a';
+      });
+    }
+  })();
+  </script>
 
   
 </body>
