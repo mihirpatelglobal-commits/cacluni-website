@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mortgage Calculator Canada | CalcUni</title>
   <meta name="description" content="Free mortgage calculator for payment, interest, and amortization estimates.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1781931643342">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1782185383384">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -610,28 +610,67 @@
       
       
 
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
       <section class="grid">
         <div class="card">
           <h2>Mortgage Details</h2>
           <div class="form-grid">
             <div class="field">
-              <label>Home price</label>
-              <input id="price" type="number" value="500000">
+              <label for="price">Home price</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input id="price" type="number" value="500000">
+              </div>
             </div>
             <div class="field">
               <label>Down payment</label>
-              <input id="down" type="number" value="100000">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                <div class="input-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input id="down_amount" type="number" value="50000" placeholder="Amount">
+                </div>
+                <div class="input-wrapper">
+                  <input id="down_percent" type="number" step="0.1" value="10" placeholder="Percent">
+                  <span class="input-suffix">%</span>
+                </div>
+              </div>
             </div>
             <div class="field">
-              <label>Annual interest rate (%)</label>
-              <input id="rate" type="number" step="0.01" value="5.25">
+              <label for="rate">Annual interest rate</label>
+              <div class="input-wrapper">
+                <input id="rate" type="number" step="0.01" value="5.25">
+                <span class="input-suffix">%</span>
+              </div>
             </div>
             <div class="field">
-              <label>Amortization period (years)</label>
-              <input id="years" type="number" value="25">
+              <label for="years">Amortization period</label>
+              <div class="input-wrapper">
+                <input id="years" type="number" value="25">
+                <span class="input-suffix">years</span>
+              </div>
             </div>
             <div class="field">
-              <label>Payment frequency</label>
+              <label for="freq">Payment frequency</label>
               <select id="freq">
                 <option value="12">Monthly</option>
                 <option value="26">Bi-weekly</option>
@@ -690,6 +729,24 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     
@@ -1164,10 +1221,55 @@ You will pay a fixed monthly amount of $1,932.90 for principal and interest to f
 
   <script>
     const money = n => n.toLocaleString('en-CA', { style: 'currency', currency: 'CAD' });
+    let lastEditedDown = 'percent'; // default to matching the 20% down payment
+
+    // Elements
+    const priceInput = document.getElementById('price');
+    const downAmountInput = document.getElementById('down_amount');
+    const downPercentInput = document.getElementById('down_percent');
+
+    // Linking Down Payment Fields
+    downAmountInput.addEventListener('input', () => {
+      lastEditedDown = 'amount';
+      const price = +priceInput.value || 0;
+      const amount = +downAmountInput.value || 0;
+      if (price > 0) {
+        downPercentInput.value = ((amount / price) * 100).toFixed(1);
+      } else {
+        downPercentInput.value = 0;
+      }
+      calculate();
+    });
+
+    downPercentInput.addEventListener('input', () => {
+      lastEditedDown = 'percent';
+      const price = +priceInput.value || 0;
+      const percent = +downPercentInput.value || 0;
+      downAmountInput.value = Math.round((percent / 100) * price);
+      calculate();
+    });
+
+    priceInput.addEventListener('input', () => {
+      const price = +priceInput.value || 0;
+      if (lastEditedDown === 'percent') {
+        const percent = +downPercentInput.value || 0;
+        downAmountInput.value = Math.round((percent / 100) * price);
+      } else {
+        const amount = +downAmountInput.value || 0;
+        if (price > 0) {
+          downPercentInput.value = ((amount / price) * 100).toFixed(1);
+        } else {
+          downPercentInput.value = 0;
+        }
+      }
+      calculate();
+    });
+
     function calculate() {
-      const price = +document.getElementById('price').value || 0,
-            down = +document.getElementById('down').value || 0,
-            annual = (+document.getElementById('rate').value || 0) / 100,
+      const price = +priceInput.value || 0;
+      const down = +downAmountInput.value || 0;
+
+      const annual = (+document.getElementById('rate').value || 0) / 100,
             years = +document.getElementById('years').value || 0,
             freq = +document.getElementById('freq').value;
       const P = Math.max(price - down, 0),
@@ -1180,6 +1282,12 @@ You will pay a fixed monthly amount of $1,932.90 for principal and interest to f
       document.getElementById('total').textContent = money(pay * n);
       document.getElementById('interest').textContent = money(pay * n - P);
     }
+
+    // Auto-calculate on other input changes (rate, years, freq)
+    document.querySelectorAll('#rate, #years, #freq').forEach(element => {
+      element.addEventListener('input', calculate);
+    });
+
     calculate();
   </script>
 
