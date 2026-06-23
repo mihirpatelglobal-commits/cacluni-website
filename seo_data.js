@@ -518,14 +518,14 @@ const customContent = {
     ]
   },
   "percentage-calculator": {
-    "formula": "Percentage = ( Part / Whole ) * 100",
-    "formulaExplanation": "Where:\n* Part = the subset or fraction value\n* Whole = the total quantity or baseline\n\nExplanation:\nThis formula converts a fractional ratio into a standardized percentage value by dividing the partial amount by the total and scaling by 100.",
-    "example": "Inputs:\n* Part = 25\n* Whole = 125\n\nCalculation:\n* Step 1: Divide Part by Whole: 25 / 125 = 0.20\n* Step 2: Multiply by 100: 0.20 * 100\n\nResult:\n* Percentage = 20%\n\nWhat This Means:\n25 represents exactly 20% of 125.",
-    "descTopic": "percentage calculations, fractional ratios, and proportional mathematics",
-    "descInputs": "the numerical values representing the part, the whole, or the percentage rate to apply",
-    "descOutputs": "the calculated percentage value, the value corresponding to a percentage, or the percentage change",
-    "descUses": "calculating shopping discounts, computing grades, determining interest margins, and analyzing percentage differences",
-    "descContext": "education, finance, and daily mathematics, providing a quick way to analyze proportional relationships",
+    "formula": "1. Value = (Pct / 100) * Whole | 2. Pct = (Part / Whole) * 100 | 3. Whole = Part / (Pct / 100) | 4. Change % = ((New - Old) / Old) * 100",
+    "formulaExplanation": "These four progressive formulas allow you to perform all basic percentage operations:\n\n* **Percentage of a Value:** Find the portion size when given a percentage and the total whole value.\n* **Percentage Proportion:** Determine what percentage a specific part represents out of the total whole.\n* **Find Whole from Percentage:** Calculate the total base value knowing a specific part and its percentage weight.\n* **Percentage Change:** Find the rate of increase or decrease between an original value and a new value.",
+    "example": "### Example 1: Percentage of a Value\n* Inputs: Pct = 15%, Whole = 200\n* Calculation: (15 / 100) * 200 = 30\n\n### Example 2: Percentage Proportion\n* Inputs: Part = 30, Whole = 120\n* Calculation: (30 / 120) * 100 = 25%\n\n### Example 3: Find Whole from Percentage\n* Inputs: Part = 15, Pct = 10%\n* Calculation: 15 / (10 / 100) = 150\n\n### Example 4: Percentage Change\n* Inputs: Old = 100, New = 125\n* Calculation: ((125 - 100) / 100) * 100 = +25% (Increase)",
+    "descTopic": "percentage calculations, fractional ratios, and progressive percentage change models",
+    "descInputs": "the numerical inputs representing the parts, wholes, baseline amounts, and percentage rates",
+    "descOutputs": "the calculated values, percentages, base wholes, or rates of increase and decrease",
+    "descUses": "calculating retail discounts, tracking academic grade changes, computing margins, and analyzing financial percentage differences",
+    "descContext": "academic math, commercial business, personal finance, and daily arithmetic, organizing four separate operations under one guide",
     "faqs": [
       {
         "q": "How do you calculate a percentage increase?",
@@ -2308,6 +2308,14 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
     };
   }
 
+  const formulasArray = data.formula.split(/\n| \| /);
+  const isPlural = formulasArray.length > 1;
+  const formulaHeader = isPlural ? `The ${calcName} Formulas` : `The ${calcName} Formula`;
+  const formulaIntro = isPlural 
+    ? `The calculations rely on the following standard formulas:` 
+    : `The calculation relies on the following standard formula:`;
+  const formulasHTML = formulasArray.map(f => `<div class="formula-box" style="margin: 8px 0;">${f.trim()}</div>`).join('');
+
   // Ensure 5 FAQs
   if (!data.faqs) data.faqs = [];
   if (data.faqs.length < 5) {
@@ -2366,9 +2374,9 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
       <p class="seo-paragraph">${inputsOutputsPara}</p>
       <p class="seo-paragraph">${practicalUsesPara}</p>
       
-      <h3 class="seo-subtitle">The ${calcName} Formula</h3>
-      <p class="seo-paragraph">The calculation relies on the following standard formula:</p>
-      <div class="formula-box">${data.formula}</div>
+      <h3 class="seo-subtitle">${formulaHeader}</h3>
+      <p class="seo-paragraph">${formulaIntro}</p>
+      ${formulasHTML}
       <p class="seo-paragraph">${data.formulaExplanation}</p>
       
       <h3 class="seo-subtitle">Step-by-Step Worked Example</h3>
@@ -2474,17 +2482,24 @@ function getJSONLD(catKey, slug, calcName, canonicalUrl, relatedCalculators) {
     }))
   };
 
-  return `
+  let schemaHTML = `
     <script type="application/ld+json">
       ${JSON.stringify(webAppSchema, null, 2)}
     </script>
     <script type="application/ld+json">
       ${JSON.stringify(breadcrumbSchema, null, 2)}
     </script>
+  `;
+
+  if (catKey === 'health-calculators') {
+    schemaHTML += `
     <script type="application/ld+json">
       ${JSON.stringify(faqSchema, null, 2)}
     </script>
-  `;
+    `;
+  }
+
+  return schemaHTML;
 }
 
 module.exports = {

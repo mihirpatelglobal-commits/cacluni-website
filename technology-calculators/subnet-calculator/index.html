@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Subnet Calculator | CalcUni</title>
   <meta name="description" content="Calculate subnets, hosts ranges, CIDR masks, and network configurations.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1782185383384">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1782189821149">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -93,54 +93,6 @@
   ]
 }
     </script>
-    <script type="application/ld+json">
-      {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is IP subnetting and why is it used?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Subnetting is the practice of dividing a single large physical network into multiple smaller, logical subnetworks. It is used to improve network security, manage broadcast traffic, isolate network issues, and conserve valuable IP address space."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do we subtract 2 from the hosts formula in subnetting?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We subtract 2 because the very first IP address in a subnet is reserved as the Network ID (used to identify the subnet itself), and the very last IP address is reserved as the Broadcast Address (used to send packets to all hosts in that subnet simultaneously)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is a subnet mask and how does it work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A subnet mask is a 32-bit number used to distinguish the network portion of an IP address from the host portion. In binary, \"1\" bits designate the network address while \"0\" bits designate the host address."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does CIDR notation mean?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "CIDR stands for Classless Inter-Domain Routing. It is a shorthand notation that represents a subnet mask by counting the number of network-representing \"1\" bits (e.g. /24 represents a mask of 255.255.255.0, where 24 bits are set to 1)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is a default gateway?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A default gateway is the router IP address that hosts on a subnet use to communicate with external networks or the internet. It acts as the exit point for any traffic destined outside the local IP range."
-      }
-    }
-  ]
-}
-    </script>
   
 </head>
 <body>
@@ -199,6 +151,41 @@
       <span class="category-badge">Technology Calculator</span>
       <h1 class="page-title">Subnet Calculator</h1>
       <p class="page-desc">Calculate subnets, hosts ranges, CIDR masks, and network configurations.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -978,6 +965,36 @@
       
     
       
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Subnet Calculator</h2>
       <p class="seo-paragraph">The Subnet Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in IP subnetting, CIDR notations, and network address block planning. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
@@ -992,10 +1009,9 @@
       <p class="seo-paragraph">To use the Subnet Calculator effectively, you simply need to gather the required variables for your specific scenario—such as your starting IP address, and your target CIDR prefix mask (/24, /26, etc.) or subnet mask—and enter them into the fields. The tool takes these parameters, applies the verified mathematical formula for subnet calculator analysis, and generates a clear, readable summary. This step-by-step processing makes it easy to interpret the outputs, apply the findings to your work, and share the results with others.</p>
       <p class="seo-paragraph">Practical use cases for this tool are diverse, ranging from planning local office networks, dividing corporate network IP spaces, setting up router gateways, and preparing for CCNA exams. Whether you are comparing different options or checking the results of a manual calculation, this tool adapts to your needs. Its interface is designed to help you make decisions quickly by visualizing how small adjustments to your baseline numbers can have a major impact on your final outcomes.</p>
       
-      <h3 class="seo-subtitle">The Subnet Calculator Formula</h3>
-      <p class="seo-paragraph">The calculation relies on the following standard formula:</p>
-      <div class="formula-box">Subnets = 2^s
-Hosts per Subnet = 2^h - 2</div>
+      <h3 class="seo-subtitle">The Subnet Calculator Formulas</h3>
+      <p class="seo-paragraph">The calculations rely on the following standard formulas:</p>
+      <div class="formula-box" style="margin: 8px 0;">Subnets = 2^s</div><div class="formula-box" style="margin: 8px 0;">Hosts per Subnet = 2^h - 2</div>
       <p class="seo-paragraph">Where:
 * s = number of borrowed subnet bits
 * h = number of remaining host bits (32 minus CIDR mask)

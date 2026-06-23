@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Percentage Calculator | CalcUni</title>
   <meta name="description" content="Calculate percentages, percentage change, and find what percentage one number is of another.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1782185383384">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1782189821149">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -89,54 +89,6 @@
       "position": 3,
       "name": "Percentage Calculator",
       "item": "https://calcuni.com/math-calculators/percentage-calculator/"
-    }
-  ]
-}
-    </script>
-    <script type="application/ld+json">
-      {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do you calculate a percentage increase?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To calculate a percentage increase, subtract the original value from the new value, divide the difference by the original value, and multiply the result by 100: `((New - Original) / Original) * 100`."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you calculate a percentage of a number?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To find a specific percentage of a number, convert the percentage to a decimal (by dividing it by 100) and multiply it by the number: `(Percentage / 100) * Number`."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between percentage and percentage points?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Percentage refers to the rate of change or proportion. Percentage points refer to the arithmetic difference between two percentages (e.g., an increase from 10% to 15% is a 5 percentage point increase, but a 50% increase)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I convert a decimal into a percentage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To convert any decimal value into a percentage, simply multiply the decimal by 100 and add the percent symbol (e.g., 0.35 * 100 = 35%)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is percentage used in sales tax calculations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sales tax is calculated by multiplying the retail price of an item by the tax rate percentage expressed as a decimal, and adding that result to the original price to find the total cost."
-      }
     }
   ]
 }
@@ -628,51 +580,177 @@
       
       
 
-      <section class="calculator-shell">
-        <div class="card">
-          <h2>Percentage Tools</h2>
-          <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div class="field">
-              <label>What is X% of Y? X</label>
-              <input id="p1" type="number" value="15">
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+            <section class="grid">
+        <div class="calculator-main-col" style="display: flex; flex-direction: column; gap: 24px;">
+          <!-- Card 1: Percentage of a Value -->
+          <div class="card">
+            <h2>1. Percentage of a Value</h2>
+            <p class="field-desc" style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Find the actual value for a given percentage (e.g., 15% of 200).</p>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span>What is</span>
+              <div class="input-wrapper" style="width: 100px;">
+                <input id="p1" type="number" value="15" style="padding-right: 32px;">
+                <span class="input-suffix">%</span>
+              </div>
+              <span>of</span>
+              <div class="input-wrapper" style="width: 140px;">
+                <input id="p2" type="number" value="200">
+              </div>
+              <span>?</span>
             </div>
-            <div class="field">
-              <label>Y</label>
-              <input id="p2" type="number" value="200">
+            <div style="display: flex; gap: 12px; margin-bottom: 0px;">
+              <button class="btn" onclick="calcValue()" style="width: auto; padding: 10px 20px;">Calculate</button>
+              <button class="btn btn-secondary" onclick="clearValue()" style="width: auto; padding: 10px 20px;">Clear</button>
             </div>
-            <div class="field">
-              <label>X is what % of Y? X</label>
-              <input id="part" type="number" value="30">
-            </div>
-            <div class="field">
-              <label>Y</label>
-              <input id="whole" type="number" value="120">
-            </div>
-            <div class="field">
-              <label>Original value</label>
-              <input id="old" type="number" value="100">
-            </div>
-            <div class="field">
-              <label>New value</label>
-              <input id="newv" type="number" value="125">
+            <div class="result-box" id="result-box-1" style="display: none; margin-top: 20px; padding: 16px; background-color: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 6px;">
+              <span style="font-size: 13px; color: var(--muted); display: block;">Result</span>
+              <strong style="font-size: 24px; color: var(--primary); display: block; margin-top: 4px;" id="r1">0</strong>
             </div>
           </div>
-          <button class="btn" onclick="calc()" style="margin-top: 20px;">Calculate</button>
+
+          <!-- Card 2: Percentage Proportion -->
+          <div class="card">
+            <h2>2. Percentage Proportion</h2>
+            <p class="field-desc" style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Find what percentage a number is of another (e.g., 30 is what percent of 120).</p>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+              <div class="input-wrapper" style="width: 120px;">
+                <input id="part" type="number" value="30">
+              </div>
+              <span>is what % of</span>
+              <div class="input-wrapper" style="width: 140px;">
+                <input id="whole" type="number" value="120">
+              </div>
+              <span>?</span>
+            </div>
+            <div style="display: flex; gap: 12px; margin-bottom: 0px;">
+              <button class="btn" onclick="calcProportion()" style="width: auto; padding: 10px 20px;">Calculate</button>
+              <button class="btn btn-secondary" onclick="clearProportion()" style="width: auto; padding: 10px 20px;">Clear</button>
+            </div>
+            <div class="result-box" id="result-box-2" style="display: none; margin-top: 20px; padding: 16px; background-color: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 6px;">
+              <span style="font-size: 13px; color: var(--muted); display: block;">Result</span>
+              <strong style="font-size: 24px; color: var(--primary); display: block; margin-top: 4px;" id="r2">0%</strong>
+            </div>
+          </div>
+
+          <!-- Card 3: Find Whole from Percentage -->
+          <div class="card">
+            <h2>3. Find Whole from Percentage</h2>
+            <p class="field-desc" style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Find the total base value when you know a part and its percentage (e.g., 15 is 10% of what).</p>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+              <div class="input-wrapper" style="width: 120px;">
+                <input id="p3_part" type="number" value="15">
+              </div>
+              <span>is</span>
+              <div class="input-wrapper" style="width: 100px;">
+                <input id="p3_pct" type="number" value="10" style="padding-right: 32px;">
+                <span class="input-suffix">%</span>
+              </div>
+              <span>of what?</span>
+            </div>
+            <div style="display: flex; gap: 12px; margin-bottom: 0px;">
+              <button class="btn" onclick="calcWhole()" style="width: auto; padding: 10px 20px;">Calculate</button>
+              <button class="btn btn-secondary" onclick="clearWhole()" style="width: auto; padding: 10px 20px;">Clear</button>
+            </div>
+            <div class="result-box" id="result-box-3" style="display: none; margin-top: 20px; padding: 16px; background-color: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 6px;">
+              <span style="font-size: 13px; color: var(--muted); display: block;">Result</span>
+              <strong style="font-size: 24px; color: var(--primary); display: block; margin-top: 4px;" id="r3">0</strong>
+            </div>
+          </div>
+
+          <!-- Card 4: Percentage Change -->
+          <div class="card">
+            <h2>4. Percentage Change</h2>
+            <p class="field-desc" style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">Find the percentage increase or decrease between two values (e.g., from 100 to 125).</p>
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+              <span>Change from</span>
+              <div class="input-wrapper" style="width: 120px;">
+                <input id="old" type="number" value="100">
+              </div>
+              <span>to</span>
+              <div class="input-wrapper" style="width: 120px;">
+                <input id="newv" type="number" value="125">
+              </div>
+              <span>?</span>
+            </div>
+            <div style="display: flex; gap: 12px; margin-bottom: 0px;">
+              <button class="btn" onclick="calcChange()" style="width: auto; padding: 10px 20px;">Calculate</button>
+              <button class="btn btn-secondary" onclick="clearChange()" style="width: auto; padding: 10px 20px;">Clear</button>
+            </div>
+            <div class="result-box" id="result-box-4" style="display: none; margin-top: 20px; padding: 16px; background-color: var(--primary-light); border-left: 4px solid var(--primary); border-radius: 6px;">
+              <span style="font-size: 13px; color: var(--muted); display: block;">Result</span>
+              <strong style="font-size: 24px; color: var(--primary); display: block; margin-top: 4px;" id="r4">0%</strong>
+            </div>
+          </div>
         </div>
 
-        <div class="card results">
-          <h2>Results</h2>
-          <div class="result-line">
-            <span>X% of Y</span>
-            <strong id="r1">0</strong>
+        <!-- Sidebar Column (Right) -->
+        <div class="calculator-sidebar-col" style="display: flex; flex-direction: column; gap: 24px;">
+          <div class="card" style="border-bottom: 4px solid var(--primary);">
+            <h2>Quick Formulas Guide</h2>
+            <p class="note" style="margin-top: 0; margin-bottom: 16px; font-size: 13px;">Use these quick reference equations for manual percentage calculations:</p>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="padding-bottom: 12px; border-bottom: 1px solid var(--border);">
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--muted); display: block; letter-spacing: 0.5px;">Percentage of a Value</span>
+                <code style="font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-top: 4px;">Value = (Percentage / 100) * Whole</code>
+              </div>
+              <div style="padding-bottom: 12px; border-bottom: 1px solid var(--border);">
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--muted); display: block; letter-spacing: 0.5px;">Percentage Proportion</span>
+                <code style="font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-top: 4px;">Percentage = (Part / Whole) * 100</code>
+              </div>
+              <div style="padding-bottom: 12px; border-bottom: 1px solid var(--border);">
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--muted); display: block; letter-spacing: 0.5px;">Find Whole</span>
+                <code style="font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-top: 4px;">Whole = Part / (Percentage / 100)</code>
+              </div>
+              <div>
+                <span style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: var(--muted); display: block; letter-spacing: 0.5px;">Percentage Change</span>
+                <code style="font-size: 14px; font-weight: 700; color: var(--text); display: block; margin-top: 4px;">Change % = ((New - Old) / Old) * 100</code>
+              </div>
+            </div>
           </div>
-          <div class="result-line">
-            <span>X as % of Y</span>
-            <strong id="r2">0%</strong>
-          </div>
-          <div class="result-line">
-            <span>Percentage change</span>
-            <strong id="r3">0%</strong>
+          
+          <div class="card">
+            <h2>Common Percentage Shortcuts</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 13px;">
+              <div style="padding: 8px; background: var(--th-bg); border-radius: 6px; text-align: center;"><strong>10%</strong> = divide by 10</div>
+              <div style="padding: 8px; background: var(--th-bg); border-radius: 6px; text-align: center;"><strong>20%</strong> = divide by 5</div>
+              <div style="padding: 8px; background: var(--th-bg); border-radius: 6px; text-align: center;"><strong>25%</strong> = divide by 4</div>
+              <div style="padding: 8px; background: var(--th-bg); border-radius: 6px; text-align: center;"><strong>50%</strong> = divide by 2</div>
+            </div>
           </div>
         </div>
       </section>
@@ -998,46 +1076,78 @@
       
     
       
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Percentage Calculator</h2>
-      <p class="seo-paragraph">The Percentage Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in percentage calculations, fractional ratios, and proportional mathematics. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
+      <p class="seo-paragraph">The Percentage Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in percentage calculations, fractional ratios, and progressive percentage change models. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
       
       <h3 class="seo-subtitle">What the Percentage Calculator Does</h3>
-      <p class="seo-paragraph">Our Percentage Calculator processes your inputs instantly and provides a comprehensive breakdown of the calculated percentage value, the value corresponding to a percentage, or the percentage change. By utilizing this online tool, you save time, ensure mathematical accuracy, and can rapidly test different scenarios side-by-side to understand how changes in your variables affect your totals. Rather than just returning a single number, it provides a structured overview that helps you analyze trends, verify manual calculations, and gain deeper insight into the underlying mathematics.</p>
+      <p class="seo-paragraph">Our Percentage Calculator processes your inputs instantly and provides a comprehensive breakdown of the calculated values, percentages, base wholes, or rates of increase and decrease. By utilizing this online tool, you save time, ensure mathematical accuracy, and can rapidly test different scenarios side-by-side to understand how changes in your variables affect your totals. Rather than just returning a single number, it provides a structured overview that helps you analyze trends, verify manual calculations, and gain deeper insight into the underlying mathematics.</p>
       
       <h3 class="seo-subtitle">Significance and Context</h3>
-      <p class="seo-paragraph">Understanding the significance of these calculations is key to achieving optimal results. In education, finance, and daily mathematics, providing a quick way to analyze proportional relationships, having a dedicated tool ensures consistency across all your evaluations, allowing you to identify discrepancies early, reduce decision-making time, and approach your calculations with absolute confidence. It standardizes the evaluation process, offering a reliable benchmark that aligns with industry practices and academic guidelines.</p>
+      <p class="seo-paragraph">Understanding the significance of these calculations is key to achieving optimal results. In academic math, commercial business, personal finance, and daily arithmetic, organizing four separate operations under one guide, having a dedicated tool ensures consistency across all your evaluations, allowing you to identify discrepancies early, reduce decision-making time, and approach your calculations with absolute confidence. It standardizes the evaluation process, offering a reliable benchmark that aligns with industry practices and academic guidelines.</p>
       
       <h3 class="seo-subtitle">How to Use the Percentage Calculator</h3>
-      <p class="seo-paragraph">To use the Percentage Calculator effectively, you simply need to gather the required variables for your specific scenario—such as the numerical values representing the part, the whole, or the percentage rate to apply—and enter them into the fields. The tool takes these parameters, applies the verified mathematical formula for percentage calculator analysis, and generates a clear, readable summary. This step-by-step processing makes it easy to interpret the outputs, apply the findings to your work, and share the results with others.</p>
-      <p class="seo-paragraph">Practical use cases for this tool are diverse, ranging from calculating shopping discounts, computing grades, determining interest margins, and analyzing percentage differences. Whether you are comparing different options or checking the results of a manual calculation, this tool adapts to your needs. Its interface is designed to help you make decisions quickly by visualizing how small adjustments to your baseline numbers can have a major impact on your final outcomes.</p>
+      <p class="seo-paragraph">To use the Percentage Calculator effectively, you simply need to gather the required variables for your specific scenario—such as the numerical inputs representing the parts, wholes, baseline amounts, and percentage rates—and enter them into the fields. The tool takes these parameters, applies the verified mathematical formula for percentage calculator analysis, and generates a clear, readable summary. This step-by-step processing makes it easy to interpret the outputs, apply the findings to your work, and share the results with others.</p>
+      <p class="seo-paragraph">Practical use cases for this tool are diverse, ranging from calculating retail discounts, tracking academic grade changes, computing margins, and analyzing financial percentage differences. Whether you are comparing different options or checking the results of a manual calculation, this tool adapts to your needs. Its interface is designed to help you make decisions quickly by visualizing how small adjustments to your baseline numbers can have a major impact on your final outcomes.</p>
       
-      <h3 class="seo-subtitle">The Percentage Calculator Formula</h3>
-      <p class="seo-paragraph">The calculation relies on the following standard formula:</p>
-      <div class="formula-box">Percentage = ( Part / Whole ) * 100</div>
-      <p class="seo-paragraph">Where:
-* Part = the subset or fraction value
-* Whole = the total quantity or baseline
+      <h3 class="seo-subtitle">The Percentage Calculator Formulas</h3>
+      <p class="seo-paragraph">The calculations rely on the following standard formulas:</p>
+      <div class="formula-box" style="margin: 8px 0;">1. Value = (Pct / 100) * Whole</div><div class="formula-box" style="margin: 8px 0;">2. Pct = (Part / Whole) * 100</div><div class="formula-box" style="margin: 8px 0;">3. Whole = Part / (Pct / 100)</div><div class="formula-box" style="margin: 8px 0;">4. Change % = ((New - Old) / Old) * 100</div>
+      <p class="seo-paragraph">These four progressive formulas allow you to perform all basic percentage operations:
 
-Explanation:
-This formula converts a fractional ratio into a standardized percentage value by dividing the partial amount by the total and scaling by 100.</p>
+* **Percentage of a Value:** Find the portion size when given a percentage and the total whole value.
+* **Percentage Proportion:** Determine what percentage a specific part represents out of the total whole.
+* **Find Whole from Percentage:** Calculate the total base value knowing a specific part and its percentage weight.
+* **Percentage Change:** Find the rate of increase or decrease between an original value and a new value.</p>
       
       <h3 class="seo-subtitle">Step-by-Step Worked Example</h3>
       <div class="example-box">
         <div class="example-title">Example Calculation</div>
-        <p class="seo-paragraph" style="margin-bottom: 0; font-family: monospace; white-space: pre-wrap; font-size: 14px;">Inputs:
-* Part = 25
-* Whole = 125
+        <p class="seo-paragraph" style="margin-bottom: 0; font-family: monospace; white-space: pre-wrap; font-size: 14px;">### Example 1: Percentage of a Value
+* Inputs: Pct = 15%, Whole = 200
+* Calculation: (15 / 100) * 200 = 30
 
-Calculation:
-* Step 1: Divide Part by Whole: 25 / 125 = 0.20
-* Step 2: Multiply by 100: 0.20 * 100
+### Example 2: Percentage Proportion
+* Inputs: Part = 30, Whole = 120
+* Calculation: (30 / 120) * 100 = 25%
 
-Result:
-* Percentage = 20%
+### Example 3: Find Whole from Percentage
+* Inputs: Part = 15, Pct = 10%
+* Calculation: 15 / (10 / 100) = 150
 
-What This Means:
-25 represents exactly 20% of 125.</p>
+### Example 4: Percentage Change
+* Inputs: Old = 100, New = 125
+* Calculation: ((125 - 100) / 100) * 100 = +25% (Increase)</p>
       </div>
       
       <h2 class="seo-title" style="margin-top: 40px;">Frequently Asked Questions (FAQs)</h2>
@@ -1194,15 +1304,83 @@ What This Means:
     const val = id => Number(document.getElementById(id).value);
     const fmtNum = (n, d = 2) => isFinite(n) ? Number(n).toLocaleString('en-CA', { maximumFractionDigits: d, minimumFractionDigits: d }) : '0.00';
 
-    function calc() {
+    function calcValue() {
+      const x = val('p1');
+      const y = val('p2');
+      const res = (x / 100) * y;
+      
       const r1 = document.getElementById('r1');
-      const r2 = document.getElementById('r2');
-      const r3 = document.getElementById('r3');
-      r1.textContent = fmtNum(val('p1') / 100 * val('p2'), 2);
-      r2.textContent = `${fmtNum(val('part') / val('whole') * 100, 2)}%`;
-      r3.textContent = `${fmtNum((val('newv') - val('old')) / val('old') * 100, 2)}%`;
+      r1.textContent = fmtNum(res, 2);
+      document.getElementById('result-box-1').style.display = 'block';
     }
-    calc();
+
+    function clearValue() {
+      document.getElementById('p1').value = '';
+      document.getElementById('p2').value = '';
+      document.getElementById('result-box-1').style.display = 'none';
+    }
+
+    function calcProportion() {
+      const x = val('part');
+      const y = val('whole');
+      const res = y !== 0 ? (x / y) * 100 : 0;
+      
+      const r2 = document.getElementById('r2');
+      r2.textContent = `${fmtNum(res, 2)}%`;
+      document.getElementById('result-box-2').style.display = 'block';
+    }
+
+    function clearProportion() {
+      document.getElementById('part').value = '';
+      document.getElementById('whole').value = '';
+      document.getElementById('result-box-2').style.display = 'none';
+    }
+
+    function calcWhole() {
+      const x = val('p3_part');
+      const pct = val('p3_pct');
+      const res = pct !== 0 ? x / (pct / 100) : 0;
+      
+      const r3 = document.getElementById('r3');
+      r3.textContent = fmtNum(res, 2);
+      document.getElementById('result-box-3').style.display = 'block';
+    }
+
+    function clearWhole() {
+      document.getElementById('p3_part').value = '';
+      document.getElementById('p3_pct').value = '';
+      document.getElementById('result-box-3').style.display = 'none';
+    }
+
+    function calcChange() {
+      const oldVal = val('old');
+      const newVal = val('newv');
+      const diff = newVal - oldVal;
+      const res = oldVal !== 0 ? (diff / oldVal) * 100 : 0;
+      
+      const r4 = document.getElementById('r4');
+      const sign = res > 0 ? '+' : '';
+      const type = res >= 0 ? ' (Increase)' : ' (Decrease)';
+      r4.textContent = `${sign}${fmtNum(res, 2)}%${type}`;
+      
+      const resBox = document.getElementById('result-box-4');
+      if (res >= 0) {
+        resBox.style.backgroundColor = 'var(--primary-light)';
+        resBox.style.borderLeftColor = 'var(--primary)';
+        r4.style.color = 'var(--primary)';
+      } else {
+        resBox.style.backgroundColor = '#fef2f2';
+        resBox.style.borderLeftColor = '#ef4444';
+        r4.style.color = '#ef4444';
+      }
+      resBox.style.display = 'block';
+    }
+
+    function clearChange() {
+      document.getElementById('old').value = '';
+      document.getElementById('newv').value = '';
+      document.getElementById('result-box-4').style.display = 'none';
+    }
   </script>
 
 </body>
