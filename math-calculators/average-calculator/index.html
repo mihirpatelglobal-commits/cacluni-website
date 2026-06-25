@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Average Calculator | CalcUni</title>
   <meta name="description" content="Calculate mean, median, mode, sum, count, minimum, maximum, and range from a list of numbers.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1782402826777">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1782406403402">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -24,6 +24,27 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
+    (function() {
+      const isLocal = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1' || 
+                      window.location.protocol === 'file:';
+      
+      const hasDevParam = window.location.search.includes('dev=true');
+      const hasDevCookie = localStorage.getItem('dev_mode') === 'true';
+      
+      if (hasDevParam || hasDevCookie) {
+        localStorage.setItem('dev_mode', 'true');
+      }
+      if (window.location.search.includes('dev=false')) {
+        localStorage.removeItem('dev_mode');
+      }
+
+      if (isLocal || hasDevParam || hasDevCookie || localStorage.getItem('dev_mode') === 'true') {
+        window['ga-disable-G-8QXJ3X2XGV'] = true;
+        console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
+      }
+    })();
+
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -629,6 +650,20 @@
       
       
 
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
       <section class="calculator-shell">
         <div class="card">
           <h2>Number List</h2>
@@ -697,6 +732,18 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     
