@@ -35,7 +35,17 @@ const customContent = {
         "q": "How can I pay off my mortgage faster?",
         "a": "You can pay off your mortgage faster by making bi-weekly payments (which results in one extra full payment per year), adding an extra amount directly to the principal each month, or making a lump-sum payment when possible."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-mortgage-payments-work",
+                "title": "How Mortgage Payments & Amortization Work"
+          },
+          {
+                "slug": "fixed-vs-variable-mortgage-canada",
+                "title": "Fixed vs Variable Mortgage: The Ultimate Canadian Guide"
+          }
+        ]
   },
   "loan-calculator": {
     "formula": "A = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]",
@@ -163,7 +173,13 @@ const customContent = {
         "q": "Why is the amortization table useful?",
         "a": "An amortization table is useful because it displays the exact breakdown of every payment, allowing you to see how much of your money goes to the lender as interest versus how much builds equity or reduces your debt."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-mortgage-payments-work",
+                "title": "How Mortgage Payments & Amortization Work"
+          }
+        ]
   },
   "credit-card-calculator": {
     "formula": "Months to Pay Off = -log(1 - (r * P) / M) / log(1 + r)",
@@ -227,7 +243,13 @@ const customContent = {
         "q": "How do investment returns impact my retirement fund?",
         "a": "Higher investment returns accelerate compound growth, helping your savings grow faster and allowing you to reach your goals with lower contributions, while lower returns require you to save more or retire later."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "best-retirement-planning-methods",
+                "title": "Methods for Retirement Savings Goals & the 4% Rule"
+          }
+        ]
   },
   "cmhc-insurance-calculator": {
     "formula": "Premium = Loan Amount * CMHC Rate",
@@ -259,7 +281,13 @@ const customContent = {
         "q": "Can I avoid paying CMHC insurance?",
         "a": "Yes. You can avoid paying CMHC insurance entirely by putting down a down payment of 20% or more of the home purchase price. Additionally, default insurance is not available for homes priced at $1,000,000 or higher, which legally requires a minimum 20% down payment anyway."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "what-is-cmhc-insurance",
+                "title": "What is CMHC Mortgage Insurance & How is it Calculated?"
+          }
+        ]
   },
   "mortgage-stress-test-calculator": {
     "formula": "Qualifying Rate = Max(Contract Rate + 2.0%, 5.25%)",
@@ -323,7 +351,17 @@ const customContent = {
         "q": "How can I lower my BMI safely?",
         "a": "To reduce your BMI safely, focus on a gradual weight loss of 1 to 2 pounds per week. Achieve this through a balanced, calorie-controlled diet rich in whole foods, coupled with regular physical exercise (at least 150 minutes of moderate activity weekly)."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-bmi",
+                "title": "How to Calculate Body Mass Index (BMI) & Body Composition"
+          },
+          {
+                "slug": "why-bmi-misleading-for-athletes",
+                "title": "Why BMI Can Be Misleading for Athletes and Bodybuilders"
+          }
+        ]
   },
   "calorie-calculator": {
     "formula": "Daily Calorie Needs = BMR * Activity Factor",
@@ -355,7 +393,13 @@ const customContent = {
         "q": "Should I eat back the calories I burn during exercise?",
         "a": "Generally, it is best not to eat back all estimated exercise calories, as activity trackers often overestimate calories burned. Stick to your calculated TDEE targets which already incorporate your general activity level."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-tdee",
+                "title": "How to Calculate Your TDEE (Total Daily Energy Expenditure)"
+          }
+        ]
   },
   "bmr-calculator": {
     "formula": "BMR (Mifflin-St Jeor) = 10 * weight (kg) + 6.25 * height (cm) - 5 * age (y) + s",
@@ -387,7 +431,13 @@ const customContent = {
         "q": "How accurate is the BMR formula for obese individuals?",
         "a": "The Mifflin-St Jeor formula is generally highly accurate, but it can slightly overestimate BMR in individuals with extremely high body fat or underestimate it for highly muscular athletes. Lean body mass formulas can be used for greater precision."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-tdee",
+                "title": "How to Calculate Your TDEE (Total Daily Energy Expenditure)"
+          }
+        ]
   },
   "body-fat-calculator": {
     "formula": "Body Fat % (U.S. Navy) = Formula depends on biological sex and body measurements",
@@ -451,7 +501,13 @@ const customContent = {
         "q": "How should athletes interpret their ideal weight calculation?",
         "a": "Athletes with high muscle mass should interpret ideal weight calculations with caution. Muscle is denser than fat, so muscular individuals may weigh more than the formula suggests while remaining completely healthy."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-bmi",
+                "title": "How to Calculate Body Mass Index (BMI) & Body Composition"
+          }
+        ]
   },
   "tdee-calculator": {
     "formula": "TDEE = BMR * Physical Activity Multiplier",
@@ -483,7 +539,13 @@ const customContent = {
         "q": "What is the Thermic Effect of Food (TEF)?",
         "a": "TEF is the energy required to digest and process the food you eat. It accounts for about 10% of your TDEE, with protein having the highest thermic effect (burning 20-30% of its calories during digestion)."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-tdee",
+                "title": "How to Calculate Your TDEE (Total Daily Energy Expenditure)"
+          }
+        ]
   },
   "macronutrient-calculator": {
     "formula": "Macros split (g) = (Total Calories * Macro Split %) / Calories per Gram",
@@ -515,7 +577,13 @@ const customContent = {
         "q": "What happens if I do not hit my macros exactly?",
         "a": "Don't worry about perfection. Staying within 5 to 10 grams of your target protein and fat goals while hitting your overall calorie target is more than sufficient for excellent results."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "macronutrients-101",
+                "title": "Macronutrients 101: How to Balance Carbs, Protein, and Fats"
+          }
+        ]
   },
   "percentage-calculator": {
     "formula": "1. Value = (Pct / 100) * Whole | 2. Pct = (Part / Whole) * 100 | 3. Whole = Part / (Pct / 100) | 4. Change % = ((New - Old) / Old) * 100",
@@ -739,7 +807,13 @@ const customContent = {
         "q": "What is the GST/HST credit?",
         "a": "The GST/HST credit is a tax-free quarterly payment from the Canada Revenue Agency (CRA) designed to help low- and modest-income Canadian individuals and families offset all or a portion of the sales taxes they pay."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "gst-vs-hst-in-canada",
+                "title": "Understanding Canadian Sales Taxes: GST vs. HST vs. PST"
+          }
+        ]
   },
   "income-tax-calculator-canada": {
     "formula": "Total Tax = Sum of (Income in Bracket * Bracket Tax Rate)",
@@ -1219,7 +1293,13 @@ const customContent = {
         "q": "What are the main factors in ordering ready-mix concrete?",
         "a": "When calling a ready-mix supplier, you must specify the volume in cubic yards, the target strength in PSI (typically 3,000 to 4,000 PSI for residential slabs), the aggregate size, and the slump (consistency). Advise them of your sub-grade setup and whether a pump is required."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-to-calculate-concrete-volume",
+                "title": "How to Calculate Concrete Volume for Slabs, Footings & Columns"
+          }
+        ]
   },
   "square-footage-calculator": {
     "formula": "Area (Sq Ft) = Length (ft) * Width (ft)",
@@ -1379,7 +1459,13 @@ const customContent = {
         "q": "How do you calculate net profit margin?",
         "a": "Net profit margin is calculated by subtracting all operating expenses, interest, taxes, and overhead costs from your gross profit, and dividing that final net profit by total revenue: `(Net Profit / Revenue) * 100`."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-roi-is-calculated",
+                "title": "How to Calculate Return on Investment (ROI) & Asset Yields"
+          }
+        ]
   },
   "markup-calculator": {
     "formula": "Markup (%) = [ (Selling Price - Cost) / Cost ] * 100",
@@ -1507,7 +1593,13 @@ const customContent = {
         "q": "Does ROI include taxes and transaction fees?",
         "a": "To calculate an accurate net ROI, you must subtract all associated costs including brokerage fees, maintenance, interest on loans, and capital gains taxes from your gross profits. Omitting these will result in an artificially high gross ROI."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "how-roi-is-calculated",
+                "title": "How to Calculate Return on Investment (ROI) & Asset Yields"
+          }
+        ]
   },
   "commission-calculator": {
     "formula": "Commission = Sales Amount * (Commission Rate / 100)",
@@ -1571,7 +1663,13 @@ const customContent = {
         "q": "Does using air conditioning burn more fuel?",
         "a": "Yes! Running your car's air conditioning system draws power from the engine, which can increase fuel consumption by 5% to 20% depending on the vehicle size and exterior temperature."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "fuel-efficiency-tips",
+                "title": "Ultimate Guide to Fuel Efficiency & Gas Mileage Optimization"
+          }
+        ]
   },
   "mileage-calculator": {
     "formula": "Business Mileage Reimbursement = Distance * Reimbursement Rate",
@@ -1603,7 +1701,13 @@ const customContent = {
         "q": "What is the difference between standard rate and actual expenses?",
         "a": "The standard rate uses a fixed rate per mile to estimate all vehicle costs. The actual expense method requires tracking all real costs (fuel, repairs, insurance, depreciation) and deducting the business-use percentage of those costs."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "fuel-efficiency-tips",
+                "title": "Ultimate Guide to Fuel Efficiency & Gas Mileage Optimization"
+          }
+        ]
   },
   "mpg-calculator": {
     "formula": "MPG = Distance / Fuel Consumed",
@@ -1635,7 +1739,13 @@ const customContent = {
         "q": "What is L/100km and how does it relate to MPG?",
         "a": "L/100km (Liters per 100 kilometers) is the metric measure of fuel consumption. Unlike MPG (where higher is better), L/100km measures the volume of fuel needed to travel a fixed distance, so a lower value represents better efficiency."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "fuel-efficiency-tips",
+                "title": "Ultimate Guide to Fuel Efficiency & Gas Mileage Optimization"
+          }
+        ]
   },
   "ev-charging-cost-calculator": {
     "formula": "Charging Cost = [ Battery Capacity * (Target Charge - Start Charge) / 100 ] * Electricity Rate",
@@ -1923,7 +2033,13 @@ const customContent = {
         "q": "What is a default gateway?",
         "a": "A default gateway is the router IP address that hosts on a subnet use to communicate with external networks or the internet. It acts as the exit point for any traffic destined outside the local IP range."
       }
-    ]
+    ],
+    "relatedBlogs": [
+          {
+                "slug": "understanding-subnetting",
+                "title": "Demystifying Subnetting: IP Masking & CIDR Notations"
+          }
+        ]
   },
   "ip-calculator": {
     "formula": "Network ID = IP AND Subnet Mask\nBroadcast Address = IP OR (NOT Subnet Mask)",
@@ -2359,6 +2475,22 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
     </div>
   ` : '';
 
+  // Construct Related Blogs HTML
+  let relatedBlogsHTML = '';
+  if (data && data.relatedBlogs && data.relatedBlogs.length > 0) {
+    relatedBlogsHTML = `
+    <div class="related-calculators-section" style="margin-top: 30px;">
+      <h3 class="seo-subtitle">Related Articles & Guides</h3>
+      <p class="seo-paragraph">Read more in-depth guides about these calculations:</p>
+      <div class="related-grid">
+        ${data.relatedBlogs.map(b => {
+          return `<a class="related-link" href="../../blog/${b.slug}/">${b.title}</a>`;
+        }).join('')}
+      </div>
+    </div>
+    `;
+  }
+
   return `
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the ${calcName}</h2>
@@ -2396,6 +2528,7 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
       </div>
 
       ${relatedHTML}
+      ${relatedBlogsHTML}
     </section>
   `;
 }
