@@ -7,7 +7,7 @@
   <url><loc>https://calcuni.com/terms.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://calcuni.com/disclaimer.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://calcuni.com/sitemap.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://calcuni.com/blog/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://calcuni.com/blog/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://calcuni.com/blog/how-mortgage-payments-work/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://calcuni.com/blog/gst-vs-hst-in-canada/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://calcuni.com/blog/how-to-calculate-bmi/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
