@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Square Footage Calculator | CalcUni</title>
   <meta name="description" content="Calculate total square footage (sq ft) and square meters (sq m) of rectangular, circular, or triangular rooms.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate the square footage of an irregular room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate the square footage of an irregular room, divide the floor space into smaller, simple shapes (like rectangles or triangles). Calculate the square footage of each shape, and sum them to find the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for circular square footage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To find the square footage of a circular space (such as a patio), use the circle area formula: `Area = π * r²`, where r is the radius in feet (half of the diameter) and π is approximately 3.14159."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert square inches to square feet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a square foot is 12 inches by 12 inches, one square foot contains exactly 144 square feet. To convert square inches to square feet, divide the square inch value by 144."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is square footage important in real estate valuation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Square footage is the primary metric used to compare home values. Real estate agents use price-per-square-foot ratios to assess property values, make comparative market analyses, and draft listing agreements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much square footage does the average person need in a home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While personal preferences vary, the average modern single-family home provides approximately 600 to 800 square feet of living space per occupant to ensure comfort."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Construction Calculator</span>
       <h1 class="page-title">Square Footage Calculator</h1>
       <p class="page-desc">Calculate total square footage for rectangular, circular, or triangular spaces.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -776,6 +860,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

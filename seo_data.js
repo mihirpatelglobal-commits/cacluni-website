@@ -2622,15 +2622,10 @@ function getJSONLD(catKey, slug, calcName, canonicalUrl, relatedCalculators) {
     <script type="application/ld+json">
       ${JSON.stringify(breadcrumbSchema, null, 2)}
     </script>
-  `;
-
-  if (catKey === 'health-calculators') {
-    schemaHTML += `
     <script type="application/ld+json">
       ${JSON.stringify(faqSchema, null, 2)}
     </script>
-    `;
-  }
+  `;
 
   return schemaHTML;
 }

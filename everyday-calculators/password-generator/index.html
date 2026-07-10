@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Generator | CalcUni</title>
   <meta name="description" content="Build secure, randomized password combinations utilizing custom character inclusions.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What makes a password truly secure and strong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A secure password is long (at least 12-16 characters) and unpredictable. It should combine lowercase letters, uppercase letters, numeric digits, and special symbols, and must never contain personal information, dictionary words, or sequential patterns (like \"1234\")."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are passwords generated in my browser safe from interception?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! This password generator runs entirely locally inside your web browser using client-side JavaScript. None of the passwords generated are sent over the network or saved to any server, making them 100% private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is password entropy and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Password entropy measures the cryptographic unpredictability of a password in bits. A higher entropy means a wider pool of possibilities, making it exponentially harder for automated hacker scripts to crack your password using brute-force attacks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I change my online passwords?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Security experts now recommend changing passwords only when there is a known data breach or security compromise on an account. Using unique, strong passwords for every account is much safer than changing them frequently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use a password manager?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely! A password manager is the safest way to store and organize unique, highly complex passwords for all your online accounts. It encrypts your database with a single master password, so you only have to remember one strong passphrase."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Everyday Calculator</span>
       <h1 class="page-title">Password Generator</h1>
       <p class="page-desc">Build secure, randomized password combinations utilizing custom character inclusions.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -766,6 +850,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

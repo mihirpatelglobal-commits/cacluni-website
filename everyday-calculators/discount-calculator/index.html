@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discount Calculator | CalcUni</title>
   <meta name="description" content="Calculate final prices after discounts and applicable sales taxes.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate stacked discounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stacked discounts are applied sequentially, not added together. For example, if you have a 20% discount plus a 10% coupon on a $100 item, you first apply 20% (reducing the price to $80), then apply 10% to that $80 (reducing the final price to $72, not $70)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate a discount percentage in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To estimate a 20% discount: find 10% of the price (shift the decimal one place left) and double that amount. Subtract the result from the original price to find the sale price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a \"markup\" versus a \"markdown\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A markup is the percentage added to a product's cost price to set the selling price. A markdown (or discount) is the percentage subtracted from a product's retail selling price to promote sales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the discount calculator support \"Buy One Get One\" (BOGO) deals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard discount calculators process percentage markdowns. For BOGO 50% deals, the average discount across both items is 25%, which you can enter as the discount percentage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do retailers use complex discount terms like \"up to 70% off\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retailers use these terms to attract shoppers while marking down only a few clearance items by 70%, keeping standard inventory at much smaller discounts. Always verify individual tag discounts."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Everyday Calculator</span>
       <h1 class="page-title">Discount Calculator</h1>
       <p class="page-desc">Calculate final prices after discounts and applicable sales taxes.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -715,6 +799,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

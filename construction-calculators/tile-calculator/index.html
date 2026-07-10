@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tile Calculator | CalcUni</title>
   <meta name="description" content="Calculate the number of floor or wall tiles needed for your room, including waste margin estimates.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I adjust my tile wastage margin for straight vs. diagonal layouts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For standard straight grid layouts, a 10% wastage margin is sufficient. For diagonal, herringbone, or complex patterns, you must increase the wastage margin to 15% or 20% to account for the numerous triangular cut pieces along the walls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does grout joint spacing affect tile box estimation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grout joints (e.g., 1/16, 1/8, or 1/4 inch) create small gaps between tiles. While they slightly reduce the number of tiles needed in massive commercial spaces, for standard residential rooms the impact is negligible, and you should calculate tile counts based on raw dimensions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate the number of tile boxes I need to purchase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calculate the total square footage including waste, then divide by the square footage covered by a single box (specified by the manufacturer). Always round up to the nearest whole box, as suppliers do not sell partial boxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is sub-floor preparation critical before tiling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiles are rigid and will crack if there is flex in the sub-floor. Ensure the sub-floor is clean, level, and reinforced with a cement backer board (such as Durock or WonderBoard) or an uncoupling membrane (such as Ditra) before applying thinset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much grout and thinset mortar do I need for my tile project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a rule of thumb, a 25-pound bag of dry grout covers about 100 to 150 square feet depending on tile thickness and joint width. For thinset mortar, a 50-pound bag covers approximately 50 to 90 square feet depending on your trowel notch size."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Construction Calculator</span>
       <h1 class="page-title">Tile Calculator</h1>
       <p class="page-desc">Calculate number of tiles and grout bags required with wastage margin.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -777,6 +861,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

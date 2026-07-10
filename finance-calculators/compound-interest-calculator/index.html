@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compound Interest Calculator | CalcUni</title>
   <meta name="description" content="Free compound interest calculator with contributions and future value estimate.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Compound Interest Calculator",
       "item": "https://calcuni.com/finance-calculators/compound-interest-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is compound interest and how does it work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compound interest is the interest calculated on the initial principal of an investment plus all of the accumulated interest from prior periods. It essentially represents \"interest earning interest,\" leading to exponential growth over time compared to simple interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is compounding frequency so important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compounding frequency determines how often interest is calculated and added back to your balance. The more frequently interest compounds (such as daily or monthly instead of annually), the faster your principal balance grows and the more interest you earn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between simple interest and compound interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple interest is calculated solely as a percentage of the original principal amount. Compound interest is calculated on the principal plus any accumulated interest, meaning your balance grows at an accelerating rate as time passes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does inflation affect compound interest earnings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inflation reduces the purchasing power of your money over time. If your investment earns 5% compound interest but inflation is 3%, your real rate of return is only about 2%. It is vital to outpace inflation to grow real wealth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Rule of 72?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Rule of 72 is a quick shortcut to estimate how long it will take for an investment to double in value at a fixed annual rate. Divide 72 by your annual interest rate to find the approximate number of years (e.g., 72 / 8% = 9 years)."
+      }
     }
   ]
 }
@@ -176,6 +232,34 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">Compound Interest Calculator</h1>
       <p class="page-desc">Estimate investment growth with compound interest.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -779,6 +863,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

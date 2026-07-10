@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Age Calculator | CalcUni</title>
   <meta name="description" content="Calculate your exact age in years, months, days, and find the countdown to your next birthday.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the age calculator handle leap years?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator dynamically adjusts for leap years (which occur every 4 years and add February 29th). It computes the exact elapsed days between dates to ensure day counts are mathematically perfect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my age calculated differently in different cultures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most western countries, age is calculated chronologically from birth, starting at 0 years old. In some traditional East Asian systems (such as Korean age), an individual is considered one year old at birth and gains a year on New Year's Day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many days have I been alive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can find the exact number of days you have been alive by selecting your birthday and the current date. The calculator will display the total age broken down into days, weeks, and months."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a half-birthday?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A half-birthday occurs exactly six months after your real birthday. For example, if your birthday is on January 15th, your half-birthday falls on July 15th."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many months are between two specific dates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To find the exact months between two dates, count the full calendar months elapsed and then calculate the remaining days as a fractional month. This calculator displays this breakdown instantly."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Date & Time Calculator</span>
       <h1 class="page-title">Age Calculator</h1>
       <p class="page-desc">Find your exact age in years, months, days, and time to your next birthday.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -755,6 +839,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

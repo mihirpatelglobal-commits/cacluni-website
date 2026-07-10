@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mortgage Stress Test Calculator Canada | CalcUni</title>
   <meta name="description" content="Check if you qualify for a Canadian mortgage using the OSFI stress test tool. Calculate GDS and TDS limits.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Mortgage Stress Test Calculator",
       "item": "https://calcuni.com/finance-calculators/mortgage-stress-test-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Canadian mortgage stress test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The mortgage stress test is a financial safety buffer introduced by Canada's federal regulator (OSFI). It requires lenders to evaluate whether you can afford mortgage payments at a higher interest rate than the one actually offered in your contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What interest rate is used for the stress test?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The stress test uses a qualifying interest rate which is the higher of two values: either 5.25% (the government's benchmark rate) or your contract interest rate plus an additional 2.0%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the GDS and TDS ratio limits in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross Debt Service (GDS) and Total Debt Service (TDS) are debt-to-income ratios. In Canada, to qualify for a standard mortgage, your housing costs (mortgage, property tax, heating, and 50% of condo fees) must not exceed 39% of gross income (GDS limit). Your total debt costs (housing costs plus car loans, credit cards, and other debts) must not exceed 44% of gross income (TDS limit)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the stress test apply to fixed-rate mortgages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The stress test applies to all federally regulated mortgages in Canada, including fixed-rate and variable-rate mortgages, regardless of whether you have a 5-year fixed or a variable rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I improve my stress test qualification limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can improve your stress test status by reducing existing debts (like paying off credit cards or car loans), increasing your down payment, raising your household income (adding a co-signer), or finding a lower interest rate."
+      }
     }
   ]
 }
@@ -176,6 +232,34 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">Mortgage Stress Test Calculator</h1>
       <p class="page-desc">Find out if you qualify for a Canadian mortgage under the stress test rules.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -582,6 +666,30 @@
       </section>
 
       
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

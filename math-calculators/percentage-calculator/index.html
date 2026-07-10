@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Percentage Calculator | CalcUni</title>
   <meta name="description" content="Calculate percentages, percentage change, and find what percentage one number is of another.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate a percentage increase?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate a percentage increase, subtract the original value from the new value, divide the difference by the original value, and multiply the result by 100: `((New - Original) / Original) * 100`."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate a percentage of a number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To find a specific percentage of a number, convert the percentage to a decimal (by dividing it by 100) and multiply it by the number: `(Percentage / 100) * Number`."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between percentage and percentage points?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Percentage refers to the rate of change or proportion. Percentage points refer to the arithmetic difference between two percentages (e.g., an increase from 10% to 15% is a 5 percentage point increase, but a 50% increase)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a decimal into a percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert any decimal value into a percentage, simply multiply the decimal by 100 and add the percent symbol (e.g., 0.35 * 100 = 35%)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is percentage used in sales tax calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sales tax is calculated by multiplying the retail price of an item by the tax rate percentage expressed as a decimal, and adding that result to the original price to find the total cost."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Math Calculator</span>
       <h1 class="page-title">Percentage Calculator</h1>
       <p class="page-desc">Quickly find percentages, increases, and decreases.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -868,6 +952,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

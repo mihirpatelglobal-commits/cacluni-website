@@ -1,0 +1,180 @@
+# CalcUni
+
+> Free online calculator platform covering finance, tax, business, health, construction, transportation, technology, mathematics, unit conversions, date/time calculation, and everyday planning. All calculators execute client-side in real-time in the browser.
+
+## Core Calculators Directory
+
+### Finance Calculators
+
+- [Mortgage Calculator](https://calcuni.com/finance-calculators/mortgage-calculator/): Estimate home loan payments and total interest.
+  - Formula: `M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
+- [Loan Calculator](https://calcuni.com/finance-calculators/loan-calculator/): Calculate personal, auto, or business loan payments.
+  - Formula: `A = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
+- [Compound Interest Calculator](https://calcuni.com/finance-calculators/compound-interest-calculator/): Estimate investment growth with compound interest.
+  - Formula: `A = P * (1 + r/n)^(n*t)`
+- [Car Loan Calculator](https://calcuni.com/finance-calculators/car-loan-calculator/): Calculate auto loan payments, interest, and terms.
+  - Formula: `M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
+- [Amortization Calculator](https://calcuni.com/finance-calculators/amortization-calculator/): View monthly amortization schedules and principal/interest splits.
+  - Formula: `M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
+- [Credit Card Calculator](https://calcuni.com/finance-calculators/credit-card-calculator/): Find out how long it will take to pay off credit card debt.
+  - Formula: `Months to Pay Off = -log(1 - (r * P) / M) / log(1 + r)`
+- [Retirement Calculator](https://calcuni.com/finance-calculators/retirement-calculator/): Plan how much you need to save to retire comfortably.
+  - Formula: `FV = PV * (1 + r)^t + PMT * [ ((1 + r)^t - 1) / r ]`
+- [CMHC Insurance Calculator](https://calcuni.com/finance-calculators/cmhc-insurance-calculator/): Calculate Canadian mortgage default insurance (CMHC) fees.
+  - Formula: `Premium = Loan Amount * CMHC Rate`
+- [Mortgage Stress Test Calculator](https://calcuni.com/finance-calculators/mortgage-stress-test-calculator/): Find out if you qualify for a Canadian mortgage under the stress test rules.
+  - Formula: `Qualifying Rate = Max(Contract Rate + 2.0%, 5.25%)`
+
+### Tax Calculators
+
+- [GST/HST Calculator Canada](https://calcuni.com/tax-calculators/gst-hst-calculator-canada/): Calculate GST, HST, PST, and QST by province.
+  - Formula: `Total Tax = Price * Tax Rate
+Total Cost = Price + Total Tax`
+- [Income Tax Calculator Canada](https://calcuni.com/tax-calculators/income-tax-calculator-canada/): Estimate federal and provincial income tax.
+  - Formula: `Total Tax = Sum of (Income in Bracket * Bracket Tax Rate)`
+- [PST Calculator](https://calcuni.com/tax-calculators/pst-calculator/): Calculate Provincial Sales Tax (PST, RST, or QST) for Canadian provinces.
+  - Formula: `PST = Price * PST Rate
+Total Cost = Price + GST + PST`
+- [VAT Calculator](https://calcuni.com/tax-calculators/vat-calculator/): Calculate Value Added Tax (VAT) with global rates or custom percentages.
+  - Formula: `VAT Amount = Net Price * (VAT Rate / 100)
+Gross Price = Net Price + VAT Amount`
+- [Payroll Tax Calculator](https://calcuni.com/tax-calculators/payroll-tax-calculator/): Estimate gross pay, taxes, CPP/QPP, EI, and take-home net pay.
+  - Formula: `Total Deductions = Federal Tax + Provincial Tax + pension contributions + insurance premiums`
+
+### Business Calculators
+
+- [Profit Margin Calculator](https://calcuni.com/business-calculators/profit-margin-calculator/): Calculate profit, gross margin percentage, and markup percentage from revenue and cost.
+  - Formula: `Gross Profit Margin (%) = [ (Revenue - COGS) / Revenue ] * 100`
+- [Markup Calculator](https://calcuni.com/business-calculators/markup-calculator/): Calculate the selling price, revenue profit, and margin from cost and markup percentage.
+  - Formula: `Markup (%) = [ (Selling Price - Cost) / Cost ] * 100`
+- [Break-even Calculator](https://calcuni.com/business-calculators/break-even-calculator/): Find the sales volume (units) and revenue required to cover all fixed and variable costs.
+  - Formula: `Break-Even Point (Units) = Fixed Costs / (Selling Price - Variable Cost per Unit)`
+- [Payroll Calculator](https://calcuni.com/business-calculators/payroll-calculator/): Calculate gross wages, tax deductions, and net take-home pay based on hourly rate, hours worked, and overtime.
+  - Formula: `Gross Earnings = Hourly Rate * Hours Worked
+Net Pay = Gross Earnings - Statutory Deductions`
+- [ROI Calculator](https://calcuni.com/business-calculators/roi-calculator/): Calculate the Return on Investment (ROI) and annualized ROI for any commercial asset or trade.
+  - Formula: `ROI (%) = [ (Net Profit / Cost of Investment) ] * 100`
+- [Commission Calculator](https://calcuni.com/business-calculators/commission-calculator/): Calculate sales agent commission payouts and total earnings based on contract values and structures.
+  - Formula: `Commission = Sales Amount * (Commission Rate / 100)`
+
+### Health Calculators
+
+- [BMI Calculator](https://calcuni.com/health-calculators/bmi-calculator/): Calculate body mass index and BMI category.
+  - Formula: `BMI = weight (kg) / [ height (m) ]^2`
+- [Calorie Calculator](https://calcuni.com/health-calculators/calorie-calculator/): Estimate daily maintenance calories using BMR.
+  - Formula: `Daily Calorie Needs = BMR * Activity Factor`
+- [BMR Calculator](https://calcuni.com/health-calculators/bmr-calculator/): Calculate Basal Metabolic Rate using standard formulas.
+  - Formula: `BMR (Mifflin-St Jeor) = 10 * weight (kg) + 6.25 * height (cm) - 5 * age (y) + s`
+- [Body Fat Calculator](https://calcuni.com/health-calculators/body-fat-calculator/): Estimate body fat percentage using neck, waist, and hip measures.
+  - Formula: `Body Fat % (U.S. Navy) = Formula depends on biological sex and body measurements`
+- [Ideal Weight Calculator](https://calcuni.com/health-calculators/ideal-weight-calculator/): Find your healthy target weight range.
+  - Formula: `Ideal Weight (Devine) = Constant + Coefficient * (Height - 60 inches)`
+- [TDEE Calculator](https://calcuni.com/health-calculators/tdee-calculator/): Estimate your Total Daily Energy Expenditure based on your activity level.
+  - Formula: `TDEE = BMR * Physical Activity Multiplier`
+- [Macronutrient Calculator](https://calcuni.com/health-calculators/macronutrient-calculator/): Calculate your optimal daily protein, carb, and fat macros.
+  - Formula: `Macros split (g) = (Total Calories * Macro Split %) / Calories per Gram`
+
+### Construction Calculators
+
+- [Concrete Calculator](https://calcuni.com/construction-calculators/concrete-calculator/): Estimate concrete volume in cubic yards or bags needed for slabs, footings, and columns.
+  - Formula: `Volume (Cubic Yards) = [ Length (ft) * Width (ft) * Thickness (in) ] / 324`
+- [Square Footage Calculator](https://calcuni.com/construction-calculators/square-footage-calculator/): Calculate total square footage for rectangular, circular, or triangular spaces.
+  - Formula: `Area (Sq Ft) = Length (ft) * Width (ft)`
+- [Paint Calculator](https://calcuni.com/construction-calculators/paint-calculator/): Estimate the gallons of paint needed based on wall surface dimensions.
+  - Formula: `Gallons Required = [ (Wall Area - Window/Door Area) / 350 ] * Coats`
+- [Tile Calculator](https://calcuni.com/construction-calculators/tile-calculator/): Calculate number of tiles and grout bags required with wastage margin.
+  - Formula: `Tiles Needed = [ Room Area / Tile Area ] * (1 + Waste Factor)`
+- [Roofing Calculator](https://calcuni.com/construction-calculators/roofing-calculator/): Estimate roof area, number of shingle squares, and bundles needed.
+  - Formula: `Roofing Squares = [ Ground Area * Pitch Factor ] / 100
+Bundles Required = Roofing Squares * 3`
+
+### Transportation Calculators
+
+- [Fuel Cost Calculator](https://calcuni.com/transportation-calculators/fuel-cost-calculator/): Estimate the cost and quantity of fuel required for a driving trip.
+  - Formula: `Total Fuel Cost = [ Distance / Fuel Efficiency ] * Price per Unit`
+- [Mileage Calculator](https://calcuni.com/transportation-calculators/mileage-calculator/): Calculate fuel consumption or gas mileage based on odometer readings and fuel added.
+  - Formula: `Business Mileage Reimbursement = Distance * Reimbursement Rate`
+- [MPG Calculator](https://calcuni.com/transportation-calculators/mpg-calculator/): Convert distance and gas quantity to Miles Per Gallon (MPG) and fuel economy indicators.
+  - Formula: `MPG = Distance / Fuel Consumed`
+- [EV Charging Cost Calculator](https://calcuni.com/transportation-calculators/ev-charging-cost-calculator/): Estimate the cost of charging an electric vehicle based on battery capacity, utility rates, and charging amounts.
+  - Formula: `Charging Cost = [ Battery Capacity * (Target Charge - Start Charge) / 100 ] * Electricity Rate`
+- [Travel Time Calculator](https://calcuni.com/transportation-calculators/travel-time-calculator/): Calculate estimated driving duration and arrival hours based on travel distance and average speeds.
+  - Formula: `Time (Hours) = Distance / Average Speed`
+
+### Technology Calculators
+
+- [Binary Calculator](https://calcuni.com/technology-calculators/binary-calculator/): Perform basic logic or mathematical operations directly in Binary representation.
+  - Formula: `Conversion: Decimal D = Sum of (d_i * 2^i)
+Operations: Standard binary arithmetic algorithms`
+- [Subnet Calculator](https://calcuni.com/technology-calculators/subnet-calculator/): Calculate subnets, hosts ranges, CIDR masks, and network configurations.
+  - Formula: `Subnets = 2^s
+Hosts per Subnet = 2^h - 2`
+- [IP Calculator](https://calcuni.com/technology-calculators/ip-calculator/): Check internet protocol classes, addresses integer formats, and scope classifications.
+  - Formula: `Network ID = IP AND Subnet Mask
+Broadcast Address = IP OR (NOT Subnet Mask)`
+- [Bandwidth Calculator](https://calcuni.com/technology-calculators/bandwidth-calculator/): Estimate internet download and upload transfer durations based on standard digital quantities.
+  - Formula: `Transfer Time = File Size / Download Speed`
+- [Storage Converter](https://calcuni.com/technology-calculators/storage-converter/): Convert data units between common decimal scales (KB, MB, GB, TB) and OS binary sizes (KiB, MiB, GiB, TiB).
+  - Formula: `Target Storage = Source Storage * Conversion Factor`
+
+### Math Calculators
+
+- [Percentage Calculator](https://calcuni.com/math-calculators/percentage-calculator/): Quickly find percentages, increases, and decreases.
+  - Formula: `1. Value = (Pct / 100) * Whole | 2. Pct = (Part / Whole) * 100 | 3. Whole = Part / (Pct / 100) | 4. Change % = ((New - Old) / Old) * 100`
+- [Fraction Calculator](https://calcuni.com/math-calculators/fraction-calculator/): Add, subtract, multiply, and divide fractions.
+  - Formula: `Common denominator: (a/b) + (c/d) = (ad + bc) / bd`
+- [Scientific Calculator](https://calcuni.com/math-calculators/scientific-calculator/): Perform advanced math functions with an online calculator.
+  - Formula: `Standard mathematical and trigonometric equations`
+- [Average Calculator](https://calcuni.com/math-calculators/average-calculator/): Calculate mean, median, mode, sum, and range.
+  - Formula: `Mean = Sum of Values (x_i) / Count of Values (n)`
+- [GPA Calculator](https://calcuni.com/math-calculators/gpa-calculator/): Calculate weighted GPA from course grades and credit hours.
+  - Formula: `GPA = Sum of (Grade Points * Credits) / Total Credits`
+- [Grade Calculator](https://calcuni.com/math-calculators/grade-calculator/): Estimate final course grades and required final exam scores.
+  - Formula: `Final Grade = Sum of (Category Score * Category Weight)`
+
+### Conversion Calculators
+
+- [Unit Converter](https://calcuni.com/conversion-calculators/unit-converter/): Convert speed, area, volume, and other common units.
+  - Formula: `Target Value = Source Value * Conversion Factor`
+- [Currency Converter](https://calcuni.com/conversion-calculators/currency-converter/): Convert between global currencies with real-time reference rates.
+  - Formula: `Target Amount = Source Amount * Exchange Rate`
+- [Length Converter](https://calcuni.com/conversion-calculators/length-converter/): Convert metric and imperial length and distance units.
+  - Formula: `Target Length = Source Length * Conversion Factor`
+- [Weight Converter](https://calcuni.com/conversion-calculators/weight-converter/): Convert between different mass and weight units.
+  - Formula: `Target Weight = Source Weight * Conversion Factor`
+- [Temperature Converter](https://calcuni.com/conversion-calculators/temperature-converter/): Convert Celsius, Fahrenheit, and Kelvin temperature scales.
+  - Formula: `Fahrenheit: °F = (°C * 9/5) + 32
+Celsius: °C = (°F - 32) * 5/9
+Kelvin: K = °C + 273.15`
+
+### Date & Time Calculators
+
+- [Age Calculator](https://calcuni.com/date-time-calculators/age-calculator/): Find your exact age in years, months, days, and time to your next birthday.
+  - Formula: `Age = Target Date - Date of Birth`
+- [Date Difference Calculator](https://calcuni.com/date-time-calculators/date-difference-calculator/): Calculate the total days and weeks between two specific dates.
+  - Formula: `Days Difference = End Date - Start Date`
+- [Business Days Calculator](https://calcuni.com/date-time-calculators/business-days-calculator/): Find the number of working days between two dates, excluding weekends.
+  - Formula: `Working Days = Total Days - Weekends (and optional holidays)`
+- [Time Duration Calculator](https://calcuni.com/date-time-calculators/time-duration-calculator/): Add, subtract, or find the difference between two times.
+  - Formula: `Elapsed Time = End Timestamp - Start Timestamp`
+- [Hours Calculator](https://calcuni.com/date-time-calculators/hours-calculator/): Calculate total hours worked for timesheets or payroll.
+  - Formula: `Total Hours = Sum of (End Time - Start Time) - Lunch Break`
+
+### Everyday Calculators
+
+- [Password Generator](https://calcuni.com/everyday-calculators/password-generator/): Build secure, randomized password combinations utilizing custom character inclusions.
+  - Formula: `Entropy = L * log2(R)`
+- [Discount Calculator](https://calcuni.com/everyday-calculators/discount-calculator/): Calculate final prices after discounts and applicable sales taxes.
+  - Formula: `Discounted Price = Original Price * (1 - Discount Percentage / 100)`
+- [Sleep Calculator](https://calcuni.com/everyday-calculators/sleep-calculator/): Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.
+  - Formula: `Bedtime = Wake-up Time - (N * 90 minutes) - 14 minutes`
+- [Tip Calculator](https://calcuni.com/everyday-calculators/tip-calculator/): Determine standard gratuity payout and split bill totals across party members.
+  - Formula: `Tip Amount = Bill Amount * (Tip % / 100)
+Total Bill = Bill Amount + Tip Amount
+Share per Person = Total Bill / Number of People`
+- [Random Number Generator](https://calcuni.com/everyday-calculators/random-number-generator/): Generate pseudo-random values or lists matching lower and upper boundaries.
+  - Formula: `Random Value = Min + Floor(Math.random() * (Max - Min + 1))`
+
+## About CalcUni
+
+CalcUni provides verified calculation tools built on standard mathematical formulas. For any questions or support, visit our [Contact Page](https://calcuni.com/contact.html).

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roofing Calculator | CalcUni</title>
   <meta name="description" content="Estimate roof area, roofing squares, and the number of shingle bundles needed based on roof pitch.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a \"square\" in roofing terminology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the roofing industry, a \"square\" is a unit of area equal to 100 square feet of roof surface. Shingles and underlayment are commonly priced and sold by the square."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many shingle bundles make up a roofing square?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For standard 3-tab or architectural shingles, it takes exactly three (3) bundles to cover one roofing square (100 square feet) of roof surface area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is roof pitch and how does it affect calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roof pitch is the slope of the roof, expressed as a ratio of vertical rise over a 12-inch horizontal run (e.g., 4/12 pitch). A steeper pitch increases the actual roof surface area relative to the home's ground footprint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a 10% to 15% wastage margin necessary for roofing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wastage is necessary because shingles must be cut to fit valleys, hips, rakes, and ridges. A 10% wastage margin is standard, while complex roofs with multiple dormers require 15% to 20% waste budgets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What underlayment do I need under shingles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roofing underlayment (typically asphalt-saturated felt or synthetic underlayment) is installed directly on the wooden deck to provide secondary water resistance under the shingles."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Construction Calculator</span>
       <h1 class="page-title">Roofing Calculator</h1>
       <p class="page-desc">Estimate roof area, number of shingle squares, and bundles needed.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -766,6 +850,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

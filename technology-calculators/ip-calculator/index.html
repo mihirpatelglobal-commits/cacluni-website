@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IP Calculator | CalcUni</title>
   <meta name="description" content="Check internet protocol classes, addresses integer formats, and scope classifications.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between private and public IP addresses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Private IP addresses are reserved for internal networks (like your home or office router) and are not routable on the internet (e.g., 192.168.x.x). Public IPs are unique worldwide and are used to route traffic across the global internet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an IP calculator determine address classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IP tool checks the first octet of an IPv4 address. Class A ranges from 1-126, Class B ranges from 128-191, Class C ranges from 192-223, Class D (Multicast) ranges from 224-239, and Class E is reserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between IPv4 and IPv6?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IPv4 uses a 32-bit address space, providing about 4.3 billion unique IP addresses. IPv6 uses a 128-bit address space, providing an astronomically large pool of addresses to support the growing number of internet connected devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a loopback IP address?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A loopback address (typically 127.0.0.1) is a special IP address reserved for a computer to route traffic back to itself. It is commonly used by developers to test local server applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a device get an IP address automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Devices receive IP addresses automatically using DHCP (Dynamic Host Configuration Protocol), where a router lease server assigns temporary IP configurations to connecting devices from a configured IP pool."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Technology Calculator</span>
       <h1 class="page-title">IP Calculator</h1>
       <p class="page-desc">Check internet protocol classes, addresses integer formats, and scope classifications.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -747,6 +831,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

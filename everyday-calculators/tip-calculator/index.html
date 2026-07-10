@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tip Calculator | CalcUni</title>
   <meta name="description" content="Determine standard gratuity payout and split bill totals across party members.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the tip calculator handle splitting a bill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tip tool takes the total restaurant bill, adds your chosen tip percentage, and divides the grand total equally by the number of people in your dining party to show exactly what each person owes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the standard tipping rate in restaurants?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While tipping norms vary by country and service quality, the standard tipping rate in North America is typically 15% to 20% of the pre-tax bill for good service."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should you tip on the pre-tax or post-tax bill total?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditionally, tips are calculated on the pre-tax total of the bill to avoid paying gratuity on government taxes. However, many people tip on the final post-tax total for simplicity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate a tip manually in your head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate a 15% tip in your head: find 10% of the bill (by shifting the decimal point one place to the left), take half of that amount (which is 5%), and add the two values together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is tipping expected in all countries?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Tipping customs vary globally. In North America, tipping is standard practice. In many European countries, a service charge is included in the bill, and in Japan, tipping is not traditional and can be seen as impolite."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Everyday Calculator</span>
       <h1 class="page-title">Tip Calculator</h1>
       <p class="page-desc">Determine standard gratuity payout and split bill totals across party members.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -716,6 +800,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

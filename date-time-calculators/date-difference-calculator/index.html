@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Date Difference Calculator | CalcUni</title>
   <meta name="description" content="Calculate the exact number of days, weeks, months, and years between two dates.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does this calculator include the end date in the count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "By default, the date difference calculator measures the span between two milestones, which excludes the end date. Most setups feature a toggle allowing you to \"include the end date,\" adding one day to the total."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this tool handle historical calendar changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculator uses the standard Gregorian calendar system, which is standard for modern global date calculations. It is accurate for all modern scheduling but does not adjust for historical Julian calendar shifts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many weeks are in a date span?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To find the weeks in a date span, calculate the total days and divide by 7. The calculator will display this value alongside the raw days and fractional month breakdown."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate date differences backwards?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you enter a start date that occurs after the end date, the calculator will compute the duration and display it as a negative difference or swap the inputs for planning purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I add or subtract days from a date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool measures the difference between two dates. To add or subtract a specific number of days from a date to find a target date, you should use our date adder tool."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Date & Time Calculator</span>
       <h1 class="page-title">Date Difference Calculator</h1>
       <p class="page-desc">Calculate the total days and weeks between two specific dates.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -755,6 +839,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

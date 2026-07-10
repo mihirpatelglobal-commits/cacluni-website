@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mortgage Calculator Canada | CalcUni</title>
   <meta name="description" content="Free mortgage calculator for payment, interest, and amortization estimates.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Mortgage Calculator",
       "item": "https://calcuni.com/finance-calculators/mortgage-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is included in a standard monthly mortgage payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and private mortgage insurance (PMI) if your down payment was below twenty percent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the down payment amount affect my monthly mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It can also help you avoid costly Private Mortgage Insurance (PMI)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between fixed-rate and adjustable-rate mortgages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fixed-rate mortgage maintains the exact same interest rate and monthly payment for the entire term of the loan. An adjustable-rate mortgage (ARM) typically starts with a lower rate for a set period and then adjusts periodically based on market indexes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does amortization work in mortgages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mortgage amortization is the process of paying off your loan with regular payments. In the early years of the mortgage, the vast majority of your payment goes toward paying off the interest. Over time, the ratio shifts so that a larger portion goes toward paying off the principal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I pay off my mortgage faster?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can pay off your mortgage faster by making bi-weekly payments (which results in one extra full payment per year), adding an extra amount directly to the principal each month, or making a lump-sum payment when possible."
+      }
     }
   ]
 }
@@ -176,6 +232,34 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">Mortgage Calculator</h1>
       <p class="page-desc">Estimate home loan payments and total interest.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -800,6 +884,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

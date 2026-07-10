@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Markup Calculator | CalcUni</title>
   <meta name="description" content="Calculate the selling price, revenue profit, and margin from cost and markup percentage.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the standard markup in retail commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A common retail standard is the \"keystone markup,\" which is a 100% markup on cost. This simply doubles the wholesale price of an item to set the retail price (e.g., buying for $10 and selling for $20)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert a target profit margin to a markup percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert a desired profit margin to the required markup percentage, use the formula: `Markup = Margin / (1 - Margin)`. For example, a 25% profit margin requires a 33.3% markup on cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is cost-plus markup pricing popular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cost-plus markup pricing is popular because it is simple to calculate and ensures that every sale covers the acquisition cost of the product while adding a predictable profit margin to the transaction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can high markups reduce product sales volume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Setting markups too high can price your products out of the market, reducing sales volume. Businesses must balance high margins per unit against total sales volume to maximize gross profits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does markup include shipping and storage costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To calculate an accurate markup, you should include all landing costs (freight, duties, storage, handling) in the base cost of the product before applying your markup percentage."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Business Calculator</span>
       <h1 class="page-title">Markup Calculator</h1>
       <p class="page-desc">Calculate the selling price, revenue profit, and margin from cost and markup percentage.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -709,6 +793,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

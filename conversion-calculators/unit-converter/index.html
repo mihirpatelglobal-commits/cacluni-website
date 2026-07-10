@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit Converter | CalcUni</title>
   <meta name="description" content="Free online unit converter for speed, area, volume, and data size conversions.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do we have different measurement systems globally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Historically, different regions developed localized measuring systems (like the British Imperial system). The metric system (SI) was introduced in the late 18th century as a standardized, decimal-based system to simplify science, international trade, and engineering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are the conversion factors in the calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our unit converter utilizes exact scientific conversion factors defined by the International System of Units (SI). This ensures that conversions (e.g., 1 inch = 2.54 cm) are mathematically perfect and reliable for technical applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert imperial units to metric units in my head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For quick estimates: for length, multiply inches by 2.5 to get centimeters; for weight, divide pounds by 2.2 to get kilograms; for volume, estimate 4 liters to a US gallon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between mass and weight in conversions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In everyday language, we treat weight (pounds) and mass (kilograms) as interchangeable. In physics, mass is the amount of matter in an object, while weight is the force of gravity acting on that mass, which can vary by location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the main categories supported by the unit converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool supports standard conversion categories including length (inches, meters, miles), weight/mass (pounds, kilograms, ounces), volume (liters, gallons), temperature, area, and speed."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Conversion Calculator</span>
       <h1 class="page-title">Unit Converter</h1>
       <p class="page-desc">Convert speed, area, volume, and other common units.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -759,6 +843,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

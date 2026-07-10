@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scientific Calculator | CalcUni</title>
   <meta name="description" content="Use a browser-based scientific calculator for powers, square roots, logarithms, trigonometry, and arithmetic.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Scientific Calculator",
       "item": "https://calcuni.com/math-calculators/scientific-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Radian and Degree modes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Degrees partition a full circle into 360 units. Radians partition it based on the radius of the circle, where a full circle is 2π radians. Ensure your calculator is set to the correct mode when performing trigonometric calculations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the order of operations (PEMDAS)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PEMDAS is the standard math rule for evaluating expressions: Parentheses, Exponents, Multiplication and Division (left to right), and Addition and Subtraction (left to right). Our scientific calculator evaluates all inputs using this standard."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between common logarithm (log) and natural logarithm (ln)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The common logarithm (log) has a base of 10, meaning it solves for powers of 10. The natural logarithm (ln) has a base of mathematical constant e (approx 2.71828), commonly used in physics and financial modeling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate exponents and roots?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the `x^y` button to raise a base number to any exponent. To calculate roots, use the square root symbol `√` or raise the number to a fractional exponent (e.g., `x^(1/3)` for cube root)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I get an error when calculating the square root of a negative number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In standard real number mathematics, you cannot calculate the square root of a negative number because no real number multiplied by itself yields a negative value. This requires complex/imaginary numbers."
+      }
     }
   ]
 }
@@ -699,6 +755,34 @@
       
       
 
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
       <section class="calculator-shell">
         <div class="card">
           <h2>Expression</h2>
@@ -745,6 +829,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

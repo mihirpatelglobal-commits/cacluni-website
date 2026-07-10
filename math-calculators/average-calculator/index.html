@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Average Calculator | CalcUni</title>
   <meta name="description" content="Calculate mean, median, mode, sum, count, minimum, maximum, and range from a list of numbers.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Mean, Median, and Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Mean is the arithmetic average (sum divided by count). The Median is the middle number when the dataset is sorted from low to high. The Mode is the number that appears most frequently in the dataset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do outliers affect the average (mean)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The arithmetic mean is highly sensitive to extreme outliers. For example, a single very high number in a small dataset will pull the average up, making it less representative of the typical values. The median is often used instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I average percentages directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Averaging percentages directly can be mathematically incorrect if the baseline sizes are different. To find an accurate average percentage, you should calculate the weighted average based on the size of each subset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a weighted average?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A weighted average is an average where some values contribute more to the final result than others, calculated by multiplying each value by its assigned weight, summing those products, and dividing by the sum of the weights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the average calculator used in business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Businesses use average calculations to analyze sales performance, track average order values, project monthly expenses, monitor customer satisfaction scores, and evaluate employee performance metrics."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Math Calculator</span>
       <h1 class="page-title">Average Calculator</h1>
       <p class="page-desc">Calculate mean, median, mode, sum, and range.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -767,6 +851,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

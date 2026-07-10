@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Subnet Calculator | CalcUni</title>
   <meta name="description" content="Calculate subnets, hosts ranges, CIDR masks, and network configurations.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is IP subnetting and why is it used?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subnetting is the practice of dividing a single large physical network into multiple smaller, logical subnetworks. It is used to improve network security, manage broadcast traffic, isolate network issues, and conserve valuable IP address space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do we subtract 2 from the hosts formula in subnetting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We subtract 2 because the very first IP address in a subnet is reserved as the Network ID (used to identify the subnet itself), and the very last IP address is reserved as the Broadcast Address (used to send packets to all hosts in that subnet simultaneously)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a subnet mask and how does it work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A subnet mask is a 32-bit number used to distinguish the network portion of an IP address from the host portion. In binary, \"1\" bits designate the network address while \"0\" bits designate the host address."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does CIDR notation mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR stands for Classless Inter-Domain Routing. It is a shorthand notation that represents a subnet mask by counting the number of network-representing \"1\" bits (e.g. /24 represents a mask of 255.255.255.0, where 24 bits are set to 1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a default gateway?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A default gateway is the router IP address that hosts on a subnet use to communicate with external networks or the internet. It acts as the exit point for any traffic destined outside the local IP range."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Technology Calculator</span>
       <h1 class="page-title">Subnet Calculator</h1>
       <p class="page-desc">Calculate subnets, hosts ranges, CIDR masks, and network configurations.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -757,6 +841,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profit Margin Calculator | CalcUni</title>
   <meta name="description" content="Calculate profit, gross margin percentage, and markup percentage from revenue and cost.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between profit margin and markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Profit margin is the profit expressed as a percentage of the selling price (profit divided by sales). Markup is the profit expressed as a percentage of the cost price (profit divided by cost). A 50% markup corresponds to a 33.3% profit margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is monitoring profit margins critical for businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monitoring margins ensures that your selling prices are high enough to cover operating expenses, administrative overhead, and marketing costs, while leaving a sustainable net profit margin to grow the business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy gross profit margin for retail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Healthy profit margins vary widely by industry. For example, clothing retail often targets 50% to 60% margins, grocery stores operate on tight 1% to 3% net margins, and software companies frequently exceed 80% margins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Cost of Goods Sold (COGS) affect profit margins?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "COGS represents the direct costs of manufacturing or purchasing your products. If COGS increases and you cannot raise retail prices, your profit margin will shrink, reducing overall profitability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you calculate net profit margin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Net profit margin is calculated by subtracting all operating expenses, interest, taxes, and overhead costs from your gross profit, and dividing that final net profit by total revenue: `(Net Profit / Revenue) * 100`."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Business Calculator</span>
       <h1 class="page-title">Profit Margin Calculator</h1>
       <p class="page-desc">Calculate profit, gross margin percentage, and markup percentage from revenue and cost.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -712,6 +796,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

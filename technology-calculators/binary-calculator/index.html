@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binary Calculator | CalcUni</title>
   <meta name="description" content="Perform basic logic or mathematical operations directly in Binary representation.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the binary number system and why do computers use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The binary system is a base-2 number system that uses only two digits: 0 and 1. Computers use it because it aligns with digital hardware design, where transistors act as switches representing electrical off (0) and on (1) states."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert a decimal number to binary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert decimal to binary, repeatedly divide the number by 2 and write down the remainders in reverse order. For example, 10 / 2 is 5 R 0; 5 / 2 is 2 R 1; 2 / 2 is 1 R 0; 1 / 2 is 0 R 1. The binary representation is 1010."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are bitwise operations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bitwise operations compare binary digits at the individual bit level. Standard bitwise operators include AND (1 if both bits are 1), OR (1 if either bit is 1), and XOR (1 if only one bit is 1)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does binary addition handle overflow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In fixed-width binary systems, if the sum of the leftmost bits generates a carry bit, it can result in an \"overflow\" error where the sum exceeds the available bit width, resulting in arithmetic clipping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is hexadecimal and how does it relate to binary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hexadecimal is a base-16 number system (using digits 0-9 and A-F). It is closely related to binary because one hexadecimal digit represents exactly four binary bits, making long binary strings easier for developers to read."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Technology Calculator</span>
       <h1 class="page-title">Binary Calculator</h1>
       <p class="page-desc">Perform basic logic or mathematical operations directly in Binary representation.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -743,6 +827,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

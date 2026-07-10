@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amortization Calculator | CalcUni</title>
   <meta name="description" content="Create a loan amortization estimate showing payment, principal, interest, remaining balance, and total interest.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Amortization Calculator",
       "item": "https://calcuni.com/finance-calculators/amortization-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the principal-to-interest ratio change over time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At the start of an amortized loan, the outstanding balance is high, so most of your monthly payment goes toward interest. As you pay down the principal, the outstanding balance decreases, causing the interest charge to drop and more of your payment to apply to the principal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can extra payments reduce my loan term?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Any extra payments you make are applied directly to the principal balance. This reduces the outstanding principal, which reduces the interest calculated in subsequent months and shortens the total term of your loan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between simple interest and amortized loans?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple interest is calculated only on the principal balance. An amortized loan is a structured payment plan where each payment covers the interest accrued for that period and reduces the principal, leading to full repayment by the end of the term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a balloon payment in amortization?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A balloon payment amortization schedule features low regular payments for a set period, followed by a very large final payment (the \"balloon\") to pay off the remaining principal balance at the end of the term."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the amortization table useful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An amortization table is useful because it displays the exact breakdown of every payment, allowing you to see how much of your money goes to the lender as interest versus how much builds equity or reduces your debt."
+      }
     }
   ]
 }
@@ -176,6 +232,34 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">Amortization Calculator</h1>
       <p class="page-desc">View monthly amortization schedules and principal/interest splits.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -786,6 +870,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

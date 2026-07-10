@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Income Tax Calculator Canada | CalcUni</title>
   <meta name="description" content="Estimate Canadian federal and provincial income tax using 2026 brackets.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do progressive tax brackets work in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Canada uses a progressive income tax system. This means your income is divided into brackets, and you only pay the higher tax rate on the portion of your income that falls within that specific bracket, not on your entire income."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between marginal tax rate and average tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your marginal tax rate is the amount of tax you pay on the next dollar of income earned. Your average tax rate is your total tax paid divided by your total income, which is always lower than your marginal rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do RRSP contributions reduce my Canadian income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Registered Retirement Savings Plan (RRSP) contributions are tax-deductible. When you contribute to an RRSP, that amount is subtracted from your gross income for the year, lowering your taxable income and often generating a tax refund."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are mandatory payroll deductions in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mandatory payroll deductions include Federal and Provincial Income Taxes, Canada Pension Plan (CPP) contributions, and Employment Insurance (EI) premiums. These are automatically withheld by your employer from each paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does province of residence affect Canadian income tax?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Canadian income tax is progressive and consists of both Federal and Provincial brackets. Each province sets its own tax rates and brackets, meaning a worker in Alberta pays a different amount of provincial tax than a worker in Quebec."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Tax Calculator</span>
       <h1 class="page-title">Income Tax Calculator Canada</h1>
       <p class="page-desc">Estimate federal and provincial income tax.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -770,6 +854,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

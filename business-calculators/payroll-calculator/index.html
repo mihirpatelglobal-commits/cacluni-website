@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payroll Calculator | CalcUni</title>
   <meta name="description" content="Calculate gross wages, tax deductions, and net take-home pay based on hourly rate, hours worked, and overtime.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between gross pay and net pay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross pay is the total amount of money you earn before any taxes or deductions are withheld. Net pay is the actual amount of your paycheck that is deposited into your bank account, representing your take-home pay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is overtime pay calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Overtime pay is typically calculated as 1.5 times (\"time and a half\") your standard hourly wage for any hours worked beyond 40 hours in a single workweek, as defined by labor laws."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are standard voluntary payroll deductions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voluntary deductions are non-statutory withholdings authorized by the employee, including private health insurance premiums, retirement plan contributions (like 401k or RRSP), union dues, and charitable donations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does paycheck frequency affect payroll calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Paycheck frequency determines how many pay periods occur per year (weekly = 52, bi-weekly = 26, semi-monthly = 24, monthly = 12), which is used to divide annual salary and progressive tax brackets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do my payroll tax deductions change during the year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your tax withholdings can change if you cross progressive income tax brackets, or if you reach the annual contribution limits for statutory pension or unemployment programs, which causes those specific deductions to stop."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Business Calculator</span>
       <h1 class="page-title">Payroll Calculator</h1>
       <p class="page-desc">Calculate gross wages, tax deductions, and net take-home pay based on hourly rate, hours worked, and overtime.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -721,6 +805,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

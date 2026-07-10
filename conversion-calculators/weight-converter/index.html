@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weight Converter | CalcUni</title>
   <meta name="description" content="Convert between kilograms, grams, milligrams, pounds, ounces, stones, and tons.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "Weight Converter",
       "item": "https://calcuni.com/conversion-calculators/weight-converter/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between mass and weight in science?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mass is the constant amount of matter in an object, measured in kilograms. Weight is the gravitational force acting on that mass, measured in Newtons. On Earth, we treat them as equivalent, converting kilograms to pounds directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many grams are in a pound?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are exactly 453.592 grams in a standard avoirdupois pound. In terms of ounces, a pound consists of 16 ounces, and a kilogram consists of 1,000 grams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert kilograms to pounds in your head?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To estimate kilograms to pounds: multiply the kilogram value by 2 and add 10% to the result (e.g., 70 kg * 2 = 140, + 14 = 154 lbs). To go backwards, divide pounds by 2 and subtract 10%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What weight units are commonly used in the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The United Kingdom uses both metric kilograms and traditional imperial stones and pounds. One stone is equal to 14 pounds, and a weight of 150 pounds is expressed as 10 stone and 10 pounds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this converter support fine weight units like carats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool supports standard shipping and body weight units (grams, ounces, pounds, kilograms, tons). For precious stones or metals, specialized jewelry converters using carats or troy ounces are used."
+      }
     }
   ]
 }
@@ -692,6 +748,34 @@
       
 
       
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
     <section class="grid">
       <div class="card">
         <h2>Weight Details</h2>
@@ -750,6 +834,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

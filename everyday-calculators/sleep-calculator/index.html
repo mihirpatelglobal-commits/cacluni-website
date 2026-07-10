@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sleep Calculator | CalcUni</title>
   <meta name="description" content="Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the sleep calculator plan bedtime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The sleep tool is based on standard 90-minute human sleep cycles. Waking up at the end of a cycle (e.g. after 5 or 6 full cycles, representing 7.5 or 9 hours) helps you feel refreshed and prevents groggy waking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a sleep cycle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A sleep cycle is a progression through the stages of non-REM (NREM) and REM sleep. For most adults, one complete cycle takes about 90 minutes, though it can range from 70 to 120 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is waking up between sleep cycles important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Waking up at the end of a sleep cycle, when you are in light sleep, helps you feel alert and refreshed. Waking up during deep sleep (the middle of a cycle) causes sleep inertia, leaving you feeling groggy and tired."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much sleep does the average adult need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most healthy adults need between 7 and 9 hours of sleep per night to function at their best. Waking up after 5 or 6 full cycles matches these standard recommendations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is sleep latency and why is it included in calculations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sleep latency is the time it takes to transition from full wakefulness to sleep. The average adult takes 10 to 20 minutes to fall asleep, so the calculator adds a 14-minute buffer to bedtime recommendations."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -172,6 +228,34 @@
       <span class="category-badge">Everyday Calculator</span>
       <h1 class="page-title">Sleep Calculator</h1>
       <p class="page-desc">Optimize bedtime schedules or wake-up targets using standard 90-minute human sleep cycle models.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -777,6 +861,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Commission Calculator | CalcUni</title>
   <meta name="description" content="Calculate sales agent commission payouts and total earnings based on contract values and structures.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do tiered sales commission structures work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiered structures increase the commission rate as the agent reaches specific sales volume milestones. For example, an agent might earn 5% on the first $10,000 of monthly sales, and 8% on all sales generated beyond that threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between gross commission and net commission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gross commission is the total commission paid on the sale. Net commission is the amount the individual agent takes home after subtracting the agency split, licensing fees, marketing overhead, and statutory taxes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is real estate commission split between buyer and seller agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a standard transaction, the home seller pays a total commission (e.g., 5-6% of the sale price). This total is split equally between the listing agency and the buyer's agency (2.5-3% each), who then split it with their individual agents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a \"draw against commission\" pay model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A draw model pays the sales representative a guaranteed advance (the draw) at the start of the pay period. This advance is then subtracted from the commissions they earn on sales during that period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do commission calculators deduct federal income taxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, commission tools calculate the gross payout before tax. Since commissions are treated as taxable income, they are subject to payroll tax withholdings at your marginal rate."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Business Calculator</span>
       <h1 class="page-title">Commission Calculator</h1>
       <p class="page-desc">Calculate sales agent commission payouts and total earnings based on contract values and structures.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -709,6 +793,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

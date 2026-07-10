@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fraction Calculator | CalcUni</title>
   <meta name="description" content="Add, subtract, multiply, divide, and simplify fractions with decimal results.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -114,6 +122,54 @@
   ]
 }
     </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a common denominator and why is it needed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A common denominator is a shared multiple of the denominators of two or more fractions. It is required for adding or subtracting fractions because you cannot combine parts of different sizes without converting them to equal units."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you convert an improper fraction to a mixed number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To convert an improper fraction (where the numerator is larger than the denominator), divide the numerator by the denominator. The quotient becomes the whole number, the remainder becomes the new numerator, and the denominator stays the same."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you multiply two fractions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To multiply fractions, simply multiply the numerators straight across to find the new numerator, and multiply the denominators straight across to find the new denominator: `(a/b) * (c/d) = (a*c) / (b*d)`."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you divide one fraction by another?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To divide fractions, multiply the first fraction by the reciprocal (the inverted version) of the second fraction: `(a/b) / (c/d) = (a/b) * (d/c) = (a*d) / (b*c)`."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does simplifying a fraction mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simplifying a fraction means dividing both the numerator and the denominator by their greatest common divisor (GCD) to express the fraction in its smallest possible whole numbers (e.g., 4/8 simplifies to 1/2)."
+      }
+    }
+  ]
+}
+    </script>
   
 </head>
 <body>
@@ -173,6 +229,34 @@
       <span class="category-badge">Math Calculator</span>
       <h1 class="page-title">Fraction Calculator</h1>
       <p class="page-desc">Add, subtract, multiply, and divide fractions.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -771,6 +855,30 @@
       
       
     
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     

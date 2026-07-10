@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMHC Insurance Calculator Canada | CalcUni</title>
   <meta name="description" content="Calculate your Canadian mortgage default insurance (CMHC premium) fees and check minimum down payment rules.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783530682630">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -22,7 +22,6 @@
   
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV"></script>
   <script>
     (function() {
       const isLocal = window.location.hostname === 'localhost' || 
@@ -43,13 +42,22 @@
         window['ga-disable-G-8QXJ3X2XGV'] = true;
         console.log('Google Analytics (G-8QXJ3X2XGV) disabled for developer mode.');
       }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QXJ3X2XGV');
+
+      // Lazy load GTag script after page load to prevent main thread blocking and optimize performance
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-8QXJ3X2XGV';
+          document.head.appendChild(script);
+        }, 1500);
+      });
     })();
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-8QXJ3X2XGV');
   </script>
 
   <!-- Technical SEO & Meta Tags -->
@@ -110,6 +118,54 @@
       "position": 3,
       "name": "CMHC Insurance Calculator",
       "item": "https://calcuni.com/finance-calculators/cmhc-insurance-calculator/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is CMHC insurance mandatory in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. In Canada, mortgage default insurance (often referred to as CMHC insurance) is legally mandatory for any home purchase where the down payment is less than 20% of the purchase price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the CMHC insurance fee paid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CMHC insurance premium is calculated as a percentage of your total loan amount and is typically added to your mortgage principal (rolled into the loan balance). This means it is paid off gradually over time as part of your regular monthly mortgage payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the minimum down payment required in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The minimum down payment depends on the purchase price: for homes under $500,000, it is 5%; for homes between $500,000 and $999,999, it is 5% of the first $500,000 plus 10% of the portion above $500,000; for homes of $1,000,000 or more, it is 20% (and CMHC is not available)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does CMHC insurance cover me if I lose my job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CMHC mortgage default insurance protects the lender, not the borrower, in the event that you default on your mortgage payments. It does not provide any coverage or relief for your personal financial situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I avoid paying CMHC insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can avoid paying CMHC insurance entirely by putting down a down payment of 20% or more of the home purchase price. Additionally, default insurance is not available for homes priced at $1,000,000 or higher, which legally requires a minimum 20% down payment anyway."
+      }
     }
   ]
 }
@@ -176,6 +232,34 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">CMHC Insurance Calculator</h1>
       <p class="page-desc">Calculate Canadian mortgage default insurance (CMHC) fees.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -567,6 +651,30 @@
       </section>
 
       
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
       
       
     
