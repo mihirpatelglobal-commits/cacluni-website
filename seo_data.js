@@ -22,10 +22,10 @@ const customContent = {
 
 <h3 class="seo-subtitle">Significance and Context</h3>
 <p class="seo-paragraph">
-  Mortgage rules in Canada are governed by statutory guidelines set by the Financial Consumer Agency of Canada (FCAC) and the Office of the Superintendent of Financial Institutions (OSFI). Under these guidelines, the minimum down payment is set at 5% of the purchase price for homes of $500,000 or less (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_UNDER_500K_PCT). For properties priced between $500,000 and $999,999, the minimum down payment is 5% on the first $500,000 and 10% on the remaining balance (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_OVER_500K_PCT). For properties valued at $1,000,000 or more, a minimum down payment of 20% is required (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_OVER_1M_PCT).
+  Mortgage rules in Canada are governed by statutory guidelines set by the Financial Consumer Agency of Canada (FCAC) and the Office of the Superintendent of Financial Institutions (OSFI). Under these guidelines, the minimum down payment is set at 5% of the purchase price for homes of $500,000 or less (2026 figures, last verified July 10, 2026). For properties priced between $500,000 and $999,999, the minimum down payment is 5% on the first $500,000 and 10% on the remaining balance (2026 figures, last verified July 10, 2026). For properties valued at $1,000,000 or more, a minimum down payment of 20% is required (2026 figures, last verified July 10, 2026).
 </p>
 <p class="seo-paragraph">
-  Furthermore, standard insured mortgages are subject to a maximum amortization period of 25 years (2026 regulations, last verified July 10, 2026; key: MORTGAGE_AMORT_INSURED_MAX_STD). Under updated policy rules, a maximum amortization period of 30 years is permitted for first-time homebuyers and purchasers of newly constructed homes (2026 regulations, last verified July 10, 2026; key: MORTGAGE_AMORT_INSURED_MAX_NEW_RULES). Mortgages that do not require default insurance (uninsured mortgages) are also subject to stress testing using a qualifying rate that is the greater of the contract interest rate plus a 2% buffer (2026 regulations, last verified July 10, 2026; key: OSFI_STRESS_TEST_BUFFER_PCT) or a fixed qualifying rate floor of 5.25% (2026 regulations, last verified July 10, 2026; key: OSFI_STRESS_TEST_FLOOR), as mandated by OSFI.
+  Furthermore, standard insured mortgages are subject to a maximum amortization period of 25 years (2026 regulations, last verified July 10, 2026). Under updated policy rules, a maximum amortization period of 30 years is permitted for first-time homebuyers and purchasers of newly constructed homes (2026 regulations, last verified July 10, 2026). Mortgages that do not require default insurance (uninsured mortgages) are also subject to stress testing using a qualifying rate that is the greater of the contract interest rate plus a 2% buffer (2026 regulations, last verified July 10, 2026) or a fixed qualifying rate floor of 5.25% (2026 regulations, last verified July 10, 2026), as mandated by OSFI.
 </p>
 
 <h3 class="seo-subtitle">How to Use the Mortgage Calculator</h3>
@@ -365,12 +365,12 @@ const customContent = {
   BMI classifications are established under guidelines published by Health Canada and the World Health Organization (WHO). According to these official standards, adult weight categories are defined as follows:
 </p>
 <ul class="seo-list">
-  <li><strong>Underweight:</strong> BMI less than 18.5 (last verified July 10, 2026; key: BMI_UNDERWEIGHT_LIMIT).</li>
+  <li><strong>Underweight:</strong> BMI less than 18.5 (last verified July 10, 2026).</li>
   <li><strong>Normal Weight:</strong> BMI from 18.5 to 24.9.</li>
-  <li><strong>Overweight:</strong> BMI from 25.0 to 29.9 (last verified July 10, 2026; key: BMI_OVERWEIGHT_LIMIT).</li>
-  <li><strong>Obese Class I:</strong> BMI from 30.0 to 34.9 (last verified July 10, 2026; key: BMI_OBESE_CLASS_I_MIN to BMI_OBESE_CLASS_I_MAX).</li>
-  <li><strong>Obese Class II:</strong> BMI from 35.0 to 39.9 (last verified July 10, 2026; key: BMI_OBESE_CLASS_II_MIN to BMI_OBESE_CLASS_II_MAX).</li>
-  <li><strong>Obese Class III:</strong> BMI of 40.0 or higher (last verified July 10, 2026; key: BMI_OBESE_CLASS_III_MIN).</li>
+  <li><strong>Overweight:</strong> BMI from 25.0 to 29.9 (last verified July 10, 2026).</li>
+  <li><strong>Obese Class I:</strong> BMI from 30.0 to 34.9 (last verified July 10, 2026).</li>
+  <li><strong>Obese Class II:</strong> BMI from 35.0 to 39.9 (last verified July 10, 2026).</li>
+  <li><strong>Obese Class III:</strong> BMI of 40.0 or higher (last verified July 10, 2026).</li>
 </ul>
 <p class="seo-paragraph">
   While BMI is a widely utilized screening tool, it does not measure body fat percentage directly. It does not differentiate between fat mass and lean muscle mass. Consequently, individuals with high muscle density, such as athletes, may register elevated BMI scores without carrying excess body fat.
@@ -888,10 +888,10 @@ const customContent = {
 
 <h3 class="seo-subtitle">Significance and Context</h3>
 <p class="seo-paragraph">
-  Tax parameters in Canada are indexed annually to reflect inflation and policy adjustments by the Canada Revenue Agency (CRA) and provincial ministries of finance. Under federal guidelines, the basic personal amount represents the income threshold below which no federal income tax is owed, set at $16,129 (2026 figures, last verified July 10, 2026; key: FEDERAL_BPA). Mandatory payroll deductions are calculated up to specific annual limits. For the 2026 tax year, the CPP Year's Maximum Pensionable Earnings (YMPE) is capped at $74,600 (2026 figures, last verified July 10, 2026; key: CPP_YMPE), and standard employee EI premiums are calculated up to the Maximum Insurable Earnings (MIE) limit of $68,900 (2026 figures, last verified July 10, 2026; key: EI_MIE) at a standard employee rate of 1.63% (2026 figures, last verified July 10, 2026; key: EI_EMPLOYEE_RATE).
+  Tax parameters in Canada are indexed annually to reflect inflation and policy adjustments by the Canada Revenue Agency (CRA) and provincial ministries of finance. Under federal guidelines, the basic personal amount represents the income threshold below which no federal income tax is owed, set at $16,129 (2026 figures, last verified July 10, 2026). Mandatory payroll deductions are calculated up to specific annual limits. For the 2026 tax year, the CPP Year's Maximum Pensionable Earnings (YMPE) is capped at $74,600 (2026 figures, last verified July 10, 2026), and standard employee EI premiums are calculated up to the Maximum Insurable Earnings (MIE) limit of $68,900 (2026 figures, last verified July 10, 2026) at a standard employee rate of 1.63% (2026 figures, last verified July 10, 2026).
 </p>
 <p class="seo-paragraph">
-  Specific statutory differentiators apply to Quebec residents. Quebec operates its own provincial pension and parental insurance programs. As a result, the QPP employee contribution rate is 6.30% (2026 figures, last verified July 10, 2026; key: QUEBEC_QPP_RATE) up to the YMPE, and the Quebec Parental Insurance Plan (QPIP) employee premium rate is 0.430% (2026 figures, last verified July 10, 2026; key: QUEBEC_QPIP_RATE). Because Quebec operates its own parental benefits program, residents pay a lower federal EI premium rate of 1.30% (2026 figures, last verified July 10, 2026; key: EI_QUEBEC_EMPLOYEE_RATE) up to the MIE. Furthermore, Quebec residents receive a 16.5% federal tax abatement (2026 figures, last verified July 10, 2026; key: QUEBEC_ABATEMENT_RATE), which reduces their basic federal tax payable to offset provincial tax differences.
+  Specific statutory differentiators apply to Quebec residents. Quebec operates its own provincial pension and parental insurance programs. As a result, the QPP employee contribution rate is 6.30% (2026 figures, last verified July 10, 2026) up to the YMPE, and the Quebec Parental Insurance Plan (QPIP) employee premium rate is 0.430% (2026 figures, last verified July 10, 2026). Because Quebec operates its own parental benefits program, residents pay a lower federal EI premium rate of 1.30% (2026 figures, last verified July 10, 2026) up to the MIE. Furthermore, Quebec residents receive a 16.5% federal tax abatement (2026 figures, last verified July 10, 2026), which reduces their basic federal tax payable to offset provincial tax differences.
 </p>
 
 <h3 class="seo-subtitle">How to Use the Income Tax Calculator Canada</h3>
