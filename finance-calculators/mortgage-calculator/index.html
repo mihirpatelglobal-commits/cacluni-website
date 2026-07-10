@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mortgage Calculator Canada | CalcUni</title>
   <meta name="description" content="Free mortgage calculator for payment, interest, and amortization estimates.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783721494625">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -132,7 +132,7 @@
       "name": "What is included in a standard monthly mortgage payment?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and private mortgage insurance (PMI) if your down payment was below twenty percent."
+        "text": "A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and CMHC mortgage default insurance if your down payment was below twenty percent. For details on how this premium is calculated, see our <a href=\"/finance-calculators/cmhc-insurance-calculator/\">CMHC Insurance Calculator</a>."
       }
     },
     {
@@ -140,7 +140,7 @@
       "name": "How does the down payment amount affect my monthly mortgage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It can also help you avoid costly Private Mortgage Insurance (PMI)."
+        "text": "A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It also helps you avoid paying for <a href=\"/finance-calculators/cmhc-insurance-calculator/\">CMHC mortgage default insurance</a> if you reach a down payment of twenty percent or more."
       }
     },
     {
@@ -232,6 +232,41 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">Mortgage Calculator</h1>
       <p class="page-desc">Estimate home loan payments and total interest.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -1284,6 +1319,36 @@
       
     
       
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the Mortgage Calculator</h2>
       <p class="seo-paragraph">The Mortgage Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in home financing, mortgage payments, and amortization scheduling. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
@@ -1304,11 +1369,11 @@
       <p class="seo-paragraph">Where:
 * M = monthly payment
 * P = principal loan amount
-* r = monthly interest rate (annual interest rate divided by 12)
+* r = periodic monthly interest rate, derived under Canadian law as: r = (1 + annual_rate / 2)^(2/12) - 1
 * n = total number of monthly payments (loan term in years multiplied by 12)
 
 Explanation:
-The standard mortgage amortization formula calculates the fixed monthly payment required to pay off the loan principal and accumulated interest over the specified term.</p>
+Under the Canadian Interest Act (R.S.C. 1985, c. I-15, s. 6), interest rates on fixed-rate mortgages are legally required to be compounded semi-annually, not monthly. Therefore, the monthly interest rate (r) is derived by compounding the annual interest rate semi-annually and converting it to its monthly equivalent. The standard amortization formula is then applied to calculate the fixed monthly payment.</p>
       
       <h3 class="seo-subtitle">Step-by-Step Worked Example</h3>
       <div class="example-box">
@@ -1321,15 +1386,18 @@ The standard mortgage amortization formula calculates the fixed monthly payment 
 
 Calculation:
 * Step 1: Determine Loan Principal (P) = $400,000 - $40,000 = $360,000
-* Step 2: Calculate monthly interest rate (r) = 0.05 / 12 = 0.004167
+* Step 2: Calculate monthly interest rate (r) compounded semi-annually:
+  r = (1 + 0.05 / 2)^(2/12) - 1
+  r = (1.025)^(1/6) - 1
+  r ≈ 0.0041239
 * Step 3: Calculate total payments (n) = 30 * 12 = 360 payments
-* Step 4: Apply formula: M = 360,000 * [ 0.004167(1.004167)^360 ] / [ (1.004167)^360 - 1 ]
+* Step 4: Apply formula: M = 360,000 * [ 0.0041239(1.0041239)^360 ] / [ (1.0041239)^360 - 1 ]
 
 Result:
-* Monthly Payment = $1,932.90
+* Monthly Payment = $1,921.29
 
 What This Means:
-You will pay a fixed monthly amount of $1,932.90 for principal and interest to fully own your home at the end of the 30-year term.</p>
+You will pay a fixed monthly amount of $1,921.29 for principal and interest under Canadian semi-annual compounding regulations to fully own your home at the end of the 30-year term.</p>
       </div>
       
       <h2 class="seo-title" style="margin-top: 40px;">Frequently Asked Questions (FAQs)</h2>
@@ -1337,12 +1405,12 @@ You will pay a fixed monthly amount of $1,932.90 for principal and interest to f
         
           <div class="faq-item">
             <h4 class="faq-question">❓ What is included in a standard monthly mortgage payment?</h4>
-            <p class="faq-answer">A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and private mortgage insurance (PMI) if your down payment was below twenty percent.</p>
+            <p class="faq-answer">A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and CMHC mortgage default insurance if your down payment was below twenty percent. For details on how this premium is calculated, see our <a href="/finance-calculators/cmhc-insurance-calculator/">CMHC Insurance Calculator</a>.</p>
           </div>
         
           <div class="faq-item">
             <h4 class="faq-question">❓ How does the down payment amount affect my monthly mortgage?</h4>
-            <p class="faq-answer">A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It can also help you avoid costly Private Mortgage Insurance (PMI).</p>
+            <p class="faq-answer">A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It also helps you avoid paying for <a href="/finance-calculators/cmhc-insurance-calculator/">CMHC mortgage default insurance</a> if you reach a down payment of twenty percent or more.</p>
           </div>
         
           <div class="faq-item">
@@ -1545,7 +1613,7 @@ You will pay a fixed monthly amount of $1,932.90 for principal and interest to f
             years = +document.getElementById('years').value || 0,
             freq = +document.getElementById('freq').value;
       const P = Math.max(price - down, 0),
-            r = annual / freq,
+            r = Math.pow(1 + annual / 2, 2 / freq) - 1,
             n = years * freq;
       let pay = r === 0 ? P / n : P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
       if (!isFinite(pay)) pay = 0;

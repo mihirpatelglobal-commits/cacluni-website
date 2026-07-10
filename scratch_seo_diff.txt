@@ -1,0 +1,29 @@
+diff --git a/seo_data.js b/seo_data.js
+index b9b4a0a..9e1631d 100644
+--- a/seo_data.js
++++ b/seo_data.js
+@@ -7,8 +7,8 @@
+ const customContent = {
+   "mortgage-calculator": {
+     "formula": "M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]",
+-    "formulaExplanation": "Where:\n* M = monthly payment\n* P = principal loan amount\n* r = monthly interest rate (annual interest rate divided by 12)\n* n = total number of monthly payments (loan term in years multiplied by 12)\n\nExplanation:\nThe standard mortgage amortization formula calculates the fixed monthly payment required to pay off the loan principal and accumulated interest over the specified term.",
+-    "example": "Inputs:\n* Home Price = $400,000\n* Down Payment = $40,000 (10%)\n* Loan Term = 30 years\n* Interest Rate = 5% per annum\n\nCalculation:\n* Step 1: Determine Loan Principal (P) = $400,000 - $40,000 = $360,000\n* Step 2: Calculate monthly interest rate (r) = 0.05 / 12 = 0.004167\n* Step 3: Calculate total payments (n) = 30 * 12 = 360 payments\n* Step 4: Apply formula: M = 360,000 * [ 0.004167(1.004167)^360 ] / [ (1.004167)^360 - 1 ]\n\nResult:\n* Monthly Payment = $1,932.90\n\nWhat This Means:\nYou will pay a fixed monthly amount of $1,932.90 for principal and interest to fully own your home at the end of the 30-year term.",
++    "formulaExplanation": "Where:\n* M = monthly payment\n* P = principal loan amount\n* r = periodic monthly interest rate, derived under Canadian law as: r = (1 + annual_rate / 2)^(2/12) - 1\n* n = total number of monthly payments (loan term in years multiplied by 12)\n\nExplanation:\nUnder the Canadian Interest Act (R.S.C. 1985, c. I-15, s. 6), interest rates on fixed-rate mortgages are legally required to be compounded semi-annually, not monthly. Therefore, the monthly interest rate (r) is derived by compounding the annual interest rate semi-annually and converting it to its monthly equivalent. The standard amortization formula is then applied to calculate the fixed monthly payment.",
++    "example": "Inputs:\n* Home Price = $400,000\n* Down Payment = $40,000 (10%)\n* Loan Term = 30 years\n* Interest Rate = 5% per annum\n\nCalculation:\n* Step 1: Determine Loan Principal (P) = $400,000 - $40,000 = $360,000\n* Step 2: Calculate monthly interest rate (r) compounded semi-annually:\n  r = (1 + 0.05 / 2)^(2/12) - 1\n  r = (1.025)^(1/6) - 1\n  r ≈ 0.0041239\n* Step 3: Calculate total payments (n) = 30 * 12 = 360 payments\n* Step 4: Apply formula: M = 360,000 * [ 0.0041239(1.0041239)^360 ] / [ (1.0041239)^360 - 1 ]\n\nResult:\n* Monthly Payment = $1,921.29\n\nWhat This Means:\nYou will pay a fixed monthly amount of $1,921.29 for principal and interest under Canadian semi-annual compounding regulations to fully own your home at the end of the 30-year term.",
+     "descTopic": "home financing, mortgage payments, and amortization scheduling",
+     "descInputs": "the home purchase price, down payment, annual interest rate, and amortization term length",
+     "descOutputs": "the estimated monthly payment (principal and interest), total interest costs, and full amortization schedule",
+@@ -17,11 +17,11 @@ const customContent = {
+     "faqs": [
+       {
+         "q": "What is included in a standard monthly mortgage payment?",
+-        "a": "A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and private mortgage insurance (PMI) if your down payment was below twenty percent."
++        "a": "A standard monthly mortgage payment primarily consists of principal (the raw borrowed amount) and interest (the lender's fee). Depending on your setup, it may also include property taxes, home insurance, and CMHC mortgage default insurance if your down payment was below twenty percent. For details on how this premium is calculated, see our <a href=\"/finance-calculators/cmhc-insurance-calculator/\">CMHC Insurance Calculator</a>."
+       },
+       {
+         "q": "How does the down payment amount affect my monthly mortgage?",
+-        "a": "A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It can also help you avoid costly Private Mortgage Insurance (PMI)."
++        "a": "A larger down payment reduces the total principal you need to borrow, which directly lowers your monthly payment and saves you thousands in interest over the life of the loan. It also helps you avoid paying for <a href=\"/finance-calculators/cmhc-insurance-calculator/\">CMHC mortgage default insurance</a> if you reach a down payment of twenty percent or more."
+       },
+       {
+         "q": "What is the difference between fixed-rate and adjustable-rate mortgages?",

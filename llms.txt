@@ -8,6 +8,8 @@
 
 - [Mortgage Calculator](https://calcuni.com/finance-calculators/mortgage-calculator/): Estimate home loan payments and total interest.
   - Formula: `M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
+  - Canadian Compounding Rate: `r = (1 + annual_rate / 2)^(2/12) - 1` (compounded semi-annually under Interest Act)
+  - Reference Scenario: $400,000 Home, $40,000 Down (10%), 30-year Amortization, 5.0% Interest Rate -> Monthly Payment = $1,921.29
 - [Loan Calculator](https://calcuni.com/finance-calculators/loan-calculator/): Calculate personal, auto, or business loan payments.
   - Formula: `A = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]`
 - [Compound Interest Calculator](https://calcuni.com/finance-calculators/compound-interest-calculator/): Estimate investment growth with compound interest.

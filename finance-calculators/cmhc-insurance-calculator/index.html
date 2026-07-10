@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CMHC Insurance Calculator Canada | CalcUni</title>
   <meta name="description" content="Calculate your Canadian mortgage default insurance (CMHC premium) fees and check minimum down payment rules.">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=1783706705614">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=1783721494625">
   <link rel="icon" href="../../assets/icons/favicon_io/favicon.ico">
   
   <!-- Theme Init to prevent flash of light theme -->
@@ -232,6 +232,27 @@
       <span class="category-badge">Finance Calculator</span>
       <h1 class="page-title">CMHC Insurance Calculator</h1>
       <p class="page-desc">Calculate Canadian mortgage default insurance (CMHC) fees.</p>
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
+
+      
+      
+
+      
+      
+      
 
       
       
@@ -949,6 +970,24 @@
       
     
       
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
+    
+  
+      
+      
+    
+      
     <section class="calculator-seo-content">
       <h2 class="seo-title">About the CMHC Insurance Calculator</h2>
       <p class="seo-paragraph">The CMHC Insurance Calculator is a high-precision online utility engineered to make calculations fast, reliable, and accessible for everyone interested in Canadian mortgage default insurance (CMHC) fees and down payment criteria. Whether you are budgeting, auditing records, studying, or planning complex projects, this tool eliminates manual math errors and outputs immediate results. It is designed to serve as a dedicated resource that provides quick answers to standard questions, making it an invaluable asset for both daily tasks and professional analysis.</p>
@@ -1250,8 +1289,8 @@ The CMHC insurance fee of $16,740 is added to your mortgage balance, making your
       const premiumAmount = baseLoan * premiumRate;
       const totalLoan = baseLoan + premiumAmount;
 
-      // Estimate monthly payments
-      const monthlyRate = rateInput / 12;
+      // Estimate monthly payments using Canadian semi-annual compounding
+      const monthlyRate = Math.pow(1 + rateInput / 2, 2 / 12) - 1;
       const totalPayments = years * 12;
 
       function calcPayment(p) {

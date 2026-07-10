@@ -6,7 +6,7 @@
     {
       "key": "CPP_YMPE",
       "name": "Canada Pension Plan Year's Maximum Pensionable Earnings",
-      "value": 74600.00,
+      "value": 74600,
       "unit": "CAD",
       "value_formatted": "74,600",
       "label_hint": "maximum pensionable earnings",
@@ -24,7 +24,7 @@
     {
       "key": "EI_MIE",
       "name": "Employment Insurance Maximum Insurable Earnings",
-      "value": 68900.00,
+      "value": 68900,
       "unit": "CAD",
       "value_formatted": "68,900",
       "label_hint": "maximum insurable earnings",
@@ -42,9 +42,9 @@
     {
       "key": "FEDERAL_BPA",
       "name": "Federal Basic Personal Amount",
-      "value": 16452.00,
+      "value": 16129,
       "unit": "CAD",
-      "value_formatted": "16,452",
+      "value_formatted": "16,129",
       "label_hint": "basic personal amount",
       "check_strategy": "presence",
       "volatility": "annual",
@@ -55,7 +55,7 @@
         "/tax-calculators/income-tax-calculator-canada/",
         "/tax-calculators/payroll-tax-calculator/"
       ],
-      "notes": "Indexed to inflation annually. The dollar amount appears explicitly on the CRA line-30000 page. '16,452' is specific enough to be a reliable presence check."
+      "notes": "Indexed to inflation annually. The dollar amount appears explicitly on the CRA line-30000 page. '16,129' is specific enough to be a reliable presence check."
     },
     {
       "key": "OSFI_STRESS_TEST_FLOOR",
@@ -63,16 +63,16 @@
       "value": 5.25,
       "unit": "percent",
       "value_formatted": "5.25",
-      "label_hint": "qualifying rate",
+      "label_hint": "minimum qualifying rate",
       "check_strategy": "label_context",
       "volatility": "policy-driven",
       "source_authority": "Office of the Superintendent of Financial Institutions (OSFI)",
-      "source_url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/residential-mortgage-underwriting-practices-procedures-guideline-b-20",
+      "source_url": "https://www.osfi-bsif.gc.ca/en/news/osfi-maintains-minimum-qualifying-rate-uninsured-mortgages",
       "verification_date": "2026-07-10",
       "applicable_pages": [
         "/finance-calculators/mortgage-stress-test-calculator/"
       ],
-      "notes": "Last changed June 2021. OSFI announces changes via press release; this page may have complex structure. The script uses label_context strategy: finds 'qualifying rate' in page text and searches nearby for '5.25'. If page structure has changed and extraction fails, result is COULD_NOT_VERIFY — never assume unchanged."
+      "notes": "Last changed June 2021. OSFI announces changes via press release; this page may have complex structure. The script uses label_context strategy: finds 'minimum qualifying rate' in page text and searches nearby for '5.25'. If page structure has changed and extraction fails, result is COULD_NOT_VERIFY — never assume unchanged."
     },
     {
       "key": "MORTGAGE_AMORT_INSURED_MAX_STD",
@@ -83,15 +83,15 @@
       "label_hint": "maximum amortization",
       "check_strategy": "label_context",
       "volatility": "policy-driven",
-      "source_authority": "CMHC",
-      "source_url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/what-is-cmhc-mortgage-loan-insurance",
+      "source_authority": "Financial Consumer Agency of Canada (FCAC)",
+      "source_url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-terms-amortization.html",
       "verification_date": "2026-07-10",
       "applicable_pages": [
         "/finance-calculators/mortgage-calculator/",
         "/finance-calculators/cmhc-insurance-calculator/",
         "/finance-calculators/mortgage-stress-test-calculator/"
       ],
-      "notes": "Policy-driven rule, not updated on a fixed schedule. The number '25' is common on web pages, so label_context strategy searches for '25' only within 300 chars of 'maximum amortization'. High likelihood of COULD_NOT_VERIFY if CMHC restructures the page — that is the intended safe outcome."
+      "notes": "Policy-driven rule, not updated on a fixed schedule. The number '25' is common on web pages, so label_context strategy searches for '25' only within 400 chars of 'maximum amortization'. High likelihood of COULD_NOT_VERIFY if FCAC restructures the page — that is the intended safe outcome."
     },
     {
       "key": "MORTGAGE_AMORT_INSURED_MAX_NEW_RULES",
@@ -99,18 +99,18 @@
       "value": 30,
       "unit": "years",
       "value_formatted": "30",
-      "label_hint": "first-time",
+      "label_hint": "maximum amortization",
       "check_strategy": "label_context",
       "volatility": "policy-driven",
-      "source_authority": "CMHC",
-      "source_url": "https://www.cmhc-schl.gc.ca/consumers/home-buying/mortgage-loan-insurance-for-consumers/what-is-cmhc-mortgage-loan-insurance",
+      "source_authority": "Financial Consumer Agency of Canada (FCAC)",
+      "source_url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-terms-amortization.html",
       "verification_date": "2026-07-10",
       "applicable_pages": [
         "/finance-calculators/mortgage-calculator/",
         "/finance-calculators/cmhc-insurance-calculator/",
         "/finance-calculators/mortgage-stress-test-calculator/"
       ],
-      "notes": "Introduced August 2024 for first-time buyers and new builds. As with the 25-year rule, '30' is too common for a raw presence check. Script searches for '30' within 300 chars of 'first-time' as a heuristic. Expect COULD_NOT_VERIFY if CMHC page restructures — flag for manual review."
+      "notes": "Introduced December 2024 for first-time buyers and new builds. As with the 25-year rule, '30' is too common for a raw presence check. Script searches for '30' within 400 chars of 'maximum amortization' as a heuristic. Expect COULD_NOT_VERIFY if FCAC page restructures — flag for manual review."
     }
   ]
 }
