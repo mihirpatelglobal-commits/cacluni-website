@@ -9,6 +9,30 @@ const customContent = {
     "formula": "M = P * [ r(1 + r)^n ] / [ (1 + r)^n - 1 ]",
     "formulaExplanation": "Where:\n* M = monthly payment\n* P = principal loan amount\n* r = periodic monthly interest rate, derived under Canadian law as: r = (1 + annual_rate / 2)^(2/12) - 1\n* n = total number of monthly payments (loan term in years multiplied by 12)\n\nExplanation:\nUnder the Canadian Interest Act (R.S.C. 1985, c. I-15, s. 6), interest rates on fixed-rate mortgages are legally required to be compounded semi-annually, not monthly. Therefore, the monthly interest rate (r) is derived by compounding the annual interest rate semi-annually and converting it to its monthly equivalent. The standard amortization formula is then applied to calculate the fixed monthly payment.",
     "example": "Inputs:\n* Home Price = $400,000\n* Down Payment = $40,000 (10%)\n* Loan Term = 30 years\n* Interest Rate = 5% per annum\n\nCalculation:\n* Step 1: Determine Loan Principal (P) = $400,000 - $40,000 = $360,000\n* Step 2: Calculate monthly interest rate (r) compounded semi-annually:\n  r = (1 + 0.05 / 2)^(2/12) - 1\n  r = (1.025)^(1/6) - 1\n  r ≈ 0.0041239\n* Step 3: Calculate total payments (n) = 30 * 12 = 360 payments\n* Step 4: Apply formula: M = 360,000 * [ 0.0041239(1.0041239)^360 ] / [ (1.0041239)^360 - 1 ]\n\nResult:\n* Monthly Payment = $1,921.29\n\nWhat This Means:\nYou will pay a fixed monthly amount of $1,921.29 for principal and interest under Canadian semi-annual compounding regulations to fully own your home at the end of the 30-year term.",
+    "aboutHTML": `
+<h2 class="seo-title">About the Mortgage Calculator</h2>
+<p class="seo-paragraph">
+  The Mortgage Calculator is an online planning tool designed to estimate periodic payments and interest expenses associated with home loans. In Canada, fixed-rate mortgage calculations are subject to the Interest Act (R.S.C. 1985, c. I-15, s. 6), which requires that interest rates be compounded semi-annually rather than monthly. This tool calculates payment schedules based on these standard compounding regulations, helping homebuyers analyze the financial requirements of purchasing a property.
+</p>
+
+<h3 class="seo-subtitle">What the Mortgage Calculator Does</h3>
+<p class="seo-paragraph">
+  This tool estimates monthly, bi-weekly, or weekly mortgage payments based on inputs such as the property purchase price, down payment amount, annual interest rate, and amortization period. It calculates the principal loan amount, estimates the cost of mortgage default insurance where applicable, and provides a structured amortization schedule. This schedule demonstrates how each payment is allocated between principal repayment and interest expenses over the lifetime of the loan.
+</p>
+
+<h3 class="seo-subtitle">Significance and Context</h3>
+<p class="seo-paragraph">
+  Mortgage rules in Canada are governed by statutory guidelines set by the Financial Consumer Agency of Canada (FCAC) and the Office of the Superintendent of Financial Institutions (OSFI). Under these guidelines, the minimum down payment is set at 5% of the purchase price for homes of $500,000 or less (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_UNDER_500K_PCT). For properties priced between $500,000 and $999,999, the minimum down payment is 5% on the first $500,000 and 10% on the remaining balance (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_OVER_500K_PCT). For properties valued at $1,000,000 or more, a minimum down payment of 20% is required (2026 figures, last verified July 10, 2026; key: MORTGAGE_MIN_DOWNPAYMENT_OVER_1M_PCT).
+</p>
+<p class="seo-paragraph">
+  Furthermore, standard insured mortgages are subject to a maximum amortization period of 25 years (2026 regulations, last verified July 10, 2026; key: MORTGAGE_AMORT_INSURED_MAX_STD). Under updated policy rules, a maximum amortization period of 30 years is permitted for first-time homebuyers and purchasers of newly constructed homes (2026 regulations, last verified July 10, 2026; key: MORTGAGE_AMORT_INSURED_MAX_NEW_RULES). Mortgages that do not require default insurance (uninsured mortgages) are also subject to stress testing using a qualifying rate that is the greater of the contract interest rate plus a 2% buffer (2026 regulations, last verified July 10, 2026; key: OSFI_STRESS_TEST_BUFFER_PCT) or a fixed qualifying rate floor of 5.25% (2026 regulations, last verified July 10, 2026; key: OSFI_STRESS_TEST_FLOOR), as mandated by OSFI.
+</p>
+
+<h3 class="seo-subtitle">How to Use the Mortgage Calculator</h3>
+<p class="seo-paragraph">
+  To utilize the calculator, the purchase price of the property and the down payment amount must be entered. The tool calculates the resulting loan balance and automatically applies the standard mortgage insurance premiums if the down payment is less than 20% of the purchase price. Next, the annual contract interest rate and the desired amortization period in years are input. The calculator then generates the estimated payment amount according to the chosen payment frequency and displays the total interest costs over the life of the mortgage.
+</p>
+    `,
     "descTopic": "home financing, mortgage payments, and amortization scheduling",
     "descInputs": "the home purchase price, down payment, annual interest rate, and amortization term length",
     "descOutputs": "the estimated monthly payment (principal and interest), total interest costs, and full amortization schedule",
@@ -325,6 +349,38 @@ const customContent = {
     "formula": "BMI = weight (kg) / [ height (m) ]^2",
     "formulaExplanation": "Where:\n* weight is in kilograms\n* height is in meters\n\nFor imperial units: BMI = [ weight (lbs) / (height (inches))^2 ] * 703\n\nExplanation:\nBody Mass Index (BMI) is a standardized statistical measurement that estimates general body fat categories based on height and weight.",
     "example": "Inputs:\n* Weight = 70 kg\n* Height = 1.75 meters\n\nCalculation:\n* Step 1: Calculate height squared = 1.75 * 1.75 = 3.0625\n* Step 2: Divide weight by height squared = 70 / 3.0625\n\nResult:\n* BMI = 22.86\n\nWhat This Means:\nA BMI of 22.86 falls within the healthy weight range (18.5 to 24.9) for adults.",
+    "aboutHTML": `
+<h2 class="seo-title">About the BMI Calculator</h2>
+<p class="seo-paragraph">
+  The Body Mass Index (BMI) Calculator is a standardized tool designed to assess body weight relative to height. BMI serves as an epidemiological indicator to screen for potential weight-related health risks. It is calculated by dividing body weight in kilograms by the square of height in meters, or by using equivalent imperial conversions.
+</p>
+
+<h3 class="seo-subtitle">What the BMI Calculator Does</h3>
+<p class="seo-paragraph">
+  This tool accepts an individual's height and weight, computes their BMI score, and maps the result to official health classifications. It categorizes results into standard weight bands: underweight, normal weight, overweight, and three distinct classes of obesity. These categories provide a quick assessment of whether an individual's weight falls within a standard range for their height.
+</p>
+
+<h3 class="seo-subtitle">Significance and Context</h3>
+<p class="seo-paragraph">
+  BMI classifications are established under guidelines published by Health Canada and the World Health Organization (WHO). According to these official standards, adult weight categories are defined as follows:
+</p>
+<ul class="seo-list">
+  <li><strong>Underweight:</strong> BMI less than 18.5 (last verified July 10, 2026; key: BMI_UNDERWEIGHT_LIMIT).</li>
+  <li><strong>Normal Weight:</strong> BMI from 18.5 to 24.9.</li>
+  <li><strong>Overweight:</strong> BMI from 25.0 to 29.9 (last verified July 10, 2026; key: BMI_OVERWEIGHT_LIMIT).</li>
+  <li><strong>Obese Class I:</strong> BMI from 30.0 to 34.9 (last verified July 10, 2026; key: BMI_OBESE_CLASS_I_MIN to BMI_OBESE_CLASS_I_MAX).</li>
+  <li><strong>Obese Class II:</strong> BMI from 35.0 to 39.9 (last verified July 10, 2026; key: BMI_OBESE_CLASS_II_MIN to BMI_OBESE_CLASS_II_MAX).</li>
+  <li><strong>Obese Class III:</strong> BMI of 40.0 or higher (last verified July 10, 2026; key: BMI_OBESE_CLASS_III_MIN).</li>
+</ul>
+<p class="seo-paragraph">
+  While BMI is a widely utilized screening tool, it does not measure body fat percentage directly. It does not differentiate between fat mass and lean muscle mass. Consequently, individuals with high muscle density, such as athletes, may register elevated BMI scores without carrying excess body fat.
+</p>
+
+<h3 class="seo-subtitle">How to Use the BMI Calculator</h3>
+<p class="seo-paragraph">
+  To calculate BMI, the preferred measurement system (metric or imperial) is selected. For the metric system, height is entered in centimeters and weight is entered in kilograms. For the imperial system, height is entered in feet and inches, and weight is entered in pounds. The tool processes these inputs, displays the computed numerical BMI score, and identifies the corresponding health category according to Health Canada and WHO guidelines.
+</p>
+    `,
     "descTopic": "body mass index (BMI) screening, weight categories, and adult health metrics",
     "descInputs": "your body weight in kilograms or pounds, and your height in centimeters or feet and inches",
     "descOutputs": "your numerical Body Mass Index (BMI) score and your official health classification (underweight, normal, overweight, obese)",
@@ -819,6 +875,30 @@ const customContent = {
     "formula": "Total Tax = Sum of (Income in Bracket * Bracket Tax Rate)",
     "formulaExplanation": "Where:\n* Income in Bracket represents your gross income partitioned into progressive federal and provincial tax brackets\n\nExplanation:\nThis Progressive Tax formula calculates Canadian federal and provincial income taxes, applying higher rates to higher brackets of income.",
     "example": "Inputs:\n* Annual Income = $60,000\n* Province = Ontario\n\nCalculation:\n* Step 1: Calculate progressive Federal Tax across standard brackets (approx $8,500)\n* Step 2: Calculate progressive Ontario Provincial Tax (approx $3,500)\n* Step 3: Compute mandatory payroll deductions (CPP & EI, approx $4,300)\n* Step 4: Subtract total deductions from Gross Income\n\nResult:\n* Estimated Net Pay = $43,700\n\nWhat This Means:\nFrom a $60,000 gross annual salary in Ontario, you will take home approximately $43,700 after income taxes and mandatory payroll contributions.",
+    "aboutHTML": `
+<h2 class="seo-title">About the Income Tax Calculator Canada</h2>
+<p class="seo-paragraph">
+  The Income Tax Calculator for Canada is an online planning resource designed to estimate personal income tax liabilities. Canada operates under progressive tax systems at both the federal and provincial levels, meaning that marginal tax rates increase as income thresholds are crossed. This tool calculates progressive taxes, factors in basic personal amounts, and accounts for mandatory payroll deductions to estimate net take-home salary.
+</p>
+
+<h3 class="seo-subtitle">What the Income Tax Calculator Canada Does</h3>
+<p class="seo-paragraph">
+  This tool estimates federal and provincial income taxes, Canada Pension Plan (CPP) contributions or Quebec Pension Plan (QPP) contributions, and Employment Insurance (EI) premiums based on gross annual salary or hourly wage. It incorporates provincial tax schedules for all Canadian provinces and territories. The calculator outputs a summary showing total taxes owed, marginal and average tax rates, and estimated net pay.
+</p>
+
+<h3 class="seo-subtitle">Significance and Context</h3>
+<p class="seo-paragraph">
+  Tax parameters in Canada are indexed annually to reflect inflation and policy adjustments by the Canada Revenue Agency (CRA) and provincial ministries of finance. Under federal guidelines, the basic personal amount represents the income threshold below which no federal income tax is owed, set at $16,129 (2026 figures, last verified July 10, 2026; key: FEDERAL_BPA). Mandatory payroll deductions are calculated up to specific annual limits. For the 2026 tax year, the CPP Year's Maximum Pensionable Earnings (YMPE) is capped at $74,600 (2026 figures, last verified July 10, 2026; key: CPP_YMPE), and standard employee EI premiums are calculated up to the Maximum Insurable Earnings (MIE) limit of $68,900 (2026 figures, last verified July 10, 2026; key: EI_MIE) at a standard employee rate of 1.63% (2026 figures, last verified July 10, 2026; key: EI_EMPLOYEE_RATE).
+</p>
+<p class="seo-paragraph">
+  Specific statutory differentiators apply to Quebec residents. Quebec operates its own provincial pension and parental insurance programs. As a result, the QPP employee contribution rate is 6.30% (2026 figures, last verified July 10, 2026; key: QUEBEC_QPP_RATE) up to the YMPE, and the Quebec Parental Insurance Plan (QPIP) employee premium rate is 0.430% (2026 figures, last verified July 10, 2026; key: QUEBEC_QPIP_RATE). Because Quebec operates its own parental benefits program, residents pay a lower federal EI premium rate of 1.30% (2026 figures, last verified July 10, 2026; key: EI_QUEBEC_EMPLOYEE_RATE) up to the MIE. Furthermore, Quebec residents receive a 16.5% federal tax abatement (2026 figures, last verified July 10, 2026; key: QUEBEC_ABATEMENT_RATE), which reduces their basic federal tax payable to offset provincial tax differences.
+</p>
+
+<h3 class="seo-subtitle">How to Use the Income Tax Calculator Canada</h3>
+<p class="seo-paragraph">
+  To estimate take-home pay, the annual salary or hourly wage is entered, and the province or territory of residence is selected. The tool applies the relevant federal and provincial progressive tax brackets to the entered income. It automatically calculates deductions for CPP/QPP and EI using current statutory rates, factors in the federal basic personal amount, and displays a detailed breakdown of total tax deductions alongside the final take-home pay.
+</p>
+    `,
     "descTopic": "Canadian personal income tax, progressive tax brackets, and net take-home salary",
     "descInputs": "your gross annual salary or hourly wage, province of residence, and standard tax deductions",
     "descOutputs": "your estimated federal income tax, provincial income tax, CPP/EI contributions, and net take-home pay",
@@ -2491,8 +2571,7 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
     `;
   }
 
-  return `
-    <section class="calculator-seo-content">
+  const aboutHTML = data.aboutHTML || `
       <h2 class="seo-title">About the ${calcName}</h2>
       <p class="seo-paragraph">${introPara}</p>
       
@@ -2505,6 +2584,11 @@ function getSEOContentHTML(catKey, slug, calcName, relatedCalculators) {
       <h3 class="seo-subtitle">How to Use the ${calcName}</h3>
       <p class="seo-paragraph">${inputsOutputsPara}</p>
       <p class="seo-paragraph">${practicalUsesPara}</p>
+  `;
+
+  return `
+    <section class="calculator-seo-content">
+      ${aboutHTML}
       
       <h3 class="seo-subtitle">${formulaHeader}</h3>
       <p class="seo-paragraph">${formulaIntro}</p>

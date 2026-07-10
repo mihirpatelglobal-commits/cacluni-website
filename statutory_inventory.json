@@ -111,6 +111,285 @@
         "/finance-calculators/mortgage-stress-test-calculator/"
       ],
       "notes": "Introduced December 2024 for first-time buyers and new builds. As with the 25-year rule, '30' is too common for a raw presence check. Script searches for '30' within 400 chars of 'maximum amortization' as a heuristic. Expect COULD_NOT_VERIFY if FCAC page restructures — flag for manual review."
+    },
+    {
+      "key": "MORTGAGE_MIN_DOWNPAYMENT_UNDER_500K_PCT",
+      "name": "Minimum Down Payment Percentage for Home Price Under $500,000",
+      "value": 5,
+      "unit": "percent",
+      "value_formatted": "5",
+      "label_hint": "5% of the purchase price",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Financial Consumer Agency of Canada (FCAC)",
+      "source_url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/down-payment.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/finance-calculators/mortgage-calculator/",
+        "/finance-calculators/cmhc-insurance-calculator/"
+      ],
+      "notes": "Required minimum down payment percentage for properties priced $500,000 or less."
+    },
+    {
+      "key": "MORTGAGE_MIN_DOWNPAYMENT_OVER_500K_PCT",
+      "name": "Minimum Down Payment Percentage for Home Price Portion Between $500,000 and $999,999",
+      "value": 10,
+      "unit": "percent",
+      "value_formatted": "10",
+      "label_hint": "10% on the portion above",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Financial Consumer Agency of Canada (FCAC)",
+      "source_url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/down-payment.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/finance-calculators/mortgage-calculator/",
+        "/finance-calculators/cmhc-insurance-calculator/"
+      ],
+      "notes": "Required minimum down payment percentage on the portion of a home price exceeding $500,000 up to $999,999."
+    },
+    {
+      "key": "MORTGAGE_MIN_DOWNPAYMENT_OVER_1M_PCT",
+      "name": "Minimum Down Payment Percentage for Home Price of $1,000,000 or More",
+      "value": 20,
+      "unit": "percent",
+      "value_formatted": "20",
+      "label_hint": "20% of the purchase price",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Financial Consumer Agency of Canada (FCAC)",
+      "source_url": "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/down-payment.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/finance-calculators/mortgage-calculator/",
+        "/finance-calculators/cmhc-insurance-calculator/"
+      ],
+      "notes": "Required minimum down payment percentage for properties valued at $1,000,000 or more."
+    },
+    {
+      "key": "OSFI_STRESS_TEST_BUFFER_PCT",
+      "name": "OSFI Uninsured Mortgage Stress Test Buffer Percentage",
+      "value": 2,
+      "unit": "percent",
+      "value_formatted": "2",
+      "label_hint": "contractual rate plus 2%",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Office of the Superintendent of Financial Institutions (OSFI)",
+      "source_url": "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/residential-mortgage-underwriting-practices-procedures-guideline-b-20",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/finance-calculators/mortgage-stress-test-calculator/"
+      ],
+      "notes": "Stress test buffer required for uninsured mortgages under Guideline B-20."
+    },
+    {
+      "key": "BMI_UNDERWEIGHT_LIMIT",
+      "name": "Body Mass Index Underweight Classification Limit",
+      "value": 18.5,
+      "unit": "kg/m^2",
+      "value_formatted": "18.5",
+      "label_hint": "< 18.5",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "BMI threshold below which an adult is classified as underweight."
+    },
+    {
+      "key": "BMI_OVERWEIGHT_LIMIT",
+      "name": "Body Mass Index Overweight Classification Limit",
+      "value": 25.0,
+      "unit": "kg/m^2",
+      "value_formatted": "25.0",
+      "label_hint": "25.0 – 29.9",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "BMI threshold at or above which an adult is classified as overweight."
+    },
+    {
+      "key": "BMI_OBESE_CLASS_I_MIN",
+      "name": "Body Mass Index Obese Class I Minimum Threshold",
+      "value": 30.0,
+      "unit": "kg/m^2",
+      "value_formatted": "30.0",
+      "label_hint": "30.0",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "Lower boundary for Obese Class I weight classification."
+    },
+    {
+      "key": "BMI_OBESE_CLASS_I_MAX",
+      "name": "Body Mass Index Obese Class I Maximum Threshold",
+      "value": 34.9,
+      "unit": "kg/m^2",
+      "value_formatted": "34.9",
+      "label_hint": "34.9",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "Upper boundary for Obese Class I weight classification."
+    },
+    {
+      "key": "BMI_OBESE_CLASS_II_MIN",
+      "name": "Body Mass Index Obese Class II Minimum Threshold",
+      "value": 35.0,
+      "unit": "kg/m^2",
+      "value_formatted": "35.0",
+      "label_hint": "35.0",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "Lower boundary for Obese Class II weight classification."
+    },
+    {
+      "key": "BMI_OBESE_CLASS_II_MAX",
+      "name": "Body Mass Index Obese Class II Maximum Threshold",
+      "value": 39.9,
+      "unit": "kg/m^2",
+      "value_formatted": "39.9",
+      "label_hint": "39.9",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "Upper boundary for Obese Class II weight classification."
+    },
+    {
+      "key": "BMI_OBESE_CLASS_III_MIN",
+      "name": "Body Mass Index Obese Class III Minimum Threshold",
+      "value": 40.0,
+      "unit": "kg/m^2",
+      "value_formatted": "40.0",
+      "label_hint": "40.0",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Health Canada / World Health Organization (WHO)",
+      "source_url": "https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/body-weight/canadian-guidelines-body-weight-classification-adults/quick-reference-tool-professionals.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/health-calculators/bmi-calculator/"
+      ],
+      "notes": "Lower boundary for Obese Class III weight classification (values greater than or equal to 40.0)."
+    },
+    {
+      "key": "QUEBEC_QPP_RATE",
+      "name": "Québec Pension Plan Employee Contribution Rate (Base + First Additional)",
+      "value": 6.3,
+      "unit": "percent",
+      "value_formatted": "6.30",
+      "label_hint": "6.30%",
+      "check_strategy": "presence",
+      "volatility": "annual",
+      "source_authority": "Revenu Québec / Retraite Québec",
+      "source_url": "https://www.retraitequebec.gouv.qc.ca/en/Pages/accueil.aspx",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/tax-calculators/income-tax-calculator-canada/",
+        "/tax-calculators/payroll-tax-calculator/"
+      ],
+      "notes": "Consists of 5.3% base contribution + 1.0% first additional contribution on earnings up to the YMPE."
+    },
+    {
+      "key": "QUEBEC_QPIP_RATE",
+      "name": "Québec Parental Insurance Plan Employee Premium Rate",
+      "value": 0.43,
+      "unit": "percent",
+      "value_formatted": "0.430",
+      "label_hint": "0.430%",
+      "check_strategy": "presence",
+      "volatility": "annual",
+      "source_authority": "Revenu Québec",
+      "source_url": "https://www.revenuquebec.ca/en/businesses/source-deductions-and-employer-contributions/calculating-source-deductions-and-employer-contributions/quebec-parental-insurance-plan-premiums/",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/tax-calculators/income-tax-calculator-canada/",
+        "/tax-calculators/payroll-tax-calculator/"
+      ],
+      "notes": "Employee premium rate for the Quebec Parental Insurance Plan for the 2026 tax year."
+    },
+    {
+      "key": "QUEBEC_ABATEMENT_RATE",
+      "name": "Québec Personal Income Tax Abatement Rate",
+      "value": 16.5,
+      "unit": "percent",
+      "value_formatted": "16.5",
+      "label_hint": "16.5%",
+      "check_strategy": "presence",
+      "volatility": "policy-driven",
+      "source_authority": "Canada Revenue Agency (CRA)",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-44000-refundable-quebec-abatement.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/tax-calculators/income-tax-calculator-canada/"
+      ],
+      "notes": "Reduces the basic federal personal income tax payable by 16.5% for residents of Quebec."
+    },
+    {
+      "key": "EI_EMPLOYEE_RATE",
+      "name": "Employment Insurance Employee Premium Rate",
+      "value": 1.63,
+      "unit": "percent",
+      "value_formatted": "1.63",
+      "label_hint": "$1.63 per $100",
+      "check_strategy": "presence",
+      "volatility": "annual",
+      "source_authority": "Canada Employment Insurance Commission / Canada Revenue Agency",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/employment-insurance-ei/ei-premium-rates-maximums.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/tax-calculators/income-tax-calculator-canada/",
+        "/tax-calculators/payroll-tax-calculator/"
+      ],
+      "notes": "Standard employee EI premium rate for the 2026 tax year (excludes residents of Quebec)."
+    },
+    {
+      "key": "EI_QUEBEC_EMPLOYEE_RATE",
+      "name": "Employment Insurance Employee Premium Rate for Québec Residents",
+      "value": 1.3,
+      "unit": "percent",
+      "value_formatted": "1.30",
+      "label_hint": "$1.30 per $100",
+      "check_strategy": "presence",
+      "volatility": "annual",
+      "source_authority": "Canada Employment Insurance Commission / Canada Revenue Agency",
+      "source_url": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/employment-insurance-ei/ei-premium-rates-maximums.html",
+      "verification_date": "2026-07-10",
+      "applicable_pages": [
+        "/tax-calculators/income-tax-calculator-canada/",
+        "/tax-calculators/payroll-tax-calculator/"
+      ],
+      "notes": "Reduced employee EI premium rate for Quebec residents for the 2026 tax year, reflecting Quebec's provincial parental benefits."
     }
   ]
 }
