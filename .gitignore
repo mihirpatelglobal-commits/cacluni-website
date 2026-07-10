@@ -1,7 +1,4 @@
 # ── Build / Dev Tools (DO NOT deploy these) ──────────────────────────
-update_layout.js
-patch_*.js
-
 # ── OS files ──────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
